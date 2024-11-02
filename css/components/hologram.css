@@ -1,0 +1,105 @@
+/* Hologram Overlay Styles */
+.hologram-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Prevent interactions with other elements */
+  }
+  
+  /* Hologram Title Base */
+  .hologram-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transform: scale(1.2);
+    animation: hologram-fade 6s ease-in-out forwards;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7),
+                 0px 0px 20px rgba(255, 255, 255, 0.5),
+                 0px 0px 30px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Hologram Subtitle Base */
+  .hologram-subtitle {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    opacity: 0;
+    transform: scale(1.1);
+    margin-top: var(--space-2);
+    animation: hologram-fade 6s ease-in-out forwards 0.3s;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6),
+                 0px 0px 15px rgba(255, 255, 255, 0.4),
+                 0px 0px 25px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Fade-in and fade-out animation */
+  @keyframes hologram-fade {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+  }
+  
+  /* Intensity Variants */
+  .hologram-low .hologram-title,
+  .hologram-low .hologram-subtitle {
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+  }
+  .hologram-medium .hologram-title,
+  .hologram-medium .hologram-subtitle {
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+  .hologram-high .hologram-title,
+  .hologram-high .hologram-subtitle {
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Color Variants using Root Variables */
+  .hologram-primary .hologram-title,
+  .hologram-primary .hologram-subtitle {
+    color: var(--primary);
+    text-shadow: 0px 0px 10px var(--primary-light), 0px 0px 20px var(--primary);
+  }
+  .hologram-secondary .hologram-title,
+  .hologram-secondary .hologram-subtitle {
+    color: var(--secondary);
+    text-shadow: 0px 0px 10px var(--secondary-light), 0px 0px 20px var(--secondary);
+  }
+  .hologram-success .hologram-title,
+  .hologram-success .hologram-subtitle {
+    color: var(--success);
+    text-shadow: 0px 0px 10px var(--success-light), 0px 0px 20px var(--success);
+  }
+  .hologram-danger .hologram-title,
+  .hologram-danger .hologram-subtitle {
+    color: var(--danger);
+    text-shadow: 0px 0px 10px var(--danger-light), 0px 0px 20px var(--danger);
+  }
+  .hologram-warning .hologram-title,
+  .hologram-warning .hologram-subtitle {
+    color: var(--warning);
+    text-shadow: 0px 0px 10px var(--warning-light), 0px 0px 20px var(--warning);
+  }
+  .hologram-info .hologram-title,
+  .hologram-info .hologram-subtitle {
+    color: var(--info);
+    text-shadow: 0px 0px 10px var(--info-light), 0px 0px 20px var(--info);
+  }

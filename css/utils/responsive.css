@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+    .text-center-mobile { text-align: center; }
+    .text-left-mobile { text-align: left; }
+    .text-right-mobile { text-align: right; }
+}

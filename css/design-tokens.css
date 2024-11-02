@@ -1,0 +1,95 @@
+:root {
+    /* Colors */
+    --primary: #0f6fff;
+    --primary-hover: #0054dd;
+    --primary-light: #60a5fa;
+    --primary-dark: #1e40af;
+    --secondary: #64748b;
+    --secondary-hover: #475569;
+    --success: #10b981;
+    --success-hover: #059669;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --warning: #f59e0b;
+    --warning-hover: #d97706;
+    --info: #3b82f6;
+    --info-hover: #2563eb;
+    --neutral-50: #f8fafc;
+    --neutral-100: #f1f5f9;
+    --neutral-200: #e2e8f0;
+    --neutral-300: #cbd5e1;
+    --neutral-400: #94a3b8;
+    --neutral-500: #64748b;
+    --neutral-600: #475569;
+    --neutral-700: #334155;
+    --neutral-800: #1e293b;
+    --neutral-900: #0f172a;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 2px 4px rgba(0,0,0,0.04), 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.04), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.04), 0 10px 10px -5px rgba(0,0,0,0.05);
+
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    /* Typography */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Border Radius */
+    --radius-sm: 0.125rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-all: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-colors: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-transform: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Z-index */
+    --z-0: 0;
+    --z-10: 10;
+    --z-20: 20;
+    --z-30: 30;
+    --z-40: 40;
+    --z-50: 50;
+    --z-auto: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --neutral-50: #0f172a;
+        --neutral-100: #1e293b;
+        --neutral-200: #334155;
+        --neutral-800: #f1f5f9;
+        --neutral-900: #f8fafc;
+        --primary: #60a5fa;
+        --primary-hover: #3b82f6;
+        --primary-light: #93c5fd;
+        --primary-dark: #1e3a8a;
+        --secondary: #94a3b8;
+        --secondary-hover: #64748b;
+        --success: #34d399;
+        --success-hover: #10b981;
+        --danger: #f87171;
+        --danger-hover: #ef4444;
+        --warning: #fbbf24;
+        --warning-hover: #f59e0b;
+        --info: #60a5fa;
+        --info-hover: #3b82f6;
+    }
+}

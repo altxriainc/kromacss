@@ -1,0 +1,2 @@
+.rounded { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }

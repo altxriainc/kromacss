@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    margin: auto;
+    background: var(--neutral-50);
+    color: var(--neutral-900);
+    text-rendering: optimizeSpeed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
