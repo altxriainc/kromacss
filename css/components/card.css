@@ -34,7 +34,7 @@
   
   .card-body {
     padding: var(--space-6);
-    color: var(--neutral-800);
+    color: var(--neutral-500);
     flex: 1; /* Makes card-body flexible for proper footer positioning */
   }
   
