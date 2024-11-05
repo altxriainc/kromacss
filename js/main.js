@@ -6,14 +6,14 @@ import { showToast, showToastHistory, dismissToast, startAutoDismiss, pauseAllPr
 
 // Initialize alert close functionality
 document.querySelectorAll('.alert-dismissible .alert-close').forEach(button => {
-    button.addEventListener('click', (e) => {
-        const alert = e.target.closest('.alert');
-        alert.classList.add('fade-out');
-        setTimeout(() => alert.remove(), 400); // 400ms matches the CSS transition duration
-    });
+  button.addEventListener('click', (e) => {
+    const alert = e.target.closest('.alert');
+    alert.classList.add('fade-out');
+    setTimeout(() => alert.remove(), 400);
+  });
 });
 
-// Export functions to make them globally accessible if needed
+// Export functions globally if needed
 window.toggleAccordion = toggleAccordion;
 window.showHologram = showHologram;
 window.showTabContent = showTabContent;
