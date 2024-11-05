@@ -1,0 +1,297 @@
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+    margin-bottom: var(--space-4);
+}
+
+/* Label Styling */
+.label {
+    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+    font-weight: 500;
+    color: var(--neutral-700);
+    transition: color var(--transition-colors);
+}
+
+.label-required::after {
+    content: " *";
+    color: var(--danger);
+}
+
+/* Base Input, Textarea, Select Styling */
+.input, .textarea, .select {
+    font-family: var(--font-sans);
+    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    background-color: var(--neutral-50);
+    color: var(--neutral-900);
+    transition: border-color var(--transition-colors), box-shadow var(--transition-all);
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Focus Styles */
+.input:focus, .textarea:focus, .select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0px 0px 0px 2px var(--primary-light);
+}
+
+/* Variant Styles */
+.input-primary, .textarea-primary, .select-primary {
+    border-color: var(--primary);
+}
+
+.input-secondary, .textarea-secondary, .select-secondary {
+    border-color: var(--secondary);
+}
+
+.input-success, .textarea-success, .select-success {
+    border-color: var(--success);
+}
+
+.input-warning, .textarea-warning, .select-warning {
+    border-color: var(--warning);
+}
+
+.input-danger, .textarea-danger, .select-danger {
+    border-color: var(--danger);
+}
+
+.input-info, .textarea-info, .select-info {
+    border-color: var(--info);
+}
+
+/* Accent Background and Border */
+.input-accent, .textarea-accent {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+.input-accent:focus, .textarea-accent:focus {
+    border-color: var(--primary-hover);
+}
+
+/* Disabled State */
+.input:disabled, .textarea:disabled, .select:disabled {
+    background-color: var(--neutral-200);
+    color: var(--neutral-500);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.input-readonly, .textarea-readonly {
+    background-color: var(--neutral-100);
+    color: var(--neutral-600);
+}
+
+/* Helper and Error Text */
+.helper-text {
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    color: var(--neutral-500);
+    margin-top: var(--space-1);
+}
+
+.error-text {
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    color: var(--danger);
+    margin-top: var(--space-1);
+}
+
+/* Textarea Styling */
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Select Dropdown Arrow */
+.select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='gray' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-3) center;
+    background-size: 1rem;
+}
+
+/* Error State */
+.input-error, .textarea-error, .select-error {
+    border-color: var(--danger);
+    box-shadow: 0px 0px 0px 2px var(--danger-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .form-group, .input-group {
+        flex-direction: column;
+    }
+}
+
+/* Transition Hover States for All Inputs */
+.input:hover, .textarea:hover, .select:hover {
+    border-color: var(--neutral-400);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+/* Elevated Shadow for Active States */
+.input:focus, .textarea:focus, .select:focus {
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    border-width: 1.2px;
+}
+
+/* Add Transition Color Hover for Variant States */
+.input-primary:hover, .textarea-primary:hover, .select-primary:hover { border-color: var(--primary-hover); }
+.input-secondary:hover, .textarea-secondary:hover, .select-secondary:hover { border-color: var(--secondary-hover); }
+.input-success:hover, .textarea-success:hover, .select-success:hover { border-color: var(--success-hover); }
+.input-warning:hover, .textarea-warning:hover, .select-warning:hover { border-color: var(--warning-hover); }
+.input-danger:hover, .textarea-danger:hover, .select-danger:hover { border-color: var(--danger-hover); }
+.input-info:hover, .textarea-info:hover, .select-info:hover { border-color: var(--info-hover); }
+
+
+/* Checkbox & Radio Group */
+.checkbox-group, .radio-group {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Base Checkbox and Radio Styling */
+.checkbox, .radio {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+    cursor: pointer;
+    position: relative;
+    transition: color var(--transition-colors);
+}
+
+.checkbox input[type="checkbox"],
+.radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Checkbox and Radio Icons */
+.checkbox-icon, .radio-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--neutral-100);
+    border: 1.5px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Smooth Background and Border Transition */
+.checkbox input[type="checkbox"]:checked + .checkbox-icon,
+.radio input[type="radio"]:checked + .radio-icon {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtle Shadow and Scale Effect on Hover */
+.checkbox:hover .checkbox-icon,
+.radio:hover .radio-icon {
+    border-color: var(--neutral-400);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+/* Active State */
+.checkbox:active .checkbox-icon,
+.radio:active .radio-icon {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transform: scale(0.95);
+}
+
+/* Icon for Checked Checkbox */
+.checkbox input[type="checkbox"]:checked + .checkbox-icon::before {
+    content: "✔";
+    font-size: 0.85rem;
+    color: white;
+    transition: opacity 0.2s ease;
+}
+
+/* Icon for Checked Radio */
+.radio input[type="radio"]:checked + .radio-icon::before {
+    content: "";
+    display: block;
+    width: 0.65rem;
+    height: 0.65rem;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+/* Rounded Radio Icon */
+.radio-icon {
+    border-radius: 50%;
+}
+
+/* Variants */
+.checkbox-primary .checkbox-icon,
+.radio-primary .radio-icon {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkbox-secondary .checkbox-icon,
+.radio-secondary .radio-icon {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.checkbox-success .checkbox-icon,
+.radio-success .radio-icon {
+    background-color: var(--success);
+    border-color: var(--success);
+}
+
+.checkbox-warning .checkbox-icon,
+.radio-warning .radio-icon {
+    background-color: var(--warning);
+    border-color: var(--warning);
+}
+
+.checkbox-danger .checkbox-icon,
+.radio-danger .radio-icon {
+    background-color: var(--danger);
+    border-color: var(--danger);
+}
+
+.checkbox-info .checkbox-icon,
+.radio-info .radio-icon {
+    background-color: var(--info);
+    border-color: var(--info);
+}
+
+/* Disabled State */
+.checkbox input[type="checkbox"]:disabled + .checkbox-icon,
+.radio input[type="radio"]:disabled + .radio-icon {
+    background-color: var(--neutral-200);
+    border-color: var(--neutral-300);
+    color: var(--neutral-400);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+    transform: none;
+}
+
+.checkbox input[type="checkbox"]:disabled ~ label,
+.radio input[type="radio"]:disabled ~ label {
+    color: var(--neutral-500);
+    cursor: not-allowed;
+    opacity: 0.7;
+}

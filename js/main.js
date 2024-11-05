@@ -13,6 +13,7 @@ document.querySelectorAll('.alert-dismissible .alert-close').forEach(button => {
   });
 });
 
+
 // Export functions globally if needed
 window.toggleAccordion = toggleAccordion;
 window.showHologram = showHologram;
