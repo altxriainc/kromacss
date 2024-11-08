@@ -1,0 +1,146 @@
+/* General Styling */
+.toggle {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    gap: var(--space-2);
+}
+
+.toggle-label {
+    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+    color: var(--neutral-700);
+}
+
+/* Base Checkbox Styling */
+.toggle input[type="checkbox"] {
+    position: relative;
+    width: clamp(2.5rem, 5vw, 4rem);
+    height: clamp(1.25rem, 3vw, 2rem);
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--neutral-300);
+    outline: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Toggle Knob */
+.toggle input[type="checkbox"]::before {
+    content: "";
+    width: clamp(1.25rem, 2vw, 2rem);
+    height: clamp(1.25rem, 2vw, 2rem);
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0.25rem;
+    transform: translateY(-50%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.35s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+/* Checked State */
+.toggle input[type="checkbox"]:checked {
+    background-color: var(--primary-light);
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
+.toggle input[type="checkbox"]:checked::before {
+    transform: translate(calc(100% - 0.25rem), -50%);
+    background-color: var(--primary);
+}
+
+/* Simulated Light Versions */
+.toggle-success input[type="checkbox"]:checked {
+    background-color: rgba(16, 185, 129, 0.2); /* Light green */
+}
+
+.toggle-danger input[type="checkbox"]:checked {
+    background-color: rgba(239, 68, 68, 0.2); /* Light red */
+}
+
+.toggle-warning input[type="checkbox"]:checked {
+    background-color: rgba(245, 158, 11, 0.2); /* Light yellow */
+}
+
+.toggle-info input[type="checkbox"]:checked {
+    background-color: rgba(59, 130, 246, 0.2); /* Light blue */
+}
+
+/* Icon Color Adjustments */
+.toggle-success input[type="checkbox"]:checked::before {
+    background-color: var(--success);
+}
+
+.toggle-danger input[type="checkbox"]:checked::before {
+    background-color: var(--danger);
+}
+
+.toggle-warning input[type="checkbox"]:checked::before {
+    background-color: var(--warning);
+}
+
+.toggle-info input[type="checkbox"]:checked::before {
+    background-color: var(--info);
+}
+
+/* Primary, Secondary, and Accent Variants */
+.toggle-primary input[type="checkbox"]:checked {
+    background-color: var(--primary-light);
+}
+
+.toggle-secondary input[type="checkbox"]:checked {
+    background-color: var(--secondary-light);
+}
+
+.toggle-primary input[type="checkbox"]:checked::before {
+    background-color: var(--primary);
+}
+
+.toggle-secondary input[type="checkbox"]:checked::before {
+    background-color: var(--secondary);
+}
+
+/* Disabled State */
+.toggle input[type="checkbox"]:disabled {
+    background-color: var(--neutral-200);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.toggle input[type="checkbox"]:disabled::before {
+    background-color: var(--neutral-400);
+}
+
+.toggle input[type="checkbox"]:disabled:checked {
+    background-color: var(--neutral-300);
+}
+
+.toggle input[type="checkbox"]:disabled:checked::before {
+    background-color: var(--neutral-400);
+}
+
+/* Readonly State */
+.toggle-readonly {
+    pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .toggle {
+        gap: var(--space-1);
+    }
+
+    .toggle input[type="checkbox"] {
+        width: clamp(2rem, 4vw, 3rem);
+        height: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .toggle input[type="checkbox"]::before {
+        width: clamp(1rem, 1.5vw, 1.25rem);
+        height: clamp(1rem, 1.5vw, 1.25rem);
+    }
+}
