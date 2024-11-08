@@ -1,0 +1,153 @@
+/* Base Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly deeper background for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-50);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    backdrop-filter: blur(4px); /* Adds a modern blur effect */
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-2xl); /* Softer, rounded corners */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    max-width: clamp(20rem, 50vw, 40rem);
+    width: 100%;
+    position: relative;
+    animation: modal-appear 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+}
+
+@keyframes modal-appear {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal Header */
+.modal-header {
+    padding: var(--space-4);
+    background-color: var(--neutral-100);
+    border-bottom: 1px solid var(--neutral-300);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header.no-title {
+    display: none;
+}
+
+.modal-title {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--neutral-900);
+    letter-spacing: 0.5px; /* Slightly increased letter-spacing for elegance */
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--neutral-700);
+    transition: color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--danger);
+    transform: scale(1.1); /* Slight enlargement for feedback */
+}
+
+/* Modal Body */
+.modal-body {
+    padding: var(--space-4);
+    overflow-y: auto;
+    max-height: 60vh;
+    scrollbar-color: var(--primary) var(--neutral-200);
+    scrollbar-width: thin;
+}
+
+/* Custom Scrollbar */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--neutral-200);
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background-color: var(--neutral-100);
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: var(--space-4);
+    background-color: var(--neutral-100);
+    border-top: 1px solid var(--neutral-300);
+    text-align: right;
+}
+
+/* Scrollable Modal */
+.modal-scrollable .modal-body {
+    max-height: 70vh;
+    padding-right: 1rem; /* Ensures space for custom scrollbar */
+}
+
+/* Fullscreen Modal */
+.modal-fullscreen {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    max-width: none;
+    max-height: none;
+}
+
+/* Variants */
+.modal-primary { border-left: 5px solid var(--primary); }
+.modal-secondary { border-left: 5px solid var(--secondary); }
+.modal-success { border-left: 5px solid var(--success); }
+.modal-danger { border-left: 5px solid var(--danger); }
+.modal-warning { border-left: 5px solid var(--warning); }
+.modal-info { border-left: 5px solid var(--info); }
+
+/* Animation for Modal Close */
+.modal-overlay.closing {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal {
+        max-width: 90vw;
+        padding: var(--space-2);
+    }
+
+    .modal-body {
+        max-height: 50vh; /* Adjust for smaller screens */
+    }
+}
