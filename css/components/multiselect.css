@@ -1,0 +1,182 @@
+/* Base MultiSelect Styles */
+.multiselect {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    font-family: var(--font-sans);
+}
+
+.multiselect-dropdown {
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    background-color: var(--neutral-50);
+    padding: var(--space-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-colors);
+    outline: none;
+    position: relative; /* Ensure clear button positioning */
+}
+
+.multiselect-dropdown:focus-within,
+.multiselect-dropdown:focus-visible {
+    border-color: var(--primary-hover);
+}
+
+.multiselect-search {
+    border: none;
+    outline: none;
+    width: calc(100% - 1.5rem); /* Adjusted for the clear button */
+    padding: var(--space-1);
+    background: transparent;
+    font-size: 1rem;
+    color: var(--neutral-900);
+}
+
+/* Ensure text is readable */
+.multiselect-search::placeholder {
+    color: var(--neutral-500);
+}
+
+/* Clear Button */
+.clear-selection {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--neutral-500);
+    font-size: 1.25rem;
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: var(--space-2); /* Aligns the button at the end */
+    top: 50%; /* Centers the button vertically */
+    transform: translateY(-50%);
+    padding: 0;
+    line-height: 1; /* Ensures consistent vertical alignment */
+}
+
+
+.clear-selection:focus {
+    outline: none;
+}
+
+/* Options Container */
+.multiselect-options {
+    position: absolute;
+    top: calc(100% + var(--space-1));
+    left: 0;
+    width: 100%;
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    background-color: var(--neutral-50);
+    box-shadow: var(--shadow-md);
+    z-index: var(--z-20);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.multiselect-options.active {
+    display: block;
+}
+
+.multiselect-option {
+    padding: var(--space-2);
+    border-bottom: 1px solid var(--neutral-200);
+    cursor: pointer;
+    transition: background-color var(--transition-colors);
+}
+
+.multiselect-option:last-child {
+    border-bottom: none;
+}
+
+.multiselect-option:hover,
+.multiselect-option:focus {
+    background-color: var(--neutral-100);
+}
+
+.multiselect-option.selected {
+    background-color: var(--primary-light);
+    color: #fff;
+}
+
+/* Chips Display */
+.multiselect-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    padding: var(--space-1) 0;
+}
+
+.multiselect-chip {
+    background-color: var(--primary);
+    color: #fff;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    margin-right: var(--space-1);
+}
+
+.multiselect-chip .chip-remove {
+    margin-left: var(--space-1);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Variants */
+.multiselect-success .multiselect-dropdown,
+.multiselect-success .multiselect-options {
+    border-color: var(--success);
+}
+
+.multiselect-danger .multiselect-dropdown,
+.multiselect-danger .multiselect-options {
+    border-color: var(--danger);
+}
+
+.multiselect-warning .multiselect-dropdown,
+.multiselect-warning .multiselect-options {
+    border-color: var(--warning);
+}
+
+.multiselect-info .multiselect-dropdown,
+.multiselect-info .multiselect-options {
+    border-color: var(--info);
+}
+
+/* Custom Scrollbar */
+.multiselect-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.multiselect-options::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+.multiselect-options::-webkit-scrollbar-track {
+    background-color: var(--neutral-200);
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .multiselect-dropdown {
+    background-color: var(--neutral-900);
+    color: var(--neutral-50);
+}
+
+.dark-mode .multiselect-search {
+    color: var(--neutral-50);
+}
+
+.dark-mode .multiselect-option:hover,
+.dark-mode .multiselect-option:focus {
+    background-color: var(--neutral-700);
+}
+
+.dark-mode .multiselect-chip {
+    background-color: var(--primary-dark);
+}
