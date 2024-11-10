@@ -18,6 +18,8 @@
 
     --secondary: #64748b;
     --secondary-hover: #475569;
+    --secondary-light: #94a3b8; /* Light version of secondary */
+    --secondary-dark: #334155; /* Dark version of secondary */
 
     --success: #10b981;
     --success-hover: #059669;
@@ -31,11 +33,16 @@
     --info: #3b82f6;
     --info-hover: #2563eb;
 
+    --accent: #7c3aed; /* Accent color */
+    --accent-hover: #6d28d9; /* Hover version of accent */
+    --accent-light: #a78bfa; /* Light version of accent */
+    --accent-dark: #5b21b6; /* Dark version of accent */
+
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md: 0 2px 4px rgba(0,0,0,0.04), 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.04), 0 4px 6px -2px rgba(0,0,0,0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.04), 0 10px 10px -5px rgba(0,0,0,0.05);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
 
     /* Spacing */
     --space-1: 0.25rem;
@@ -76,6 +83,7 @@
     --z-auto: auto;
 }
 
+/* Dark Mode */
 .dark-mode {
     --neutral-50: #121826; /* Dark background */
     --neutral-100: #1a2334;
@@ -88,13 +96,15 @@
     --neutral-800: #cbd5e0;
     --neutral-900: #e5eaf0; /* Lightest text on dark mode */
 
-    --primary: #4e8cff; /* Bright primary */
+    --primary: #4e8cff;
     --primary-hover: #3576e3;
     --primary-light: #7aaaff;
     --primary-dark: #2b4d99;
 
     --secondary: #7288a1;
     --secondary-hover: #586d88;
+    --secondary-light: #a0aec0; /* Light version for dark mode */
+    --secondary-dark: #334155;
 
     --success: #3fdc98;
     --success-hover: #2abf79;
@@ -107,4 +117,9 @@
 
     --info: #50a5f6;
     --info-hover: #318cdc;
+
+    --accent: #a78bfa;
+    --accent-hover: #9466e8;
+    --accent-light: #c4b5fd;
+    --accent-dark: #5b21b6;
 }
