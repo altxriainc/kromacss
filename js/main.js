@@ -6,6 +6,7 @@ import { showToast, showToastHistory, dismissToast, startAutoDismiss, pauseAllPr
 import { Modal } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
 import { DateTimePicker } from './components/datetime-picker.js';
+import { Slideshow } from './components/slideshow.js';
 
 // Initialize alert close functionality
 document.querySelectorAll('.alert-dismissible .alert-close').forEach(button => {
@@ -29,3 +30,14 @@ window.closeToastHistory = closeToastHistory;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 window.DateTimePicker = DateTimePicker;
+
+
+
+// Initialize slideshows when the document is ready
+document.addEventListener('DOMContentLoaded', () => {
+
+  let sld1 = new Slideshow('slideshow1');
+  let sld2 = new Slideshow('slideshow2',true,2000,true,2000,true,true);
+
+
+});
