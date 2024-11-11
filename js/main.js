@@ -4,7 +4,8 @@ import { showHologram } from './components/hologram.js';
 import { showTabContent } from './components/tabs.js';
 import { showToast, showToastHistory, dismissToast, startAutoDismiss, pauseAllProgressBars, closeToastHistory } from './components/toast.js';
 import { Modal } from './components/modal.js';
-import { MultiSelect } from './components/multiselect.js'; 
+import { MultiSelect } from './components/multiselect.js';
+import { DateTimePicker } from './components/datetime-picker.js';
 
 // Initialize alert close functionality
 document.querySelectorAll('.alert-dismissible .alert-close').forEach(button => {
@@ -26,4 +27,5 @@ window.startAutoDismiss = startAutoDismiss;
 window.pauseAllProgressBars = pauseAllProgressBars;
 window.closeToastHistory = closeToastHistory;
 window.Modal = Modal;
-window.MultiSelect = MultiSelect; 
+window.MultiSelect = MultiSelect;
+window.DateTimePicker = DateTimePicker;
