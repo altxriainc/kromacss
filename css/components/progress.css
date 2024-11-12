@@ -1,4 +1,4 @@
-/* Progress Container */
+/* Base Progress Container */
 .progress {
   position: relative;
   width: 100%;
@@ -15,7 +15,6 @@
 /* Progress Bar */
 .progress-bar {
   height: 100%;
-  transition: width 0.4s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,64 +22,66 @@
   color: white;
   white-space: nowrap;
   border-radius: inherit;
+  transition: width 0.4s ease, background-color var(--transition-colors);
 }
 
 /* Variants */
-.progress-primary .progress-bar { background-color: var(--primary); }
-.progress-secondary .progress-bar { background-color: var(--secondary); }
-.progress-success .progress-bar { background-color: var(--success); }
-.progress-danger .progress-bar { background-color: var(--danger); }
-.progress-warning .progress-bar { background-color: var(--warning); }
-.progress-info .progress-bar { background-color: var(--info); }
+.progress[data-variant="primary"] .progress-bar { background-color: var(--primary); }
+.progress[data-variant="secondary"] .progress-bar { background-color: var(--secondary); }
+.progress[data-variant="success"] .progress-bar { background-color: var(--success); }
+.progress[data-variant="danger"] .progress-bar { background-color: var(--danger); }
+.progress[data-variant="warning"] .progress-bar { background-color: var(--warning); }
+.progress[data-variant="info"] .progress-bar { background-color: var(--info); }
 
-/* Striped Variant */
-.progress-striped .progress-bar {
+/* Striped Style */
+.progress[data-striped="true"] .progress-bar {
   background-image: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.25) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.25) 50%,
-    rgba(255, 255, 255, 0.25) 75%,
-    transparent 75%,
-    transparent
+      45deg,
+      rgba(255, 255, 255, 0.25) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0.25) 75%,
+      transparent 75%,
+      transparent
   );
   background-size: 1rem 1rem;
 }
 
-/* Animated Stripes */
-.progress-animated .progress-bar {
+/* Animated Stripe */
+.progress[data-animated="true"] .progress-bar {
   background-image: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.25) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.25) 50%,
-    rgba(255, 255, 255, 0.25) 75%,
-    transparent 75%,
-    transparent
+      45deg,
+      rgba(255, 255, 255, 0.25) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0.25) 75%,
+      transparent 75%,
+      transparent
   );
   background-size: 1rem 1rem;
   animation: progress-stripe-animation 1s linear infinite;
 }
 
-/* Animated Pulse on Completion */
-.progress-bar.completed {
-  animation: pulse 1s ease-in-out infinite;
+/* Pulse Animation on Completion */
+.progress-bar[data-completed="true"] {
+  animation: progress-pulse-animation 1s ease-in-out infinite;
 }
 
-/* Bordered Variant */
-.progress-bordered {
+/* Border Styling */
+.progress[data-bordered="true"] {
   border: 1px solid var(--neutral-300);
 }
 
-/* Thickness Variants */
-.progress-thin { height: 0.5rem; }
-.progress-md { height: 1rem; }
-.progress-lg { height: 1.5rem; }
+/* Thickness Sizes */
+.progress[data-size="thin"] { height: 0.5rem; }
+.progress[data-size="medium"] { height: 1rem; }
+.progress[data-size="large"] { height: 1.5rem; }
 
 /* Inside Percentage Label */
-.progress-bar-inside {
+.progress-bar[data-label="inside"]::after {
+  content: attr(data-progress) '%';
   color: white;
   font-size: 0.75rem;
   position: absolute;
@@ -89,8 +90,9 @@
   z-index: 1;
 }
 
-/* External Percentage Label */
-.progress-label {
+/* Outside Percentage Label */
+.progress[data-label="outside"]::after {
+  content: attr(data-progress) '%';
   position: absolute;
   right: var(--space-2);
   font-size: 0.75rem;
@@ -98,10 +100,10 @@
   z-index: 1;
 }
 
-/* Step Progress - Multi-Step Progress */
+/* Multi-Step Progress */
 .progress-steps {
   display: flex;
-  gap: var(--space-1); /* Creates spacing between steps */
+  gap: var(--space-1); /* Spacing between steps */
 }
 
 .progress-step {
@@ -119,19 +121,18 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Completed Step */
-.progress-step.completed {
+/* Step Progress Variants */
+.progress-step[data-step="completed"] {
   background-color: var(--success);
   color: white;
 }
 
-/* Current Step */
-.progress-step.current {
+.progress-step[data-step="current"] {
   background-color: var(--primary);
   color: white;
 }
 
-/* Step Label */
+/* Responsive Step Label */
 .progress-step-label {
   position: absolute;
   top: 50%;
@@ -141,13 +142,12 @@
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
-  .progress { height: 0.75rem; }
-  .progress-label { font-size: 0.625rem; }
+  .progress[data-size="medium"] { height: 0.75rem; }
   .progress-step {
-    height: 0.75rem;
+      height: 0.75rem;
   }
   .progress-step-label {
-    font-size: 0.625rem;
+      font-size: 0.625rem;
   }
 }
 
@@ -158,7 +158,7 @@
 }
 
 /* Keyframes for Pulse Animation */
-@keyframes pulse {
+@keyframes progress-pulse-animation {
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.05); opacity: 0.8; }
   100% { transform: scale(1); opacity: 1; }
