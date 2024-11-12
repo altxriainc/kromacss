@@ -12,58 +12,69 @@ export class Slideshow {
 
     constructor(id, autoScroll = (true == true ? undefined : true), waitTime = (1 == 1 ? undefined : 1), hoverPause = (true == true ? undefined : true), scrollingPauseTime = (1 == 1 ? undefined : 1), enableArrows = (true == true ? undefined : true), enableBullets = (true == true ? undefined : true)) {
 
+        
 
         //get slideshow container
         this.id = id;
         this.cnt_sld = document.getElementById(id);
         if(!this.cnt_sld){ throw new Error(`element "${id}" not found`); }
 
+
         //get parameters from call if passed else from element dataset if available else default
-        this.auto = eval(autoScroll ?? (this.cnt_sld.dataset.auto ?? true));
-        this.waitTime = eval(waitTime ?? (this.cnt_sld.dataset.waitTime ?? 3000));
-        this.hoverPause = eval(hoverPause ?? (this.cnt_sld.dataset.hoverPause ?? true));
-        this.scrollingPauseTime = eval(scrollingPauseTime ?? (this.cnt_sld.dataset.scrollingPauseTime ?? 2000));
-        this.enableArrows = eval(enableArrows ?? (this.cnt_sld.dataset.enableArrows ?? true));
-        this.enableBullets = eval(enableBullets ?? (this.cnt_sld.dataset.enableBullets ?? true));
+        this.auto = eval(autoScroll ?? (this.cnt_sld.dataset.autoscroll ?? true));
+        this.waitTime = eval(waitTime ?? (this.cnt_sld.dataset.waittime ?? 3000));
+        this.hoverPause = eval(hoverPause ?? (this.cnt_sld.dataset.hoverpause ?? true));
+        this.scrollingPauseTime = eval(scrollingPauseTime ?? (this.cnt_sld.dataset.scrollingpausetime ?? 2000));
+        this.enableArrows = eval(enableArrows ?? (this.cnt_sld.dataset.enablearrows ?? true));
+        this.enableBullets = eval(enableBullets ?? (this.cnt_sld.dataset.enablebullets ?? true));
+
+        //get imgs
+        var prvSlds = this.cnt_sld.querySelectorAll('img');
         
         //add arrows
-        var arrowLeft = document.createElement('div');
-        arrowLeft.classList.add('arrow');
-        arrowLeft.classList.add('arrowLeft');
-        arrowLeft.classList.add('hidden');
-        arrowLeft.innerHTML = '<';
-        
-        var arrowRight = document.createElement('div');
-        arrowRight.classList.add('arrow');
-        arrowRight.classList.add('arrowRight');
-        arrowRight.classList.add('hidden');
-        arrowRight.innerHTML = '>';
+        if(this.enableArrows && prvSlds.length>1){
 
-        this.cnt_sld.appendChild(arrowRight);
-        this.cnt_sld.appendChild(arrowLeft);
+            var arrowLeft = document.createElement('div');
+            arrowLeft.classList.add('arrow');
+            arrowLeft.classList.add('arrowLeft');
+            arrowLeft.classList.add('hidden');
+            arrowLeft.innerHTML = '<';
+            
+            var arrowRight = document.createElement('div');
+            arrowRight.classList.add('arrow');
+            arrowRight.classList.add('arrowRight');
+            arrowRight.classList.add('hidden');
+            arrowRight.innerHTML = '>';
+
+            this.cnt_sld.appendChild(arrowRight);
+            this.cnt_sld.appendChild(arrowLeft);
+
+        }
 
         //get arrows
         this.arr_r = this.cnt_sld.querySelector('.arrowRight');
         this.arr_l = this.cnt_sld.querySelector('.arrowLeft');
 
         //add bullets
-        var cnt_blt = document.createElement('div');
-        cnt_blt.classList.add('bullets');
-        cnt_blt.classList.add('hidden');
+        if(this.enableBullets && prvSlds.length>1){
 
-        var blt = document.createElement('div');
-        blt.classList.add('bullet');
-        cnt_blt.appendChild(blt);
-        
-        this.cnt_sld.appendChild(cnt_blt);
+            var cnt_blt = document.createElement('div');
+            cnt_blt.classList.add('bullets');
+            cnt_blt.classList.add('hidden');
+
+            var blt = document.createElement('div');
+            blt.classList.add('bullet');
+            cnt_blt.appendChild(blt);
+            
+            this.cnt_sld.appendChild(cnt_blt);
+
+        }
         
         //get bullets
         this.cnt_blt = this.cnt_sld.querySelector('.bullets');
         this.blts = this.cnt_sld.querySelectorAll('.bullet');
 
-
         //set slides
-        var prvSlds = this.cnt_sld.querySelectorAll('img');
         prvSlds.forEach((prvSld,index) => {
 
             
@@ -90,7 +101,7 @@ export class Slideshow {
 
     }
 
-    //first slide setting
+    //first slideshow setting
     setSlide(){
 
 
@@ -128,7 +139,7 @@ export class Slideshow {
             this.cnt_blt.classList.remove('hidden');
             this.blts[0].classList.add('current');
 
-        }else{this.blts[0].remove();}
+        }
 
         //display arrows
         if(this.enableArrows && this.slds.length>1){
