@@ -1,208 +1,197 @@
-/* Toast Base */
+/* Base Toast Component */
 .toast {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: clamp(0.75rem, 1vw, 0.75rem);
-    width: clamp(200px, 50%, 350px);
-    background-color: var(--neutral-50);
-    color: var(--neutral-900);
-    border: 1px solid var(--neutral-200);
-    border-radius: var(--radius-md);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-    position: fixed;
-    pointer-events: all;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 9999;
-  }
-  
-  /* Toast Positioning */
-  .toast-top-right, .toast-bottom-right { right: 1rem; }
-  .toast-top-right { top: 1rem; }
-  .toast-bottom-right { bottom: 1rem; }
-  
-  .toast-top-left, .toast-bottom-left { left: 1rem; }
-  .toast-top-left { top: 1rem; }
-  .toast-bottom-left { bottom: 1rem; }
-  
-  .toast-top-center {
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .toast-bottom-center {
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  /* Stacked Toast Offset */
-  .toast-stack-top { margin-top: 0.5rem; }
-  .toast-stack-bottom { margin-bottom: 0.5rem; }
-  
-  /* Stacked Counter Display */
-  .toast-stack-count {
-    position: absolute;
-    top: -0.75rem;
-    right: -0.75rem;
-    background-color: var(--neutral-500);
-    color: white;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: bold;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Adjustments for Left Positions */
-  .toast-top-left .toast-stack-count,
-  .toast-bottom-left .toast-stack-count {
-    left: -0.75rem;
-    right: auto;
-  }
-  
-  /* Centered Top/Bottom Animations */
-  .toast-enter {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  .toast-top-center.toast-enter,
-  .toast-bottom-center.toast-enter {
-    transform: translateY(-30px);
-  }
-  .toast-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .toast-exit {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .toast-exit-active {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  
-  /* Toast Variants */
-  .toast-primary { background-color: var(--primary-light); color: var(--primary-dark); border-color: var(--primary); }
-  .toast-secondary { border-color: var(--secondary); background-color: white; color: var(--neutral-900); }
-  .toast-success { border-color: var(--success); background-color: white; color: var(--neutral-900); }
-  .toast-danger { border-color: var(--danger); background-color: white; color: var(--neutral-900); }
-  .toast-warning { border-color: var(--warning); background-color: white; color: var(--neutral-900); }
-  .toast-info { border-color: var(--info); background-color: white; color: var(--neutral-900); }
-  
-  /* Borderless Toast */
-  .toast-borderless { border: none; }
-  
-  /* Toast Dismiss Button */
-  .toast-dismiss {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    font-size: 1.25rem;
-    color: var(--neutral-500);
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-  .toast-dismiss:hover {
-    color: var(--neutral-700);
-  }
-  
-  /* Auto-Dismiss Progress Bar */
-  .toast-progress {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
-    animation: progress-bar linear forwards paused;
-    background-color: currentColor;
-  }
-  
-  /* Dynamic Progress Bar Colors */
-  .toast-primary .toast-progress { background-color: var(--primary); }
-  .toast-secondary .toast-progress { background-color: var(--secondary); }
-  .toast-success .toast-progress { background-color: var(--success); }
-  .toast-danger .toast-progress { background-color: var(--danger); }
-  .toast-warning .toast-progress { background-color: var(--warning); }
-  .toast-info .toast-progress { background-color: var(--info); }
-  
-  /* Progress Bar Animation */
-  @keyframes progress-bar {
-    from { width: 100%; }
-    to { width: 0%; }
-  }
-  
-  /* Toast History Container */
-  .toast-history-container {
-    position: fixed;
-    bottom: 2rem;
-    right: 1rem;
-    max-width: 300px;
-    background-color: var(--neutral-50);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    overflow-y: auto;
-    max-height: 60vh;
-    padding: var(--space-4);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    scrollbar-color: var(--primary) var(--neutral-200);
-    scrollbar-width: thin;
-  }
-  
-  .toast-history-container::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .toast-history-container::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
-    border-radius: 4px;
-  }
-  
-  .toast-history-container::-webkit-scrollbar-track {
-    background-color: var(--neutral-200);
-  }
-  
-  /* Toast History Item Variants */
-  .toast-history-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2);
-    border-radius: var(--radius-sm);
-    font-size: 0.875rem;
-    color: var(--neutral-800);
-  }
-  .toast-history-item.toast-primary { background-color: var(--primary-light); color: var(--primary-dark); }
-  .toast-history-item.toast-secondary { background-color: var(--secondary); color: var(--neutral-50); }
-  .toast-history-item.toast-success { background-color: var(--success); color: white; }
-  .toast-history-item.toast-danger { background-color: var(--danger); color: white; }
-  .toast-history-item.toast-warning { background-color: var(--warning); color: white; }
-  .toast-history-item.toast-info { background-color: var(--info); color: white; }
-  
-  /* Close Button for History */
-  .toast-history-close {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    font-size: 1.25rem;
-    color: var(--neutral-500);
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-  .toast-history-close:hover {
-    color: var(--neutral-700);
-  }
-  
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: clamp(0.75rem, 1vw, 0.75rem);
+  width: clamp(200px, 50%, 350px);
+  background-color: var(--neutral-50);
+  color: var(--neutral-900);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  position: fixed;
+  pointer-events: all;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 9999;
+}
+
+/* Toast Position Variants */
+.toast[data-position="top-right"], [data-position="bottom-right"] { right: 1rem; }
+.toast[data-position="top-right"] { top: 1rem; }
+.toast[data-position="bottom-right"] { bottom: 1rem; }
+.toast[data-position="top-left"], [data-position="bottom-left"] { left: 1rem; }
+.toast[data-position="top-left"] { top: 1rem; }
+.toast[data-position="bottom-left"] { bottom: 1rem; }
+.toast[data-position="top-center"] {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.toast[data-position="bottom-center"] {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Stacked Toast Offset */
+.toast-stacked[data-position*="top"] { margin-top: 0.5rem; }
+.toast-stacked[data-position*="bottom"] { margin-bottom: 0.5rem; }
+
+/* Stacked Counter Display */
+.toast-stack-count {
+  position: absolute;
+  top: -0.75rem;
+  right: -0.75rem;
+  background-color: var(--neutral-500);
+  color: white;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: var(--shadow-sm);
+}
+[data-position="top-left"] .toast-stack-count,
+[data-position="bottom-left"] .toast-stack-count {
+  left: -0.75rem;
+  right: auto;
+}
+
+/* Entry and Exit Animations */
+.toast-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+[data-position="top-center"].toast-enter,
+[data-position="bottom-center"].toast-enter {
+  transform: translateY(-30px);
+}
+.toast-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Toast Variants */
+.toast[data-variant="primary"] { background-color: var(--primary-light); color: var(--primary-dark); border-color: var(--primary); }
+.toast[data-variant="secondary"] { border-color: var(--secondary); background-color: var(--neutral-50); color: var(--neutral-900); }
+.toast[data-variant="success"] { border-color: var(--success); background-color: var(--neutral-50); color: var(--neutral-900); }
+.toast[data-variant="danger"] { border-color: var(--danger); background-color: var(--neutral-50); color: var(--neutral-900); }
+.toast[data-variant="warning"] { border-color: var(--warning); background-color: var(--neutral-50); color: var(--neutral-900); }
+.toast[data-variant="info"] { border-color: var(--info); background-color: var(--neutral-50); color: var(--neutral-900); }
+
+/* Borderless Toast */
+.toast[data-border="false"] { border: none; }
+
+/* Dismiss Button */
+.toast-dismiss {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.toast-dismiss:hover { color: var(--neutral-700); }
+
+/* Auto-Dismiss Progress Bar */
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  animation: toast-progress-bar linear forwards paused;
+  background-color: currentColor;
+}
+
+/* Dynamic Progress Bar Colors */
+[data-variant="primary"] .toast-progress { background-color: var(--primary); }
+[data-variant="secondary"] .toast-progress { background-color: var(--secondary); }
+[data-variant="success"] .toast-progress { background-color: var(--success); }
+[data-variant="danger"] .toast-progress { background-color: var(--danger); }
+[data-variant="warning"] .toast-progress { background-color: var(--warning); }
+[data-variant="info"] .toast-progress { background-color: var(--info); }
+
+/* Progress Bar Animation */
+@keyframes toast-progress-bar {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Toast History Container */
+.toast-history-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 1rem;
+  max-width: 300px;
+  background-color: var(--neutral-50);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow-y: auto;
+  max-height: 60vh;
+  padding: var(--space-4);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  scrollbar-color: var(--primary) var(--neutral-200);
+  scrollbar-width: thin;
+}
+
+.toast-history-container::-webkit-scrollbar {
+  width: 8px;
+}
+.toast-history-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+.toast-history-container::-webkit-scrollbar-track {
+  background-color: var(--neutral-200);
+}
+
+/* Toast History Item */
+.toast-history-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--neutral-800);
+}
+.toast-history-item[data-variant="primary"] { background-color: var(--primary-light); color: var(--primary-dark); }
+.toast-history-item[data-variant="secondary"] { background-color: var(--secondary); color: var(--neutral-50); }
+.toast-history-item[data-variant="success"] { background-color: var(--success); color: white; }
+.toast-history-item[data-variant="danger"] { background-color: var(--danger); color: white; }
+.toast-history-item[data-variant="warning"] { background-color: var(--warning); color: white; }
+.toast-history-item[data-variant="info"] { background-color: var(--info); color: white; }
+
+/* History Close Button */
+.toast-history-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.toast-history-close:hover { color: var(--neutral-700); }
