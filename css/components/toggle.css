@@ -1,4 +1,4 @@
-/* General Styling */
+/* General Toggle Styling */
 .toggle {
     display: inline-flex;
     align-items: center;
@@ -22,7 +22,7 @@
     outline: none;
     border-radius: var(--radius-full);
     cursor: pointer;
-    transition: background-color 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: background-color var(--transition-all), box-shadow var(--transition-all);
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -37,7 +37,7 @@
     top: 50%;
     left: 0.25rem;
     transform: translateY(-50%);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.35s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform var(--transition-all), background-color var(--transition-all), box-shadow var(--transition-all);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     z-index: 1;
 }
@@ -53,54 +53,47 @@
     background-color: var(--primary);
 }
 
-/* Simulated Light Versions */
-.toggle-success input[type="checkbox"]:checked {
-    background-color: rgba(16, 185, 129, 0.2); /* Light green */
+/* Variant Colors */
+[data-variant="success"] input[type="checkbox"]:checked {
+    background-color: rgba(16, 185, 129, 0.2);
 }
-
-.toggle-danger input[type="checkbox"]:checked {
-    background-color: rgba(239, 68, 68, 0.2); /* Light red */
-}
-
-.toggle-warning input[type="checkbox"]:checked {
-    background-color: rgba(245, 158, 11, 0.2); /* Light yellow */
-}
-
-.toggle-info input[type="checkbox"]:checked {
-    background-color: rgba(59, 130, 246, 0.2); /* Light blue */
-}
-
-/* Icon Color Adjustments */
-.toggle-success input[type="checkbox"]:checked::before {
+[data-variant="success"] input[type="checkbox"]:checked::before {
     background-color: var(--success);
 }
 
-.toggle-danger input[type="checkbox"]:checked::before {
+[data-variant="danger"] input[type="checkbox"]:checked {
+    background-color: rgba(239, 68, 68, 0.2);
+}
+[data-variant="danger"] input[type="checkbox"]:checked::before {
     background-color: var(--danger);
 }
 
-.toggle-warning input[type="checkbox"]:checked::before {
+[data-variant="warning"] input[type="checkbox"]:checked {
+    background-color: rgba(245, 158, 11, 0.2);
+}
+[data-variant="warning"] input[type="checkbox"]:checked::before {
     background-color: var(--warning);
 }
 
-.toggle-info input[type="checkbox"]:checked::before {
+[data-variant="info"] input[type="checkbox"]:checked {
+    background-color: rgba(59, 130, 246, 0.2);
+}
+[data-variant="info"] input[type="checkbox"]:checked::before {
     background-color: var(--info);
 }
 
 /* Primary, Secondary, and Accent Variants */
-.toggle-primary input[type="checkbox"]:checked {
+[data-variant="primary"] input[type="checkbox"]:checked {
     background-color: var(--primary-light);
 }
-
-.toggle-secondary input[type="checkbox"]:checked {
-    background-color: var(--secondary-light);
-}
-
-.toggle-primary input[type="checkbox"]:checked::before {
+[data-variant="primary"] input[type="checkbox"]:checked::before {
     background-color: var(--primary);
 }
 
-.toggle-secondary input[type="checkbox"]:checked::before {
+[data-variant="secondary"] input[type="checkbox"]:checked {
+    background-color: var(--secondary-light);
+}
+[data-variant="secondary"] input[type="checkbox"]:checked::before {
     background-color: var(--secondary);
 }
 
@@ -110,21 +103,18 @@
     cursor: not-allowed;
     opacity: 0.6;
 }
-
 .toggle input[type="checkbox"]:disabled::before {
     background-color: var(--neutral-400);
 }
-
 .toggle input[type="checkbox"]:disabled:checked {
     background-color: var(--neutral-300);
 }
-
 .toggle input[type="checkbox"]:disabled:checked::before {
     background-color: var(--neutral-400);
 }
 
 /* Readonly State */
-.toggle-readonly {
+[data-state="readonly"] .toggle {
     pointer-events: none;
 }
 
