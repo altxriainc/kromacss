@@ -9,983 +9,1056 @@
   <style>
   </style>
 </head>
-<body class="">
+<body class="dark-mode">
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Button Component Showcase</h2>
-    <!-- Button Variants -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <button class="btn btn-primary">Primary</button>
-      <button class="btn btn-secondary">Secondary</button>
-      <button class="btn btn-success">Success</button>
-      <button class="btn btn-danger">Danger</button>
-      <button class="btn btn-warning">Warning</button>
-      <button class="btn btn-info">Info</button>
-      <button class="btn btn-outline">Outline</button>
-      <button class="btn btn-ghost">Ghost</button>
+    <h2 class="font-lg text-primary my-4">Alert Component Showcase</h2>
+  
+    <!-- Success Alerts -->
+    <div class="alert" data-variant="success" data-size="default" data-shape="rounded">
+      <span class="alert-icon">✔</span>
+      <div class="alert-content">
+        <p class="alert-title">Success Alert</p>
+        <p class="alert-body">This is a standard success alert with rounded borders.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
     </div>
   
-    <!-- Button Sizes and Shapes -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <button class="btn btn-sm">Small</button>
-      <button class="btn">Default</button>
-      <button class="btn btn-lg">Large</button>
-      <button class="btn btn-rounded">Rounded</button>
-      <button class="btn btn-square">Square</button>
+    <div class="alert" data-variant="success" data-size="large" data-shape="circle">
+      <span class="alert-icon">✔</span>
+      <div class="alert-content">
+        <p class="alert-title">Large Success Alert</p>
+        <p class="alert-body">A large, circular success alert for important messages.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
     </div>
   
-    <!-- Buttons with Icons -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <button class="btn btn-icon-left">
-        <span class="btn-icon"><i class="fas fa-arrow-left"></i></span> Back
-      </button>
-      <button class="btn btn-icon-right">
-        Next <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
-      </button>
-      <button class="btn btn-icon-only"><i class="fas fa-star"></i></button>
+    <!-- Warning Alerts -->
+    <div class="alert" data-variant="warning" data-size="compact" data-shape="rounded">
+      <span class="alert-icon">⚠</span>
+      <div class="alert-content">
+        <p class="alert-title">Compact Warning Alert</p>
+        <p class="alert-body">This warning alert is compact and uses rounded corners.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
     </div>
   
-    <!-- Button States -->
-    <div class="flex gap-2 flex-wrap">
-      <button class="btn btn-loading">Loading</button>
-      <button class="btn btn-primary btn-change-content" onclick="this.innerText='Clicked!'">Click Me</button>
-      <button class="btn" disabled>Disabled</button>
+    <div class="alert" data-variant="warning" data-size="large" data-shape="default">
+      <span class="alert-icon">⚠</span>
+      <div class="alert-content">
+        <p class="alert-title">Large Warning Alert</p>
+        <p class="alert-body">This is a large warning alert with the default shape.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
+    </div>
+  
+    <!-- Danger Alerts -->
+    <div class="alert" data-variant="danger" data-size="default" data-shape="rounded">
+      <span class="alert-icon">✖</span>
+      <div class="alert-content">
+        <p class="alert-title">Danger Alert</p>
+        <p class="alert-body">A standard danger alert with rounded borders for alerts.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
+    </div>
+  
+    <div class="alert" data-variant="danger" data-size="compact" data-shape="circle">
+      <span class="alert-icon">✖</span>
+      <div class="alert-content">
+        <p class="alert-title">Compact Danger Alert</p>
+        <p class="alert-body">This is a compact danger alert with a circular shape.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
+    </div>
+  
+    <!-- Info Alerts -->
+    <div class="alert" data-variant="info" data-size="large" data-shape="default">
+      <span class="alert-icon">ℹ</span>
+      <div class="alert-content">
+        <p class="alert-title">Large Info Alert</p>
+        <p class="alert-body">An info alert in large size, suitable for informative messages.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
+    </div>
+  
+    <div class="alert" data-variant="info" data-size="default" data-shape="rounded">
+      <span class="alert-icon">ℹ</span>
+      <div class="alert-content">
+        <p class="alert-title">Standard Info Alert</p>
+        <p class="alert-body">A standard info alert with rounded corners for general use.</p>
+      </div>
+      <button class="alert-close" aria-label="Close alert">&times;</button>
+    </div>
+  
+  </section> 
+  
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Accordion Component Showcase</h2>
+    
+      <!-- Primary Accordion with Sub-Content -->
+      <div class="accordion-container" data-variant="primary">
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)" aria-label="Toggle primary accordion item 1">
+            Primary Accordion - Item 1
+          </button>
+          <div class="accordion-content">
+            <p>This is the main content of the primary accordion item 1.</p>
+    
+            <!-- Sub-Items within Primary Accordion Item 1 -->
+            <div class="accordion-sub-item">
+              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 1">
+                Sub-Item 1
+              </button>
+              <div class="accordion-sub-content">
+                <p>This is the content of sub-item 1 under primary accordion item 1.</p>
+              </div>
+            </div>
+            <div class="accordion-sub-item">
+              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 2">
+                Sub-Item 2
+              </button>
+              <div class="accordion-sub-content">
+                <p>This is the content of sub-item 2 under primary accordion item 1.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Primary Accordion Item 2 with Sub-Items -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)" aria-label="Toggle primary accordion item 2">
+            Primary Accordion - Item 2
+          </button>
+          <div class="accordion-content">
+            <p>This is the main content of the primary accordion item 2.</p>
+    
+            <!-- Sub-Items within Primary Accordion Item 2 -->
+            <div class="accordion-sub-item">
+              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 1">
+                Sub-Item 1
+              </button>
+              <div class="accordion-sub-content">
+                <p>This is the content of sub-item 1 under primary accordion item 2.</p>
+              </div>
+            </div>
+            <div class="accordion-sub-item">
+              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 2">
+                Sub-Item 2
+              </button>
+              <div class="accordion-sub-content">
+                <p>This is the content of sub-item 2 under primary accordion item 2.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Avatar Component Showcase</h2>
+  
+    <!-- Small Avatars -->
+    <div class="avatar" data-size="sm" data-shape="rounded" data-variant="primary" aria-label="User Initials">AB</div>
+    <div class="avatar" data-size="sm" data-shape="square" data-variant="secondary" aria-label="User Initials">CD</div>
+    <div class="avatar" data-size="sm" data-variant="success">
+      <img src="https://ui-avatars.com/api/?name=EF&background=10b981&color=ffffff" alt="User Avatar">
+    </div>
+    <div class="avatar" data-size="sm" data-variant="danger">
+      <img src="https://ui-avatars.com/api/?name=GH&background=ef4444&color=ffffff" alt="User Avatar">
+    </div>
+  
+    <!-- Medium Avatars -->
+    <div class="avatar" data-size="md" data-shape="rounded" data-variant="primary" aria-label="User Initials">IJ</div>
+    <div class="avatar" data-size="md" data-shape="square" data-variant="secondary" aria-label="User Initials">KL</div>
+    <div class="avatar" data-size="md" data-variant="success">
+      <img src="https://ui-avatars.com/api/?name=MN&background=10b981&color=ffffff" alt="User Avatar">
+    </div>
+    <div class="avatar" data-size="md" data-variant="danger">
+      <img src="https://ui-avatars.com/api/?name=OP&background=ef4444&color=ffffff" alt="User Avatar">
+    </div>
+    <div class="avatar avatar-bordered" data-size="md" data-variant="warning" data-effect="pulsing" aria-label="Pulsing user status">
+      <span class="avatar-status"></span>
+      QR
+    </div>
+  
+    <!-- Large Avatars -->
+    <div class="avatar" data-size="lg" data-shape="rounded" data-variant="primary" aria-label="User Initials">ST</div>
+    <div class="avatar" data-size="lg" data-shape="square" data-variant="secondary" aria-label="User Initials">UV</div>
+    <div class="avatar" data-size="lg" data-variant="success">
+      <img src="https://ui-avatars.com/api/?name=WX&background=10b981&color=ffffff" alt="User Avatar">
+    </div>
+    <div class="avatar" data-size="lg" data-variant="danger">
+      <img src="https://ui-avatars.com/api/?name=YZ&background=ef4444&color=ffffff" alt="User Avatar">
+    </div>
+    <div class="avatar avatar-bordered" data-size="lg" data-variant="info" data-effect="pulsing" aria-label="User with info status">
+      <span class="avatar-status"></span>
+      AB
+    </div>
+  
+    <!-- Extra Large Avatars -->
+    <div class="avatar" data-size="xl" data-variant="ghost" data-status="online" data-disabled="true" aria-label="Ghost avatar online status">
+      <span class="avatar-status"></span>
+      <img src="https://ui-avatars.com/api/?name=Online&background=cccccc&color=5a67d8" alt="User Avatar">
+    </div>
+    <div class="avatar avatar-bordered" data-size="xl" data-variant="primary" aria-label="Bordered primary avatar">
+      <img src="https://ui-avatars.com/api/?name=Border&background=4a5568&color=ffffff" alt="User Avatar">
+    </div>
+    <div class="avatar avatar-bordered" data-size="xl" data-variant="danger" data-status="busy" aria-label="Busy user avatar">
+      <span class="avatar-status"></span>
+      <img src="https://ui-avatars.com/api/?name=Busy&background=ef4444&color=ffffff" alt="User Avatar">
+    </div>
+    <div class="avatar avatar-bordered" data-size="xl" data-variant="warning" data-status="away" aria-label="Away status avatar">
+      <span class="avatar-status"></span>
+      <img src="https://ui-avatars.com/api/?name=Away&background=f59e0b&color=ffffff" alt="User Avatar">
+    </div>
+  
+    <!-- Avatar Group with Overlapping Avatars -->
+    <div class="avatar-group">
+      <div class="avatar" data-size="md" data-variant="info" aria-label="User A">A</div>
+      <div class="avatar" data-size="md" data-variant="secondary" aria-label="User B">B</div>
+      <div class="avatar" data-size="md" data-variant="danger" aria-label="User C">C</div>
+      <div class="avatar" data-size="md" data-variant="warning" aria-label="User D">D</div>
+    </div>
+  </section> 
+  
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Badge Component Showcase</h2>
+  
+    <!-- Primary Badges -->
+    <div class="badge" data-variant="primary" data-size="sm" aria-label="Primary Small">Primary</div>
+    <div class="badge" data-variant="primary" data-size="md" aria-label="Primary Medium">Primary</div>
+    <div class="badge" data-variant="primary" data-size="lg" aria-label="Primary Large">Primary</div>
+  
+    <!-- Success, Warning, and Danger Variants with Soft Style -->
+    <div class="badge" data-variant="soft" data-color="success" aria-label="Soft Success">Success</div>
+    <div class="badge" data-variant="soft" data-color="warning" aria-label="Soft Warning">Warning</div>
+    <div class="badge" data-variant="soft" data-color="danger" aria-label="Soft Danger">Danger</div>
+  
+    <!-- Outline Badges with Different Colors -->
+    <div class="badge" data-variant="outline" data-color="info" aria-label="Info Outline">Info</div>
+    <div class="badge" data-variant="outline" data-color="secondary" aria-label="Secondary Outline">Secondary</div>
+  
+    <!-- Shape Variants -->
+    <div class="badge" data-shape="rounded" data-variant="primary" aria-label="Rounded Badge">Rounded</div>
+    <div class="badge" data-shape="square" data-variant="secondary" aria-label="Square Badge">Square</div>
+    <div class="badge" data-shape="pill" data-variant="success" aria-label="Pill Badge">Pill</div>
+  
+    <!-- Badges with Icons -->
+    <div class="badge" data-variant="danger" data-icon="left" aria-label="Danger Icon Left">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+      Danger
+    </div>
+    <div class="badge" data-variant="info" data-icon="right" aria-label="Info Icon Right">
+      Info
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
     </div>
   </section>
   
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-secondary my-4">Badge Component Showcase</h2>
-    <!-- Badge Variants -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <span class="badge badge-primary">Primary</span>
-      <span class="badge badge-secondary">Secondary</span>
-      <span class="badge badge-success">Success</span>
-      <span class="badge badge-danger">Danger</span>
-      <span class="badge badge-warning">Warning</span>
-      <span class="badge badge-info">Info</span>
-    </div>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Breadcrumb Component Showcase</h2>
   
-    <!-- Outline and Soft Badges -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <span class="badge badge-outline badge-success">Outline</span>
-      <span class="badge badge-outline badge-secondary">Outline</span>
-      <span class="badge badge-soft badge-success">Soft</span>
-      <span class="badge badge-soft badge-danger">Soft</span>
-    </div>
+    <!-- Primary Breadcrumbs with Slash Separator -->
+    <nav class="breadcrumbs" data-color="primary" data-separator="slash" aria-label="Breadcrumb">
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></div>
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Products</a></div>
+      <div class="breadcrumb-item" data-active="true">Electronics</div>
+    </nav>
   
-    <!-- Badge Sizes and Shapes -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <span class="badge badge-sm">Small</span>
-      <span class="badge">Default</span>
-      <span class="badge badge-lg">Large</span>
-      <span class="badge badge-pill badge-success">Pill Badge</span>
-      <span class="badge badge-rounded badge-danger">Rounded</span>
-      <span class="badge badge-square badge-warning">Square</span>
-    </div>
+    <!-- Secondary Breadcrumbs with Arrow Separator -->
+    <nav class="breadcrumbs" data-color="secondary" data-separator="arrow" aria-label="Breadcrumb">
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></div>
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Services</a></div>
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Consulting</a></div>
+      <div class="breadcrumb-item" data-active="true">Strategy</div>
+    </nav>
   
-    <!-- Icon and Dot Badges -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <span class="badge badge-icon badge-primary">
-        <i class="fas fa-check"></i> Verified
-      </span>
-      <span class="badge badge-icon badge-icon-left badge-info">
-        <i class="fas fa-info-circle"></i> Info
-      </span>
-      <span class="badge badge-dot badge-danger"></span>
-    </div>
+    <!-- Success Breadcrumbs with Dot Separator -->
+    <nav class="breadcrumbs" data-color="success" data-separator="dot" aria-label="Breadcrumb">
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></div>
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Reports</a></div>
+      <div class="breadcrumb-item" data-active="true">Annual</div>
+    </nav>
   
-    <!-- Stacked Badge Group -->
-    <div class="badge-stacked relative">
-      <span class="badge badge-secondary">Inbox</span>
-      <span class="badge badge-dot badge-danger"></span>
-    </div>
+    <!-- Warning Breadcrumbs with Chevron Separator -->
+    <nav class="breadcrumbs" data-color="warning" data-separator="chevron" aria-label="Breadcrumb">
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Settings</a></div>
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Account</a></div>
+      <div class="breadcrumb-item" data-active="true">Preferences</div>
+    </nav>
+  
+    <!-- Danger Breadcrumbs with Custom Separator and Different Active Color -->
+    <nav class="breadcrumbs" data-color="danger" data-separator="arrow" aria-label="Breadcrumb">
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></div>
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Security</a></div>
+      <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Password</a></div>
+      <div class="breadcrumb-item" data-active="true">Change</div>
+    </nav>
   </section>  
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-info my-4">Avatar Component Showcase</h2>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Button Component Showcase</h2>
   
-    <!-- Avatar Sizes -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <div class="avatar avatar-sm avatar-primary">A</div>
-      <div class="avatar avatar-md avatar-secondary">B</div>
-      <div class="avatar avatar-lg avatar-success">C</div>
-      <div class="avatar avatar-xl avatar-danger">D</div>
+    <!-- Primary Button -->
+    <button class="btn" data-variant="primary">Primary</button>
+    
+    <!-- Secondary Button with Pulse Animation -->
+    <button class="btn" data-variant="secondary" data-animate="pulse">Secondary</button>
+    
+    <!-- Success Button with Fill Animation -->
+    <button class="btn" data-variant="success" data-animate="fill">Success</button>
+    
+    <!-- Danger Button with Bounce Animation -->
+    <button class="btn" data-variant="danger" data-animate="bounce">Danger</button>
+    
+    <!-- Outline Button -->
+    <button class="btn" data-variant="outline">Outline</button>
+    
+    <!-- Ghost Button -->
+    <button class="btn" data-variant="ghost" disabled>Ghost</button>
+    
+    <!-- Large Rounded Button -->
+    <button class="btn" data-variant="info" data-size="lg" data-shape="rounded">Large Rounded</button>
+    
+    <!-- Small Square Button -->
+    <button class="btn" data-variant="warning" data-size="sm" data-shape="square">Small Square</button>
+    
+    <!-- Icon-Only Button -->
+    <button class="btn btn-icon-only" data-variant="primary" aria-label="Settings">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em"><circle cx="12" cy="12" r="10"/></svg>
+    </button>
+    
+    <!-- Loading Button -->
+    <button class="btn" data-variant="primary" data-loading="true">Loading</button>
+    
+    <!-- Button Group -->
+    <div class="btn-group">
+      <button class="btn" data-variant="primary">Left</button>
+      <button class="btn" data-variant="primary">Middle</button>
+      <button class="btn" data-variant="primary">Right</button>
     </div>
-  
-    <!-- Avatar Shapes -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <div class="avatar avatar-md avatar-rounded avatar-info">E</div>
-      <div class="avatar avatar-md avatar-square avatar-warning">F</div>
-    </div>
-  
-    <!-- Avatar with Image and Initials -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <div class="avatar avatar-md">
-        <img src="https://via.placeholder.com/100" alt="Avatar Image">
-      </div>
-      <div class="avatar avatar-md avatar-initials">G</div>
-    </div>
-  
-    <!-- Avatar Variants with Status -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <div class="avatar avatar-md avatar-primary avatar-status-online">A</div>
-      <div class="avatar avatar-md avatar-secondary avatar-status-offline">B</div>
-      <div class="avatar avatar-md avatar-success avatar-status-busy">C</div>
-      <div class="avatar avatar-md avatar-danger avatar-status-away">D</div>
-    </div>
-  
-    <!-- Pulsing and Ghost Avatars -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <div class="avatar avatar-md avatar-pulsing avatar-info">P</div>
-      <div class="avatar avatar-md avatar-ghost">G</div>
-    </div>
-  
-    <!-- Disabled and Bordered Avatars -->
-    <div class="flex gap-2 flex-wrap my-4">
-      <div class="avatar avatar-md avatar-disabled">D</div>
-      <div class="avatar avatar-md avatar-bordered avatar-primary">B</div>
-      <div class="avatar avatar-md avatar-bordered avatar-secondary">S</div>
-    </div>
-  
-    <!-- Avatar Group -->
-    <div class="avatar-group my-4">
-      <div class="avatar avatar-md avatar-primary">A</div>
-      <div class="avatar avatar-md avatar-success">B</div>
-      <div class="avatar avatar-md avatar-info">C</div>
-      <div class="avatar avatar-md avatar-danger">D</div>
-      <div class="avatar avatar-md avatar-danger">+3</div>
-    </div>
-  </section>  
+  </section> 
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Enhanced Card Component Showcase</h2>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4 text-center">Card Component Showcase</h2>
   
-    <!-- Basic Card with Softer Color Variants -->
-    <div class="flex gap-4 flex-wrap my-6">
-      <div class="card card-warning">
+    <div class="grid grid-loose">
+      <!-- Primary Card with Fixed Label -->
+      <div class="card" data-variant="primary" data-label="fixed">
+        <span class="card-label">New</span>
         <div class="card-header">Primary Card</div>
-        <img src="https://via.placeholder.com/400x200" alt="Card Media" class="card-media">
-        <div class="card-body">This card has a primary color variant with a media section.</div>
+        <img src="https://via.placeholder.com/400x200" alt="Media" class="card-media">
+        <div class="card-body">This primary card has a fixed label and light background.</div>
         <div class="card-footer">
-          <div class="card-actions">
-            <button class="btn btn-outline btn-sm">Action 1</button>
-            <button class="btn btn-outline btn-sm">Action 2</button>
-          </div>
+          <button class="btn" data-variant="primary">Action</button>
         </div>
       </div>
   
-      <div class="card card-outline card-primary">
-        <div class="card-header">Outline Secondary</div>
-        <img src="https://via.placeholder.com/400x200" alt="Card Media" class="card-media">
-        <div class="card-body">An outlined card with secondary color.</div>
-        <div class="card-footer">
-          <button class="btn btn-primary btn-sm">Primary Action</button>
-        </div>
+      <!-- Success Card with Gradient Background -->
+      <div class="card" data-variant="success" data-label="fixed">
+        <span class="card-label">Featured</span>
+        <div class="card-header">Success Card</div>
+        <img src="https://via.placeholder.com/400x200" alt="Media" class="card-media">
+        <div class="card-body">This is a success variant card with a fixed label and success background.</div>
       </div>
   
-      <div class="card card-gradient-success">
-        <div class="card-header">Gradient Success Card</div>
-        <div class="card-body">This card has a success gradient background.</div>
-        <div class="card-footer">
-          <span class="text-sm">Footer Content</span>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Horizontal Layout Cards -->
-    <div class="flex gap-4 flex-wrap my-6">
-      <div class="card card-horizontal">
-        <img src="https://via.placeholder.com/150" alt="Media" class="card-media">
-        <div class="card-body">This is a horizontal layout card with image on the left.</div>
+      <!-- Danger Card with Outline -->
+      <div class="card" data-variant="danger" data-label="fixed">
+        <span class="card-label">Urgent</span>
+        <div class="card-header">Danger Card</div>
+        <div class="card-body">This card uses a danger color scheme, highlighting urgent content.</div>
       </div>
   
-      <div class="card card-horizontal-reverse card-info">
-        <img src="https://via.placeholder.com/150" alt="Media" class="card-media">
-        <div class="card-body">Reversed horizontal card with image on the right.</div>
+      <!-- Warning Card with Horizontal Layout -->
+      <div class="card" data-variant="warning" data-layout="horizontal">
+        <img src="https://via.placeholder.com/150x150" alt="Media" class="card-media">
+        <div class="card-body">A warning card with a horizontal layout, great for side-by-side content.</div>
       </div>
-    </div>
   
-    <!-- Scrollable Horizontal Cards -->
-    <div class="card-scrollable my-6">
-      <div class="card card-primary">
-        <div class="card-header">Scrollable Card 1</div>
-        <div class="card-body">Content for card 1.</div>
+      <!-- Info Card with Outline Style -->
+      <div class="card" data-variant="outline">
+        <div class="card-header">Info Card (Outline)</div>
+        <div class="card-body">This info card has an outline style to provide a lighter visual impact.</div>
       </div>
-      <div class="card card-warning">
-        <div class="card-header">Scrollable Card 2</div>
-        <div class="card-body">Content for card 2.</div>
-      </div>
-      <div class="card card-success">
-        <div class="card-header">Scrollable Card 3</div>
-        <div class="card-body">Content for card 3.</div>
-      </div>
-      <div class="card card-danger">
-        <div class="card-header">Scrollable Card 4</div>
-        <div class="card-body">Content for card 4.</div>
+  
+      <!-- Scrollable Card Section -->
+      <div class="card-scrollable flex gap-4">
+        <div class="card" data-variant="info">Scrollable Card 1</div>
+        <div class="card" data-variant="success">Scrollable Card 2</div>
+        <div class="card" data-variant="danger">Scrollable Card 3</div>
+        <div class="card" data-variant="primary">Scrollable Card 4</div>
       </div>
     </div>
   </section>  
-  
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Enhanced Alert Component Showcase</h2>
-    <section>
-      <h2>Basic Alerts</h2>
-      <div class="alert alert-success">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Success</span>
-          <p class="alert-body">Your changes have been saved successfully!</p>
-        </div>
-      </div>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+      <h2 class="font-lg text-primary my-4">DateTime Picker Component Showcase</h2>
+
+      <!-- Containers for each DateTimePicker instance with specific data attributes -->
+      <div id="picker-primary" class="datetime-picker-container" data-variant="primary" data-format="YYYY-MM-DD HH:mm" data-time="true"></div>
+
+      <div id="picker-secondary" class="datetime-picker-container my-4" data-variant="secondary" data-format="YYYY-MM-DD" data-time="false"></div>
+
+      <div id="picker-success" class="datetime-picker-container" data-variant="success" data-format="YYYY-MM-DD HH:mm" data-time="true"></div>
+
+      <div id="picker-warning" class="datetime-picker-container my-4" data-variant="warning" data-format="YYYY-MM-DD HH:mm" data-time="true"></div>
+
+      <div id="picker-danger" class="datetime-picker-container" data-variant="danger" data-format="YYYY-MM-DD" data-time="false"></div>
+
+      <div id="picker-info" class="datetime-picker-container my-4" data-variant="info" data-format="YYYY-MM-DD HH:mm" data-time="true"></div>
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Dropdown Component Showcase</h2>
     
-      <div class="alert alert-warning">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Warning</span>
-          <p class="alert-body">This action may have unintended consequences.</p>
+    <!-- Primary Dropdown -->
+    <div class="dropdown" data-variant="primary">
+        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Primary Dropdown
+        </button>
+        <div class="dropdown-menu" role="menu">
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option 1</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option 2</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option 3</div>
         </div>
-      </div>
+    </div>
+
+    <!-- Warning Dropdown -->
+    <div class="dropdown" data-variant="warning">
+        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Warning Dropdown
+        </button>
+        <div class="dropdown-menu" role="menu">
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option A</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option B</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option C</div>
+        </div>
+    </div>
+
+    <!-- Info Dropdown -->
+    <div class="dropdown" data-variant="info">
+        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Info Dropdown
+        </button>
+        <div class="dropdown-menu" role="menu">
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option X</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option Y</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Option Z</div>
+        </div>
+    </div>
+
+    <!-- Success Dropdown -->
+    <div class="dropdown" data-variant="success">
+        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Success Dropdown
+        </button>
+        <div class="dropdown-menu" role="menu">
+            <div class="dropdown-item" tabindex="0" role="menuitem">Success 1</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Success 2</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Success 3</div>
+        </div>
+    </div>
+
+    <!-- Danger Dropdown -->
+    <div class="dropdown" data-variant="danger">
+        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Danger Dropdown
+        </button>
+        <div class="dropdown-menu" role="menu">
+            <div class="dropdown-item" tabindex="0" role="menuitem">Alert 1</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Alert 2</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Alert 3</div>
+        </div>
+    </div>
+
+    <!-- Accent Dropdown -->
+    <div class="dropdown" data-variant="accent">
+        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Accent Dropdown
+        </button>
+        <div class="dropdown-menu" role="menu">
+            <div class="dropdown-item" tabindex="0" role="menuitem">Special 1</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Special 2</div>
+            <div class="dropdown-item" tabindex="0" role="menuitem">Special 3</div>
+        </div>
+    </div>
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Form Showcase</h2>
+
+    <!-- Primary Variant Form Group -->
+    <div class="form-group" data-variant="primary">
+        <label class="label label-required">Name</label>
+        <input type="text" class="input" placeholder="Enter your name" aria-label="Name" />
+        <span class="helper-text">This is your full name.</span>
+    </div>
+
+    <!-- Secondary Variant Form Group with Textarea -->
+    <div class="form-group" data-variant="secondary">
+        <label class="label">Comments</label>
+        <textarea class="textarea" placeholder="Enter your comments here" aria-label="Comments"></textarea>
+        <span class="helper-text">Additional comments or feedback.</span>
+    </div>
+
+    <!-- Success Variant Form Group with Select -->
+    <div class="form-group" data-variant="success">
+        <label class="label">Country</label>
+        <select class="select" aria-label="Country">
+            <option value="">Select a country</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+        </select>
+    </div>
+
+    <!-- Warning Variant Form Group with Checkbox Group -->
+    <div class="form-group" data-variant="warning">
+        <label class="label">Newsletter</label>
+        <div class="checkbox-group">
+            <label class="checkbox">
+                <input type="checkbox" aria-label="Weekly Updates" />
+                <span class="checkbox-icon"></span> Weekly Updates
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" aria-label="Monthly Digest" />
+                <span class="checkbox-icon"></span> Monthly Digest
+            </label>
+        </div>
+        <span class="helper-text">Choose your subscription frequency.</span>
+    </div>
+
+    <!-- Danger Variant Form Group with Radio Group -->
+    <div class="form-group" data-variant="danger">
+        <label class="label">Membership Level</label>
+        <div class="radio-group">
+            <label class="radio">
+                <input type="radio" name="membership" aria-label="Standard" />
+                <span class="radio-icon"></span> Standard
+            </label>
+            <label class="radio">
+                <input type="radio" name="membership" aria-label="Premium" />
+                <span class="radio-icon"></span> Premium
+            </label>
+        </div>
+    </div>
+
+    <!-- Info Variant Form Group with Read-Only Input -->
+    <div class="form-group" data-variant="info">
+        <label class="label">Read-Only Information</label>
+        <input type="text" class="input" value="Read-only value" readonly aria-label="Read-Only Information" />
+    </div>
+
+    <!-- Accent Variant Form Group with Disabled Input -->
+    <div class="form-group" data-variant="accent">
+        <label class="label">Disabled Field</label>
+        <input type="text" class="input" placeholder="This field is disabled" disabled aria-label="Disabled Field" />
+    </div>
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Hero Showcase</h2>
+    <!-- Basic Primary Hero with Overlay -->
+    <div class="hero" data-variant="primary" data-overlay="dark" data-size="md" data-spacing="md" data-radius="lg" data-shadow="lg" data-hover="lift">
+        <div class="hero-content">
+            <h2>Primary Hero</h2>
+            <p>This hero uses a primary gradient with a dark overlay and lift on hover.</p>
+        </div>
+    </div>
+
+    <!-- Secondary Hero with Light Gradient Overlay and Narrow Content Width -->
+    <div class="hero" data-variant="secondary" data-overlay="gradient-light" data-size="lg" data-spacing="lg" data-radius="md" data-shadow="md" data-alignment="centered">
+        <div class="hero-content" data-content-width="narrow">
+            <h2>Secondary Hero</h2>
+            <p>A centered hero with a light gradient overlay and narrower content for focus.</p>
+        </div>
+    </div>
+
+    <!-- Success Hero with Fade Animation -->
+    <div class="hero" data-variant="success" data-overlay="gradient-dark" data-size="sm" data-spacing="sm" data-radius="xl" data-shadow="sm" data-animation="fade">
+        <div class="hero-content">
+            <h2>Success Hero</h2>
+            <p>This small hero fades in, with a success theme and gradient overlay.</p>
+        </div>
+    </div>
+
+    <!-- Danger Hero with Scale Hover Effect -->
+    <div class="hero" data-variant="danger" data-overlay="dark" data-size="lg" data-spacing="md" data-radius="xl" data-shadow="xl" data-hover="scale">
+        <div class="hero-content" data-content-width="wide">
+            <h2>Danger Hero</h2>
+            <p>This large hero scales up slightly on hover, using a dark overlay.</p>
+        </div>
+    </div>
+
+    <!-- Info Hero with Solid Background and Right Alignment -->
+    <div class="hero" data-variant="info-solid" data-alignment="right" data-size="md" data-radius="md" data-shadow="md" data-hover="brightness">
+        <div class="hero-content" data-content-width="full">
+            <h2>Info Hero</h2>
+            <p>An info-themed hero with solid color and brightness hover effect, aligned to the right.</p>
+        </div>
+    </div>
+
+    <!-- Accent Hero with Image Background and Full Width -->
+    <div class="hero" style="--bg-image: url('https://via.placeholder.com/1600x800');" data-variant="accent" data-overlay="gradient-dark" data-size="full" data-shadow="xl" data-radius="none">
+        <div class="hero-content">
+            <h2>Accent Hero</h2>
+            <p>This hero has a background image with a gradient overlay and full-screen size.</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Hologram Component Demo</h2>
+    <p>Click the buttons below to view different hologram styles and intensities.</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
+        <button class="btn" data-variant="primary" onclick="showHologram('Primary Alert', 'This is a primary hologram', 'primary', 'low')">
+            Primary - Low Intensity
+        </button>
+        <button class="btn" data-variant="success" onclick="showHologram('Success!', 'Action completed successfully', 'success', 'medium')">
+            Success - Medium Intensity
+        </button>
+        <button class="btn" data-variant="warning" onclick="showHologram('Warning!', 'Check your settings', 'warning', 'high')">
+            Warning - High Intensity
+        </button>
+        <button class="btn" data-variant="danger" onclick="showHologram('Danger!', 'Something went wrong', 'danger', 'medium')">
+            Danger - Medium Intensity
+        </button>
+        <button class="btn" data-variant="info" onclick="showHologram('Information', 'This is an informational message', 'info', 'low')">
+            Info - Low Intensity
+        </button>
+    </div>
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Modal Component Demo</h2>
+    <p>Click the buttons below to see modals with different styles and configurations.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
+        <button class="btn" data-variant="primary" data-toggle="modal" data-target="modal-primary">Open Primary Modal</button>
+        <button class="btn" data-variant="success" data-toggle="modal" data-target="modal-success">Open Success Modal</button>
+        <button class="btn" data-variant="danger" data-toggle="modal" data-target="modal-danger">Open Danger Modal</button>
+        <button class="btn" data-variant="primary" data-toggle="modal" data-target="modal-fullscreen">Open Fullscreen Modal</button>
+    </div>
+  </section>
+
+<!-- Modals -->
+<div class="modal-overlay" id="modal-primary-overlay" data-variant="primary">
+    <div class="modal" id="modal-primary">
+        <div class="modal-header">
+            <h3 class="modal-title">Primary Modal</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>This is a primary-styled modal with interactive content and a close button.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="close-modal btn">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-success-overlay" data-variant="success">
+    <div class="modal" id="modal-success">
+        <div class="modal-header">
+            <h3 class="modal-title">Success Modal</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Operation completed successfully!</p>
+        </div>
+        <div class="modal-footer">
+            <button class="close-modal btn">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-danger-overlay" data-variant="danger">
+    <div class="modal" id="modal-danger">
+        <div class="modal-header">
+            <h3 class="modal-title">Danger Modal</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Warning! This action may be irreversible.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="close-modal btn">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-fullscreen-overlay" data-size="fullscreen">
+    <div class="modal" id="modal-fullscreen">
+        <div class="modal-header">
+            <h3 class="modal-title">Fullscreen Modal</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>This is a fullscreen modal that spans the entire viewport.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="close-modal btn">Close</button>
+        </div>
+    </div>
+</div>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">MultiSelect Component Demo</h2>
     
-      <div class="alert alert-danger">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Error</span>
-          <p class="alert-body">There was an issue processing your request.</p>
+    <!-- Default MultiSelect -->
+    <div class="multiselect" id="default-multiselect">
+        <div class="multiselect-dropdown" tabindex="0">
+            <input type="text" class="multiselect-search" placeholder="Select options">
+            <button class="clear-selection" aria-label="Clear selection">&times;</button>
         </div>
-      </div>
-    
-      <div class="alert alert-info">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Information</span>
-          <p class="alert-body">New features are available in this version.</p>
+        <div class="multiselect-chips"></div>
+        <div class="multiselect-options">
+            <div class="multiselect-option" data-value="Option 1">Option 1</div>
+            <div class="multiselect-option" data-value="Option 2">Option 2</div>
+            <div class="multiselect-option" data-value="Option 3">Option 3</div>
+            <div class="multiselect-option" data-value="Option 4">Option 4</div>
+            <div class="multiselect-option" data-value="Option 5">Option 5</div>
         </div>
-      </div>
-    </section>
-    
-    <section>
-      <h2>Dismissible Alerts</h2>
-      <div class="alert alert-dismissible alert-success">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Success</span>
-          <p class="alert-body">Your file has been uploaded.</p>
+    </div>
+
+    <!-- Success Variant MultiSelect -->
+    <div class="multiselect" id="success-multiselect" data-variant="success">
+        <div class="multiselect-dropdown" tabindex="0">
+            <input type="text" class="multiselect-search" placeholder="Select options" aria-label="Select options">
+            <button class="clear-selection" aria-label="Clear selection">&times;</button>
         </div>
-        <button class="alert-close" aria-label="Close">&times;</button>
-      </div>
-    
-      <div class="alert alert-dismissible alert-warning">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Warning</span>
-          <p class="alert-body">Password will expire soon. Please update it.</p>
+        <div class="multiselect-chips"></div>
+        <div class="multiselect-options">
+            <div class="multiselect-option" data-value="Success 1">Success 1</div>
+            <div class="multiselect-option" data-value="Success 2">Success 2</div>
+            <div class="multiselect-option" data-value="Success 3">Success 3</div>
         </div>
-        <button class="alert-close" aria-label="Close">&times;</button>
-      </div>
-    </section>
-    
-    <section>
-      <h2>Outline Alerts</h2>
-      <div class="alert alert-outline alert-success">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Success Outline</span>
-          <p class="alert-body">Action completed successfully.</p>
+    </div>
+
+    <!-- Danger Variant MultiSelect -->
+    <div class="multiselect" id="danger-multiselect" data-variant="danger">
+        <div class="multiselect-dropdown" tabindex="0">
+            <input type="text" class="multiselect-search" placeholder="Select options" aria-label="Select options">
+            <button class="clear-selection" aria-label="Clear selection">&times;</button>
         </div>
-      </div>
-    
-      <div class="alert alert-outline alert-danger">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Error Outline</span>
-          <p class="alert-body">There was an error processing your request.</p>
+        <div class="multiselect-chips"></div>
+        <div class="multiselect-options">
+            <div class="multiselect-option" data-value="Danger 1">Danger 1</div>
+            <div class="multiselect-option" data-value="Danger 2">Danger 2</div>
+            <div class="multiselect-option" data-value="Danger 3">Danger 3</div>
         </div>
-      </div>
-    </section>
-    
-    <section>
-      <h2>Compact Alerts</h2>
-      <div class="alert alert-compact alert-info">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Info Compact</span>
+    </div>
+
+    <!-- Info Variant MultiSelect -->
+    <div class="multiselect" id="info-multiselect" data-variant="info">
+        <div class="multiselect-dropdown" tabindex="0">
+            <input type="text" class="multiselect-search" placeholder="Select options" aria-label="Select options">
+            <button class="clear-selection" aria-label="Clear selection">&times;</button>
         </div>
-      </div>
-    
-      <div class="alert alert-compact alert-warning">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Warning Compact</span>
+        <div class="multiselect-chips"></div>
+        <div class="multiselect-options">
+            <div class="multiselect-option" data-value="Info 1">Info 1</div>
+            <div class="multiselect-option" data-value="Info 2">Info 2</div>
+            <div class="multiselect-option" data-value="Info 3">Info 3</div>
         </div>
-      </div>
-    </section>
-    
-    <section>
-      <h2>Ghost Alerts</h2>
-      <div class="alert alert-ghost alert-success">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Success Ghost</span>
-          <p class="alert-body">The operation was completed successfully.</p>
-        </div>
-      </div>
-    
-      <div class="alert alert-ghost alert-info">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Info Ghost</span>
-          <p class="alert-body">Here’s some additional information.</p>
-        </div>
-      </div>
-    </section>
-    
-    <section>
-      <h2>Large Alerts</h2>
-      <div class="alert alert-lg alert-success">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Success</span>
-          <p class="alert-body">Your profile was updated successfully.</p>
-          <p class="alert-footer">Updated just now</p>
-        </div>
-      </div>
-    
-      <div class="alert alert-lg alert-danger">
-        <span class="alert-icon"></span>
-        <div class="alert-content">
-          <span class="alert-title">Error</span>
-          <p class="alert-body">An unexpected error occurred. Please try again later.</p>
-          <p class="alert-footer">Last attempt 5 minutes ago</p>
-        </div>
-      </div>
-    </section>    
+    </div>
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Toggle Component Demo</h2>
+  
+    <!-- Primary Toggle -->
+    <label class="toggle" data-variant="primary">
+      <input type="checkbox" />
+      <span class="toggle-label">Primary Toggle</span>
+    </label>
+  
+    <!-- Success Toggle -->
+    <label class="toggle" data-variant="success">
+      <input type="checkbox" />
+      <span class="toggle-label">Success Toggle</span>
+    </label>
+  
+    <!-- Danger Toggle -->
+    <label class="toggle" data-variant="danger">
+      <input type="checkbox" />
+      <span class="toggle-label">Danger Toggle</span>
+    </label>
+  
+    <!-- Warning Toggle -->
+    <label class="toggle" data-variant="warning">
+      <input type="checkbox" />
+      <span class="toggle-label">Warning Toggle</span>
+    </label>
+  
+    <!-- Info Toggle -->
+    <label class="toggle" data-variant="info">
+      <input type="checkbox" />
+      <span class="toggle-label">Info Toggle</span>
+    </label>
+  
+    <!-- Disabled Toggle -->
+    <label class="toggle" data-variant="primary">
+      <input type="checkbox" disabled />
+      <span class="toggle-label">Disabled Toggle</span>
+    </label>
+  
+    <!-- Readonly Toggle -->
+    <label class="toggle" data-variant="secondary" data-state="readonly">
+      <input type="checkbox" />
+      <span class="toggle-label">Readonly Toggle</span>
+    </label>
   </section>  
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Enhanced Checkbox Component Showcase</h2>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Progress Component Demo</h2>
+
+    <!-- Basic Progress Bar with Primary Variant and Inside Label -->
+    <div class="progress" data-variant="primary" data-size="medium" data-label="inside" data-progress="70">
+        <div class="progress-bar" style="width: 70%;"></div>
+    </div>
+
+    <!-- Success Progress Bar with Outside Label -->
+    <div class="progress" data-variant="success" data-size="large" data-label="outside" data-progress="85">
+        <div class="progress-bar" style="width: 85%;"></div>
+    </div>
+
+    <!-- Danger Progress Bar with Striped Style -->
+    <div class="progress" data-variant="danger" data-size="medium" data-striped="true" data-progress="40">
+        <div class="progress-bar" style="width: 40%;"></div>
+    </div>
+
+    <!-- Animated Info Progress Bar with Inside Label -->
+    <div class="progress" data-variant="info" data-size="large" data-animated="true" data-label="inside" data-progress="60">
+        <div class="progress-bar" style="width: 60%;"></div>
+    </div>
+
+    <!-- Warning Progress Bar with Border and Completion Animation -->
+    <div class="progress" data-variant="warning" data-size="thin" data-bordered="true" data-completed="true" data-progress="100">
+        <div class="progress-bar" style="width: 100%;"></div>
+    </div>
+
+    <!-- Multi-Step Progress with Steps -->
+    <div class="progress-steps">
+        <div class="progress-step" data-step="completed">1</div>
+        <div class="progress-step" data-step="completed">2</div>
+        <div class="progress-step" data-step="current">3</div>
+        <div class="progress-step">4</div>
+    </div>
+  </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Separator Component Demo</h2>
   
-    <!-- Basic Checkbox -->
-    <div class="checkbox checkbox-primary checkbox-md my-4">
-      <input type="checkbox" id="checkbox1">
-      <span class="checkbox-icon"></span>
-      <label for="checkbox1" class="checkbox-label">Primary Checkbox</label>
+    <!-- Basic Solid Separator with Primary Color -->
+    <hr class="separator" data-style="solid" data-variant="primary" data-thickness="md">
+  
+    <!-- Dashed Separator with Secondary Color -->
+    <hr class="separator" data-style="dashed" data-variant="secondary" data-thickness="lg">
+  
+    <!-- Dotted Separator with Success Color -->
+    <hr class="separator" data-style="dotted" data-variant="success" data-thickness="thin">
+  
+    <!-- Text Separator with Center Alignment -->
+    <div class="separator separator-text" data-variant="primary">
+      <span>Centered Text</span>
     </div>
   
-    <!-- Checkbox Variants -->
-    <div class="checkbox checkbox-secondary checkbox-md my-4">
-      <input type="checkbox" id="checkbox2">
-      <span class="checkbox-icon"></span>
-      <label for="checkbox2" class="checkbox-label">Secondary Checkbox</label>
+    <!-- Text Separator with Left Alignment -->
+    <div class="separator separator-text" data-variant="warning" data-align="left">
+      <span>Left Aligned Text</span>
     </div>
   
-    <div class="checkbox checkbox-success checkbox-md my-4">
-      <input type="checkbox" id="checkbox3">
-      <span class="checkbox-icon"></span>
-      <label for="checkbox3" class="checkbox-label">Success Checkbox</label>
+    <!-- Text Separator with Right Alignment -->
+    <div class="separator separator-text" data-variant="danger" data-align="right">
+      <span>Right Aligned Text</span>
     </div>
   
-    <div class="checkbox checkbox-danger checkbox-md my-4">
-      <input type="checkbox" id="checkbox4">
-      <span class="checkbox-icon"></span>
-      <label for="checkbox4" class="checkbox-label">Danger Checkbox</label>
-    </div>
-  
-    <!-- Indeterminate State -->
-    <div class="checkbox checkbox-warning checkbox-indeterminate checkbox-md my-4">
-      <input type="checkbox" id="checkbox5" indeterminate>
-      <span class="checkbox-icon"></span>
-      <label for="checkbox5" class="checkbox-label">Indeterminate Checkbox</label>
-    </div>
-  
-    <!-- Disabled Checkbox -->
-    <div class="checkbox checkbox-info checkbox-md my-4">
-      <input type="checkbox" id="checkbox6" disabled>
-      <span class="checkbox-icon"></span>
-      <label for="checkbox6" class="checkbox-label">Disabled Checkbox</label>
-    </div>
-  
-    <!-- Checkbox Sizes -->
-    <div class="checkbox checkbox-primary checkbox-sm my-4">
-      <input type="checkbox" id="checkbox7">
-      <span class="checkbox-icon"></span>
-      <label for="checkbox7" class="checkbox-label">Small Checkbox</label>
-    </div>
-  
-    <div class="checkbox checkbox-primary checkbox-lg my-4">
-      <input type="checkbox" id="checkbox8">
-      <span class="checkbox-icon"></span>
-      <label for="checkbox8" class="checkbox-label">Large Checkbox</label>
-    </div>
   </section>  
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Enhanced Progress Component Showcase</h2>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Skeleton Component Demo</h2>
   
-    <!-- Basic Progress Bar -->
-    <div class="progress progress-primary progress-md my-4">
-      <div class="progress-bar" style="width: 75%;">75%</div>
+    <!-- Rectangular Skeleton with Primary Variant -->
+    <div class="skeleton" data-shape="rect" data-size="lg"></div>
+  
+    <!-- Circle Skeleton Avatar -->
+    <div class="skeleton" data-shape="circle" data-size="md"></div>
+  
+    <!-- Multi-Line Text Skeleton -->
+    <div class="skeleton-multiline">
+        <div class="skeleton skeleton-text" data-size="md"></div>
+        <div class="skeleton skeleton-text" data-size="md"></div>
+        <div class="skeleton skeleton-text" data-size="sm"></div>
     </div>
   
-    <!-- Progress Bar with Label Outside -->
-    <div class="progress progress-success progress-md my-4">
-      <div class="progress-bar" style="width: 50%;"></div>
-      <span class="progress-label">50%</span>
-    </div>
+    <!-- Skeleton for Avatar with Button -->
+    <div class="skeleton" data-shape="avatar"></div>
+    <div class="skeleton" data-shape="button"></div>
   
-    <!-- Striped and Animated Progress Bar -->
-    <div class="progress progress-warning progress-striped progress-animated progress-lg my-4">
-      <div class="progress-bar" style="width: 60%;">60%</div>
-    </div>
+    <!-- Skeleton Thumbnail for Content Loading -->
+    <div class="skeleton" data-shape="thumbnail"></div>
   
-    <!-- Bordered Progress Bar -->
-    <div class="progress progress-danger progress-bordered progress-md my-4">
-      <div class="progress-bar" style="width: 80%;">80%</div>
-    </div>
-  
-    <!-- Thin Progress Bar -->
-    <div class="progress progress-info progress-thin my-4">
-      <div class="progress-bar" style="width: 40%;"></div>
-      <span class="progress-label">40%</span>
-    </div>
-  
-    <!-- Multi-Step Progress Bar -->
-    <div class="progress-steps my-4">
-      <div class="progress-step completed"><span class="progress-step-label">1</span></div>
-      <div class="progress-step completed"><span class="progress-step-label">2</span></div>
-      <div class="progress-step current"><span class="progress-step-label">3</span></div>
-      <div class="progress-step"><span class="progress-step-label">4</span></div>
-      <div class="progress-step"><span class="progress-step-label">5</span></div>
-    </div>
   </section>  
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Enhanced Table Component Showcase</h2>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Table Component Demo</h2>
   
-    <!-- Basic Table -->
-    <div class="table-container my-4">
-      <table class="table table-bordered table-curved">
+    <!-- Basic Table with Primary Variant and Curved Borders -->
+    <div class="table-container" data-variant="primary" data-style="curved">
+      <table class="table">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
+            <th>Role</th>
+            <th>Department</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Jane Doe</td>
-            <td>28</td>
-            <td>New York</td>
+            <td>Manager</td>
+            <td>Marketing</td>
             <td>Active</td>
           </tr>
           <tr>
             <td>John Smith</td>
-            <td>34</td>
-            <td>Los Angeles</td>
-            <td>Inactive</td>
-          </tr>
-          <tr>
-            <td>Alice Johnson</td>
-            <td>23</td>
-            <td>Chicago</td>
-            <td>Active</td>
-          </tr>
-          <tr>
-            <td>Bob Brown</td>
-            <td>45</td>
-            <td>San Francisco</td>
-            <td>Inactive</td>
+            <td>Developer</td>
+            <td>Engineering</td>
+            <td>On Leave</td>
           </tr>
         </tbody>
       </table>
     </div>
   
-    <!-- Striped Table with Hover Effect -->
-    <div class="table-container my-4">
-      <table class="table table-striped table-primary table-compact">
+    <!-- Striped and Bordered Warning Table with Compact Spacing -->
+    <div class="table-container" data-variant="warning" data-style="striped bordered" data-size="compact">
+      <table class="table">
         <thead>
           <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Laptop</td>
-            <td>$999</td>
-            <td>20</td>
-            <td>Electronics</td>
-          </tr>
-          <tr>
-            <td>Chair</td>
-            <td>$149</td>
-            <td>50</td>
-            <td>Furniture</td>
-          </tr>
-          <tr>
-            <td>Book</td>
-            <td>$19</td>
-            <td>200</td>
-            <td>Stationery</td>
-          </tr>
-          <tr>
-            <td>Phone</td>
-            <td>$699</td>
-            <td>35</td>
-            <td>Electronics</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Centered Alignment Table with Sticky Header -->
-    <div class="table-container my-4">
-      <table class="table table-info table-align-center table-sticky">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Task</th>
+            <th>Project</th>
+            <th>Owner</th>
+            <th>Deadline</th>
             <th>Priority</th>
-            <th>Due Date</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Design Mockup</td>
+            <td>Website Redesign</td>
+            <td>Jane Doe</td>
+            <td>July 20, 2023</td>
             <td>High</td>
-            <td>2024-11-15</td>
           </tr>
           <tr>
-            <td>2</td>
-            <td>Code Review</td>
+            <td>Product Launch</td>
+            <td>John Smith</td>
+            <td>August 10, 2023</td>
             <td>Medium</td>
-            <td>2024-11-18</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Documentation</td>
-            <td>Low</td>
-            <td>2024-11-20</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Testing</td>
-            <td>High</td>
-            <td>2024-11-22</td>
           </tr>
         </tbody>
       </table>
     </div>
-  </section>
   
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Enhanced Skeleton Component Showcase</h2>
-  
-    <!-- Rectangle Skeleton -->
-    <div class="skeleton skeleton-rect my-4"></div>
-  
-    <!-- Circle Skeleton for Avatars -->
-    <div class="skeleton skeleton-circle my-4"></div>
-  
-    <!-- Text Skeletons -->
-    <div class="skeleton skeleton-text skeleton-md my-2" style="width: 60%;"></div>
-    <div class="skeleton skeleton-text skeleton-md my-2" style="width: 90%;"></div>
-    <div class="skeleton skeleton-text skeleton-md my-4" style="width: 75%;"></div>
-  
-    <!-- Multi-Line Text Skeleton -->
-    <div class="skeleton skeleton-multiline my-4">
-      <div class="skeleton skeleton-text"></div>
-      <div class="skeleton skeleton-text"></div>
-      <div class="skeleton skeleton-text"></div>
-    </div>
-  
-    <!-- Skeleton Avatar + Text for Profile Loading -->
-    <div class="flex items-center gap-4 my-4">
-      <div class="skeleton skeleton-avatar"></div>
-      <div class="skeleton skeleton-multiline">
-        <div class="skeleton skeleton-text" style="width: 80%;"></div>
-        <div class="skeleton skeleton-text" style="width: 60%;"></div>
-      </div>
-    </div>
-  
-    <!-- Button Skeleton -->
-    <div class="skeleton skeleton-button my-4"></div>
-  
-    <!-- Thumbnail Skeleton -->
-    <div class="skeleton skeleton-thumbnail my-4"></div>
-  </section>  
-  
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Enhanced Separator Component Showcase</h2>
-  
-    <!-- Solid Separator -->
-    <div class="separator separator-solid separator-primary my-4"></div>
-  
-    <!-- Dashed Separator with Text Centered -->
-    <div class="separator separator-text separator-secondary my-4">Centered Text</div>
-  
-    <!-- Dotted Separator with Left-Aligned Text -->
-    <div class="separator separator-text separator-text-left separator-success my-4">Left Aligned Text</div>
-  
-    <!-- Thick Solid Separator with Right-Aligned Text -->
-    <div class="separator separator-text separator-lg separator-text-right separator-warning my-4">Right Aligned Text</div>
-  </section>  
-
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Toast Component Showcase</h2>
-  
-    <!-- Toast Variant Buttons -->
-    <div class="my-4">
-      <button onclick="showToast('Primary toast notification!', 'primary', 'top-right', true, 5)" class="btn btn-primary">Show Primary Toast</button>
-      <button onclick="showToast('Secondary toast notification!', 'secondary', 'top-left', true, 5)" class="btn btn-secondary">Show Secondary Toast</button>
-      <button onclick="showToast('Success toast notification!', 'success', 'top-center', true, 5)" class="btn btn-success">Show Success Toast</button>
-      <button onclick="showToast('Warning toast notification!', 'warning', 'bottom-right', true, 5)" class="btn btn-warning">Show Warning Toast</button>
-      <button onclick="showToast('Danger toast notification!', 'danger', 'bottom-left', true, 5)" class="btn btn-danger">Show Danger Toast</button>
-      <button onclick="showToast('Info toast notification!', 'info', 'bottom-center', true, 5)" class="btn btn-info">Show Info Toast</button>
-    </div>
-  
-    <!-- Toast Position Buttons -->
-    <div class="my-4">
-      <button onclick="showToast('Top Right Position', 'primary', 'top-right', true, 5)" class="btn btn-outline">Top Right Toast</button>
-      <button onclick="showToast('Top Left Position', 'secondary', 'top-left', true, 5)" class="btn btn-outline btn-secondary">Top Left Toast</button>
-      <button onclick="showToast('Bottom Right Position', 'success', 'bottom-right', true, 5)" class="btn btn-outline btn-success">Bottom Right Toast</button>
-      <button onclick="showToast('Bottom Left Position', 'warning', 'bottom-left', true, 5)" class="btn btn-outline btn-warning">Bottom Left Toast</button>
-      <button onclick="showToast('Center Position', 'info', 'top-center', true, 5)" class="btn btn-outline btn-info">Center Toast</button>
-    </div>
-  
-    <!-- Toast with Stacking and Auto Dismiss -->
-    <div class="my-4">
-      <button onclick="showToast('Stacked toast 1', 'primary', 'top-right', true, 3)" class="btn btn-primary">Stacked Toast 1</button>
-      <button onclick="showToast('Stacked toast 2', 'secondary', 'top-right', true, 3)" class="btn btn-secondary">Stacked Toast 2</button>
-      <button onclick="showToast('Stacked toast 3', 'success', 'top-right', true, 3)" class="btn btn-success">Stacked Toast 3</button>
-    </div>
-  
-    <!-- Toast History Button -->
-    <div class="my-4">
-      <button onclick="showToastHistory()" class="btn btn-info">Show Toast History</button>
+    <!-- Success Variant Table with Center-Aligned Columns -->
+    <div class="table-container" data-variant="success" data-align="center">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Assignee</th>
+            <th>Due Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Code Review</td>
+            <td>Jane Doe</td>
+            <td>June 15, 2023</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>Testing</td>
+            <td>John Smith</td>
+            <td>June 18, 2023</td>
+            <td>In Progress</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>  
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Tooltip Component Showcase</h2>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Tooltip Component Demo</h2>
   
-    <!-- Tooltip Position Examples -->
-    <div class="my-4">
-      <p>
-        Hover over the icons to see tooltips with different positions:
-        <span class="tooltip tooltip-top" tabindex="0">
-          <i class="fas fa-info-circle"></i>
-          <span class="tooltip-text">Tooltip on Top</span>
-        </span>
-        <span class="tooltip tooltip-right" tabindex="0">
-          <i class="fas fa-info-circle"></i>
-          <span class="tooltip-text">Tooltip on Right</span>
-        </span>
-        <span class="tooltip tooltip-bottom" tabindex="0">
-          <i class="fas fa-info-circle"></i>
-          <span class="tooltip-text">Tooltip on Bottom</span>
-        </span>
-        <span class="tooltip tooltip-left" tabindex="0">
-          <i class="fas fa-info-circle"></i>
-          <span class="tooltip-text">Tooltip on Left</span>
-        </span>
-      </p>
+    <!-- Primary Tooltip -->
+    <div class="tooltip badge" data-variant="primary" data-position="top">
+      Hover over me
+      <span class="tooltip-text">Primary Tooltip</span>
     </div>
   
-    <!-- Tooltip Color Variants -->
-    <div class="my-4">
-      <p>Color variant examples:</p>
-      <span class="tooltip tooltip-primary tooltip-top" tabindex="0">
-        <i class="fas fa-question-circle"></i>
-        <span class="tooltip-text">Primary Tooltip</span>
-      </span>
-      <span class="tooltip tooltip-secondary tooltip-top" tabindex="0">
-        <i class="fas fa-question-circle"></i>
-        <span class="tooltip-text">Secondary Tooltip</span>
-      </span>
-      <span class="tooltip tooltip-success tooltip-top" tabindex="0">
-        <i class="fas fa-check-circle"></i>
-        <span class="tooltip-text">Success Tooltip</span>
-      </span>
-      <span class="tooltip tooltip-warning tooltip-top" tabindex="0">
-        <i class="fas fa-exclamation-circle"></i>
-        <span class="tooltip-text">Warning Tooltip</span>
-      </span>
-      <span class="tooltip tooltip-danger tooltip-top" tabindex="0">
-        <i class="fas fa-times-circle"></i>
-        <span class="tooltip-text">Danger Tooltip</span>
-      </span>
-      <span class="tooltip tooltip-info tooltip-top" tabindex="0">
-        <i class="fas fa-info-circle"></i>
-        <span class="tooltip-text">Info Tooltip</span>
-      </span>
+    <!-- Success Tooltip -->
+    <div class="tooltip badge" data-variant="success" data-position="right">
+      Hover over me
+      <span class="tooltip-text">Success Tooltip</span>
+    </div>
+  
+    <!-- Danger Tooltip -->
+    <div class="tooltip badge " data-variant="danger" data-position="bottom">
+      Hover over me
+      <span class="tooltip-text">Danger Tooltip</span>
+    </div>
+  
+    <!-- Warning Tooltip -->
+    <div class="tooltip badge" data-variant="warning" data-position="left">
+      Hover over me
+      <span class="tooltip-text">Warning Tooltip</span>
+    </div>
+  
+    <!-- Info Tooltip -->
+    <div class="tooltip badge" data-variant="info" data-position="top">
+      Hover over me
+      <span class="tooltip-text">Info Tooltip</span>
+    </div>
+  </section> 
+  
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Tabs Component Demo</h2>
+    <div class="tabs-container" id="tabExample" data-variant="primary" data-style="pill" data-layout="horizontal">
+      <div class="tabs">
+          <button class="tab tab-active" onclick="showTabContent(event, 'content1', 'tabExample')">Tab 1</button>
+          <button class="tab" onclick="showTabContent(event, 'content2', 'tabExample')">Tab 2</button>
+          <button class="tab" onclick="showTabContent(event, 'content3', 'tabExample')">Tab 3</button>
+      </div>
+      <div id="content1" class="tab-content tab-content-active">
+          <p>Content for Tab 1</p>
+      </div>
+      <div id="content2" class="tab-content">
+          <p>Content for Tab 2</p>
+      </div>
+      <div id="content3" class="tab-content">
+          <p>Content for Tab 3</p>
+      </div>
     </div>
   </section>
 
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Dropdown Component Variants</h2>
-    <div class="dropdown-group">
-        <div class="dropdown mb-4" data-variant="primary" data-position="bottom">
-            <button class="dropdown-trigger">Primary Dropdown</button>
-            <div class="dropdown-menu">
-                <div class="dropdown-item">Option 1</div>
-                <div class="dropdown-item">Option 2</div>
-                <div class="dropdown-item">Option 3</div>
-            </div>
-        </div>
-
-        <div class="dropdown mb-4" data-variant="secondary" data-position="bottom">
-            <button class="dropdown-trigger">Secondary Dropdown</button>
-            <div class="dropdown-menu">
-                <div class="dropdown-item">Settings</div>
-                <div class="dropdown-item">Notifications</div>
-                <div class="dropdown-item">Profile</div>
-            </div>
-        </div>
-
-        <div class="dropdown mb-4" data-variant="primary" data-position="top">
-            <button class="dropdown-trigger">Top Positioned</button>
-            <div class="dropdown-menu">
-                <div class="dropdown-item">Top Item 1</div>
-                <div class="dropdown-item">Top Item 2</div>
-            </div>
-        </div>
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Toast Component Demo</h2>
+    <p>Click the buttons below to see toasts with different styles, positions, and configurations.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
+        <button class="btn" data-variant="primary" onclick="showToast('Primary Toast Message', 'primary')">Show Primary Toast</button>
+        <button class="btn" data-variant="success" onclick="showToast('Success Toast Message', 'success')">Show Success Toast</button>
+        <button class="btn" data-variant="danger" onclick="showToast('Danger Toast Message', 'danger')">Show Danger Toast</button>
+        <button class="btn" data-variant="warning" onclick="showToast('Warning Toast Message', 'warning')">Show Warning Toast</button>
+        <button class="btn" data-variant="info" onclick="showToast('Info Toast Message', 'info')">Show Info Toast</button>
+        <button class="btn" data-variant="primary" onclick="showToast('Top-Left Positioned Toast', 'primary', 'top-left')">Top-Left Position</button>
+        <button class="btn" data-variant="secondary" onclick="showToast('Bottom-Center Positioned Toast', 'secondary', 'bottom-center')">Bottom-Center Position</button>
+        <button class="btn" data-variant="primary" onclick="showToast('Auto-dismiss Toast', 'primary', 'top-right', true, 5)">Auto-Dismiss (5s)</button>
+        <button class="btn" data-variant="info" onclick="showToastHistory()">Show Toast History</button>
     </div>
   </section>
-
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Tabs Component Showcase</h2>
   
-    <!-- Horizontal Tabs - Underlined Variant -->
-    <div class="tabs-container tabs-underlined my-6">
-      <h3 class="text-secondary my-2">Horizontal Tabs (Underlined)</h3>
-      <div class="tabs" id="horizontal-tabs-underlined">
-        <button class="tab tab-active" onclick="showTabContent(event, 'tab1', 'horizontal-tabs-underlined')">Tab 1</button>
-        <button class="tab" onclick="showTabContent(event, 'tab2', 'horizontal-tabs-underlined')">Tab 2</button>
-        <button class="tab" onclick="showTabContent(event, 'tab3', 'horizontal-tabs-underlined')">Tab 3</button>
-      </div>
-      <div class="tab-content tab-content-active" id="tab1">Content for Tab 1</div>
-      <div class="tab-content" id="tab2">Content for Tab 2</div>
-      <div class="tab-content" id="tab3">Content for Tab 3</div>
-    </div>
-  
-    <!-- Pill Variant -->
-    <div class="tabs-container tabs-pill my-6">
-      <h3 class="text-secondary my-2">Pill Tabs</h3>
-      <div class="tabs" id="pill-tabs">
-        <button class="tab tab-active" onclick="showTabContent(event, 'pill-tab1', 'pill-tabs')">Tab A</button>
-        <button class="tab" onclick="showTabContent(event, 'pill-tab2', 'pill-tabs')">Tab B</button>
-        <button class="tab" onclick="showTabContent(event, 'pill-tab3', 'pill-tabs')">Tab C</button>
-      </div>
-      <div class="tab-content tab-content-active" id="pill-tab1">Content for Tab A</div>
-      <div class="tab-content" id="pill-tab2">Content for Tab B</div>
-      <div class="tab-content" id="pill-tab3">Content for Tab C</div>
-    </div>
-  
-    <!-- Boxed Variant -->
-    <div class="tabs-container tabs-boxed my-6">
-      <h3 class="text-secondary my-2">Boxed Tabs</h3>
-      <div class="tabs" id="boxed-tabs">
-        <button class="tab tab-active" onclick="showTabContent(event, 'boxed-tab1', 'boxed-tabs')">Tab X</button>
-        <button class="tab" onclick="showTabContent(event, 'boxed-tab2', 'boxed-tabs')">Tab Y</button>
-        <button class="tab" onclick="showTabContent(event, 'boxed-tab3', 'boxed-tabs')">Tab Z</button>
-      </div>
-      <div class="tab-content tab-content-active" id="boxed-tab1">Content for Tab X</div>
-      <div class="tab-content" id="boxed-tab2">Content for Tab Y</div>
-      <div class="tab-content" id="boxed-tab3">Content for Tab Z</div>
-    </div>
-  
-    <!-- Vertical Tabs - Primary Variant -->
-    <div class="tabs-container tabs-vertical tabs-primary">
-      <h3 class="text-secondary my-2">Vertical Tabs (Primary)</h3>
-      <div class="tabs" id="vertical-tabs">
-        <button class="tab tab-active" onclick="showTabContent(event, 'vertical-tab1', 'vertical-tabs')">Item 1</button>
-        <button class="tab" onclick="showTabContent(event, 'vertical-tab2', 'vertical-tabs')">Item 2</button>
-        <button class="tab" onclick="showTabContent(event, 'vertical-tab3', 'vertical-tabs')">Item 3</button>
-      </div>
-      <div class="tab-content tab-content-active" id="vertical-tab1">Details for Item 1</div>
-      <div class="tab-content" id="vertical-tab2">Details for Item 2</div>
-      <div class="tab-content" id="vertical-tab3">Details for Item 3</div>
-    </div>
-  </section>
-  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Accordion Component Showcase</h2>
-
-    <!-- Accordion Container -->
-    <div class="accordion-container">
-        <!-- Primary Variant Accordion -->
-        <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                Primary Accordion Header
-            </button>
-            <div class="accordion-content">
-                <p>Content for the primary accordion. This section can contain text, images, or any other elements.</p>
-            </div>
-        </div>
-
-        <!-- Success Variant Accordion with Sub-Items -->
-        <div class="accordion-item accordion-success">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                Success Accordion with Sub-Items
-            </button>
-            <div class="accordion-content">
-                <p>Main content for the success accordion.</p>
-                <div class="accordion-sub-item">
-                    <button class="accordion-sub-header" onclick="toggleAccordion(this)">
-                        Sub-item 1
-                    </button>
-                    <div class="accordion-sub-content">
-                        <p>Details for sub-item 1.</p>
-                    </div>
-                </div>
-                <div class="accordion-sub-item">
-                    <button class="accordion-sub-header" onclick="toggleAccordion(this)">
-                        Sub-item 2
-                    </button>
-                    <div class="accordion-sub-content">
-                        <p>Details for sub-item 2.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <section class="p-4 bg-neutral-900 text-center shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Hologram Component Showcase</h2>
-
-    <button class="btn btn-md" onclick="showHologram('Welcome to the Future', 'Experience the Hologram', 'primary', 'low')">Primary Low Intensity</button>
-    <button class="btn btn-md" onclick="showHologram('Access Granted', 'Welcome Back, User', 'success', 'medium')">Success Medium Intensity</button>
-    <button class="btn btn-md" onclick="showHologram('Warning!', 'System Overload Imminent', 'danger', 'high')">Danger High Intensity</button>
-  </section>
-
-  <section class="p-4 bg-neutral-900 text-center shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Breadcrumbs Component Showcase</h2>
-    <!-- Primary Variant -->
-    <div class="breadcrumbs breadcrumbs-primary separator-slash">
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Home</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Products</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Electronics</a>
-      </div>
-      <div class="breadcrumb-item active">Laptops</div>
-    </div>
-  
-    <!-- Secondary Variant with Arrow Separator -->
-    <div class="breadcrumbs breadcrumbs-secondary separator-arrow">
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Dashboard</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Settings</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Account</a>
-      </div>
-      <div class="breadcrumb-item active">Preferences</div>
-    </div>
-  
-    <!-- Success Variant with Dot Separator -->
-    <div class="breadcrumbs breadcrumbs-success separator-dot">
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Shop</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Categories</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Home Goods</a>
-      </div>
-      <div class="breadcrumb-item active">Furniture</div>
-    </div>
-  
-    <!-- Warning Variant with Chevron Separator -->
-    <div class="breadcrumbs breadcrumbs-warning separator-chevron">
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Library</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Genres</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Science Fiction</a>
-      </div>
-      <div class="breadcrumb-item active">Space Opera</div>
-    </div>
-  
-    <!-- Danger Variant with Slash Separator -->
-    <div class="breadcrumbs breadcrumbs-danger separator-slash">
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Help Center</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">FAQs</a>
-      </div>
-      <div class="breadcrumb-item">
-        <a href="#" class="breadcrumb-link">Account Issues</a>
-      </div>
-      <div class="breadcrumb-item active">Password Reset</div>
-    </div>
-  </section>  
-
-
-  <section class="p-4 bg-neutral-900 text-center shadow-md rounded my-6">
-
-    <h2 class="font-lg text-primary text-center my-4">Simple Slideshow Component Showcase</h2>
-
-    <h4>container size, auto-scrolling, no bullets, mid-radius slideshow</h4>
-
-    <!--SLIDE SHOW WITH DATASET IN CONTAINER (inherit size)-->
-
-    <div id="slideshow1-wrap" class="my-6 mx-a w-full" style="height:clamp(300px,35vw,500px);">
-    
-      <div 
-      class="slideshow"
-      id="slideshow1" 
-      data-autoScroll = "true" 
-      data-waitTime = "3000" 
-      data-hoverPause = "false" 
-      data-scrollingPauseTime = "2000" 
-      data-enableArrows = "true" 
-      data-enableBullets = "false"
-      data-inheritSize = "true"
-      data-radiusvar = "md"
-      >
-
-        <img src="https://t3.ftcdn.net/jpg/05/24/43/88/360_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg">
-        <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg">
-        <img src="https://t3.ftcdn.net/jpg/05/64/82/08/360_F_564820811_n9WP1mM43pLiQwLkIA07KF9Hat5vkX2v.jpg">
-        <img src="https://t4.ftcdn.net/jpg/05/21/18/03/360_F_521180384_837ZQVtGdBocnKQr5prxWzpjIa64wtgO.jpg">
-
-      </div>    	
-
-    </div>
-
-    <!--SLIDESHOW WITHOUT DATASET-->
-
-    <h4>default size, manual-scrolling, bullets, xl-radius slideshow</h4>
-
-    <div class="slideshow my-3 mx-a" id="slideshow2">
-
-      <img src="https://t3.ftcdn.net/jpg/05/24/43/88/360_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg">
-      <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg">
-      <img src="https://t3.ftcdn.net/jpg/05/64/82/08/360_F_564820811_n9WP1mM43pLiQwLkIA07KF9Hat5vkX2v.jpg">
-      <img src="https://t4.ftcdn.net/jpg/05/21/18/03/360_F_521180384_837ZQVtGdBocnKQr5prxWzpjIa64wtgO.jpg">
-
-    </div>    	
-
-  </section>
-
-
 </body>
 <script type="module" src="js/main.js"></script>
 </html>

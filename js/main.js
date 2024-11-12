@@ -8,14 +8,17 @@ import { MultiSelect } from './components/multiselect.js';
 import { DateTimePicker } from './components/datetime-picker.js';
 import { Slideshow } from './components/slideshow.js';
 
-// Initialize alert close functionality
-document.querySelectorAll('.alert-dismissible .alert-close').forEach(button => {
-  button.addEventListener('click', (e) => {
-    const alert = e.target.closest('.alert');
+document.querySelectorAll('.alert .alert-close').forEach(button => {
+  button.addEventListener('click', event => {
+    const alert = button.closest('.alert');
+    alert.style.maxHeight = alert.scrollHeight + 'px'; 
     alert.classList.add('fade-out');
-    setTimeout(() => alert.remove(), 400);
+    alert.addEventListener('transitionend', () => {
+      if (alert.parentNode) alert.remove();
+    });
   });
 });
+
 
 // Export functions globally if needed
 window.toggleAccordion = toggleAccordion;
@@ -30,17 +33,4 @@ window.closeToastHistory = closeToastHistory;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 window.DateTimePicker = DateTimePicker;
-
-
-
-// Initialize slideshows when the document is ready
-document.addEventListener('DOMContentLoaded', () => {
-
-  //initialize slideshow using dataset (html)
-  let sld1 = new Slideshow('slideshow1');
-
-  //initialize sldieshow using parameters
-  let sld2 = new Slideshow('slideshow2',false,false,2000,true,2000,true,true,'2xl');
-
-
-});
+window.Slideshow = Slideshow;
