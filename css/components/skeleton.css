@@ -1,125 +1,62 @@
-/* Base Skeleton Styles */
+/* Base Skeleton Container */
 .skeleton {
-    display: inline-block;
-    background-color: var(--neutral-300);
-    border-radius: var(--radius-md);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-  
-  /* Shimmer Animation */
-  @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-  
-  .skeleton::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
-    animation: shimmer 1.8s infinite;
-    background-size: 200% 100%;
-  }
-  
-  /* Skeleton Variants */
-  .skeleton-rect {
-    height: 100px;
-    border-radius: var(--radius-md);
-  }
-  
-  .skeleton-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  
-  .skeleton-text {
-    height: 1rem;
-    border-radius: var(--radius-sm);
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Sizes */
-  .skeleton-sm {
-    height: 0.5rem;
-  }
-  
-  .skeleton-md {
-    height: 1rem;
-  }
-  
-  .skeleton-lg {
-    height: 1.5rem;
-  }
-  
-  /* Multi-Line Text Skeleton */
-  .skeleton-multiline {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .skeleton-multiline .skeleton-text {
-    width: 100%;
-  }
-  
-  .skeleton-multiline .skeleton-text:first-child {
-    width: 80%;
-  }
-  
-  .skeleton-multiline .skeleton-text:nth-child(2) {
-    width: 95%;
-  }
-  
-  .skeleton-multiline .skeleton-text:last-child {
-    width: 90%;
-  }
-  
-  /* Custom Shapes */
-  .skeleton-avatar {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-  }
-  
-  .skeleton-button {
-    width: 6rem;
-    height: 2.5rem;
-    border-radius: var(--radius-md);
-  }
-  
-  .skeleton-thumbnail {
-    width: 100%;
-    height: 200px;
-    border-radius: var(--radius-lg);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 600px) {
-    .skeleton-rect {
-      height: 80px;
-    }
-  
-    .skeleton-circle {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .skeleton-lg {
-      height: 1rem;
-    }
-  
-    .skeleton-avatar {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-  
-    .skeleton-thumbnail {
-      height: 150px;
-    }
-  }
+  display: inline-block;
+  background-color: var(--neutral-300);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Shimmer Animation */
+@keyframes skeleton-shimmer-animation {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: skeleton-shimmer-animation 1.8s infinite;
+  background-size: 200% 100%;
+}
+
+/* Shape Variants */
+.skeleton[data-shape="rect"] { height: 100px; border-radius: var(--radius-md); }
+.skeleton[data-shape="circle"] { width: 50px; height: 50px; border-radius: 50%; }
+.skeleton[data-shape="text"] { height: 1rem; border-radius: var(--radius-sm); margin-bottom: 0.5rem; }
+
+/* Size Variants */
+.skeleton[data-size="sm"] { height: 0.5rem; }
+.skeleton[data-size="md"] { height: 1rem; }
+.skeleton[data-size="lg"] { height: 1.5rem; }
+
+/* Skeleton for Multi-Line Text */
+.skeleton-multiline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.skeleton-multiline .skeleton[data-shape="text"] { width: 100%; }
+.skeleton-multiline .skeleton[data-shape="text"]:first-child { width: 80%; }
+.skeleton-multiline .skeleton[data-shape="text"]:nth-child(2) { width: 95%; }
+.skeleton-multiline .skeleton[data-shape="text"]:last-child { width: 90%; }
+
+/* Custom Shapes */
+.skeleton[data-shape="avatar"] { width: 3rem; height: 3rem; border-radius: 50%; }
+.skeleton[data-shape="button"] { width: 6rem; height: 2.5rem; border-radius: var(--radius-md); }
+.skeleton[data-shape="thumbnail"] { width: 100%; height: 200px; border-radius: var(--radius-lg); }
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .skeleton[data-shape="rect"] { height: 80px; }
+  .skeleton[data-shape="circle"] { width: 40px; height: 40px; }
+  .skeleton[data-size="lg"] { height: 1rem; }
+  .skeleton[data-shape="avatar"] { width: 2.5rem; height: 2.5rem; }
+  .skeleton[data-shape="thumbnail"] { height: 150px; }
+}
