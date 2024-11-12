@@ -20,14 +20,15 @@
     border: none;
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: background-color var(--transition-all);
+    transition: background-color var(--transition-all), transform 0.3s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    outline: none;
 }
 
-.dropdown-trigger:hover {
-    background-color: var(--primary-hover);
+.dropdown-trigger:focus {
+    box-shadow: 0 0 0 3px var(--primary-light);
 }
 
 /* Dropdown Menu */
@@ -50,7 +51,8 @@
     overflow: hidden;
 }
 
-/* Show Menu on Hover */
+/* Show Menu on Hover or Focus */
+.dropdown:focus-within .dropdown-menu,
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     transform: translateY(0);
@@ -69,6 +71,12 @@
     text-overflow: ellipsis;
 }
 
+.dropdown-item:focus {
+    background-color: var(--dropdown-hover-bg, var(--neutral-200));
+    outline: none;
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
 /* Hover Effects for Dropdown Items */
 .dropdown-item:hover {
     background-color: var(--dropdown-hover-bg, var(--neutral-200));
@@ -76,24 +84,75 @@
 }
 
 /* Data-Attribute Based Customization */
+
+/* Primary Variant */
 .dropdown[data-variant="primary"] .dropdown-trigger {
     background-color: var(--primary);
     color: #fff;
 }
-
-.dropdown[data-variant="secondary"] .dropdown-trigger {
-    background-color: var(--secondary);
-    color: #fff;
-}
-
 .dropdown[data-variant="primary"] .dropdown-item:hover {
     background-color: var(--primary-light);
     color: var(--primary);
 }
 
+/* Secondary Variant */
+.dropdown[data-variant="secondary"] .dropdown-trigger {
+    background-color: var(--secondary);
+    color: #fff;
+}
 .dropdown[data-variant="secondary"] .dropdown-item:hover {
     background-color: var(--secondary-light);
     color: var(--secondary);
+}
+
+/* Warning Variant */
+.dropdown[data-variant="warning"] .dropdown-trigger {
+    background-color: var(--warning);
+    color: #fff;
+}
+.dropdown[data-variant="warning"] .dropdown-item:hover {
+    background-color: var(--warning-light);
+    color: var(--warning);
+}
+
+/* Info Variant */
+.dropdown[data-variant="info"] .dropdown-trigger {
+    background-color: var(--info);
+    color: #fff;
+}
+.dropdown[data-variant="info"] .dropdown-item:hover {
+    background-color: var(--info-light);
+    color: var(--info);
+}
+
+/* Danger Variant */
+.dropdown[data-variant="danger"] .dropdown-trigger {
+    background-color: var(--danger);
+    color: #fff;
+}
+.dropdown[data-variant="danger"] .dropdown-item:hover {
+    background-color: var(--danger-light);
+    color: var(--danger);
+}
+
+/* Success Variant */
+.dropdown[data-variant="success"] .dropdown-trigger {
+    background-color: var(--success);
+    color: #fff;
+}
+.dropdown[data-variant="success"] .dropdown-item:hover {
+    background-color: var(--success-light);
+    color: var(--success);
+}
+
+/* Accent Variant */
+.dropdown[data-variant="accent"] .dropdown-trigger {
+    background-color: var(--accent);
+    color: #fff;
+}
+.dropdown[data-variant="accent"] .dropdown-item:hover {
+    background-color: var(--accent-light);
+    color: var(--accent);
 }
 
 /* Responsive Positioning */
