@@ -36,7 +36,10 @@ window.DateTimePicker = DateTimePicker;
 // Initialize slideshows when the document is ready
 document.addEventListener('DOMContentLoaded', () => {
 
+  //initialize slideshow using dataset (html)
   let sld1 = new Slideshow('slideshow1');
+
+  //initialize sldieshow using parameters
   let sld2 = new Slideshow('slideshow2',true,2000,true,2000,true,true);
 
 

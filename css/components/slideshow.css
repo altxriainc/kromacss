@@ -61,7 +61,7 @@
     backdrop-filter: blur(4px);
 }
 
-.slideshow *:has(.arrow):hover > .arrow {
+.slideshow:has(.arrow):hover > .arrow {
     opacity: 0.8;
     display: flex;
     align-content: center;
@@ -69,11 +69,11 @@
     align-items: center;
 }
 
-.slideshow *:has(.arrow)::-webkit-scrollbar,.slideshow::-webkit-scrollbar {
+.slideshow:has(.arrow)::-webkit-scrollbar,.slideshow::-webkit-scrollbar {
   display: none;
 }
 
-.slideshow *:has(.arrow),.slideshow {
+.slideshow:has(.arrow),.slideshow {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
