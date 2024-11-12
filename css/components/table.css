@@ -1,127 +1,109 @@
 /* Table Container with Custom Scrollbar */
 .table-container {
-    overflow-x: auto;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
-    scrollbar-color: var(--primary) var(--neutral-200);
-    scrollbar-width: thin;
-  }
-  
-  .table-container::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
-  }
-  
-  .table-container::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
-    border-radius: 4px;
-  }
-  
-  .table-container::-webkit-scrollbar-track {
-    background-color: var(--neutral-200);
-  }
-  
-  /* Base Table Styles */
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    color: var(--neutral-800);
-    min-width: min(100%, 600px);
-  }
-  
-  /* Table Head */
-  .table th {
-    background-color: var(--neutral-100);
-    color: var(--neutral-900);
-    text-align: left;
-    padding: clamp(0.75rem, 1vw, 1rem);
-    font-weight: 600;
-    border-bottom: 2px solid var(--neutral-300);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-  /* Table Data Cells */
-  .table td {
-    padding: clamp(0.5rem, 1vw, 1rem);
-    border-bottom: 1px solid var(--neutral-200);
-    line-height: 1.5;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  /* Hover Effect */
-  .table tr:hover {
-    background-color: var(--neutral-100);
-  }
-  
-  /* Curved Borders */
-  .table-curved {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--neutral-300);
-  }
-  
-  /* Variants */
-  .table-primary th, .table-primary td { background-color: rgba(15, 111, 255, 0.1); }
-  .table-primary tr:hover { background-color: rgba(15, 111, 255, 0.15); }
-  
-  .table-warning th, .table-warning td { background-color: rgba(245, 158, 11, 0.1); }
-  .table-warning tr:hover { background-color: rgba(245, 158, 11, 0.15); }
-  
-  .table-success th, .table-success td { background-color: rgba(16, 185, 129, 0.1); }
-  .table-success tr:hover { background-color: rgba(16, 185, 129, 0.15); }
-  
-  .table-danger th, .table-danger td { background-color: rgba(239, 68, 68, 0.1); }
-  .table-danger tr:hover { background-color: rgba(239, 68, 68, 0.15); }
-  
-  .table-info th, .table-info td { background-color: rgba(59, 130, 246, 0.1); }
-  .table-info tr:hover { background-color: rgba(59, 130, 246, 0.15); }
-  
-  /* Striped Version */
-  .table-striped tr:nth-child(odd) {
-    background-color: var(--neutral-50);
-  }
-  
-  .table-striped tr:nth-child(even) {
-    background-color: var(--neutral-100);
-  }
-  
-  /* Bordered Variant */
-  .table-bordered td,
-  .table-bordered th {
-    border: 1px solid var(--neutral-300);
-  }
-  
-  /* Compact Variant */
-  .table-compact td,
-  .table-compact th {
-    padding: clamp(0.25rem, 0.75vw, 0.75rem);
-  }
-  
-  /* Sticky Header */
-  .table-sticky th {
-    position: sticky;
-    top: 0;
-    background-color: var(--neutral-100);
-    z-index: 10;
-  }
-  
-  /* Table with Column Alignments */
-  .table-align-left th, .table-align-left td { text-align: left; }
-  .table-align-center th, .table-align-center td { text-align: center; }
-  .table-align-right th, .table-align-right td { text-align: right; }
-  
-  /* Responsive Design Adjustments */
-  @media (max-width: 768px) {
-    .table-container {
-      overflow-x: auto;
-    }
-    .table th, .table td {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  scrollbar-color: var(--primary) var(--neutral-200);
+  scrollbar-width: thin;
+}
+
+.table-container::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background-color: var(--neutral-200);
+}
+
+/* Base Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  color: var(--neutral-800);
+  min-width: min(100%, 600px);
+}
+
+/* Table Head */
+.table th {
+  background-color: var(--neutral-100);
+  color: var(--neutral-900);
+  text-align: left;
+  padding: clamp(0.75rem, 1vw, 1rem);
+  font-weight: 600;
+  border-bottom: 2px solid var(--neutral-300);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Table Data Cells */
+.table td {
+  padding: clamp(0.5rem, 1vw, 1rem);
+  border-bottom: 1px solid var(--neutral-200);
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hover Effect */
+.table tr:hover {
+  background-color: var(--neutral-100);
+}
+
+/* Curved Borders */
+[data-style="curved"] {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--neutral-300);
+}
+
+/* Data-Driven Color Variants */
+[data-variant="primary"] th, [data-variant="primary"] td { background-color: rgba(15, 111, 255, 0.1); }
+[data-variant="primary"] tr:hover { background-color: rgba(15, 111, 255, 0.15); }
+
+[data-variant="warning"] th, [data-variant="warning"] td { background-color: rgba(245, 158, 11, 0.1); }
+[data-variant="warning"] tr:hover { background-color: rgba(245, 158, 11, 0.15); }
+
+[data-variant="success"] th, [data-variant="success"] td { background-color: rgba(16, 185, 129, 0.1); }
+[data-variant="success"] tr:hover { background-color: rgba(16, 185, 129, 0.15); }
+
+[data-variant="danger"] th, [data-variant="danger"] td { background-color: rgba(239, 68, 68, 0.1); }
+[data-variant="danger"] tr:hover { background-color: rgba(239, 68, 68, 0.15); }
+
+[data-variant="info"] th, [data-variant="info"] td { background-color: rgba(59, 130, 246, 0.1); }
+[data-variant="info"] tr:hover { background-color: rgba(59, 130, 246, 0.15); }
+
+/* Striped Rows */
+[data-style="striped"] tr:nth-child(odd) { background-color: var(--neutral-50); }
+[data-style="striped"] tr:nth-child(even) { background-color: var(--neutral-100); }
+
+/* Bordered Variant */
+[data-style="bordered"] td, [data-style="bordered"] th {
+  border: 1px solid var(--neutral-300);
+}
+
+/* Compact Spacing */
+[data-size="compact"] td, [data-size="compact"] th {
+  padding: clamp(0.25rem, 0.75vw, 0.75rem);
+}
+
+/* Column Alignments */
+[data-align="left"] th, [data-align="left"] td { text-align: left; }
+[data-align="center"] th, [data-align="center"] td { text-align: center; }
+[data-align="right"] th, [data-align="right"] td { text-align: right; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .table th, .table td {
       padding: clamp(0.5rem, 1vw, 0.75rem);
-    }
   }
+}
