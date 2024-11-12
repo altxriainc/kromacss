@@ -6,7 +6,8 @@ export class MultiSelect {
         this.searchInput = this.element.querySelector('.multiselect-search');
         this.clearButton = this.element.querySelector('.clear-selection');
         this.selectedOptions = [];
-        
+
+        // Initialize the component with variant and accessibility features
         this.init();
     }
 
@@ -26,8 +27,8 @@ export class MultiSelect {
             const option = e.target.closest('.multiselect-option');
             if (option) {
                 this.toggleSelection(option);
-                this.searchInput.value = ''; // Clear search input after selection
-                this.filterOptions(); // Reset options display after selection
+                this.searchInput.value = ''; // Reset search after selection
+                this.filterOptions(); // Show all options after selection
             }
         });
 
@@ -97,7 +98,7 @@ export class MultiSelect {
             chipsContainer.appendChild(chip);
         });
 
-        // Toggle clear button visibility based on selection
+        // Toggle clear button visibility
         this.clearButton.style.display = this.selectedOptions.length > 0 ? 'inline-block' : 'none';
     }
 
@@ -145,7 +146,7 @@ export class MultiSelect {
     }
 }
 
-// Initialize all MultiSelect components
+// Initialize all MultiSelect components on the page
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.multiselect').forEach((el) => {
         new MultiSelect(el.id);

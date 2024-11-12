@@ -4,61 +4,56 @@
     width: 100%;
     max-width: 400px;
     font-family: var(--font-sans);
+    padding: var(--space-3) var(--space-4);
 }
 
+/* Dropdown Field */
 .multiselect-dropdown {
+    display: flex;
+    align-items: center;
+    padding: var(--space-2);
     border: 1px solid var(--neutral-300);
     border-radius: var(--radius-md);
     background-color: var(--neutral-50);
-    padding: var(--space-2);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
     box-shadow: var(--shadow-sm);
+    cursor: pointer;
     transition: border-color var(--transition-colors);
-    outline: none;
-    position: relative; /* Ensure clear button positioning */
+    position: relative;
 }
 
-.multiselect-dropdown:focus-within,
-.multiselect-dropdown:focus-visible {
+.multiselect-dropdown:focus-within {
     border-color: var(--primary-hover);
 }
 
+/* Search Input */
 .multiselect-search {
+    flex: 1;
     border: none;
     outline: none;
-    width: calc(100% - 1.5rem); /* Adjusted for the clear button */
     padding: var(--space-1);
     background: transparent;
     font-size: 1rem;
     color: var(--neutral-900);
 }
 
-/* Ensure text is readable */
-.multiselect-search::placeholder {
-    color: var(--neutral-500);
-}
-
 /* Clear Button */
 .clear-selection {
+    font-size: 1.25rem;
+    color: var(--neutral-500);
+    cursor: pointer;
     background: none;
     border: none;
-    cursor: pointer;
-    color: var(--neutral-500);
-    font-size: 1.25rem;
-    display: none; /* Hidden by default */
-    position: absolute;
-    right: var(--space-2); /* Aligns the button at the end */
-    top: 50%; /* Centers the button vertically */
-    transform: translateY(-50%);
     padding: 0;
-    line-height: 1; /* Ensures consistent vertical alignment */
+    line-height: 1;
+    display: none; /* Default hidden */
+    position: absolute;
+    right: var(--space-2);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-
-.clear-selection:focus {
-    outline: none;
+.multiselect-dropdown.active .clear-selection {
+    display: block;
 }
 
 /* Options Container */
@@ -71,29 +66,25 @@
     border-radius: var(--radius-md);
     background-color: var(--neutral-50);
     box-shadow: var(--shadow-md);
-    z-index: var(--z-20);
     max-height: 200px;
     overflow-y: auto;
     display: none;
+    z-index: 20;
+    margin-top: var(--space-2);
 }
 
 .multiselect-options.active {
     display: block;
 }
 
+/* Option Items */
 .multiselect-option {
     padding: var(--space-2);
-    border-bottom: 1px solid var(--neutral-200);
     cursor: pointer;
     transition: background-color var(--transition-colors);
 }
 
-.multiselect-option:last-child {
-    border-bottom: none;
-}
-
-.multiselect-option:hover,
-.multiselect-option:focus {
+.multiselect-option:hover {
     background-color: var(--neutral-100);
 }
 
@@ -102,64 +93,88 @@
     color: #fff;
 }
 
-/* Chips Display */
+/* Chips for Selected Options */
 .multiselect-chips {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
-    padding: var(--space-1) 0;
+    margin-top: var(--space-2); /* Consistent padding from dropdown */
+    padding-left: var(--space-1); /* Consistent spacing within container */
 }
 
 .multiselect-chip {
-    background-color: var(--primary);
-    color: #fff;
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-full);
     display: flex;
     align-items: center;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
     font-size: 0.875rem;
-    margin-right: var(--space-1);
+    line-height: 1.2;
+    color: #fff;
+    background-color: var(--primary);
 }
 
-.multiselect-chip .chip-remove {
+.chip-remove {
     margin-left: var(--space-1);
     cursor: pointer;
     font-size: 1rem;
+    color: #fff;
 }
 
-/* Variants */
-.multiselect-success .multiselect-dropdown,
-.multiselect-success .multiselect-options {
+/* Data-driven Variant Styles */
+[data-variant="primary"] .multiselect-dropdown,
+[data-variant="primary"] .multiselect-options {
+    border-color: var(--primary);
+}
+
+[data-variant="primary"] .multiselect-chip {
+    background-color: var(--primary);
+}
+
+[data-variant="success"] .multiselect-dropdown,
+[data-variant="success"] .multiselect-options {
     border-color: var(--success);
 }
 
-.multiselect-danger .multiselect-dropdown,
-.multiselect-danger .multiselect-options {
+[data-variant="success"] .multiselect-chip {
+    background-color: var(--success);
+}
+
+[data-variant="danger"] .multiselect-dropdown,
+[data-variant="danger"] .multiselect-options {
     border-color: var(--danger);
 }
 
-.multiselect-warning .multiselect-dropdown,
-.multiselect-warning .multiselect-options {
+[data-variant="danger"] .multiselect-chip {
+    background-color: var(--danger);
+}
+
+[data-variant="warning"] .multiselect-dropdown,
+[data-variant="warning"] .multiselect-options {
     border-color: var(--warning);
 }
 
-.multiselect-info .multiselect-dropdown,
-.multiselect-info .multiselect-options {
+[data-variant="warning"] .multiselect-chip {
+    background-color: var(--warning);
+}
+
+[data-variant="info"] .multiselect-dropdown,
+[data-variant="info"] .multiselect-options {
     border-color: var(--info);
 }
 
-/* Custom Scrollbar */
+[data-variant="info"] .multiselect-chip {
+    background-color: var(--info);
+}
+
+/* Scrollbar Customization */
 .multiselect-options::-webkit-scrollbar {
     width: 8px;
+    background-color: var(--neutral-200);
 }
 
 .multiselect-options::-webkit-scrollbar-thumb {
     background-color: var(--primary);
     border-radius: 4px;
-}
-
-.multiselect-options::-webkit-scrollbar-track {
-    background-color: var(--neutral-200);
 }
 
 /* Dark Mode Adjustments */
@@ -172,8 +187,7 @@
     color: var(--neutral-50);
 }
 
-.dark-mode .multiselect-option:hover,
-.dark-mode .multiselect-option:focus {
+.dark-mode .multiselect-option:hover {
     background-color: var(--neutral-700);
 }
 
