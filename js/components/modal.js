@@ -4,14 +4,21 @@ export class Modal {
         this.overlay = this.modal.closest('.modal-overlay');
         this.closeButton = this.modal.querySelector('.modal-close');
 
+        // Close button in header
         if (this.closeButton) {
             this.closeButton.addEventListener('click', () => this.close());
         }
 
+        // Close modal when clicking on overlay (if allowed)
         this.overlay.addEventListener('click', (e) => {
             if (e.target === this.overlay && !this.overlay.classList.contains('no-close-on-outside-click')) {
                 this.close();
             }
+        });
+
+        // Close modal when clicking a button with the class "close-modal" inside the modal
+        this.modal.querySelectorAll('.close-modal').forEach((button) => {
+            button.addEventListener('click', () => this.close());
         });
     }
 
@@ -33,7 +40,7 @@ export class Modal {
     }
 }
 
-// Initialize modals when the document is ready
+// Initialize modals on document load
 document.addEventListener('DOMContentLoaded', () => {
     Modal.initAll();
 

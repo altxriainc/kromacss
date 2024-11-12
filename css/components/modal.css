@@ -1,11 +1,11 @@
-/* Base Modal Styling */
+/* Base Modal Overlay */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Slightly deeper background for better contrast */
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
-    backdrop-filter: blur(4px); /* Adds a modern blur effect */
+    backdrop-filter: blur(4px);
 }
 
 .modal-overlay.active {
@@ -21,10 +21,11 @@
     visibility: visible;
 }
 
+/* Modal Container */
 .modal {
     background-color: var(--neutral-50);
-    border-radius: var(--radius-2xl); /* Softer, rounded corners */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
     max-width: clamp(20rem, 50vw, 40rem);
     width: 100%;
     position: relative;
@@ -53,15 +54,10 @@
     align-items: center;
 }
 
-.modal-header.no-title {
-    display: none;
-}
-
 .modal-title {
     font-size: clamp(1.125rem, 2vw, 1.5rem);
     font-weight: 600;
     color: var(--neutral-900);
-    letter-spacing: 0.5px; /* Slightly increased letter-spacing for elegance */
 }
 
 .modal-close {
@@ -75,7 +71,7 @@
 
 .modal-close:hover {
     color: var(--danger);
-    transform: scale(1.1); /* Slight enlargement for feedback */
+    transform: scale(1.1);
 }
 
 /* Modal Body */
@@ -87,7 +83,6 @@
     scrollbar-width: thin;
 }
 
-/* Custom Scrollbar */
 .modal-body::-webkit-scrollbar {
     width: 8px;
     background-color: var(--neutral-200);
@@ -98,10 +93,6 @@
     border-radius: 4px;
 }
 
-.modal-body::-webkit-scrollbar-track {
-    background-color: var(--neutral-100);
-}
-
 /* Modal Footer */
 .modal-footer {
     padding: var(--space-4);
@@ -110,34 +101,21 @@
     text-align: right;
 }
 
-/* Scrollable Modal */
-.modal-scrollable .modal-body {
-    max-height: 70vh;
-    padding-right: 1rem; /* Ensures space for custom scrollbar */
-}
+/* Variants */
+[data-variant="primary"] .modal { border-left: 5px solid var(--primary); }
+[data-variant="secondary"] .modal { border-left: 5px solid var(--secondary); }
+[data-variant="success"] .modal { border-left: 5px solid var(--success); }
+[data-variant="danger"] .modal { border-left: 5px solid var(--danger); }
+[data-variant="warning"] .modal { border-left: 5px solid var(--warning); }
+[data-variant="info"] .modal { border-left: 5px solid var(--info); }
 
 /* Fullscreen Modal */
-.modal-fullscreen {
+[data-size="fullscreen"] .modal {
     width: 100%;
     height: 100%;
     border-radius: 0;
     max-width: none;
     max-height: none;
-}
-
-/* Variants */
-.modal-primary { border-left: 5px solid var(--primary); }
-.modal-secondary { border-left: 5px solid var(--secondary); }
-.modal-success { border-left: 5px solid var(--success); }
-.modal-danger { border-left: 5px solid var(--danger); }
-.modal-warning { border-left: 5px solid var(--warning); }
-.modal-info { border-left: 5px solid var(--info); }
-
-/* Animation for Modal Close */
-.modal-overlay.closing {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 /* Responsive Adjustments */
@@ -146,8 +124,7 @@
         max-width: 90vw;
         padding: var(--space-2);
     }
-
     .modal-body {
-        max-height: 50vh; /* Adjust for smaller screens */
+        max-height: 50vh;
     }
 }
