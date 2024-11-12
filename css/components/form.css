@@ -1,4 +1,4 @@
-/* Form Group */
+/* Base Form Group Styling */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -31,48 +31,49 @@
     color: var(--neutral-900);
     transition: border-color var(--transition-colors), box-shadow var(--transition-all);
     width: 100%;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
 }
 
-/* Focus Styles */
+/* Focus and Hover Styles */
 .input:focus, .textarea:focus, .select:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0px 0px 0px 2px var(--primary-light);
 }
 
-/* Variant Styles */
-.input-primary, .textarea-primary, .select-primary {
+.input:hover, .textarea:hover, .select:hover {
+    border-color: var(--neutral-400);
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
+}
+
+/* Variants for Input, Textarea, and Select using data-variant */
+[data-variant="primary"] .input, [data-variant="primary"] .textarea, [data-variant="primary"] .select {
     border-color: var(--primary);
 }
-
-.input-secondary, .textarea-secondary, .select-secondary {
+[data-variant="secondary"] .input, [data-variant="secondary"] .textarea, [data-variant="secondary"] .select {
     border-color: var(--secondary);
 }
-
-.input-success, .textarea-success, .select-success {
+[data-variant="success"] .input, [data-variant="success"] .textarea, [data-variant="success"] .select {
     border-color: var(--success);
 }
-
-.input-warning, .textarea-warning, .select-warning {
+[data-variant="warning"] .input, [data-variant="warning"] .textarea, [data-variant="warning"] .select {
     border-color: var(--warning);
 }
-
-.input-danger, .textarea-danger, .select-danger {
+[data-variant="danger"] .input, [data-variant="danger"] .textarea, [data-variant="danger"] .select {
     border-color: var(--danger);
 }
-
-.input-info, .textarea-info, .select-info {
+[data-variant="info"] .input, [data-variant="info"] .textarea, [data-variant="info"] .select {
     border-color: var(--info);
 }
 
-/* Accent Background and Border */
-.input-accent, .textarea-accent {
+/* Accent Background */
+[data-variant="accent"] .input, [data-variant="accent"] .textarea {
     border-color: var(--primary);
     background-color: var(--primary-light);
     color: var(--primary-dark);
 }
-.input-accent:focus, .textarea-accent:focus {
+[data-variant="accent"] .input:focus, [data-variant="accent"] .textarea:focus {
     border-color: var(--primary-hover);
 }
 
@@ -108,7 +109,7 @@
     min-height: 100px;
 }
 
-/* Select Dropdown Arrow */
+/* Select Arrow */
 .select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='gray' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
@@ -129,28 +130,6 @@
         flex-direction: column;
     }
 }
-
-/* Transition Hover States for All Inputs */
-.input:hover, .textarea:hover, .select:hover {
-    border-color: var(--neutral-400);
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
-    transition: all 0.2s ease;
-}
-
-/* Elevated Shadow for Active States */
-.input:focus, .textarea:focus, .select:focus {
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-    border-width: 1.2px;
-}
-
-/* Add Transition Color Hover for Variant States */
-.input-primary:hover, .textarea-primary:hover, .select-primary:hover { border-color: var(--primary-hover); }
-.input-secondary:hover, .textarea-secondary:hover, .select-secondary:hover { border-color: var(--secondary-hover); }
-.input-success:hover, .textarea-success:hover, .select-success:hover { border-color: var(--success-hover); }
-.input-warning:hover, .textarea-warning:hover, .select-warning:hover { border-color: var(--warning-hover); }
-.input-danger:hover, .textarea-danger:hover, .select-danger:hover { border-color: var(--danger-hover); }
-.input-info:hover, .textarea-info:hover, .select-info:hover { border-color: var(--info-hover); }
-
 
 /* Checkbox & Radio Group */
 .checkbox-group, .radio-group {
@@ -188,35 +167,32 @@
     background-color: var(--neutral-100);
     border: 1.5px solid var(--neutral-300);
     border-radius: var(--radius-md);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
 }
 
-/* Smooth Background and Border Transition */
+/* Checked State */
 .checkbox input[type="checkbox"]:checked + .checkbox-icon,
 .radio input[type="radio"]:checked + .radio-icon {
     background-color: var(--primary);
     border-color: var(--primary);
     color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-md);
 }
 
-/* Subtle Shadow and Scale Effect on Hover */
-.checkbox:hover .checkbox-icon,
-.radio:hover .radio-icon {
+/* Hover and Active States */
+.checkbox:hover .checkbox-icon, .radio:hover .radio-icon {
     border-color: var(--neutral-400);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
     transform: scale(1.05);
 }
 
-/* Active State */
-.checkbox:active .checkbox-icon,
-.radio:active .radio-icon {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+.checkbox:active .checkbox-icon, .radio:active .radio-icon {
+    box-shadow: var(--shadow-sm);
     transform: scale(0.95);
 }
 
-/* Icon for Checked Checkbox */
+/* Icons for Checked State */
 .checkbox input[type="checkbox"]:checked + .checkbox-icon::before {
     content: "✔";
     font-size: 0.85rem;
@@ -224,7 +200,6 @@
     transition: opacity 0.2s ease;
 }
 
-/* Icon for Checked Radio */
 .radio input[type="radio"]:checked + .radio-icon::before {
     content: "";
     display: block;
@@ -235,44 +210,28 @@
     transition: transform 0.2s ease;
 }
 
-/* Rounded Radio Icon */
-.radio-icon {
-    border-radius: 50%;
-}
-
-/* Variants */
-.checkbox-primary .checkbox-icon,
-.radio-primary .radio-icon {
+/* Variants for Checkbox and Radio using data-variant */
+[data-variant="primary"] .checkbox-icon, [data-variant="primary"] .radio-icon {
     background-color: var(--primary);
     border-color: var(--primary);
 }
-
-.checkbox-secondary .checkbox-icon,
-.radio-secondary .radio-icon {
+[data-variant="secondary"] .checkbox-icon, [data-variant="secondary"] .radio-icon {
     background-color: var(--secondary);
     border-color: var(--secondary);
 }
-
-.checkbox-success .checkbox-icon,
-.radio-success .radio-icon {
+[data-variant="success"] .checkbox-icon, [data-variant="success"] .radio-icon {
     background-color: var(--success);
     border-color: var(--success);
 }
-
-.checkbox-warning .checkbox-icon,
-.radio-warning .radio-icon {
+[data-variant="warning"] .checkbox-icon, [data-variant="warning"] .radio-icon {
     background-color: var(--warning);
     border-color: var(--warning);
 }
-
-.checkbox-danger .checkbox-icon,
-.radio-danger .radio-icon {
+[data-variant="danger"] .checkbox-icon, [data-variant="danger"] .radio-icon {
     background-color: var(--danger);
     border-color: var(--danger);
 }
-
-.checkbox-info .checkbox-icon,
-.radio-info .radio-icon {
+[data-variant="info"] .checkbox-icon, [data-variant="info"] .radio-icon {
     background-color: var(--info);
     border-color: var(--info);
 }
