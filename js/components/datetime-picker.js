@@ -1,12 +1,6 @@
 export class DateTimePicker {
     constructor(elementId, { format = 'YYYY-MM-DD HH:mm', includeTime = true, variant = 'primary' } = {}) {
         this.container = document.getElementById(elementId);
-        this.input = this.container.querySelector('.datetime-input');
-        this.picker = this.container.querySelector('.datetime-picker');
-        this.calendarGrid = this.picker.querySelector('.calendar-grid');
-        this.quickSelectContainer = this.picker.querySelector('.quick-select');
-        this.monthHeader = this.picker.querySelector('.calendar-month');
-        this.yearHeader = this.picker.querySelector('.calendar-year');
         this.format = format;
         this.includeTime = includeTime;
         this.variant = variant;
@@ -17,7 +11,71 @@ export class DateTimePicker {
     }
 
     init() {
+        this.createHTMLStructure();
         this.applyVariantStyles();
+        this.addEventListeners();
+        this.buildCalendar();
+        this.addQuickSelectButtons();
+        if (this.includeTime) {
+            this.addTimeSelectors();
+        }
+    }
+
+    createHTMLStructure() {
+        // Create input field
+        this.input = document.createElement('input');
+        this.input.type = 'text';
+        this.input.classList.add('datetime-input');
+        this.input.placeholder = 'Select Date';
+        this.input.setAttribute('aria-label', `${this.variant} DateTime Input`);
+        this.container.appendChild(this.input);
+
+        // Create the picker container
+        this.picker = document.createElement('div');
+        this.picker.classList.add('datetime-picker');
+        this.picker.setAttribute('aria-hidden', 'true');
+        this.container.appendChild(this.picker);
+
+        // Create calendar header
+        const calendarHeader = document.createElement('div');
+        calendarHeader.classList.add('calendar-header');
+        this.picker.appendChild(calendarHeader);
+
+        // Previous month button
+        const prevMonthButton = document.createElement('button');
+        prevMonthButton.classList.add('prev-month');
+        prevMonthButton.setAttribute('aria-label', 'Previous Month');
+        prevMonthButton.textContent = '<';
+        calendarHeader.appendChild(prevMonthButton);
+
+        // Month and year display
+        this.monthHeader = document.createElement('span');
+        this.monthHeader.classList.add('calendar-month');
+        calendarHeader.appendChild(this.monthHeader);
+
+        this.yearHeader = document.createElement('span');
+        this.yearHeader.classList.add('calendar-year');
+        calendarHeader.appendChild(this.yearHeader);
+
+        // Next month button
+        const nextMonthButton = document.createElement('button');
+        nextMonthButton.classList.add('next-month');
+        nextMonthButton.setAttribute('aria-label', 'Next Month');
+        nextMonthButton.textContent = '>';
+        calendarHeader.appendChild(nextMonthButton);
+
+        // Calendar grid
+        this.calendarGrid = document.createElement('div');
+        this.calendarGrid.classList.add('calendar-grid');
+        this.picker.appendChild(this.calendarGrid);
+
+        // Quick select container
+        this.quickSelectContainer = document.createElement('div');
+        this.quickSelectContainer.classList.add('quick-select');
+        this.picker.appendChild(this.quickSelectContainer);
+    }
+
+    addEventListeners() {
         this.input.addEventListener('focus', () => this.togglePicker(true));
         document.addEventListener('click', (e) => {
             if (!this.container.contains(e.target) && !this.picker.contains(e.target)) {
@@ -29,14 +87,6 @@ export class DateTimePicker {
         this.picker.querySelector('.next-month').addEventListener('click', () => this.changeMonth(1));
         this.monthHeader.addEventListener('click', () => this.showMonthSelector());
         this.yearHeader.addEventListener('click', () => this.showYearSelector());
-
-        this.buildCalendar();
-        this.addQuickSelectButtons();
-        if (this.includeTime) {
-            this.addTimeSelectors();
-        }
-
-        this.addConfirmButton();
     }
 
     togglePicker(open) {
@@ -61,7 +111,11 @@ export class DateTimePicker {
             const day = document.createElement('div');
             day.classList.add('calendar-day');
             day.textContent = i;
+            day.setAttribute('tabindex', 0); // Make day accessible by keyboard
+            day.setAttribute('role', 'button');
+            day.setAttribute('aria-label', `Select ${this.formatDate(this.currentDate, i)}`);
             day.addEventListener('click', () => this.selectDate(i));
+            day.addEventListener('keydown', (e) => { if (e.key === 'Enter') this.selectDate(i); });
 
             if (this.isCurrentMonth() && this.isToday(i)) {
                 day.classList.add('current-day');
@@ -82,22 +136,18 @@ export class DateTimePicker {
     }
 
     selectDate(day) {
-        this.selectedDate.setFullYear(this.currentDate.getFullYear(), this.currentDate.getMonth(), day);
+        this.selectedDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day);
         this.updateInputValue();
         this.buildCalendar();
     }
 
     isToday(day) {
         const today = new Date();
-        return day === today.getDate() &&
-               this.currentDate.getMonth() === today.getMonth() &&
-               this.currentDate.getFullYear() === today.getFullYear();
+        return day === today.getDate() && this.currentDate.getMonth() === today.getMonth() && this.currentDate.getFullYear() === today.getFullYear();
     }
 
     isSelectedDay(day) {
-        return day === this.selectedDate.getDate() &&
-               this.currentDate.getMonth() === this.selectedDate.getMonth() &&
-               this.currentDate.getFullYear() === this.selectedDate.getFullYear();
+        return day === this.selectedDate.getDate() && this.currentDate.getMonth() === this.selectedDate.getMonth() && this.currentDate.getFullYear() === this.selectedDate.getFullYear();
     }
 
     isCurrentMonth() {
@@ -109,20 +159,31 @@ export class DateTimePicker {
         return this.currentDate.getMonth() === this.selectedDate.getMonth() && this.currentDate.getFullYear() === this.selectedDate.getFullYear();
     }
 
-    formatDate(date) {
-        let formattedDate = date.toISOString().slice(0, 10);
+    formatDate(date, day = null) {
+        const dateObj = new Date(date.getFullYear(), date.getMonth(), day || date.getDate());
+        let formattedDate = dateObj.toISOString().slice(0, 10);
         if (this.includeTime) {
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const hours = String(dateObj.getHours()).padStart(2, '0');
+            const minutes = String(dateObj.getMinutes()).padStart(2, '0');
             formattedDate += ` ${hours}:${minutes}`;
         }
         return formattedDate;
     }
 
     updateInputValue() {
-        const formattedDate = this.formatDate(this.selectedDate);
+        const year = this.selectedDate.getFullYear();
+        const month = String(this.selectedDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+        const day = String(this.selectedDate.getDate()).padStart(2, '0');
+        const hours = String(this.selectedDate.getHours()).padStart(2, '0');
+        const minutes = String(this.selectedDate.getMinutes()).padStart(2, '0');
+    
+        // Construct the date string manually to avoid timezone adjustments
+        let formattedDate = `${year}-${month}-${day}`;
+        if (this.includeTime) {
+            formattedDate += ` ${hours}:${minutes}`;
+        }
         this.input.value = formattedDate;
-    }
+    }    
 
     updateSelectedDateForMonthChange() {
         const daysInCurrentMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 0).getDate();
@@ -191,20 +252,21 @@ export class DateTimePicker {
             Today: new Date(),
             Tomorrow: new Date(new Date().setDate(new Date().getDate() + 1)),
         };
-
+    
         Object.entries(quickDates).forEach(([label, date]) => {
             const button = document.createElement('button');
             button.textContent = label;
+            button.classList.add('quick-select-button');
             button.addEventListener('click', () => {
-                this.selectedDate = date;
-                this.currentDate.setFullYear(date.getFullYear(), date.getMonth());
+                this.selectedDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), this.selectedDate.getHours(), this.selectedDate.getMinutes());
+                this.currentDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate());
                 this.updateInputValue();
                 this.buildCalendar();
             });
             this.quickSelectContainer.appendChild(button);
         });
     }
-
+    
     addTimeSelectors() {
         const timeSelectorContainer = document.createElement('div');
         timeSelectorContainer.classList.add('time-selector');
@@ -246,6 +308,7 @@ export class DateTimePicker {
     }
 
     applyVariantStyles() {
+        this.container.dataset.variant = this.variant;
         this.input.classList.add(`datetime-input-${this.variant}`);
         this.picker.classList.add(`datetime-picker-${this.variant}`);
     }

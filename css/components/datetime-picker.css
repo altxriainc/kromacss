@@ -10,7 +10,7 @@
 /* Input Styling */
 .datetime-input {
     width: 100%;
-    padding: var(--space-2);
+    padding: clamp(8px, var(--space-2), 12px);
     border-radius: var(--radius-md);
     font-size: 1rem;
     outline: none;
@@ -28,13 +28,15 @@
 [data-variant="info"] .datetime-input { border-color: var(--info); }
 
 /* Input Focus and Hover Effects with Variants */
-.datetime-input:focus { box-shadow: 0px 0px 0px 2px var(--primary-light); }
-[data-variant="primary"] .datetime-input:focus { box-shadow: 0px 0px 0px 2px var(--primary-light); }
-[data-variant="secondary"] .datetime-input:focus { box-shadow: 0px 0px 0px 2px var(--secondary-light); }
-[data-variant="success"] .datetime-input:focus { box-shadow: 0px 0px 0px 2px var(--success); }
-[data-variant="warning"] .datetime-input:focus { box-shadow: 0px 0px 0px 2px var(--warning); }
-[data-variant="danger"] .datetime-input:focus { box-shadow: 0px 0px 0px 2px var(--danger); }
-[data-variant="info"] .datetime-input:focus { box-shadow: 0px 0px 0px 2px var(--info); }
+.datetime-input:focus {
+    box-shadow: 0px 0px 0px 3px var(--primary-light);
+}
+[data-variant="primary"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--primary-light); }
+[data-variant="secondary"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--secondary-light); }
+[data-variant="success"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--success-light); }
+[data-variant="warning"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--warning-light); }
+[data-variant="danger"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--danger-light); }
+[data-variant="info"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--info-light); }
 
 /* Date Picker Popup */
 .datetime-picker {
@@ -77,7 +79,7 @@
 .calendar-header button {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
     cursor: pointer;
     padding: var(--space-1);
     transition: color var(--transition-colors);
@@ -94,7 +96,7 @@
 /* Month and Year Styling */
 .calendar-month,
 .calendar-year {
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 1rem, 1.125rem);
     font-weight: bold;
     cursor: pointer;
     padding: var(--space-1);
@@ -105,12 +107,6 @@
 /* Variant Hover Effects for Month and Year */
 .calendar-month:hover,
 .calendar-year:hover { background-color: var(--primary-light); color: #fff; }
-[data-variant="primary"] .calendar-month:hover, [data-variant="primary"] .calendar-year:hover { background-color: var(--primary-light); }
-[data-variant="secondary"] .calendar-month:hover, [data-variant="secondary"] .calendar-year:hover { background-color: var(--secondary-light); }
-[data-variant="success"] .calendar-month:hover, [data-variant="success"] .calendar-year:hover { background-color: var(--success); }
-[data-variant="warning"] .calendar-month:hover, [data-variant="warning"] .calendar-year:hover { background-color: var(--warning); }
-[data-variant="danger"] .calendar-month:hover, [data-variant="danger"] .calendar-year:hover { background-color: var(--danger); }
-[data-variant="info"] .calendar-month:hover, [data-variant="info"] .calendar-year:hover { background-color: var(--info); }
 
 /* Month and Year Selector */
 .month-selector,
@@ -139,15 +135,6 @@
     transition: background-color var(--transition-colors);
 }
 
-/* Variant Hover Styles for Month and Year Options */
-.month-option:hover, .year-option:hover { background-color: var(--primary-light); color: #fff; }
-[data-variant="primary"] .month-option:hover, [data-variant="primary"] .year-option:hover { background-color: var(--primary-light); }
-[data-variant="secondary"] .month-option:hover, [data-variant="secondary"] .year-option:hover { background-color: var(--secondary-light); }
-[data-variant="success"] .month-option:hover, [data-variant="success"] .year-option:hover { background-color: var(--success); }
-[data-variant="warning"] .month-option:hover, [data-variant="warning"] .year-option:hover { background-color: var(--warning); }
-[data-variant="danger"] .month-option:hover, [data-variant="danger"] .year-option:hover { background-color: var(--danger); }
-[data-variant="info"] .month-option:hover, [data-variant="info"] .year-option:hover { background-color: var(--info); }
-
 /* Calendar Grid */
 .calendar-grid {
     display: grid;
@@ -163,32 +150,11 @@
     border-radius: var(--radius-sm);
 }
 
-/* Variant Hover Styles for Calendar Day */
-.calendar-day:hover { background-color: var(--primary-light); color: white;}
-[data-variant="primary"] .calendar-day:hover { background-color: var(--primary-light); color: var(--primary-dark);}
-[data-variant="secondary"] .calendar-day:hover { background-color: var(--secondary-light); color: var(--secondary-dark);}
-[data-variant="success"] .calendar-day:hover { background-color: var(--success);}
-[data-variant="warning"] .calendar-day:hover { background-color: var(--warning); }
-[data-variant="danger"] .calendar-day:hover { background-color: var(--danger); }
-[data-variant="info"] .calendar-day:hover { background-color: var(--info); }
-
 /* Current Day and Selected Day Styles with Variants */
 [data-variant="primary"] .calendar-day.current-day { background-color: var(--primary-light); color: #fff; }
-[data-variant="secondary"] .calendar-day.current-day { background-color: var(--secondary-light); color: #fff; }
-
-/* Lighter Opacity for Current Day without Separate RGB Variables */
-[data-variant="success"] .calendar-day.current-day { background-color: var(--success); color: #fff; opacity: 0.2; }
-[data-variant="warning"] .calendar-day.current-day { background-color: var(--warning); color: #fff; opacity: 0.2; }
-[data-variant="danger"] .calendar-day.current-day { background-color: var(--danger); color: #fff; opacity: 0.2; }
-[data-variant="info"] .calendar-day.current-day { background-color: var(--info); color: #fff; opacity: 0.2; }
 
 /* Selected Day Styles with Full Opacity */
-[data-variant="primary"] .calendar-day.selected-day { background-color: var(--primary); color: #fff; }
-[data-variant="secondary"] .calendar-day.selected-day { background-color: var(--secondary); color: #fff; }
-[data-variant="success"] .calendar-day.selected-day { background-color: var(--success); color: #fff; }
-[data-variant="warning"] .calendar-day.selected-day { background-color: var(--warning); color: #fff; }
-[data-variant="danger"] .calendar-day.selected-day { background-color: var(--danger); color: #fff; }
-[data-variant="info"] .calendar-day.selected-day { background-color: var(--info); color: #fff; }
+.calendar-day.selected-day { background-color: var(--primary); color: #fff; }
 
 /* Quick Select Buttons */
 .quick-select {
@@ -209,14 +175,6 @@
     font-size: 0.875rem;
 }
 
-/* Variant Hover Styles for Quick Select Buttons */
-[data-variant="primary"] .quick-select button:hover { background-color: var(--primary-light);}
-[data-variant="secondary"] .quick-select button:hover { background-color: var(--secondary-light);}
-[data-variant="success"] .quick-select button:hover { background-color: var(--success);}
-[data-variant="warning"] .quick-select button:hover { background-color: var(--warning);}
-[data-variant="danger"] .quick-select button:hover { background-color: var(--danger);}
-[data-variant="info"] .quick-select button:hover { background-color: var(--info); }
-
 /* Confirm Button */
 .confirm-button {
     width: 100%;
@@ -231,18 +189,6 @@
 }
 
 [data-variant="primary"] .confirm-button { background-color: var(--primary); color: #fff; }
-[data-variant="secondary"] .confirm-button { background-color: var(--secondary); color: #fff; }
-[data-variant="success"] .confirm-button { background-color: var(--success); color: #fff; }
-[data-variant="warning"] .confirm-button { background-color: var(--warning); color: #fff; }
-[data-variant="danger"] .confirm-button { background-color: var(--danger); color: #fff; }
-[data-variant="info"] .confirm-button { background-color: var(--info); color: #fff; }
-
-[data-variant="primary"] .confirm-button:hover { background-color: var(--primary-hover); }
-[data-variant="secondary"] .confirm-button:hover { background-color: var(--secondary-hover); }
-[data-variant="success"] .confirm-button:hover { background-color: var(--success-hover); }
-[data-variant="warning"] .confirm-button:hover { background-color: var(--warning-hover); }
-[data-variant="danger"] .confirm-button:hover { background-color: var(--danger-hover); }
-[data-variant="info"] .confirm-button:hover { background-color: var(--info-hover); }
 
 /* Time Selector */
 .time-selector {
@@ -253,7 +199,7 @@
 }
 
 .time-selector input {
-    width: 48px;
+    width: clamp(36px, 3vw, 48px);
     padding: var(--space-1);
     border-radius: var(--radius-md);
     font-size: 0.875rem;
@@ -261,19 +207,3 @@
     outline: none;
     transition: border-color var(--transition-colors);
 }
-
-/* Variant Focus Styles for Time Selector Input */
-[data-variant="primary"] .time-selector input:focus { border-color: var(--primary); }
-[data-variant="secondary"] .time-selector input:focus { border-color: var(--secondary); }
-[data-variant="success"] .time-selector input:focus { border-color: var(--success); }
-[data-variant="warning"] .time-selector input:focus { border-color: var(--warning); }
-[data-variant="danger"] .time-selector input:focus { border-color: var(--danger); }
-[data-variant="info"] .time-selector input:focus { border-color: var(--info); }
-
-/* Dark Mode Styles */
-.dark-mode .datetime-input { background-color: var(--neutral-900); color: var(--neutral-50); }
-.dark-mode .datetime-picker { background-color: var(--neutral-800); color: var(--neutral-50); }
-.dark-mode .calendar-day:hover, .dark-mode .quick-select button { color: #fff; }
-.dark-mode .calendar-day:hover, .dark-mode .quick-select button:hover { background-color: var(--neutral-700); color: #fff; }
-.dark-mode .month-selector, .dark-mode .year-selector { background-color: var(--neutral-800); color: var(--neutral-50); }
-.dark-mode .month-option:hover, .dark-mode .year-option:hover { background-color: var(--neutral-700); }
