@@ -229,53 +229,137 @@
 
   <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Enhanced Alert Component Showcase</h2>
-  
-    <!-- Success Alert -->
-    <div class="alert alert-success alert-dismissible my-4">
-      <span class="alert-icon"></span>
-      <div class="alert-content">
-        <div class="alert-title">Success Alert</div>
-        <div class="alert-body">Your action was successful!</div>
+    <section>
+      <h2>Basic Alerts</h2>
+      <div class="alert alert-success">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Success</span>
+          <p class="alert-body">Your changes have been saved successfully!</p>
+        </div>
       </div>
-      <button class="alert-close">&times;</button>
-    </div>
-  
-    <!-- Warning Alert (Compact) -->
-    <div class="alert alert-warning alert-compact my-4">
-      <span class="alert-icon"></span>
-      <div class="alert-content">
-        <div class="alert-title">Warning Alert</div>
+    
+      <div class="alert alert-warning">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Warning</span>
+          <p class="alert-body">This action may have unintended consequences.</p>
+        </div>
       </div>
-    </div>
-  
-    <!-- Danger Alert (Large) -->
-    <div class="alert alert-danger alert-lg my-4">
-      <span class="alert-icon"></span>
-      <div class="alert-content">
-        <div class="alert-title">Danger Alert</div>
-        <div class="alert-body">Something went wrong. Please try again later.</div>
-        <div class="alert-footer">Contact support if the issue persists.</div>
+    
+      <div class="alert alert-danger">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Error</span>
+          <p class="alert-body">There was an issue processing your request.</p>
+        </div>
       </div>
-      <button class="alert-close">&times;</button>
-    </div>
-  
-    <!-- Info Alert with Outline Variant -->
-    <div class="alert alert-info alert-outline my-4">
-      <span class="alert-icon"></span>
-      <div class="alert-content">
-        <div class="alert-title">Info Alert</div>
-        <div class="alert-body">Here’s some information you may find useful.</div>
+    
+      <div class="alert alert-info">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Information</span>
+          <p class="alert-body">New features are available in this version.</p>
+        </div>
       </div>
-    </div>
-  
-    <!-- Ghost Alert -->
-    <div class="alert alert-ghost alert-danger my-4">
-      <span class="alert-icon"></span>
-      <div class="alert-content">
-        <div class="alert-title">Ghost Alert</div>
-        <div class="alert-body">This is a subtle, non-intrusive alert style.</div>
+    </section>
+    
+    <section>
+      <h2>Dismissible Alerts</h2>
+      <div class="alert alert-dismissible alert-success">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Success</span>
+          <p class="alert-body">Your file has been uploaded.</p>
+        </div>
+        <button class="alert-close" aria-label="Close">&times;</button>
       </div>
-    </div>
+    
+      <div class="alert alert-dismissible alert-warning">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Warning</span>
+          <p class="alert-body">Password will expire soon. Please update it.</p>
+        </div>
+        <button class="alert-close" aria-label="Close">&times;</button>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Outline Alerts</h2>
+      <div class="alert alert-outline alert-success">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Success Outline</span>
+          <p class="alert-body">Action completed successfully.</p>
+        </div>
+      </div>
+    
+      <div class="alert alert-outline alert-danger">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Error Outline</span>
+          <p class="alert-body">There was an error processing your request.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Compact Alerts</h2>
+      <div class="alert alert-compact alert-info">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Info Compact</span>
+        </div>
+      </div>
+    
+      <div class="alert alert-compact alert-warning">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Warning Compact</span>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Ghost Alerts</h2>
+      <div class="alert alert-ghost alert-success">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Success Ghost</span>
+          <p class="alert-body">The operation was completed successfully.</p>
+        </div>
+      </div>
+    
+      <div class="alert alert-ghost alert-info">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Info Ghost</span>
+          <p class="alert-body">Here’s some additional information.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>Large Alerts</h2>
+      <div class="alert alert-lg alert-success">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Success</span>
+          <p class="alert-body">Your profile was updated successfully.</p>
+          <p class="alert-footer">Updated just now</p>
+        </div>
+      </div>
+    
+      <div class="alert alert-lg alert-danger">
+        <span class="alert-icon"></span>
+        <div class="alert-content">
+          <span class="alert-title">Error</span>
+          <p class="alert-body">An unexpected error occurred. Please try again later.</p>
+          <p class="alert-footer">Last attempt 5 minutes ago</p>
+        </div>
+      </div>
+    </section>    
   </section>  
 
   <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
