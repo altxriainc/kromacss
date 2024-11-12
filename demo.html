@@ -940,31 +940,41 @@
 
   <section class="p-4 bg-neutral-900 text-center shadow-md rounded my-6">
 
-    <h2 class="font-lg text-primary text-left my-4">Simple Slideshow Component Showcase</h2>
+    <h2 class="font-lg text-primary text-center my-4">Simple Slideshow Component Showcase</h2>
 
-    <!--SLIDESHOW WITH DATASET-->
+    <h4>container size, auto-scrolling, no bullets, mid-radius slideshow</h4>
 
-    <div 
-    class="m-2"
-    id="slideshow1" 
-    data-autoScroll = "false" 
-    data-waitTime = "3000" 
-    data-hoverPause = "true" 
-    data-scrollingPauseTime = "2000" 
-    data-enableArrows = "true" 
-    data-enableBullets = "false"
-    >
+    <!--SLIDE SHOW WITH DATASET IN CONTAINER (inherit size)-->
 
-      <img src="https://t3.ftcdn.net/jpg/05/24/43/88/360_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg">
-      <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg">
-      <img src="https://t3.ftcdn.net/jpg/05/64/82/08/360_F_564820811_n9WP1mM43pLiQwLkIA07KF9Hat5vkX2v.jpg">
-      <img src="https://t4.ftcdn.net/jpg/05/21/18/03/360_F_521180384_837ZQVtGdBocnKQr5prxWzpjIa64wtgO.jpg">
+    <div id="slideshow1-wrap" class="my-6 mx-a w-full" style="height:clamp(300px,35vw,500px);">
+    
+      <div 
+      class="slideshow"
+      id="slideshow1" 
+      data-autoScroll = "true" 
+      data-waitTime = "3000" 
+      data-hoverPause = "false" 
+      data-scrollingPauseTime = "2000" 
+      data-enableArrows = "true" 
+      data-enableBullets = "false"
+      data-inheritSize = "true"
+      data-radiusvar = "md"
+      >
 
-    </div>    	
+        <img src="https://t3.ftcdn.net/jpg/05/24/43/88/360_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg">
+        <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg">
+        <img src="https://t3.ftcdn.net/jpg/05/64/82/08/360_F_564820811_n9WP1mM43pLiQwLkIA07KF9Hat5vkX2v.jpg">
+        <img src="https://t4.ftcdn.net/jpg/05/21/18/03/360_F_521180384_837ZQVtGdBocnKQr5prxWzpjIa64wtgO.jpg">
+
+      </div>    	
+
+    </div>
 
     <!--SLIDESHOW WITHOUT DATASET-->
 
-    <div class="m-2" id="slideshow2">
+    <h4>default size, manual-scrolling, bullets, xl-radius slideshow</h4>
+
+    <div class="slideshow my-3 mx-a" id="slideshow2">
 
       <img src="https://t3.ftcdn.net/jpg/05/24/43/88/360_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg">
       <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg">

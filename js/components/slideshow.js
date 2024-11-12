@@ -2,15 +2,17 @@ export class Slideshow {
 
     /*
     id (string) = slideshow element id
+    inheritSize (boolean) = set height/width to 100% of parent container
     autoScroll (boolean) = enable autoscrolling
     waitTime (integer) = milliseconds between slides
     hoverPause (boolean) = pause slide when mouse over it
     scrollingPauseTime (integer) = milliseconds of pause after manual scroll
     enableArrows (boolean) = show/hide nav. arrows
-    enableBullets (boolean) = show/hide nav. bullets   
+    enableBullets (boolean) = show/hide nav. bullets 
+    radiusVar (string) = border radius sizing ('sm','md','lg','xl','2xl',) 
     */
 
-    constructor(id, autoScroll = (true == true ? undefined : true), waitTime = (1 == 1 ? undefined : 1), hoverPause = (true == true ? undefined : true), scrollingPauseTime = (1 == 1 ? undefined : 1), enableArrows = (true == true ? undefined : true), enableBullets = (true == true ? undefined : true)) {
+    constructor(id = 'slideshow', inheritSize = (true == true ? undefined : true), autoScroll = (true == true ? undefined : true), waitTime = (1 == 1 ? undefined : 1), hoverPause = (true == true ? undefined : true), scrollingPauseTime = (1 == 1 ? undefined : 1), enableArrows = (true == true ? undefined : true), enableBullets = (true == true ? undefined : true), radiusVar = ('x' == 'x' ? undefined : 'x')) {
 
         
 
@@ -21,12 +23,20 @@ export class Slideshow {
 
 
         //get parameters from call if passed else from element dataset if available else default
-        this.auto = eval(autoScroll ?? (this.cnt_sld.dataset.autoscroll ?? true));
+        this.autoScroll = eval(autoScroll ?? (this.cnt_sld.dataset.autoscroll ?? true));
         this.waitTime = eval(waitTime ?? (this.cnt_sld.dataset.waittime ?? 3000));
         this.hoverPause = eval(hoverPause ?? (this.cnt_sld.dataset.hoverpause ?? true));
         this.scrollingPauseTime = eval(scrollingPauseTime ?? (this.cnt_sld.dataset.scrollingpausetime ?? 2000));
         this.enableArrows = eval(enableArrows ?? (this.cnt_sld.dataset.enablearrows ?? true));
         this.enableBullets = eval(enableBullets ?? (this.cnt_sld.dataset.enablebullets ?? true));
+        this.inheritSize = eval(inheritSize ?? (this.cnt_sld.dataset.inheritsize ?? false));
+        this.radiusVar = (radiusVar ?? (this.cnt_sld.dataset.radiusvar ?? false));
+
+        //set size
+        if( this.inheritSize ){ this.cnt_sld.classList.add('inheritsize'); }
+
+        //set radius
+        if( this.radiusVar ){ this.cnt_sld.classList.add('rad'+this.radiusVar); }
 
         //get imgs
         var prvSlds = this.cnt_sld.querySelectorAll('img');
@@ -145,7 +155,6 @@ export class Slideshow {
         if(this.enableArrows && this.slds.length>1){
 
             this.arr_r.classList.remove('hidden');
-            this.arr_l.classList.remove('hidden');
             this.arr_r.addEventListener('click',() => {this.slideSwipe('r');});
             this.arr_l.addEventListener('click',() => {this.slideSwipe('l');});
 
@@ -200,7 +209,8 @@ export class Slideshow {
         });
 
         //start automatic scroll
-        if(this.auto){this.slideAuto();}
+        console.log(this.autoScroll);
+        if(this.autoScroll){this.slideAuto();}
 
         
     }

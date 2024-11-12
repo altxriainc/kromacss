@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let sld1 = new Slideshow('slideshow1');
 
   //initialize sldieshow using parameters
-  let sld2 = new Slideshow('slideshow2',true,2000,true,2000,true,true);
+  let sld2 = new Slideshow('slideshow2',false,false,2000,true,2000,true,true,'2xl');
 
 
 });

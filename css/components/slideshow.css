@@ -79,16 +79,27 @@
 }
 
 .slideshow {
-    width: 100%;
-    height: clamp(300px,35vw,500px);
+    width: 75vw;
+    height: 35vw;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-y: scroll;
     scroll-snap-type: x mandatory;
-    border-radius: clamp(15px,3vw,45px);
     position:relative;
     scroll-behavior: smooth;
+}
+
+.slideshow.radsm  { border-radius:  var(--radius-sm); }
+.slideshow.radmd  { border-radius:  var(--radius-md); }
+.slideshow.radlg  { border-radius:  var(--radius-lg); }
+.slideshow.radxl  { border-radius:  var(--radius-xl); }
+.slideshow.rad2xl { border-radius:  var(--radius-2xl);}
+
+
+.slideshow.inheritsize{
+    width:100% !important;
+    height:100% !important;
 }
 
 .slideshow .slide {
