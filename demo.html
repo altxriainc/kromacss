@@ -9,7 +9,7 @@
   <style>
   </style>
 </head>
-<body class="dark-mode">
+<body class="">
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Button Component Showcase</h2>
@@ -724,6 +724,37 @@
         <i class="fas fa-info-circle"></i>
         <span class="tooltip-text">Info Tooltip</span>
       </span>
+    </div>
+  </section>
+
+  <section class="p-4 bg-neutral-100 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Dropdown Component Variants</h2>
+    <div class="dropdown-group">
+        <div class="dropdown mb-4" data-variant="primary" data-position="bottom">
+            <button class="dropdown-trigger">Primary Dropdown</button>
+            <div class="dropdown-menu">
+                <div class="dropdown-item">Option 1</div>
+                <div class="dropdown-item">Option 2</div>
+                <div class="dropdown-item">Option 3</div>
+            </div>
+        </div>
+
+        <div class="dropdown mb-4" data-variant="secondary" data-position="bottom">
+            <button class="dropdown-trigger">Secondary Dropdown</button>
+            <div class="dropdown-menu">
+                <div class="dropdown-item">Settings</div>
+                <div class="dropdown-item">Notifications</div>
+                <div class="dropdown-item">Profile</div>
+            </div>
+        </div>
+
+        <div class="dropdown mb-4" data-variant="primary" data-position="top">
+            <button class="dropdown-trigger">Top Positioned</button>
+            <div class="dropdown-menu">
+                <div class="dropdown-item">Top Item 1</div>
+                <div class="dropdown-item">Top Item 2</div>
+            </div>
+        </div>
     </div>
   </section>
 
