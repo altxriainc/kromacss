@@ -1,10 +1,10 @@
 export function showTabContent(event, contentId, containerId) {
-    // Get all tabs and contents within the specific container
+    // Find the specific container for this tab set
     const container = document.getElementById(containerId);
     const tabs = container.querySelectorAll('.tab');
-    const contents = container.parentNode.querySelectorAll('.tab-content');
+    const contents = container.querySelectorAll('.tab-content');
 
-    // Remove active class from all tabs and hide all contents
+    // Deactivate all tabs and contents
     tabs.forEach(tab => tab.classList.remove('tab-active'));
     contents.forEach(content => content.classList.remove('tab-content-active'));
 
