@@ -1,7 +1,10 @@
-document.querySelectorAll('.alert-dismissible .alert-close').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const alert = e.target.closest('.alert');
-      alert.classList.add('fade-out');
-      setTimeout(() => alert.remove(), 400); // 400ms matches the CSS transition duration
+document.querySelectorAll('.alert .alert-close').forEach(button => {
+  button.addEventListener('click', event => {
+    const alert = button.closest('.alert');
+    alert.style.maxHeight = alert.scrollHeight + 'px'; // Set max-height to element's height for smooth collapse
+    alert.classList.add('fade-out');
+    alert.addEventListener('transitionend', () => {
+      if (alert.parentNode) alert.remove();
     });
   });
+});

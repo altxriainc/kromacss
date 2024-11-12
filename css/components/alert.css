@@ -1,22 +1,66 @@
 /* Base Alert Styles */
 .alert {
   display: flex;
-  align-items: start;
-  padding: var(--space-4);
-  border-radius: var(--radius-lg);
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(var(--space-4), 1vw + var(--space-3), var(--space-6));
+  margin: var(--space-4) auto; 
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
   position: relative;
-  transition: opacity 0.3s, transform 0.3s;
+  transition: var(--transition-all);
   background-color: var(--neutral-50);
   color: var(--neutral-900);
+  gap: var(--space-3);
+  overflow: hidden;
+}
+
+.alert[data-variant="success"] {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+  color: var(--success);
+}
+
+.alert[data-variant="warning"] {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
+  color: var(--warning);
+}
+
+.alert[data-variant="danger"] {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
+  color: var(--danger);
+}
+
+.alert[data-variant="info"] {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));
+  color: var(--info);
+}
+
+.alert[data-size="large"] {
+  padding: clamp(var(--space-6), 1vw + var(--space-4), var(--space-8));
+  font-size: clamp(1rem, 1vw + 0.75rem, 1.25rem);
+}
+
+.alert[data-size="compact"] {
+  padding: clamp(var(--space-3), 1vw + var(--space-2), var(--space-4));
   gap: var(--space-2);
+  flex-direction: row;
+  align-items: center;
+}
+
+.alert[data-shape="rounded"] {
+  border-radius: var(--radius-xl);
+}
+
+.alert[data-shape="circle"] {
+  border-radius: var(--radius-full);
+  padding: var(--space-4);
 }
 
 /* Icon */
 .alert-icon {
-  margin-right: var(--space-3);
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  margin-right: var(--space-4);
   flex-shrink: 0;
   color: inherit;
 }
@@ -28,12 +72,12 @@
 
 .alert-title {
   font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+  margin-bottom: var(--space-2);
 }
 
 .alert-body {
-  margin-top: 0.5rem;
+  margin-top: var(--space-1);
   line-height: 1.4;
 }
 
@@ -50,116 +94,39 @@
   right: var(--space-2);
   background: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 1vw + 0.5rem, 1.5rem);
   cursor: pointer;
   color: var(--neutral-500);
-  transition: color 0.2s;
+  transition: var(--transition-colors);
+}
+
+.alert[data-shape="rounded"] .alert-close {
+  top: var(--space-4);
+  right: var(--space-4);
+}
+
+.alert[data-shape="circle"] .alert-close {
+  top: var(--space-4); 
+  right: var(--space-4);
 }
 
 .alert-close:hover {
   color: var(--neutral-700);
 }
 
-/* Auto Icons */
-.alert-success .alert-icon::before { content: "✔"; color: var(--success); }
-.alert-warning .alert-icon::before { content: "⚠"; color: var(--warning); }
-.alert-danger .alert-icon::before { content: "✖"; color: var(--danger); }
-.alert-info .alert-icon::before { content: "ℹ"; color: var(--info); }
-
-/* Alert Variants */
-.alert-success {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
-  color: var(--success);
-}
-
-.alert-warning {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
-  color: var(--warning);
-}
-
-.alert-danger {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
-  color: var(--danger);
-}
-
-.alert-info {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));
-  color: var(--info);
-}
-
-/* Outline Variants */
-.alert-outline {
-  background-color: transparent;
-  border: 1px solid currentColor;
-}
-
-.alert-outline.alert-success { color: var(--success); }
-.alert-outline.alert-warning { color: var(--warning); }
-.alert-outline.alert-danger { color: var(--danger); }
-.alert-outline.alert-info { color: var(--info); }
-
-/* Ghost Variants */
-.alert-ghost {
-  background-color: transparent;
-  color: var(--neutral-500);
-  box-shadow: none;
-}
-
-/* Dismissible Alert with Animation */
-.alert-dismissible {
-  padding-right: var(--space-10);
-}
-
-.alert-dismissible .alert-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  color: inherit;
-}
-
-.alert-dismissible.fade-out {
+/* Fade-out with Smooth Collapse */
+.alert.fade-out {
   opacity: 0;
   transform: translateY(-10px);
-  transition: opacity 0.4s, transform 0.4s;
-}
-
-/* Compact Alert (Only Icon and Title) */
-.alert-compact {
-  flex-direction: row;
-  align-items: center;
-}
-
-.alert-compact .alert-icon {
-  font-size: 1.25rem;
-}
-
-.alert-compact .alert-title {
+  max-height: 0;
+  padding: 0;
   margin: 0;
-  font-weight: 500;
+  transition: opacity 0.4s, transform 0.4s, max-height 0.4s ease-out, padding 0.4s, margin 0.4s;
 }
 
-/* Large Alert */
-.alert-lg {
-  padding: var(--space-6);
-  font-size: 1rem;
-}
-
-.alert-lg .alert-icon {
-  font-size: 2rem;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   .alert {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .alert-icon {
-      margin-bottom: var(--space-3);
-  }
-
-  .alert-dismissible {
-      padding-right: var(--space-4);
+    flex-direction: row;
+    align-items: center;
   }
 }
