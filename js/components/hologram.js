@@ -4,7 +4,9 @@ export function showHologram(titleText, subtitleText, variant = 'primary', inten
 
     // Create hologram overlay container
     const hologramOverlay = document.createElement('div');
-    hologramOverlay.className = `hologram-overlay hologram-${variant} hologram-${intensity}`;
+    hologramOverlay.className = 'hologram-overlay';
+    hologramOverlay.setAttribute('data-variant', variant);
+    hologramOverlay.setAttribute('data-intensity', intensity);
     
     // Create and configure title element
     const title = document.createElement('div');
