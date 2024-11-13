@@ -1,0 +1,173 @@
+/* Enhanced Base styling for Stat/Metric Boxes */
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(var(--space-4), 2vw, var(--space-6));
+    border-radius: var(--radius-lg);
+    background-color: var(--neutral-50);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-all);
+    text-align: center;
+    max-width: 350px;
+    gap: clamp(var(--space-2), 2vw, var(--space-4));
+    margin: var(--space-4) auto;
+}
+
+/* Hover and Focus States for improved UI feedback */
+.stat-box:hover {
+    background-color: var(--neutral-100);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.stat-box:focus-within {
+    outline: 2px solid var(--primary);
+}
+
+/* Icon Styling */
+.stat-box .icon {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--neutral-800);
+}
+
+/* Title and Value Styling */
+.stat-box .title {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+    font-weight: 500;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-1);
+}
+
+.stat-box .value {
+    font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+    font-weight: 700;
+    color: var(--neutral-900);
+}
+
+/* Change Indicator */
+.stat-box .change {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+    font-weight: 500;
+}
+
+/* Enhanced Color Variants for better contrast */
+.stat-box[data-variant="primary"] {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    box-shadow: var(--primary-shadow);
+}
+
+.stat-box[data-variant="secondary"] {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+    box-shadow: var(--secondary-shadow);
+}
+
+.stat-box[data-variant="accent"] {
+    background-color: var(--accent-bg);
+    color: var(--accent-text);
+    box-shadow: var(--accent-shadow);
+}
+
+.stat-box[data-variant="success"] {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    box-shadow: var(--success-shadow);
+}
+
+.stat-box[data-variant="warning"] {
+    background-color: var(--warning-bg);
+    color: var(--warning-text);
+    box-shadow: var(--warning-shadow);
+}
+
+.stat-box[data-variant="danger"] {
+    background-color: var(--danger-bg);
+    color: var(--danger-text);
+    box-shadow: var(--danger-shadow);
+}
+
+.stat-box[data-variant="info"] {
+    background-color: var(--info-bg);
+    color: var(--info-text);
+    box-shadow: var(--info-shadow);
+}
+
+/* Change Indicator Colors */
+.stat-box .change[data-change="positive"] {
+    color: var(--success);
+}
+
+.stat-box .change[data-change="negative"] {
+    color: var(--danger);
+}
+
+/* Layout Variations */
+.stat-box[data-layout="horizontal"] {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+    text-align: left;
+    padding: clamp(var(--space-3), 1vw, var(--space-4));
+}
+
+.stat-box[data-layout="horizontal"] .icon {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+.stat-box[data-layout="compact"] {
+    padding: var(--space-2);
+    max-width: 250px;
+    gap: var(--space-2);
+}
+
+.stat-box[data-layout="expanded"] {
+    padding: clamp(var(--space-6), 3vw, var(--space-8));
+    max-width: 450px;
+    box-shadow: var(--shadow-xl);
+}
+
+/* Additional Shadow Options */
+.stat-box[data-shadow="sm"] {
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-box[data-shadow="lg"] {
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-box[data-shadow="none"] {
+    box-shadow: none;
+}
+
+/* Border-radius Options */
+.stat-box[data-radius="sm"] {
+    border-radius: var(--radius-sm);
+}
+
+.stat-box[data-radius="full"] {
+    border-radius: var(--radius-full);
+}
+
+/* Responsive Typography Adjustments */
+@media (max-width: 600px) {
+    .stat-box {
+        padding: var(--space-3);
+        max-width: 90%;
+    }
+    .stat-box .title {
+        font-size: clamp(0.875rem, 2vw, 1rem);
+    }
+    .stat-box .value {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    .stat-box[data-layout="horizontal"] {
+        flex-direction: column;
+        align-items: center;
+    }
+}

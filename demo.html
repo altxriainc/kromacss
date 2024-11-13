@@ -1088,6 +1088,37 @@
       <button class="pagination-button" aria-label="Next page">Next</button>
     </div>
   </section>  
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Stat Box Component Demo</h2>
+    <section class="stat-box" data-variant="primary" data-layout="vertical" data-shadow="lg" tabindex="0" aria-label="Monthly Sales">
+      <div class="icon">💵</div>
+      <div class="title">Monthly Sales</div>
+      <div class="value">$35,000</div>
+      <div class="change" data-change="positive">+12%</div>
+    </section>
+    
+    <section class="stat-box" data-variant="success" data-layout="horizontal" data-shadow="sm" aria-label="Active Users">
+        <div class="icon">👥</div>
+        <div class="title">Active Users</div>
+        <div class="value">5,720</div>
+        <div class="change" data-change="positive">+5%</div>
+    </section>
+    
+    <section class="stat-box" data-variant="danger" data-layout="expanded" data-radius="full" aria-label="Churn Rate">
+        <div class="icon">⚠️</div>
+        <div class="title">Churn Rate</div>
+        <div class="value">8%</div>
+        <div class="change" data-change="negative">-2%</div>
+    </section>
+    
+    <section class="stat-box" data-variant="warning" data-layout="compact" aria-label="Pending Tickets">
+        <div class="icon">📩</div>
+        <div class="title">Pending Tickets</div>
+        <div class="value">27</div>
+        <div class="change" data-change="neutral">+0%</div>
+    </section>  
+  </section>
   
 </body>
 <script type="module" src="js/main.js"></script>
