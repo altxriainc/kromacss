@@ -39,16 +39,38 @@
 }
 
 /* Avatar Shapes */
-.avatar[data-shape="rounded"] { border-radius: var(--radius-lg); }
-.avatar[data-shape="square"] { border-radius: 0; }
+.avatar[data-shape="rounded"] {
+  border-radius: var(--radius-lg);
+}
+.avatar[data-shape="square"] {
+  border-radius: 0;
+}
 
 /* Avatar Variants */
-.avatar[data-variant="primary"] { background-color: var(--primary); color: #fff; }
-.avatar[data-variant="secondary"] { background-color: var(--secondary); color: #fff; }
-.avatar[data-variant="success"] { background-color: var(--success); color: #fff; }
-.avatar[data-variant="danger"] { background-color: var(--danger); color: #fff; }
-.avatar[data-variant="warning"] { background-color: var(--warning); color: #fff; }
-.avatar[data-variant="info"] { background-color: var(--info); color: #fff; }
+.avatar[data-variant="primary"] {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
+.avatar[data-variant="secondary"] {
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
+}
+.avatar[data-variant="success"] {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
+.avatar[data-variant="danger"] {
+  background-color: var(--danger-bg);
+  color: var(--danger-text);
+}
+.avatar[data-variant="warning"] {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+}
+.avatar[data-variant="info"] {
+  background-color: var(--info-bg);
+  color: var(--info-text);
+}
 
 /* Avatar with Image */
 .avatar img {
@@ -58,10 +80,14 @@
   display: block;
   transition: transform 0.3s ease;
 }
-.avatar img:hover { transform: scale(1.1); } /* Zoom effect on hover */
+.avatar img:hover {
+  transform: scale(1.1);
+} /* Zoom effect on hover */
 
 /* Initials Avatar */
-.avatar-initials { font-size: inherit; }
+.avatar-initials {
+  font-size: inherit;
+}
 
 /* Status Indicators */
 .avatar-status {
@@ -72,15 +98,23 @@
   height: 0.75rem;
   border-radius: 50%;
   border: 2px solid #fff;
-  background-color: var(--status-color, var(--success));
+  background-color: var(--status-color, var(--success-bg));
   box-shadow: var(--shadow-sm);
 }
 
 /* Status Colors */
-.avatar[data-status="online"] .avatar-status { --status-color: var(--success); }
-.avatar[data-status="offline"] .avatar-status { --status-color: var(--neutral-400); }
-.avatar[data-status="busy"] .avatar-status { --status-color: var(--danger); }
-.avatar[data-status="away"] .avatar-status { --status-color: var(--warning); }
+.avatar[data-status="online"] .avatar-status {
+  --status-color: var(--success-bg);
+}
+.avatar[data-status="offline"] .avatar-status {
+  --status-color: var(--neutral-400);
+}
+.avatar[data-status="busy"] .avatar-status {
+  --status-color: var(--danger-bg);
+}
+.avatar[data-status="away"] .avatar-status {
+  --status-color: var(--warning-bg);
+}
 
 /* Avatar Group */
 .avatar-group {
@@ -90,7 +124,7 @@
 .avatar-group .avatar:not(:first-child) {
   margin-left: -0.5rem;
   border: 2px solid #fff;
-  box-shadow: var(--shadow-xs); /* Slight shadow for overlap */
+  box-shadow: var(--shadow-sm); /* Slight shadow for overlap */
 }
 
 /* Pulsing Avatar */
@@ -111,8 +145,14 @@
   z-index: -1;
 }
 @keyframes avatarPulse {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(1.6); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
 /* Ghost Avatar */
@@ -144,9 +184,21 @@
   overflow: hidden;
   box-shadow: var(--shadow-xs);
 }
-.avatar[data-variant="primary"].avatar-bordered { border-color: var(--primary); }
-.avatar[data-variant="secondary"].avatar-bordered { border-color: var(--secondary); }
-.avatar[data-variant="success"].avatar-bordered { border-color: var(--success); }
-.avatar[data-variant="danger"].avatar-bordered { border-color: var(--danger); }
-.avatar[data-variant="warning"].avatar-bordered { border-color: var(--warning); }
-.avatar[data-variant="info"].avatar-bordered { border-color: var(--info); }
+.avatar[data-variant="primary"].avatar-bordered {
+  border-color: var(--primary-border);
+}
+.avatar[data-variant="secondary"].avatar-bordered {
+  border-color: var(--secondary-border);
+}
+.avatar[data-variant="success"].avatar-bordered {
+  border-color: var(--success-border);
+}
+.avatar[data-variant="danger"].avatar-bordered {
+  border-color: var(--danger-border);
+}
+.avatar[data-variant="warning"].avatar-bordered {
+  border-color: var(--warning-border);
+}
+.avatar[data-variant="info"].avatar-bordered {
+  border-color: var(--info-border);
+}
