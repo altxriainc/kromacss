@@ -1,4 +1,4 @@
-/* Hologram Overlay Styles */
+/* Base Hologram Overlay Styles */
 .hologram-overlay {
   position: fixed;
   top: 50%;
@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  pointer-events: none; /* Prevent interactions */
+  pointer-events: none;
 }
 
 /* Hologram Title and Subtitle */
@@ -54,13 +54,19 @@
 
 /* Intensity Variants */
 .hologram-overlay[data-intensity="low"] .hologram-title,
-.hologram-overlay[data-intensity="low"] .hologram-subtitle { text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3); }
+.hologram-overlay[data-intensity="low"] .hologram-subtitle {
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+}
 
 .hologram-overlay[data-intensity="medium"] .hologram-title,
-.hologram-overlay[data-intensity="medium"] .hologram-subtitle { text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }
+.hologram-overlay[data-intensity="medium"] .hologram-subtitle {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
 
 .hologram-overlay[data-intensity="high"] .hologram-title,
-.hologram-overlay[data-intensity="high"] .hologram-subtitle { text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7); }
+.hologram-overlay[data-intensity="high"] .hologram-subtitle {
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+}
 
 /* Color Variants */
 .hologram-overlay[data-variant="primary"] .hologram-title,
@@ -97,4 +103,20 @@
 .hologram-overlay[data-variant="info"] .hologram-subtitle {
   color: var(--info);
   text-shadow: 0px 0px 10px var(--info-light), 0px 0px 20px var(--info);
+}
+
+.hologram-overlay[data-variant="accent"] .hologram-title,
+.hologram-overlay[data-variant="accent"] .hologram-subtitle {
+  color: var(--accent);
+  text-shadow: 0px 0px 10px var(--accent-light), 0px 0px 20px var(--accent);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hologram-title {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+  }
+  .hologram-subtitle {
+      font-size: clamp(0.875rem, 2vw, 1.5rem);
+  }
 }
