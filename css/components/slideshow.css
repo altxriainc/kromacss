@@ -90,13 +90,6 @@
     scroll-behavior: smooth;
 }
 
-.slideshow.radsm  { border-radius:  var(--radius-sm); }
-.slideshow.radmd  { border-radius:  var(--radius-md); }
-.slideshow.radlg  { border-radius:  var(--radius-lg); }
-.slideshow.radxl  { border-radius:  var(--radius-xl); }
-.slideshow.rad2xl { border-radius:  var(--radius-2xl);}
-
-
 .slideshow.inheritsize{
     width:100% !important;
     height:100% !important;

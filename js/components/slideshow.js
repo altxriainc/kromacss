@@ -12,7 +12,7 @@ export class Slideshow {
     radiusVar (string) = border radius sizing ('sm','md','lg','xl','2xl',) 
     */
 
-    constructor(id = 'slideshow', inheritSize = (true == true ? undefined : true), autoScroll = (true == true ? undefined : true), waitTime = (1 == 1 ? undefined : 1), hoverPause = (true == true ? undefined : true), scrollingPauseTime = (1 == 1 ? undefined : 1), enableArrows = (true == true ? undefined : true), enableBullets = (true == true ? undefined : true), radiusVar = ('x' == 'x' ? undefined : 'x')) {
+    constructor(id = 'slideshow', inheritSize = (true == true ? undefined : true), autoScroll = (true == true ? undefined : true), waitTime = (1 == 1 ? undefined : 1), hoverPause = (true == true ? undefined : true), scrollingPauseTime = (1 == 1 ? undefined : 1), enableArrows = (true == true ? undefined : true), enableBullets = (true == true ? undefined : true)) {
 
         
 
@@ -30,13 +30,9 @@ export class Slideshow {
         this.enableArrows = eval(enableArrows ?? (this.cnt_sld.dataset.enablearrows ?? true));
         this.enableBullets = eval(enableBullets ?? (this.cnt_sld.dataset.enablebullets ?? true));
         this.inheritSize = eval(inheritSize ?? (this.cnt_sld.dataset.inheritsize ?? false));
-        this.radiusVar = (radiusVar ?? (this.cnt_sld.dataset.radiusvar ?? false));
 
         //set size
         if( this.inheritSize ){ this.cnt_sld.classList.add('inheritsize'); }
-
-        //set radius
-        if( this.radiusVar ){ this.cnt_sld.classList.add('rad'+this.radiusVar); }
 
         //get imgs
         var prvSlds = this.cnt_sld.querySelectorAll('img');

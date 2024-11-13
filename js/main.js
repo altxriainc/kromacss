@@ -33,4 +33,3 @@ window.closeToastHistory = closeToastHistory;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 window.DateTimePicker = DateTimePicker;
-window.Slideshow = Slideshow;
