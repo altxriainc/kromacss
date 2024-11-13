@@ -151,10 +151,76 @@
 }
 
 /* Current Day and Selected Day Styles with Variants */
-[data-variant="primary"] .calendar-day.current-day { background-color: var(--primary-light); color: #fff; }
 
-/* Selected Day Styles with Full Opacity */
-.calendar-day.selected-day { background-color: var(--primary); color: #fff; }
+/* Primary Variant */
+[data-variant="primary"] .calendar-day.current-day {
+    background-color: var(--primary-light);
+    color: #fff;
+}
+[data-variant="primary"] .calendar-day.selected-day {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+/* Secondary Variant */
+[data-variant="secondary"] .calendar-day.current-day {
+    background-color: var(--secondary-light);
+    color: #fff;
+}
+[data-variant="secondary"] .calendar-day.selected-day {
+    background-color: var(--secondary);
+    color: #fff;
+}
+
+/* Success Variant */
+[data-variant="success"] .calendar-day.current-day {
+    background-color: var(--success-light);
+    color: #fff;
+}
+[data-variant="success"] .calendar-day.selected-day {
+    background-color: var(--success);
+    color: #fff;
+}
+
+/* Warning Variant */
+[data-variant="warning"] .calendar-day.current-day {
+    background-color: var(--warning-light);
+    color: #fff;
+}
+[data-variant="warning"] .calendar-day.selected-day {
+    background-color: var(--warning);
+    color: #fff;
+}
+
+/* Danger Variant */
+[data-variant="danger"] .calendar-day.current-day {
+    background-color: var(--danger-light);
+    color: #fff;
+}
+[data-variant="danger"] .calendar-day.selected-day {
+    background-color: var(--danger);
+    color: #fff;
+}
+
+/* Info Variant */
+[data-variant="info"] .calendar-day.current-day {
+    background-color: var(--info-light);
+    color: #fff;
+}
+[data-variant="info"] .calendar-day.selected-day {
+    background-color: var(--info);
+    color: #fff;
+}
+
+/* Accent Variant */
+[data-variant="accent"] .calendar-day.current-day {
+    background-color: var(--accent-light);
+    color: #fff;
+}
+[data-variant="accent"] .calendar-day.selected-day {
+    background-color: var(--accent);
+    color: #fff;
+}
 
 /* Quick Select Buttons */
 .quick-select {
@@ -207,3 +273,4 @@
     outline: none;
     transition: border-color var(--transition-colors);
 }
+

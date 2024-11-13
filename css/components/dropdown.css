@@ -15,8 +15,8 @@
     padding: clamp(0.5rem, 1vw, 0.75rem);
     font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
     font-weight: 500;
-    background-color: var(--primary);
-    color: #fff;
+    background-color: var(--btn-bg, var(--primary-bg));
+    color: var(--btn-color, #fff);
     border: none;
     border-radius: var(--radius-md);
     cursor: pointer;
@@ -87,8 +87,8 @@
 
 /* Primary Variant */
 .dropdown[data-variant="primary"] .dropdown-trigger {
-    background-color: var(--primary);
-    color: #fff;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
 }
 .dropdown[data-variant="primary"] .dropdown-item:hover {
     background-color: var(--primary-light);
@@ -97,8 +97,8 @@
 
 /* Secondary Variant */
 .dropdown[data-variant="secondary"] .dropdown-trigger {
-    background-color: var(--secondary);
-    color: #fff;
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
 }
 .dropdown[data-variant="secondary"] .dropdown-item:hover {
     background-color: var(--secondary-light);
@@ -107,8 +107,8 @@
 
 /* Warning Variant */
 .dropdown[data-variant="warning"] .dropdown-trigger {
-    background-color: var(--warning);
-    color: #fff;
+    background-color: var(--warning-bg);
+    color: var(--warning-text);
 }
 .dropdown[data-variant="warning"] .dropdown-item:hover {
     background-color: var(--warning-light);
@@ -117,8 +117,8 @@
 
 /* Info Variant */
 .dropdown[data-variant="info"] .dropdown-trigger {
-    background-color: var(--info);
-    color: #fff;
+    background-color: var(--info-bg);
+    color: var(--info-text);
 }
 .dropdown[data-variant="info"] .dropdown-item:hover {
     background-color: var(--info-light);
@@ -127,8 +127,8 @@
 
 /* Danger Variant */
 .dropdown[data-variant="danger"] .dropdown-trigger {
-    background-color: var(--danger);
-    color: #fff;
+    background-color: var(--danger-bg);
+    color: var(--danger-text);
 }
 .dropdown[data-variant="danger"] .dropdown-item:hover {
     background-color: var(--danger-light);
@@ -137,8 +137,8 @@
 
 /* Success Variant */
 .dropdown[data-variant="success"] .dropdown-trigger {
-    background-color: var(--success);
-    color: #fff;
+    background-color: var(--success-bg);
+    color: var(--success-text);
 }
 .dropdown[data-variant="success"] .dropdown-item:hover {
     background-color: var(--success-light);
@@ -147,8 +147,8 @@
 
 /* Accent Variant */
 .dropdown[data-variant="accent"] .dropdown-trigger {
-    background-color: var(--accent);
-    color: #fff;
+    background-color: var(--accent-bg);
+    color: var(--accent-text);
 }
 .dropdown[data-variant="accent"] .dropdown-item:hover {
     background-color: var(--accent-light);

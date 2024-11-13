@@ -21,17 +21,29 @@
     --secondary-light: #94a3b8; /* Light version of secondary */
     --secondary-dark: #334155; /* Dark version of secondary */
 
-    --success: #10b981;
-    --success-hover: #059669;
+    /* Success Variants */
+    --success: #10b981;              /* Main success color */
+    --success-hover: #059669;        /* Hover success color */
+    --success-light: #6ee7b7;        /* Light success color */
+    --success-dark: #065f46;         /* Dark success color */
 
-    --danger: #ef4444;
-    --danger-hover: #dc2626;
+    /* Danger Variants */
+    --danger: #ef4444;               /* Main danger color */
+    --danger-hover: #dc2626;         /* Hover danger color */
+    --danger-light: #fca5a5;         /* Light danger color */
+    --danger-dark: #991b1b;          /* Dark danger color */
 
-    --warning: #f59e0b;
-    --warning-hover: #d97706;
+    /* Warning Variants */
+    --warning: #f59e0b;              /* Main warning color */
+    --warning-hover: #d97706;        /* Hover warning color */
+    --warning-light: #fcd34d;        /* Light warning color */
+    --warning-dark: #b45309;         /* Dark warning color */
 
-    --info: #3b82f6;
-    --info-hover: #2563eb;
+    /* Info Variants */
+    --info: #3b82f6;                 /* Main info color */
+    --info-hover: #2563eb;           /* Hover info color */
+    --info-light: #93c5fd;           /* Light info color */
+    --info-dark: #1e3a8a;            /* Dark info color */
 
     --accent: #7c3aed; /* Accent color */
     --accent-hover: #6d28d9; /* Hover version of accent */
@@ -55,28 +67,28 @@
     /* Success Variants */
     --success-bg: var(--success);
     --success-text: #ffffff;
-    --success-border: #059669;
+    --success-border: var(--success-dark);
     --success-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
     --success-hover-bg: var(--success-hover);
 
     /* Danger Variants */
     --danger-bg: var(--danger);
     --danger-text: #ffffff;
-    --danger-border: #dc2626;
+    --danger-border: var(--danger-dark);
     --danger-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
     --danger-hover-bg: var(--danger-hover);
 
     /* Warning Variants */
     --warning-bg: var(--warning);
     --warning-text: #ffffff;
-    --warning-border: #d97706;
+    --warning-border: var(--warning-dark);
     --warning-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
     --warning-hover-bg: var(--warning-hover);
 
     /* Info Variants */
     --info-bg: var(--info);
     --info-text: #ffffff;
-    --info-border: #2563eb;
+    --info-border:  var(--info-dark);
     --info-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
     --info-hover-bg: var(--info-hover);
 
@@ -163,28 +175,28 @@
     /* Success Variants */
     --success-bg: var(--success);
     --success-text: #ffffff;
-    --success-border: #2abf79;
+    --success-border: var(--success-dark);
     --success-shadow: 0 2px 6px rgba(63, 220, 152, 0.3);
     --success-hover-bg: var(--success-hover);
 
     /* Danger Variants */
     --danger-bg: var(--danger);
     --danger-text: #ffffff;
-    --danger-border: #d94444;
+    --danger-border: var(--danger-dark);
     --danger-shadow: 0 2px 6px rgba(255, 94, 94, 0.3);
     --danger-hover-bg: var(--danger-hover);
 
     /* Warning Variants */
     --warning-bg: var(--warning);
     --warning-text: #ffffff;
-    --warning-border: #e0a631;
+    --warning-border: var(--warning-dark);
     --warning-shadow: 0 2px 6px rgba(255, 197, 66, 0.3);
     --warning-hover-bg: var(--warning-hover);
 
     /* Info Variants */
     --info-bg: var(--info);
     --info-text: #ffffff;
-    --info-border: #318cdc;
+    --info-border: var(--info-dark);
     --info-shadow: 0 2px 6px rgba(80, 165, 246, 0.3);
     --info-hover-bg: var(--info-hover);
 
