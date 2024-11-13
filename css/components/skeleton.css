@@ -29,7 +29,7 @@
 /* Shape Variants */
 .skeleton[data-shape="rect"] { height: 100px; border-radius: var(--radius-md); }
 .skeleton[data-shape="circle"] { width: 50px; height: 50px; border-radius: 50%; }
-.skeleton[data-shape="text"] { height: 1rem; border-radius: var(--radius-sm); margin-bottom: 0.5rem; }
+.skeleton[data-shape="text"] { height: 1rem; border-radius: var(--radius-sm); margin-bottom: var(--space-2); }
 
 /* Size Variants */
 .skeleton[data-size="sm"] { height: 0.5rem; }
@@ -40,7 +40,7 @@
 .skeleton-multiline {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 .skeleton-multiline .skeleton[data-shape="text"] { width: 100%; }
 .skeleton-multiline .skeleton[data-shape="text"]:first-child { width: 80%; }

@@ -19,19 +19,19 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: white;
+  color: var(--neutral-50);
   white-space: nowrap;
   border-radius: inherit;
   transition: width 0.4s ease, background-color var(--transition-colors);
 }
 
 /* Variants */
-.progress[data-variant="primary"] .progress-bar { background-color: var(--primary); }
-.progress[data-variant="secondary"] .progress-bar { background-color: var(--secondary); }
-.progress[data-variant="success"] .progress-bar { background-color: var(--success); }
-.progress[data-variant="danger"] .progress-bar { background-color: var(--danger); }
-.progress[data-variant="warning"] .progress-bar { background-color: var(--warning); }
-.progress[data-variant="info"] .progress-bar { background-color: var(--info); }
+.progress[data-variant="primary"] .progress-bar { background-color: var(--primary-bg); color: var(--primary-text); }
+.progress[data-variant="secondary"] .progress-bar { background-color: var(--secondary-bg); color: var(--secondary-text); }
+.progress[data-variant="success"] .progress-bar { background-color: var(--success-bg); color: var(--success-text); }
+.progress[data-variant="danger"] .progress-bar { background-color: var(--danger-bg); color: var(--danger-text); }
+.progress[data-variant="warning"] .progress-bar { background-color: var(--warning-bg); color: var(--warning-text); }
+.progress[data-variant="info"] .progress-bar { background-color: var(--info-bg); color: var(--info-text); }
 
 /* Striped Style */
 .progress[data-striped="true"] .progress-bar {
@@ -82,7 +82,7 @@
 /* Inside Percentage Label */
 .progress-bar[data-label="inside"]::after {
   content: attr(data-progress) '%';
-  color: white;
+  color: var(--neutral-50);
   font-size: 0.75rem;
   position: absolute;
   left: 50%;
@@ -123,13 +123,13 @@
 
 /* Step Progress Variants */
 .progress-step[data-step="completed"] {
-  background-color: var(--success);
-  color: white;
+  background-color: var(--success-bg);
+  color: var(--success-text);
 }
 
 .progress-step[data-step="current"] {
-  background-color: var(--primary);
-  color: white;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
 }
 
 /* Responsive Step Label */

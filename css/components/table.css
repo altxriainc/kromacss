@@ -3,7 +3,7 @@
   overflow-x: auto;
   max-width: 100%;
   margin: 0 auto;
-  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  padding: clamp(var(--space-3), 1.5vw, var(--space-4)) clamp(var(--space-6), 3vw, var(--space-8));
   scrollbar-color: var(--primary) var(--neutral-200);
   scrollbar-width: thin;
 }
@@ -15,7 +15,7 @@
 
 .table-container::-webkit-scrollbar-thumb {
   background-color: var(--primary);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
 }
 
 .table-container::-webkit-scrollbar-track {
@@ -36,7 +36,7 @@
   background-color: var(--neutral-100);
   color: var(--neutral-900);
   text-align: left;
-  padding: clamp(0.75rem, 1vw, 1rem);
+  padding: clamp(var(--space-3), 1vw, var(--space-4));
   font-weight: 600;
   border-bottom: 2px solid var(--neutral-300);
   position: sticky;
@@ -46,7 +46,7 @@
 
 /* Table Data Cells */
 .table td {
-  padding: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(var(--space-2), 1vw, var(--space-4));
   border-bottom: 1px solid var(--neutral-200);
   line-height: 1.5;
   white-space: nowrap;
@@ -55,8 +55,32 @@
 }
 
 /* Hover Effect */
-.table tr:hover {
+.table tr:not([data-variant]) td:hover {
   background-color: var(--neutral-100);
+}
+
+.table[data-variant="primary"] tr:hover td {
+  background-color: var(--primary-light);
+}
+
+.table[data-variant="secondary"] tr:hover td {
+  background-color: var(--secondary-light);
+}
+
+.table[data-variant="success"] tr:hover td {
+  background-color: var(--success-light);
+}
+
+.table[data-variant="danger"] tr:hover td {
+  background-color: var(--danger-light);
+}
+
+.table[data-variant="warning"] tr:hover td {
+  background-color: var(--warning-light);
+}
+
+.table[data-variant="info"] tr:hover td {
+  background-color: var(--info-light);
 }
 
 /* Curved Borders */
@@ -66,25 +90,44 @@
   border: 1px solid var(--neutral-300);
 }
 
-/* Data-Driven Color Variants */
-[data-variant="primary"] th, [data-variant="primary"] td { background-color: rgba(15, 111, 255, 0.1); }
-[data-variant="primary"] tr:hover { background-color: rgba(15, 111, 255, 0.15); }
+/* Data-Driven Color Variants for Head and Data Cells */
+[data-variant="primary"] th, [data-variant="primary"] td {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
 
-[data-variant="warning"] th, [data-variant="warning"] td { background-color: rgba(245, 158, 11, 0.1); }
-[data-variant="warning"] tr:hover { background-color: rgba(245, 158, 11, 0.15); }
+[data-variant="secondary"] th, [data-variant="secondary"] td {
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
+}
 
-[data-variant="success"] th, [data-variant="success"] td { background-color: rgba(16, 185, 129, 0.1); }
-[data-variant="success"] tr:hover { background-color: rgba(16, 185, 129, 0.15); }
+[data-variant="success"] th, [data-variant="success"] td {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
 
-[data-variant="danger"] th, [data-variant="danger"] td { background-color: rgba(239, 68, 68, 0.1); }
-[data-variant="danger"] tr:hover { background-color: rgba(239, 68, 68, 0.15); }
+[data-variant="danger"] th, [data-variant="danger"] td {
+  background-color: var(--danger-bg);
+  color: var(--danger-text);
+}
 
-[data-variant="info"] th, [data-variant="info"] td { background-color: rgba(59, 130, 246, 0.1); }
-[data-variant="info"] tr:hover { background-color: rgba(59, 130, 246, 0.15); }
+[data-variant="warning"] th, [data-variant="warning"] td {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+}
+
+[data-variant="info"] th, [data-variant="info"] td {
+  background-color: var(--info-bg);
+  color: var(--info-text);
+}
 
 /* Striped Rows */
-[data-style="striped"] tr:nth-child(odd) { background-color: var(--neutral-50); }
-[data-style="striped"] tr:nth-child(even) { background-color: var(--neutral-100); }
+[data-style="striped"] tr:nth-child(odd) td {
+  background-color: var(--neutral-50);
+}
+[data-style="striped"] tr:nth-child(even) td {
+  background-color: var(--neutral-100);
+}
 
 /* Bordered Variant */
 [data-style="bordered"] td, [data-style="bordered"] th {
@@ -93,7 +136,7 @@
 
 /* Compact Spacing */
 [data-size="compact"] td, [data-size="compact"] th {
-  padding: clamp(0.25rem, 0.75vw, 0.75rem);
+  padding: clamp(var(--space-1), 0.75vw, var(--space-3));
 }
 
 /* Column Alignments */
@@ -104,6 +147,6 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .table th, .table td {
-      padding: clamp(0.5rem, 1vw, 0.75rem);
+      padding: clamp(var(--space-2), 1vw, var(--space-3));
   }
 }
