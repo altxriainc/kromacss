@@ -4,7 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: var(--z-50);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +25,7 @@
 .hologram-title {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8); /* Default color for light mode */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transform: scale(1.2);
@@ -71,43 +71,43 @@
 /* Color Variants */
 .hologram-overlay[data-variant="primary"] .hologram-title,
 .hologram-overlay[data-variant="primary"] .hologram-subtitle {
-  color: var(--primary);
+  color: var(--primary-text);
   text-shadow: 0px 0px 10px var(--primary-light), 0px 0px 20px var(--primary);
 }
 
 .hologram-overlay[data-variant="secondary"] .hologram-title,
 .hologram-overlay[data-variant="secondary"] .hologram-subtitle {
-  color: var(--secondary);
+  color: var(--secondary-text);
   text-shadow: 0px 0px 10px var(--secondary-light), 0px 0px 20px var(--secondary);
 }
 
 .hologram-overlay[data-variant="success"] .hologram-title,
 .hologram-overlay[data-variant="success"] .hologram-subtitle {
-  color: var(--success);
+  color: var(--success-text);
   text-shadow: 0px 0px 10px var(--success-light), 0px 0px 20px var(--success);
 }
 
 .hologram-overlay[data-variant="danger"] .hologram-title,
 .hologram-overlay[data-variant="danger"] .hologram-subtitle {
-  color: var(--danger);
+  color: var(--danger-text);
   text-shadow: 0px 0px 10px var(--danger-light), 0px 0px 20px var(--danger);
 }
 
 .hologram-overlay[data-variant="warning"] .hologram-title,
 .hologram-overlay[data-variant="warning"] .hologram-subtitle {
-  color: var(--warning);
+  color: var(--warning-text);
   text-shadow: 0px 0px 10px var(--warning-light), 0px 0px 20px var(--warning);
 }
 
 .hologram-overlay[data-variant="info"] .hologram-title,
 .hologram-overlay[data-variant="info"] .hologram-subtitle {
-  color: var(--info);
+  color: var(--info-text);
   text-shadow: 0px 0px 10px var(--info-light), 0px 0px 20px var(--info);
 }
 
 .hologram-overlay[data-variant="accent"] .hologram-title,
 .hologram-overlay[data-variant="accent"] .hologram-subtitle {
-  color: var(--accent);
+  color: var(--accent-text);
   text-shadow: 0px 0px 10px var(--accent-light), 0px 0px 20px var(--accent);
 }
 

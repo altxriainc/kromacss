@@ -45,7 +45,7 @@
     border: none;
     padding: 0;
     line-height: 1;
-    display: none; /* Default hidden */
+    display: none;
     position: absolute;
     right: var(--space-2);
     top: 50%;
@@ -98,8 +98,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
-    margin-top: var(--space-2); /* Consistent padding from dropdown */
-    padding-left: var(--space-1); /* Consistent spacing within container */
+    margin-top: var(--space-2);
+    padding-left: var(--space-1);
 }
 
 .multiselect-chip {
@@ -121,49 +121,116 @@
 }
 
 /* Data-driven Variant Styles */
-[data-variant="primary"] .multiselect-dropdown,
-[data-variant="primary"] .multiselect-options {
-    border-color: var(--primary);
+[data-variant="primary"] .multiselect-dropdown {
+    background-color: var(--primary-bg);
+    border-color: var(--primary-border);
+    color: var(--primary-text);
+    box-shadow: var(--primary-shadow);
+}
+
+[data-variant="primary"] .multiselect-option.selected {
+    background-color: var(--primary-hover-bg);
+    color: var(--primary-text);
 }
 
 [data-variant="primary"] .multiselect-chip {
-    background-color: var(--primary);
+    background-color: var(--primary-bg);
 }
 
-[data-variant="success"] .multiselect-dropdown,
-[data-variant="success"] .multiselect-options {
-    border-color: var(--success);
+[data-variant="secondary"] .multiselect-dropdown {
+    background-color: var(--secondary-bg);
+    border-color: var(--secondary-border);
+    color: var(--secondary-text);
+    box-shadow: var(--secondary-shadow);
+}
+
+[data-variant="secondary"] .multiselect-option.selected {
+    background-color: var(--secondary-hover-bg);
+    color: var(--secondary-text);
+}
+
+[data-variant="secondary"] .multiselect-chip {
+    background-color: var(--secondary-bg);
+}
+
+[data-variant="success"] .multiselect-dropdown {
+    background-color: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-text);
+    box-shadow: var(--success-shadow);
+}
+
+[data-variant="success"] .multiselect-option.selected {
+    background-color: var(--success-hover-bg);
+    color: var(--success-text);
 }
 
 [data-variant="success"] .multiselect-chip {
-    background-color: var(--success);
+    background-color: var(--success-bg);
 }
 
-[data-variant="danger"] .multiselect-dropdown,
-[data-variant="danger"] .multiselect-options {
-    border-color: var(--danger);
+[data-variant="danger"] .multiselect-dropdown {
+    background-color: var(--danger-bg);
+    border-color: var(--danger-border);
+    color: var(--danger-text);
+    box-shadow: var(--danger-shadow);
+}
+
+[data-variant="danger"] .multiselect-option.selected {
+    background-color: var(--danger-hover-bg);
+    color: var(--danger-text);
 }
 
 [data-variant="danger"] .multiselect-chip {
-    background-color: var(--danger);
+    background-color: var(--danger-bg);
 }
 
-[data-variant="warning"] .multiselect-dropdown,
-[data-variant="warning"] .multiselect-options {
-    border-color: var(--warning);
+[data-variant="warning"] .multiselect-dropdown {
+    background-color: var(--warning-bg);
+    border-color: var(--warning-border);
+    color: var(--warning-text);
+    box-shadow: var(--warning-shadow);
+}
+
+[data-variant="warning"] .multiselect-option.selected {
+    background-color: var(--warning-hover-bg);
+    color: var(--warning-text);
 }
 
 [data-variant="warning"] .multiselect-chip {
-    background-color: var(--warning);
+    background-color: var(--warning-bg);
 }
 
-[data-variant="info"] .multiselect-dropdown,
-[data-variant="info"] .multiselect-options {
-    border-color: var(--info);
+[data-variant="info"] .multiselect-dropdown {
+    background-color: var(--info-bg);
+    border-color: var(--info-border);
+    color: var(--info-text);
+    box-shadow: var(--info-shadow);
+}
+
+[data-variant="info"] .multiselect-option.selected {
+    background-color: var(--info-hover-bg);
+    color: var(--info-text);
 }
 
 [data-variant="info"] .multiselect-chip {
-    background-color: var(--info);
+    background-color: var(--info-bg);
+}
+
+[data-variant="accent"] .multiselect-dropdown {
+    background-color: var(--accent-bg);
+    border-color: var(--accent-border);
+    color: var(--accent-text);
+    box-shadow: var(--accent-shadow);
+}
+
+[data-variant="accent"] .multiselect-option.selected {
+    background-color: var(--accent-hover-bg);
+    color: var(--accent-text);
+}
+
+[data-variant="accent"] .multiselect-chip {
+    background-color: var(--accent-bg);
 }
 
 /* Scrollbar Customization */
@@ -193,4 +260,24 @@
 
 .dark-mode .multiselect-chip {
     background-color: var(--primary-dark);
+}
+
+/* Placeholder Color */
+.multiselect-search::placeholder {
+    color: var(--neutral-500);
+}
+
+[data-variant="primary"] .multiselect-search::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-variant="secondary"] .multiselect-search::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .multiselect {
+        max-width: 100%;
+    }
 }
