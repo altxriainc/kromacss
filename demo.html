@@ -1058,6 +1058,36 @@
         <button class="btn" data-variant="info" onclick="showToastHistory()">Show Toast History</button>
     </div>
   </section>
+
+  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Pagination Component Demo</h2>
+  
+    <!-- Full Pagination with Previous and Next -->
+    <div class="pagination" role="navigation" aria-label="Pagination Navigation" data-variant="primary" data-type="default">
+      <button class="pagination-button" aria-label="Previous page" disabled>Previous</button>
+      <button class="pagination-button" data-active="true" aria-label="Page 1">1</button>
+      <button class="pagination-button" aria-label="Page 2">2</button>
+      <button class="pagination-button" aria-label="Page 3">3</button>
+      <button class="pagination-button" aria-label="Page 4">4</button>
+      <button class="pagination-button" aria-label="Page 5">5</button>
+      <button class="pagination-button" aria-label="Next page">Next</button>
+    </div>
+  
+    <!-- Simple Pagination (No Previous/Next) -->
+    <div class="pagination" role="navigation" aria-label="Pagination Navigation" data-variant="info" data-type="simple">
+      <button class="pagination-button" data-active="true" aria-label="Page 1">1</button>
+      <button class="pagination-button" aria-label="Page 2">2</button>
+      <button class="pagination-button" aria-label="Page 3">3</button>
+    </div>
+  
+    <!-- Centered Pagination with Boxed Style -->
+    <div class="pagination" role="navigation" aria-label="Pagination Navigation" data-variant="success" data-style="boxed">
+      <button class="pagination-button" aria-label="Previous page">Previous</button>
+      <button class="pagination-button" data-active="true" aria-label="Page 1">1</button>
+      <button class="pagination-button" aria-label="Page 2">2</button>
+      <button class="pagination-button" aria-label="Next page">Next</button>
+    </div>
+  </section>  
   
 </body>
 <script type="module" src="js/main.js"></script>
