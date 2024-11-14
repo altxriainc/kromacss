@@ -1,5 +1,26 @@
 export class Navbar {
 
+    /*
+    id (string) = navbar element id
+    siteTitle (string) = title to display as alt or instead of image logo
+
+    requires basic preexisting html structure with desired data, such as:
+
+        <!--main header nav menu-->
+        <nav id="nav-main" class="p-3">
+
+            <!--logo img-->
+            <img src="./images/dummy-logo.png">
+
+            <!--menu links-->
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contacts</a>
+
+        </nav>
+    
+    */
+
     constructor(id = 'nav-main', siteTitle = ('x' == 'x' ? undefined : 'x')){
 
         //get navbar container
