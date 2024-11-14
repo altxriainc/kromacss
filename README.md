@@ -39,7 +39,7 @@ Each component is built to be adaptive and responsive, giving you maximum flexib
 - ![Addon Issues](https://img.shields.io/github/issues/altxriainc/kromacss/addon)
 - ![Enhancement Issues](https://img.shields.io/github/issues/altxriainc/kromacss/enhancement)
 - ![Bug Issues](https://img.shields.io/github/issues/altxriainc/kromacss/bug)
-- 
+  
 ## License and Usage
 
 KromaCSS is free to use for both personal and commercial projects. However, please note that KromaCSS itself cannot be resold or distributed as a standalone product.
@@ -56,7 +56,7 @@ See [all contributors](https://github.com/altxriainc/kromacss/graphs/contributor
 
 If you find KromaCSS useful, consider sponsoring us to support ongoing development and new features!
 
-[![Sponsor Button](https://img.shields.io/badge/Sponsor-KromaCSS-blue)](#)
+[![Sponsor KromaCSS](https://img.shields.io/badge/Sponsor-KromaCSS-blue?logo=github-sponsors)](https://github.com/sponsors/altxriainc)
 
 ## Repository Stats
 
