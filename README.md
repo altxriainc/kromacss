@@ -44,7 +44,7 @@ If you find KromaCSS useful, consider sponsoring us to support ongoing developme
 
 ## Repository Stats
 
-![GitHub stars](https://img.shields.io/github/stars/Altxria/KromaCSS?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Altxria/KromaCSS?style=social)
-![GitHub issues](https://img.shields.io/github/issues/Altxria/KromaCSS)
-![GitHub license](https://img.shields.io/github/license/Altxria/KromaCSS)
+![GitHub stars](https://img.shields.io/github/stars/altxriainc/kromacss?style=social)
+![GitHub forks](https://img.shields.io/github/forks/altxriainc/kromacss?style=social)
+![GitHub issues](https://img.shields.io/github/issues/altxriainc/kromacss)
+![GitHub license](https://img.shields.io/github/license/altxriainc/kromacss)
