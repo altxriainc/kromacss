@@ -83,6 +83,51 @@
     color: var(--dropdown-hover-color, var(--primary));
 }
 
+/* Mega Menu Styles */
+.dropdown[data-type="mega-menu"] .dropdown-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: var(--space-4);
+    gap: var(--space-4);
+    max-width: clamp(20rem, 80vw, 40rem);
+}
+
+/* Mega Menu Column Groups */
+.mega-menu-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.mega-menu-title {
+    font-weight: bold;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--neutral-700);
+    padding: var(--space-1) 0;
+    border-bottom: 1px solid var(--neutral-300);
+}
+
+.mega-menu-item {
+    display: flex;
+    align-items: center;
+    padding: var(--space-2) 0;
+    padding-left: 0.5rem;
+    color: var(--neutral-800);
+    transition: background-color var(--transition-colors);
+}
+
+.mega-menu-item:hover {
+    background-color: var(--dropdown-hover-bg, var(--neutral-200));
+    cursor: pointer;
+}
+
+/* Icon Styling in Mega Menu */
+.mega-menu-item-icon {
+    margin-right: var(--space-2);
+    font-size: 1.25rem;
+    color: var(--neutral-500);
+}
+
 /* Data-Attribute Based Customization */
 
 /* Primary Variant */
@@ -90,7 +135,7 @@
     background-color: var(--primary-bg);
     color: var(--primary-text);
 }
-.dropdown[data-variant="primary"] .dropdown-item:hover {
+.dropdown[data-variant="primary"] .dropdown-item:hover, .mega-menu-item:hover {
     background-color: var(--primary-light);
     color: var(--primary);
 }
@@ -100,7 +145,7 @@
     background-color: var(--secondary-bg);
     color: var(--secondary-text);
 }
-.dropdown[data-variant="secondary"] .dropdown-item:hover {
+.dropdown[data-variant="secondary"] .dropdown-item:hover, .mega-menu-item:hover {
     background-color: var(--secondary-light);
     color: var(--secondary);
 }
@@ -110,7 +155,7 @@
     background-color: var(--warning-bg);
     color: var(--warning-text);
 }
-.dropdown[data-variant="warning"] .dropdown-item:hover {
+.dropdown[data-variant="warning"] .dropdown-item:hover, .mega-menu-item:hover {
     background-color: var(--warning-light);
     color: var(--warning);
 }
@@ -120,7 +165,7 @@
     background-color: var(--info-bg);
     color: var(--info-text);
 }
-.dropdown[data-variant="info"] .dropdown-item:hover {
+.dropdown[data-variant="info"] .dropdown-item:hover, .mega-menu-item:hover {
     background-color: var(--info-light);
     color: var(--info);
 }
@@ -130,7 +175,7 @@
     background-color: var(--danger-bg);
     color: var(--danger-text);
 }
-.dropdown[data-variant="danger"] .dropdown-item:hover {
+.dropdown[data-variant="danger"] .dropdown-item:hover, .mega-menu-item:hover {
     background-color: var(--danger-light);
     color: var(--danger);
 }
@@ -140,7 +185,7 @@
     background-color: var(--success-bg);
     color: var(--success-text);
 }
-.dropdown[data-variant="success"] .dropdown-item:hover {
+.dropdown[data-variant="success"] .dropdown-item:hover, .mega-menu-item:hover {
     background-color: var(--success-light);
     color: var(--success);
 }
@@ -150,7 +195,7 @@
     background-color: var(--accent-bg);
     color: var(--accent-text);
 }
-.dropdown[data-variant="accent"] .dropdown-item:hover {
+.dropdown[data-variant="accent"] .dropdown-item:hover, .mega-menu-item:hover {
     background-color: var(--accent-light);
     color: var(--accent);
 }
@@ -178,5 +223,10 @@
 
     .dropdown-trigger {
         padding: clamp(0.5rem, 1vw, 0.75rem);
+    }
+
+    /* Mega Menu Mobile Adjustments */
+    .dropdown[data-type="mega-menu"] .dropdown-menu {
+        grid-template-columns: 1fr;
     }
 }
