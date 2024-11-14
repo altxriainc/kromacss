@@ -1,0 +1,157 @@
+/* Base Stepper Container */
+.stepper {
+    display: flex;
+    gap: var(--space-6);
+    padding: var(--space-4) 0;
+    width: 100%;
+    color: var(--neutral-700);
+}
+
+.stepper[data-orientation="vertical"] {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Step Styling */
+.step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    position: relative;
+    font-family: var(--font-sans);
+}
+
+.step:not(:last-child) .step-bar {
+    display: block;
+}
+
+/* Step Icon */
+.step-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: bold;
+    width: clamp(2.2rem, 4vw, 2.5rem);
+    height: clamp(2.2rem, 4vw, 2.5rem);
+    border-radius: 50%;
+    background-color: var(--neutral-300);
+    color: var(--neutral-700);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-all);
+    position: relative;
+}
+
+/* Step Label */
+.step-label {
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    font-weight: 500;
+    color: var(--neutral-800);
+    transition: var(--transition-colors);
+}
+
+/* Step Bar - Horizontal and Vertical Orientation */
+.step-bar {
+    flex-grow: 1;
+    height: 3px;
+    background-color: var(--neutral-300);
+    transition: background-color 0.3s ease;
+}
+
+.stepper[data-orientation="vertical"] .step-bar {
+    height: auto;
+    width: 3px;
+    align-self: stretch;
+}
+
+/* State Styling for Completed, Active, and Pending */
+.step[data-state="completed"] .step-icon {
+    background-color: var(--primary);
+    color: var(--primary-text);
+    box-shadow: var(--primary-shadow);
+}
+
+.step[data-state="completed"] .step-bar {
+    background-color: var(--primary);
+}
+
+.step[data-state="completed"] .step-label {
+    color: var(--primary-dark);
+}
+
+.step[data-state="active"] .step-icon {
+    border: 2px solid var(--primary-hover);
+    color: var(--primary-hover);
+}
+
+.step[data-state="pending"] .step-icon {
+    background-color: var(--neutral-200);
+    color: var(--neutral-500);
+}
+
+/* Variant Styling */
+.stepper[data-variant="primary"] .step[data-state="completed"] .step-icon,
+.stepper[data-variant="primary"] .step[data-state="completed"] .step-bar {
+    background-color: var(--primary);
+    color: var(--primary-text);
+    box-shadow: var(--primary-shadow);
+}
+
+.stepper[data-variant="secondary"] .step[data-state="completed"] .step-icon,
+.stepper[data-variant="secondary"] .step[data-state="completed"] .step-bar {
+    background-color: var(--secondary);
+    color: var(--secondary-text);
+    box-shadow: var(--secondary-shadow);
+}
+
+/* Additional Variants: Success, Warning, Danger, Info, Accent */
+.stepper[data-variant="success"] .step[data-state="completed"] .step-icon,
+.stepper[data-variant="success"] .step[data-state="completed"] .step-bar {
+    background-color: var(--success);
+    color: var(--success-text);
+    box-shadow: var(--success-shadow);
+}
+
+.stepper[data-variant="warning"] .step[data-state="completed"] .step-icon,
+.stepper[data-variant="warning"] .step[data-state="completed"] .step-bar {
+    background-color: var(--warning);
+    color: var(--warning-text);
+    box-shadow: var(--warning-shadow);
+}
+
+.stepper[data-variant="danger"] .step[data-state="completed"] .step-icon,
+.stepper[data-variant="danger"] .step[data-state="completed"] .step-bar {
+    background-color: var(--danger);
+    color: var(--danger-text);
+    box-shadow: var(--danger-shadow);
+}
+
+.stepper[data-variant="info"] .step[data-state="completed"] .step-icon,
+.stepper[data-variant="info"] .step[data-state="completed"] .step-bar {
+    background-color: var(--info);
+    color: var(--info-text);
+    box-shadow: var(--info-shadow);
+}
+
+.stepper[data-variant="accent"] .step[data-state="completed"] .step-icon,
+.stepper[data-variant="accent"] .step[data-state="completed"] .step-bar {
+    background-color: var(--accent);
+    color: var(--accent-text);
+    box-shadow: var(--accent-shadow);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .stepper {
+        flex-direction: column;
+    }
+    .step-bar {
+        display: none;
+    }
+    .step {
+        text-align: center;
+    }
+    .step-label {
+        font-size: clamp(0.75rem, 1vw, 0.875rem);
+    }
+}
