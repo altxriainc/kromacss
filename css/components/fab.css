@@ -1,0 +1,142 @@
+/* Base Floating Action Button (FAB) Styling */
+.fab {
+    position: fixed;
+    bottom: var(--space-8, 2rem);
+    right: var(--space-8, 2rem);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    font-size: 1.5rem;
+    color: var(--primary-text, #ffffff);
+    cursor: pointer;
+    box-shadow: var(--shadow-lg, 0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: background-color var(--transition-colors, 0.2s ease), 
+                transform var(--transition-all, 0.2s ease),
+                box-shadow var(--transition-all, 0.2s ease);
+    z-index: 50;
+  }
+  
+  /* FAB Hover and Active States */
+  .fab:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md, 0 6px 10px rgba(0, 0, 0, 0.15));
+  }
+  
+  .fab:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+  
+  /* Shape Variants */
+  .fab[data-shape="circular"] {
+    border-radius: var(--radius-full, 50%);
+  }
+  
+  .fab[data-shape="square"] {
+    border-radius: 0;
+  }
+  
+  .fab[data-shape="rectangular"] {
+    border-radius: var(--radius-md, 0.375rem);
+    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  }
+  
+  /* Color Variants */
+  .fab[data-variant="primary"] {
+    background-color: var(--primary, #4e8cff);
+  }
+  
+  .fab[data-variant="secondary"] {
+    background-color: var(--secondary, #64748b);
+  }
+  
+  .fab[data-variant="info"] {
+    background-color: var(--info, #3b82f6);
+  }
+  
+  .fab[data-variant="danger"] {
+    background-color: var(--danger, #ef4444);
+  }
+  
+  .fab[data-variant="success"] {
+    background-color: var(--success, #10b981);
+  }
+  
+  .fab[data-variant="accent"] {
+    background-color: var(--accent, #7c3aed);
+  }
+  
+  .fab[data-variant="warning"] {
+    background-color: var(--warning, #f59e0b);
+  }
+  
+  /* Hover Color Variants */
+  .fab[data-variant="primary"]:hover {
+    background-color: var(--primary-hover, #3576e3);
+  }
+  
+  .fab[data-variant="secondary"]:hover {
+    background-color: var(--secondary-hover, #475569);
+  }
+  
+  .fab[data-variant="info"]:hover {
+    background-color: var(--info-hover, #2563eb);
+  }
+  
+  .fab[data-variant="danger"]:hover {
+    background-color: var(--danger-hover, #dc2626);
+  }
+  
+  .fab[data-variant="success"]:hover {
+    background-color: var(--success-hover, #059669);
+  }
+  
+  .fab[data-variant="accent"]:hover {
+    background-color: var(--accent-hover, #6d28d9);
+  }
+  
+  .fab[data-variant="warning"]:hover {
+    background-color: var(--warning-hover, #d97706);
+  }
+  
+  /* Type Variants */
+  .fab[data-type="bordered"] {
+    border: 2px solid var(--primary-dark, #2b4d99);
+  }
+  
+  .fab[data-type="outlined"] {
+    background-color: transparent;
+    border: 2px solid var(--primary, #4e8cff);
+    color: var(--primary, #4e8cff);
+    box-shadow: none;
+    transition: background-color var(--transition-colors, 0.2s ease), 
+                color var(--transition-colors, 0.2s ease), 
+                box-shadow var(--transition-all, 0.2s ease);
+  }
+  
+  .fab[data-type="outlined"]:hover {
+    background-color: var(--primary-hover, #3576e3);
+    color: #ffffff;
+  }
+  
+  .fab[data-type="ghost"] {
+    background-color: transparent;
+    color: var(--primary, #4e8cff);
+    box-shadow: none;
+  }
+  
+  .fab[data-type="ghost"]:hover {
+    background-color: var(--neutral-100, #f1f5f9);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .fab {
+      width: clamp(2.5rem, 8vw, 3rem);
+      height: clamp(2.5rem, 8vw, 3rem);
+      bottom: var(--space-4, 1rem);
+      right: var(--space-4, 1rem);
+    }
+  }
+  
