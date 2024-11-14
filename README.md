@@ -1,5 +1,7 @@
 # KromaCSS
 
+![Latest Version](https://img.shields.io/github/v/release/Altxria/KromaCSS)
+
 **KromaCSS** is a modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability. Built with the latest CSS features and enhanced by vanilla JavaScript, KromaCSS offers a robust collection of responsive, modular components. Ideal for developers who want efficient, adaptable styling for both personal and commercial projects without the need for any extra requirements.
 
 ## Key Features
@@ -28,6 +30,16 @@ Each component is built to be adaptive and responsive, giving you maximum flexib
 - **Version**: 1.0.1
 - **Release Date**: November 10, 2024
 
+## Project Status
+
+![Latest Version](https://img.shields.io/github/v/release/Altxria/KromaCSS)
+![Closed Issues](https://img.shields.io/github/issues-closed/Altxria/KromaCSS)
+
+### Issue Types
+- ![Addon Issues](https://img.shields.io/github/issues/Altxria/KromaCSS/addon)
+- ![Enhancement Issues](https://img.shields.io/github/issues/Altxria/KromaCSS/enhancement)
+- ![Bug Issues](https://img.shields.io/github/issues/Altxria/KromaCSS/bug)
+- 
 ## License and Usage
 
 KromaCSS is free to use for both personal and commercial projects. However, please note that KromaCSS itself cannot be resold or distributed as a standalone product.
@@ -35,6 +47,10 @@ KromaCSS is free to use for both personal and commercial projects. However, plea
 ## Contributors
 
 Developed and maintained by **Altxria Inc.** with contributions from a growing community of passionate developers.
+
+![Contributors](https://contrib.rocks/image?repo=Altxria/KromaCSS)
+
+See [all contributors](https://github.com/Altxria/KromaCSS/graphs/contributors).
 
 ## Support KromaCSS
 
@@ -46,5 +62,4 @@ If you find KromaCSS useful, consider sponsoring us to support ongoing developme
 
 ![GitHub stars](https://img.shields.io/github/stars/altxriainc/kromacss?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/altxriainc/kromacss?style=social)
-![GitHub issues](https://img.shields.io/github/issues/altxriainc/kromacss)
 ![GitHub license](https://img.shields.io/github/license/altxriainc/kromacss)
