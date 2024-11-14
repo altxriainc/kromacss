@@ -1,6 +1,6 @@
 # KromaCSS
 
-![Latest Version](https://img.shields.io/github/v/release/Altxria/KromaCSS)
+![Latest Version](https://img.shields.io/github/v/release/altxriainc/kromacss)
 
 **KromaCSS** is a modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability. Built with the latest CSS features and enhanced by vanilla JavaScript, KromaCSS offers a robust collection of responsive, modular components. Ideal for developers who want efficient, adaptable styling for both personal and commercial projects without the need for any extra requirements.
 
@@ -32,13 +32,13 @@ Each component is built to be adaptive and responsive, giving you maximum flexib
 
 ## Project Status
 
-![Latest Version](https://img.shields.io/github/v/release/Altxria/KromaCSS)
-![Closed Issues](https://img.shields.io/github/issues-closed/Altxria/KromaCSS)
+![Latest Version](https://img.shields.io/github/v/release/altxriainc/kromacss)
+![Closed Issues](https://img.shields.io/github/issues-closed/altxriainc/kromacss)
 
 ### Issue Types
-- ![Addon Issues](https://img.shields.io/github/issues/Altxria/KromaCSS/addon)
-- ![Enhancement Issues](https://img.shields.io/github/issues/Altxria/KromaCSS/enhancement)
-- ![Bug Issues](https://img.shields.io/github/issues/Altxria/KromaCSS/bug)
+- ![Addon Issues](https://img.shields.io/github/issues/altxriainc/kromacss/addon)
+- ![Enhancement Issues](https://img.shields.io/github/issues/altxriainc/kromacss/enhancement)
+- ![Bug Issues](https://img.shields.io/github/issues/altxriainc/kromacss/bug)
 - 
 ## License and Usage
 
@@ -48,9 +48,9 @@ KromaCSS is free to use for both personal and commercial projects. However, plea
 
 Developed and maintained by **Altxria Inc.** with contributions from a growing community of passionate developers.
 
-![Contributors](https://contrib.rocks/image?repo=Altxria/KromaCSS)
+![Contributors](https://contrib.rocks/image?repo=altxriainc/kromacss)
 
-See [all contributors](https://github.com/Altxria/KromaCSS/graphs/contributors).
+See [all contributors](https://github.com/altxriainc/kromacss/graphs/contributors).
 
 ## Support KromaCSS
 
