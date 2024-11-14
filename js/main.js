@@ -9,6 +9,7 @@ import { DateTimePicker } from './components/datetime-picker.js';
 import { Slideshow } from './components/slideshow.js';
 import { initializeRatingComponents } from './components/rating.js';
 import { initializeCalendarComponents } from './components/calendar.js';
+import { Navbar } from './components/navbar.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize rating components
@@ -28,6 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
           });
       });
   });
+
+  //initialize navbar
+  let navMain = new Navbar('nav-main');
+
 });
 
 // Export functions globally if needed
@@ -43,5 +48,7 @@ window.closeToastHistory = closeToastHistory;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 window.DateTimePicker = DateTimePicker;
+window.Slideshow = Slideshow;
 window.initializeRatingComponents = initializeRatingComponents;
 window.initializeCalendarComponents = initializeCalendarComponents;
+window.Navbar = Navbar;
