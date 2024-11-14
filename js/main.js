@@ -7,23 +7,15 @@ import { Modal } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
 import { DateTimePicker } from './components/datetime-picker.js';
 import { Slideshow } from './components/slideshow.js';
-import { initializeRatingComponents } from './components/rating.js'; 
-
-
-document.querySelectorAll('.alert .alert-close').forEach(button => {
-  button.addEventListener('click', event => {
-    const alert = button.closest('.alert');
-    alert.style.maxHeight = alert.scrollHeight + 'px'; 
-    alert.classList.add('fade-out');
-    alert.addEventListener('transitionend', () => {
-      if (alert.parentNode) alert.remove();
-    });
-  });
-});
+import { initializeRatingComponents } from './components/rating.js';
+import { initializeCalendarComponents } from './components/calendar.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize rating components
   initializeRatingComponents();
+
+  // Initialize calendar components
+  initializeCalendarComponents();
 
   // Initialize other components, if applicable
   document.querySelectorAll('.alert .alert-close').forEach(button => {
@@ -37,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
-
 
 // Export functions globally if needed
 window.toggleAccordion = toggleAccordion;
@@ -53,4 +44,4 @@ window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 window.DateTimePicker = DateTimePicker;
 window.initializeRatingComponents = initializeRatingComponents;
-
+window.initializeCalendarComponents = initializeCalendarComponents;
