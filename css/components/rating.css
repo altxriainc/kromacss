@@ -1,0 +1,85 @@
+/* Star Rating Container */
+.rating {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(var(--space-1), 0.5vw, var(--space-2));
+    padding: clamp(var(--space-2), 1vw, var(--space-3));
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-all);
+    position: relative;
+}
+
+/* Data Variant */
+.rating[data-variant="primary"] {
+    --star-color: var(--primary);
+    --star-color-hover: var(--primary-hover);
+    --star-color-shadow: var(--primary-shadow);
+}
+.rating[data-variant="success"] {
+    --star-color: var(--success);
+    --star-color-hover: var(--success-hover);
+    --star-color-shadow: var(--success-shadow);
+}
+.rating[data-variant="danger"] {
+    --star-color: var(--danger);
+    --star-color-hover: var(--danger-hover);
+    --star-color-shadow: var(--danger-shadow);
+}
+.rating[data-variant="warning"] {
+    --star-color: var(--warning);
+    --star-color-hover: var(--warning-hover);
+    --star-color-shadow: var(--warning-shadow);
+}
+.rating[data-variant="info"] {
+    --star-color: var(--info);
+    --star-color-hover: var(--info-hover);
+    --star-color-shadow: var(--info-shadow);
+}
+
+/* Star Rating Icon Styling */
+.rating .star {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--neutral-300);
+    cursor: pointer;
+    transition: color var(--transition-colors), transform var(--transition-transform);
+}
+.rating .star.filled {
+    color: var(--star-color, var(--primary));
+}
+.rating .star.filled:hover,
+.rating .star.filled:focus {
+    color: var(--star-color-hover, var(--primary-hover));
+    transform: scale(1.1);
+    box-shadow: var(--star-color-shadow, var(--primary-shadow));
+}
+
+/* Accessibility - Hide Star Labels for Screen Readers */
+.rating .star[aria-hidden="true"] {
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .rating {
+        gap: clamp(var(--space-2), 1vw, var(--space-4));
+        padding: clamp(var(--space-2), 1vw, var(--space-4));
+        border-radius: var(--radius-lg);
+    }
+}
+
+/* Animations for Star Hover and Active States */
+.rating .star:hover,
+.rating .star:focus {
+    color: var(--star-color-hover, var(--primary-hover));
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}

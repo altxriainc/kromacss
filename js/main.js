@@ -7,6 +7,8 @@ import { Modal } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
 import { DateTimePicker } from './components/datetime-picker.js';
 import { Slideshow } from './components/slideshow.js';
+import { initializeRatingComponents } from './components/rating.js'; 
+
 
 document.querySelectorAll('.alert .alert-close').forEach(button => {
   button.addEventListener('click', event => {
@@ -16,6 +18,23 @@ document.querySelectorAll('.alert .alert-close').forEach(button => {
     alert.addEventListener('transitionend', () => {
       if (alert.parentNode) alert.remove();
     });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize rating components
+  initializeRatingComponents();
+
+  // Initialize other components, if applicable
+  document.querySelectorAll('.alert .alert-close').forEach(button => {
+      button.addEventListener('click', event => {
+          const alert = button.closest('.alert');
+          alert.style.maxHeight = alert.scrollHeight + 'px'; 
+          alert.classList.add('fade-out');
+          alert.addEventListener('transitionend', () => {
+              if (alert.parentNode) alert.remove();
+          });
+      });
   });
 });
 
@@ -33,3 +52,5 @@ window.closeToastHistory = closeToastHistory;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 window.DateTimePicker = DateTimePicker;
+window.initializeRatingComponents = initializeRatingComponents;
+
