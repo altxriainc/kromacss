@@ -1343,6 +1343,39 @@
       </div>
   </div>
 </section>
+
+<section class="p-6 bg-neutral-50 shadow-md rounded my-6">
+  <h2 class="text-lg text-primary mb-6">File Upload Component Showcase</h2>
+
+  <!-- Single File Upload -->
+  <div class="flex justify-center">
+    <div class="file-upload" data-variant="primary">
+      <div class="file-upload-dropzone" tabindex="0" aria-label="Drop a file or browse to upload">
+        <div class="file-upload-instructions">
+          <span class="file-upload-title">Upload a File</span><br />
+          Drag & Drop a File or <span class="file-upload-browse">Browse</span>
+        </div>
+        <input type="file" class="file-upload-input" />
+      </div>
+      <div class="file-upload-details">
+        <div class="file-upload-filename" aria-live="polite"></div>
+        <div class="file-upload-progress" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multiple File Upload -->
+  <div class="file-upload" data-variant="success" data-multiple="true">
+    <div class="file-upload-dropzone" tabindex="0" aria-label="Drop files or browse to upload multiple files">
+      <div class="file-upload-instructions">
+        <span class="file-upload-title">Upload Multiple Files</span><br />
+        Drag & Drop Files or <span class="file-upload-browse">Browse</span>
+      </div>
+      <input type="file" class="file-upload-input" multiple />
+    </div>
+    <div class="file-upload-list" aria-live="polite"></div>
+  </div>
+</section>
   
 </body>
 <script type="module" src="js/main.js"></script>
