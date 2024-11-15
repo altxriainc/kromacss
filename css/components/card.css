@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--neutral-50);
-  color: var(--neutral-900);
+  background-color: var(--card-bg, var(--neutral-50));
+  color: var(--card-text, var(--neutral-900));
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--card-shadow, var(--shadow-lg));
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -17,7 +17,7 @@
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--card-hover-shadow, var(--shadow-xl));
 }
 
 /* Card Header */
@@ -26,14 +26,9 @@
   padding: var(--space-5) var(--space-6);
   font-weight: bold;
   font-size: 1.25rem;
-  color: var(--neutral-800);
-  border-bottom: 1px solid var(--neutral-200);
+  color: var(--card-header-text, var(--neutral-800));
+  border-bottom: 1px solid var(--card-header-border, var(--neutral-200));
   text-align: center;
-}
-
-.dark-mode .card-header {
-  color: var(--neutral-50);
-  border-color: var(--neutral-300);
 }
 
 /* Card Media */
@@ -52,80 +47,42 @@
 .card-body {
   padding: var(--space-6);
   text-align: center;
-  color: var(--neutral-700);
+  color: var(--card-body-text, var(--neutral-700));
   font-size: 1rem;
-}
-
-.dark-mode .card-body {
-  color: var(--neutral-200);
 }
 
 /* Card Footer */
 .card-footer {
   width: 100%;
   padding: var(--space-4) var(--space-6);
-  background-color: var(--neutral-100);
-  border-top: 1px solid var(--neutral-200);
+  background-color: var(--card-footer-bg, var(--neutral-100));
+  border-top: 1px solid var(--card-footer-border, var(--neutral-200));
   display: flex;
   justify-content: center;
   gap: var(--space-2);
-  color: var(--neutral-900);
+  color: var(--card-footer-text, var(--neutral-900));
 }
 
-.dark-mode .card-footer {
-  background-color: var(--neutral-200);
-  border-color: var(--neutral-300);
-  color: var(--neutral-50);
-}
-
-/* Color Variants */
-.card[data-variant="primary"] {
-  background-color: var(--primary-bg);
-  color: var(--primary-text);
-}
-.card[data-variant="secondary"] {
-  background-color: var(--secondary-bg);
-  color: var(--secondary-text);
-}
-.card[data-variant="success"] {
-  background-color: var(--success-bg);
-  color: var(--success-text);
-}
-.card[data-variant="danger"] {
-  background-color: var(--danger-bg);
-  color: var(--danger-text);
-}
-.card[data-variant="warning"] {
-  background-color: var(--warning-bg);
-  color: var(--warning-text);
-}
-.card[data-variant="info"] {
-  background-color: var(--info-bg);
-  color: var(--info-text);
-}
-.card[data-variant="accent"] {
-  background-color: var(--accent-bg);
-  color: var(--accent-text);
+/* Card Variants */
+.card[data-variant] {
+  --card-bg: var(--variant-bg);
+  --card-text: var(--variant-text);
+  --card-header-text: var(--variant-text);
+  --card-body-text: var(--variant-text);
+  --card-footer-bg: var(--variant-light-bg, rgba(0, 0, 0, 0.05));
+  --card-footer-text: var(--variant-text);
+  --card-hover-shadow: var(--variant-shadow, var(--shadow-xl));
 }
 
 /* Outline Style */
 .card[data-variant="outline"] {
-  border: 1px solid var(--neutral-200);
   background-color: transparent;
-  color: var(--neutral-900);
+  border: 1px solid var(--variant-bg);
+  color: var(--variant-text);
 }
 
-.dark-mode .card[data-variant="outline"] {
-  border-color: var(--neutral-400);
-  color: var(--neutral-50);
-}
-
-.dark-mode .card[data-variant="outline"] .card-header {
-  color: white;
-}
-
-.dark-mode .card[data-variant="outline"] .card-body {
-  color: white;
+.card[data-variant="outline"]:hover {
+  box-shadow: var(--card-hover-shadow, var(--shadow-lg));
 }
 
 /* Labels */
@@ -137,17 +94,13 @@
   font-weight: bold;
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-full);
-  background-color: var(--label-color, var(--primary-bg));
-  color: var(--primary-text);
+  background-color: var(--label-bg, var(--variant-bg));
+  color: var(--label-text, var(--variant-text));
   box-shadow: var(--shadow-md);
 }
 
 .card[data-label="fixed"] .card-label {
   display: block; /* Always visible */
-}
-
-.dark-mode .card-label {
-  color: var(--neutral-900);
 }
 
 /* Horizontal Layout */
@@ -181,6 +134,7 @@
 .card[data-shadow="light"] {
   box-shadow: var(--shadow-sm);
 }
+
 .card[data-shadow="heavy"] {
   box-shadow: var(--shadow-xl);
 }

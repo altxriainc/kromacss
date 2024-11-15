@@ -11,93 +11,75 @@
     --neutral-800: #1e293b;
     --neutral-900: #0f172a; /* Darkest text on light mode */
 
-    --primary: #4e8cff; /* Bright primary */
-    --primary-hover: #3576e3;
-    --primary-light: #7aaaff;
-    --primary-dark: #2b4d99;
-
-    --secondary: #64748b;
-    --secondary-hover: #475569;
-    --secondary-light: #94a3b8; /* Light version of secondary */
-    --secondary-dark: #334155; /* Dark version of secondary */
-
-    /* Success Variants */
-    --success: #10b981;              /* Main success color */
-    --success-hover: #059669;        /* Hover success color */
-    --success-light: #6ee7b7;        /* Light success color */
-    --success-dark: #065f46;         /* Dark success color */
-
-    /* Danger Variants */
-    --danger: #ef4444;               /* Main danger color */
-    --danger-hover: #dc2626;         /* Hover danger color */
-    --danger-light: #fca5a5;         /* Light danger color */
-    --danger-dark: #991b1b;          /* Dark danger color */
-
-    /* Warning Variants */
-    --warning: #f59e0b;              /* Main warning color */
-    --warning-hover: #d97706;        /* Hover warning color */
-    --warning-light: #fcd34d;        /* Light warning color */
-    --warning-dark: #b45309;         /* Dark warning color */
-
-    /* Info Variants */
-    --info: #3b82f6;                 /* Main info color */
-    --info-hover: #2563eb;           /* Hover info color */
-    --info-light: #93c5fd;           /* Light info color */
-    --info-dark: #1e3a8a;            /* Dark info color */
-
-    --accent: #7c3aed; /* Accent color */
-    --accent-hover: #6d28d9; /* Hover version of accent */
-    --accent-light: #a78bfa; /* Light version of accent */
-    --accent-dark: #5b21b6; /* Dark version of accent */
-
     /* Primary Variants */
-    --primary-bg: var(--primary);
+    --primary-bg: rgba(59, 130, 246, 1);
+    --primary-light-bg: rgba(59, 130, 246, 0.15);
+    --primary-dark-bg: rgba(37, 99, 235, 1);
+    --primary-hover: rgba(59, 130, 246, 0.75);
+    --primary-hover-bg: rgba(59, 130, 246, 0.9);
     --primary-text: #ffffff;
-    --primary-border: var(--primary-dark);
-    --primary-shadow: 0 2px 6px rgba(78, 140, 255, 0.3);
-    --primary-hover-bg: var(--primary-hover);
+    --primary-border: rgba(37, 99, 235, 1);
+    --primary-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
 
     /* Secondary Variants */
-    --secondary-bg: var(--secondary);
+    --secondary-bg: rgba(100, 116, 139, 1);
+    --secondary-light-bg: rgba(100, 116, 139, 0.15);
+    --secondary-dark-bg: rgba(71, 85, 105, 1);
+    --secondary-hover: rgba(100, 116, 139, 0.75);
+    --secondary-hover-bg: rgba(100, 116, 139, 0.9);
     --secondary-text: #ffffff;
-    --secondary-border: var(--secondary-dark);
+    --secondary-border: rgba(71, 85, 105, 1);
     --secondary-shadow: 0 2px 6px rgba(100, 116, 139, 0.3);
-    --secondary-hover-bg: var(--secondary-hover);
 
     /* Success Variants */
-    --success-bg: var(--success);
+    --success-bg: rgba(16, 185, 129, 1);
+    --success-light-bg: rgba(16, 185, 129, 0.15);
+    --success-dark-bg: rgba(4, 120, 87, 1);
+    --success-hover: rgba(16, 185, 129, 0.75);
+    --success-hover-bg: rgba(16, 185, 129, 0.9);
     --success-text: #ffffff;
-    --success-border: var(--success-dark);
+    --success-border: rgba(4, 120, 87, 1);
     --success-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
-    --success-hover-bg: var(--success-hover);
 
     /* Danger Variants */
-    --danger-bg: var(--danger);
+    --danger-bg: rgba(239, 68, 68, 1);
+    --danger-light-bg: rgba(239, 68, 68, 0.15);
+    --danger-dark-bg: rgba(185, 28, 28, 1);
+    --danger-hover: rgba(239, 68, 68, 0.75);
+    --danger-hover-bg: rgba(239, 68, 68, 0.9);
     --danger-text: #ffffff;
-    --danger-border: var(--danger-dark);
+    --danger-border: rgba(185, 28, 28, 1);
     --danger-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
-    --danger-hover-bg: var(--danger-hover);
 
     /* Warning Variants */
-    --warning-bg: var(--warning);
+    --warning-bg: rgba(245, 158, 11, 1);
+    --warning-light-bg: rgba(245, 158, 11, 0.15);
+    --warning-dark-bg: rgba(202, 138, 4, 1);
+    --warning-hover: rgba(245, 158, 11, 0.75);
+    --warning-hover-bg: rgba(245, 158, 11, 0.9);
     --warning-text: #ffffff;
-    --warning-border: var(--warning-dark);
+    --warning-border: rgba(202, 138, 4, 1);
     --warning-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
-    --warning-hover-bg: var(--warning-hover);
 
     /* Info Variants */
-    --info-bg: var(--info);
+    --info-bg: rgba(59, 130, 246, 1);
+    --info-light-bg: rgba(59, 130, 246, 0.15);
+    --info-dark-bg: rgba(37, 99, 235, 1);
+    --info-hover: rgba(59, 130, 246, 0.75);
+    --info-hover-bg: rgba(59, 130, 246, 0.9);
     --info-text: #ffffff;
-    --info-border:  var(--info-dark);
+    --info-border: rgba(37, 99, 235, 1);
     --info-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
-    --info-hover-bg: var(--info-hover);
 
     /* Accent Variants */
-    --accent-bg: var(--accent);
+    --accent-bg: rgba(124, 58, 237, 1);
+    --accent-light-bg: rgba(124, 58, 237, 0.15);
+    --accent-dark-bg: rgba(91, 33, 182, 1);
+    --accent-hover: rgba(124, 58, 237, 0.75);
+    --accent-hover-bg: rgba(124, 58, 237, 0.9);
     --accent-text: #ffffff;
-    --accent-border: var(--accent-dark);
+    --accent-border: rgba(91, 33, 182, 1);
     --accent-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
-    --accent-hover-bg: var(--accent-hover);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -142,6 +124,7 @@
     --z-40: 40;
     --z-50: 50;
     --z-auto: auto;
+ 
 }
 
 /* Dark Mode */
@@ -159,58 +142,155 @@
     --neutral-900: #e5eaf0; /* Lightest text on dark mode */
 
     /* Primary Variants */
-    --primary-bg: var(--primary);
-    --primary-text: #ffffff;
-    --primary-border: var(--primary-dark);
-    --primary-shadow: 0 2px 6px rgba(78, 140, 255, 0.3);
-    --primary-hover-bg: var(--primary-hover);
+    --primary-bg: rgba(37, 99, 235, 1);
+    --primary-light-bg: rgba(37, 99, 235, 0.15);
+    --primary-dark-bg: rgba(29, 78, 216, 1);
+    --primary-hover: rgba(37, 99, 235, 0.75);
+    --primary-hover-bg: rgba(37, 99, 235, 0.9);
+    --primary-text: #e0f2fe; /* Light text for contrast */
+    --primary-border: rgba(29, 78, 216, 1);
+    --primary-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
 
     /* Secondary Variants */
-    --secondary-bg: var(--secondary);
-    --secondary-text: #ffffff;
-    --secondary-border: var(--secondary-dark);
-    --secondary-shadow: 0 2px 6px rgba(100, 116, 139, 0.3);
-    --secondary-hover-bg: var(--secondary-hover);
+    --secondary-bg: rgba(71, 85, 105, 1);
+    --secondary-light-bg: rgba(71, 85, 105, 0.15);
+    --secondary-dark-bg: rgba(55, 65, 81, 1);
+    --secondary-hover: rgba(71, 85, 105, 0.75);
+    --secondary-hover-bg: rgba(71, 85, 105, 0.9);
+    --secondary-text: #f1f5f9;
+    --secondary-border: rgba(55, 65, 81, 1);
+    --secondary-shadow: 0 2px 6px rgba(71, 85, 105, 0.3);
 
     /* Success Variants */
-    --success-bg: var(--success);
-    --success-text: #ffffff;
-    --success-border: var(--success-dark);
-    --success-shadow: 0 2px 6px rgba(63, 220, 152, 0.3);
-    --success-hover-bg: var(--success-hover);
+    --success-bg: rgba(4, 120, 87, 1);
+    --success-light-bg: rgba(4, 120, 87, 0.15);
+    --success-dark-bg: rgba(2, 85, 65, 1);
+    --success-hover: rgba(4, 120, 87, 0.75);
+    --success-hover-bg: rgba(4, 120, 87, 0.9);
+    --success-text: #d1fae5;
+    --success-border: rgba(2, 85, 65, 1);
+    --success-shadow: 0 2px 6px rgba(4, 120, 87, 0.3);
 
     /* Danger Variants */
-    --danger-bg: var(--danger);
-    --danger-text: #ffffff;
-    --danger-border: var(--danger-dark);
-    --danger-shadow: 0 2px 6px rgba(255, 94, 94, 0.3);
-    --danger-hover-bg: var(--danger-hover);
+    --danger-bg: rgba(185, 28, 28, 1);
+    --danger-light-bg: rgba(185, 28, 28, 0.15);
+    --danger-dark-bg: rgba(153, 27, 27, 1);
+    --danger-hover: rgba(185, 28, 28, 0.75);
+    --danger-hover-bg: rgba(185, 28, 28, 0.9);
+    --danger-text: #fecaca;
+    --danger-border: rgba(153, 27, 27, 1);
+    --danger-shadow: 0 2px 6px rgba(185, 28, 28, 0.3);
 
     /* Warning Variants */
-    --warning-bg: var(--warning);
-    --warning-text: #ffffff;
-    --warning-border: var(--warning-dark);
-    --warning-shadow: 0 2px 6px rgba(255, 197, 66, 0.3);
-    --warning-hover-bg: var(--warning-hover);
+    --warning-bg: rgba(202, 138, 4, 1);
+    --warning-light-bg: rgba(202, 138, 4, 0.15);
+    --warning-dark-bg: rgba(161, 98, 7, 1);
+    --warning-hover: rgba(202, 138, 4, 0.75);
+    --warning-hover-bg: rgba(202, 138, 4, 0.9);
+    --warning-text: #fde68a;
+    --warning-border: rgba(161, 98, 7, 1);
+    --warning-shadow: 0 2px 6px rgba(202, 138, 4, 0.3);
 
     /* Info Variants */
-    --info-bg: var(--info);
-    --info-text: #ffffff;
-    --info-border: var(--info-dark);
-    --info-shadow: 0 2px 6px rgba(80, 165, 246, 0.3);
-    --info-hover-bg: var(--info-hover);
+    --info-bg: rgba(37, 99, 235, 1);
+    --info-light-bg: rgba(37, 99, 235, 0.15);
+    --info-dark-bg: rgba(29, 78, 216, 1);
+    --info-hover: rgba(37, 99, 235, 0.75);
+    --info-hover-bg: rgba(37, 99, 235, 0.9);
+    --info-text: #bfdbfe;
+    --info-border: rgba(29, 78, 216, 1);
+    --info-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
 
     /* Accent Variants */
-    --accent-bg: var(--accent);
-    --accent-text: #ffffff;
-    --accent-border: var(--accent-dark);
-    --accent-shadow: 0 2px 6px rgba(167, 139, 250, 0.3);
-    --accent-hover-bg: var(--accent-hover);
+    --accent-bg: rgba(91, 33, 182, 1);
+    --accent-light-bg: rgba(91, 33, 182, 0.15);
+    --accent-dark-bg: rgba(72, 28, 152, 1);
+    --accent-hover: rgba(91, 33, 182, 0.75);
+    --accent-hover-bg: rgba(91, 33, 182, 0.9);
+    --accent-text: #e9d5ff;
+    --accent-border: rgba(72, 28, 152, 1);
+    --accent-shadow: 0 2px 6px rgba(91, 33, 182, 0.3);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.1);
     --shadow-md: 0 2px 4px rgba(255, 255, 255, 0.1), 0 4px 6px rgba(255, 255, 255, 0.15);
     --shadow-lg: 0 10px 15px -3px rgba(255, 255, 255, 0.2), 0 4px 6px -2px rgba(255, 255, 255, 0.15);
     --shadow-xl: 0 20px 25px -5px rgba(255, 255, 255, 0.25), 0 10px 10px -5px rgba(255, 255, 255, 0.2);
-
 }
+
+[data-variant="primary"] {
+    --variant-bg: var(--primary-bg);
+    --variant-light-bg: var(--primary-light-bg);
+    --variant-dark-bg: var(--primary-dark-bg);
+    --variant-text: var(--primary-text);
+    --variant-shadow: var(--primary-shadow);
+    --variant-border: var(--primary-border);
+    --variant-hover-bg: var(--primary-hover-bg);
+    --variant-hover: var(--primary-hover);
+  }
+  
+  [data-variant="secondary"] {
+    --variant-bg: var(--secondary-bg);
+    --variant-light-bg: var(--secondary-light-bg);
+    --variant-dark-bg: var(--secondary-dark-bg);
+    --variant-text: var(--secondary-text);
+    --variant-shadow: var(--secondary-shadow);
+    --variant-border: var(--secondary-border);
+    --variant-hover-bg: var(--secondary-hover-bg);
+    --variant-hover: var(--secondary-hover);
+  }
+  
+  [data-variant="accent"] {
+    --variant-bg: var(--accent-bg);
+    --variant-light-bg: var(--accent-light-bg);
+    --variant-dark-bg: var(--accent-dark-bg);
+    --variant-text: var(--accent-text);
+    --variant-shadow: var(--accent-shadow);
+    --variant-border: var(--accent-border);
+    --variant-hover-bg: var(--accent-hover-bg);
+    --variant-hover: var(--accent-hover);
+  }
+  
+  [data-variant="success"] {
+    --variant-bg: var(--success-bg);
+    --variant-light-bg: var(--success-light-bg);
+    --variant-dark-bg: var(--success-dark-bg);
+    --variant-text: var(--success-text);
+    --variant-shadow: var(--success-shadow);
+    --variant-border: var(--success-border);
+    --variant-hover-bg: var(--success-hover-bg);
+    --variant-hover: var(--success-hover);
+  }
+  
+  [data-variant="info"] {
+    --variant-bg: var(--info-bg);
+    --variant-light-bg: var(--info-light-bg);
+    --variant-dark-bg: var(--info-dark-bg);
+    --variant-text: var(--info-text);
+    --variant-shadow: var(--info-shadow);
+    --variant-border: var(--info-border);
+    --variant-hover-bg: var(--info-hover-bg);
+    --variant-hover: var(--info-hover);
+  }
+  
+  [data-variant="danger"] {
+    --variant-bg: var(--danger-bg);
+    --variant-light-bg: var(--danger-light-bg);
+    --variant-dark-bg: var(--danger-dark-bg);
+    --variant-text: var(--danger-text);
+    --variant-shadow: var(--danger-shadow);
+    --variant-border: var(--danger-border);
+    --variant-hover-bg: var(--danger-hover-bg);
+    --variant-hover: var(--danger-hover);
+  }
+  
+  [data-variant="warning"] {
+    --variant-bg: var(--warning-bg);
+    --variant-light-bg: var(--warning-light-bg);
+    --variant-dark-bg: var(--warning-dark-bg);
+    --variant-text: var(--warning-text);
+    --variant-shadow: var(--warning-shadow);
+    --variant-border: var(--warning-border);
+    --variant-hover-bg: var(--warning-hover-bg);
+    --variant-hover: var(--warning-hover);
+  }   

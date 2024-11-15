@@ -4,10 +4,10 @@
     display: inline-block;
     font-family: var(--font-sans);
     width: 100%;
-}
-
-/* Dropdown Trigger */
-.dropdown-trigger {
+  }
+  
+  /* Dropdown Trigger */
+  .dropdown-trigger {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -15,8 +15,8 @@
     padding: clamp(0.5rem, 1vw, 0.75rem);
     font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
     font-weight: 500;
-    background-color: var(--btn-bg, var(--primary-bg));
-    color: var(--btn-color, #fff);
+    background-color: var(--trigger-bg, var(--primary-bg));
+    color: var(--trigger-color, #fff);
     border: none;
     border-radius: var(--radius-md);
     cursor: pointer;
@@ -25,21 +25,21 @@
     overflow: hidden;
     text-overflow: ellipsis;
     outline: none;
-}
-
-.dropdown-trigger:focus {
-    box-shadow: 0 0 0 3px var(--primary-light);
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
+  }
+  
+  .dropdown-trigger:focus {
+    box-shadow: 0 0 0 3px var(--trigger-focus-shadow, var(--primary-light));
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
     min-width: 100%;
     max-width: clamp(10rem, 100vw - 2rem, 20rem);
-    background-color: var(--dropdown-bg, var(--neutral-50));
-    color: var(--dropdown-color, var(--neutral-900));
+    background-color: var(--menu-bg, var(--neutral-50));
+    color: var(--menu-color, var(--neutral-900));
     box-shadow: var(--shadow-lg);
     border-radius: var(--radius-lg);
     padding: var(--space-2) 0;
@@ -49,184 +49,120 @@
     visibility: hidden;
     z-index: var(--z-30);
     overflow: hidden;
-}
-
-/* Show Menu on Hover or Focus */
-.dropdown:focus-within .dropdown-menu,
-.dropdown:hover .dropdown-menu {
+  }
+  
+  /* Show Menu on Hover or Focus */
+  .dropdown:focus-within .dropdown-menu,
+  .dropdown:hover .dropdown-menu {
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
-}
-
-/* Dropdown Item */
-.dropdown-item {
+  }
+  
+  /* Dropdown Item */
+  .dropdown-item {
     padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
     font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: background-color var(--transition-all);
+    transition: background-color var(--transition-all), color var(--transition-colors);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.dropdown-item:focus {
-    background-color: var(--dropdown-hover-bg, var(--neutral-200));
+  }
+  
+  .dropdown-item:focus {
+    background-color: var(--item-focus-bg, var(--neutral-200));
     outline: none;
-    box-shadow: 0 0 0 3px var(--primary-light);
-}
-
-/* Hover Effects for Dropdown Items */
-.dropdown-item:hover {
-    background-color: var(--dropdown-hover-bg, var(--neutral-200));
-    color: var(--dropdown-hover-color, var(--primary));
-}
-
-/* Mega Menu Styles */
-.dropdown[data-type="mega-menu"] .dropdown-menu {
+    box-shadow: 0 0 0 3px var(--focus-shadow, var(--primary-light));
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--item-hover-bg, var(--neutral-200));
+    color: var(--item-hover-color, var(--primary));
+  }
+  
+  /* Mega Menu Styles */
+  .dropdown[data-type="mega-menu"] .dropdown-menu {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     padding: var(--space-4);
     gap: var(--space-4);
     max-width: clamp(20rem, 80vw, 40rem);
-}
-
-/* Mega Menu Column Groups */
-.mega-menu-group {
+  }
+  
+  .mega-menu-group {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-}
-
-.mega-menu-title {
+  }
+  
+  .mega-menu-title {
     font-weight: bold;
     font-size: clamp(1rem, 1.5vw, 1.125rem);
     color: var(--neutral-700);
     padding: var(--space-1) 0;
     border-bottom: 1px solid var(--neutral-300);
-}
-
-.mega-menu-item {
+  }
+  
+  .mega-menu-item {
     display: flex;
     align-items: center;
     padding: var(--space-2) 0;
     padding-left: 0.5rem;
     color: var(--neutral-800);
     transition: background-color var(--transition-colors);
-}
-
-.mega-menu-item:hover {
-    background-color: var(--dropdown-hover-bg, var(--neutral-200));
+  }
+  
+  .mega-menu-item:hover {
+    background-color: var(--item-hover-bg, var(--neutral-200));
     cursor: pointer;
-}
-
-/* Icon Styling in Mega Menu */
-.mega-menu-item-icon {
+  }
+  
+  .mega-menu-item-icon {
     margin-right: var(--space-2);
     font-size: 1.25rem;
     color: var(--neutral-500);
-}
-
-/* Data-Attribute Based Customization */
-
-/* Primary Variant */
-.dropdown[data-variant="primary"] .dropdown-trigger {
-    background-color: var(--primary-bg);
-    color: var(--primary-text);
-}
-.dropdown[data-variant="primary"] .dropdown-item:hover, .mega-menu-item:hover {
-    background-color: var(--primary-light);
-    color: var(--primary);
-}
-
-/* Secondary Variant */
-.dropdown[data-variant="secondary"] .dropdown-trigger {
-    background-color: var(--secondary-bg);
-    color: var(--secondary-text);
-}
-.dropdown[data-variant="secondary"] .dropdown-item:hover, .mega-menu-item:hover {
-    background-color: var(--secondary-light);
-    color: var(--secondary);
-}
-
-/* Warning Variant */
-.dropdown[data-variant="warning"] .dropdown-trigger {
-    background-color: var(--warning-bg);
-    color: var(--warning-text);
-}
-.dropdown[data-variant="warning"] .dropdown-item:hover, .mega-menu-item:hover {
-    background-color: var(--warning-light);
-    color: var(--warning);
-}
-
-/* Info Variant */
-.dropdown[data-variant="info"] .dropdown-trigger {
-    background-color: var(--info-bg);
-    color: var(--info-text);
-}
-.dropdown[data-variant="info"] .dropdown-item:hover, .mega-menu-item:hover {
-    background-color: var(--info-light);
-    color: var(--info);
-}
-
-/* Danger Variant */
-.dropdown[data-variant="danger"] .dropdown-trigger {
-    background-color: var(--danger-bg);
-    color: var(--danger-text);
-}
-.dropdown[data-variant="danger"] .dropdown-item:hover, .mega-menu-item:hover {
-    background-color: var(--danger-light);
-    color: var(--danger);
-}
-
-/* Success Variant */
-.dropdown[data-variant="success"] .dropdown-trigger {
-    background-color: var(--success-bg);
-    color: var(--success-text);
-}
-.dropdown[data-variant="success"] .dropdown-item:hover, .mega-menu-item:hover {
-    background-color: var(--success-light);
-    color: var(--success);
-}
-
-/* Accent Variant */
-.dropdown[data-variant="accent"] .dropdown-trigger {
-    background-color: var(--accent-bg);
-    color: var(--accent-text);
-}
-.dropdown[data-variant="accent"] .dropdown-item:hover, .mega-menu-item:hover {
-    background-color: var(--accent-light);
-    color: var(--accent);
-}
-
-/* Responsive Positioning */
-.dropdown[data-position="top"] .dropdown-menu {
+  }
+  
+  /* Variant Handling */
+  .dropdown[data-variant] {
+    --trigger-bg: var(--variant-dark-bg);
+    --trigger-color: var(--variant-text);
+    --menu-bg: var(--variant-bg);
+    --menu-color: var(--variant-text);
+    --item-hover-bg: var(--variant-dark-bg);
+    --item-hover-color: var(--variant-text);
+  }
+  
+  /* Responsive Positioning */
+  .dropdown[data-position="top"] .dropdown-menu {
     top: auto;
     bottom: 100%;
     transform: translateY(10px);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 600px) {
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
     .dropdown-menu {
-        width: 100%;
-        left: 0;
-        min-width: auto;
-        padding: 0;
+      width: 100%;
+      left: 0;
+      min-width: auto;
+      padding: 0;
     }
-
+  
     .dropdown-item {
-        padding: 0.75rem 1rem;
-        font-size: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
+      padding: 0.75rem 1rem;
+      font-size: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
     }
-
+  
     .dropdown-trigger {
-        padding: clamp(0.5rem, 1vw, 0.75rem);
+      padding: clamp(0.5rem, 1vw, 0.75rem);
     }
-
+  
     /* Mega Menu Mobile Adjustments */
     .dropdown[data-type="mega-menu"] .dropdown-menu {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-}
+  }
+  

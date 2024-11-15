@@ -16,75 +16,15 @@
   overflow: hidden;
 }
 
-/* Variant Styles */
-.alert[data-variant="primary"] {
-  background-color: var(--primary-bg);
-  color: var(--primary-text);
-  box-shadow: var(--primary-shadow);
-  border: 1px solid var(--primary-border);
+/* Variant Styles (Dynamic) */
+.alert[data-variant] {
+  background-color: var(--variant-bg);
+  color: var(--variant-text);
+  box-shadow: var(--variant-shadow);
+  border: 1px solid var(--variant-border);
 }
-.alert[data-variant="primary"]:hover {
-  background-color: var(--primary-hover-bg);
-}
-
-.alert[data-variant="secondary"] {
-  background-color: var(--secondary-bg);
-  color: var(--secondary-text);
-  box-shadow: var(--secondary-shadow);
-  border: 1px solid var(--secondary-border);
-}
-.alert[data-variant="secondary"]:hover {
-  background-color: var(--secondary-hover-bg);
-}
-
-.alert[data-variant="success"] {
-  background-color: var(--success-bg);
-  color: var(--success-text);
-  box-shadow: var(--success-shadow);
-  border: 1px solid var(--success-border);
-}
-.alert[data-variant="success"]:hover {
-  background-color: var(--success-hover-bg);
-}
-
-.alert[data-variant="danger"] {
-  background-color: var(--danger-bg);
-  color: var(--danger-text);
-  box-shadow: var(--danger-shadow);
-  border: 1px solid var(--danger-border);
-}
-.alert[data-variant="danger"]:hover {
-  background-color: var(--danger-hover-bg);
-}
-
-.alert[data-variant="warning"] {
-  background-color: var(--warning-bg);
-  color: var(--warning-text);
-  box-shadow: var(--warning-shadow);
-  border: 1px solid var(--warning-border);
-}
-.alert[data-variant="warning"]:hover {
-  background-color: var(--warning-hover-bg);
-}
-
-.alert[data-variant="info"] {
-  background-color: var(--info-bg);
-  color: var(--info-text);
-  box-shadow: var(--info-shadow);
-  border: 1px solid var(--info-border);
-}
-.alert[data-variant="info"]:hover {
-  background-color: var(--info-hover-bg);
-}
-
-.alert[data-variant="accent"] {
-  background-color: var(--accent-bg);
-  color: var(--accent-text);
-  box-shadow: var(--accent-shadow);
-  border: 1px solid var(--accent-border);
-}
-.alert[data-variant="accent"]:hover {
-  background-color: var(--accent-hover-bg);
+.alert[data-variant]:hover {
+  background-color: var(--variant-hover-bg);
 }
 
 /* Size Modifiers */

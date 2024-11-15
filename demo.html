@@ -9,7 +9,7 @@
   <style>
   </style>
 </head>
-<body class="dark-mode">
+<body class="">
 
   <!--main header nav menu-->
   <nav id="nav-main" class="p-3">
@@ -110,7 +110,7 @@
     <h2 class="font-lg text-primary my-4">Accordion Component Showcase</h2>
     
       <!-- Primary Accordion with Sub-Content -->
-      <div class="accordion-container" data-variant="warning">
+      <div class="accordion-container" data-variant="primary">
         <div class="accordion-item">
           <button class="accordion-header" onclick="toggleAccordion(this)" aria-label="Toggle primary accordion item 1">
             Primary Accordion - Item 1
@@ -244,13 +244,13 @@
     <div class="badge" data-variant="primary" data-size="lg" aria-label="Primary Large">Primary</div>
   
     <!-- Success, Warning, and Danger Variants with Soft Style -->
-    <div class="badge" data-variant="soft" data-color="success" aria-label="Soft Success">Success</div>
-    <div class="badge" data-variant="soft" data-color="warning" aria-label="Soft Warning">Warning</div>
-    <div class="badge" data-variant="soft" data-color="danger" aria-label="Soft Danger">Danger</div>
+    <div class="badge" data-style="soft" data-variant="success" aria-label="Soft Success">Success</div>
+    <div class="badge" data-style="soft" data-variant="warning" aria-label="Soft Warning">Warning</div>
+    <div class="badge" data-style="soft" data-variant="danger" aria-label="Soft Danger">Danger</div>
   
     <!-- Outline Badges with Different Colors -->
-    <div class="badge" data-variant="outline" data-color="info" aria-label="Info Outline">Info</div>
-    <div class="badge" data-variant="outline" data-color="secondary" aria-label="Secondary Outline">Secondary</div>
+    <div class="badge" data-style="outline" data-variant="info" aria-label="Info Outline">Info</div>
+    <div class="badge" data-style="outline" data-variant="secondary" aria-label="Secondary Outline">Secondary</div>
   
     <!-- Shape Variants -->
     <div class="badge" data-shape="rounded" data-variant="primary" aria-label="Rounded Badge">Rounded</div>
@@ -272,14 +272,14 @@
     <h2 class="font-lg text-primary my-4">Breadcrumb Component Showcase</h2>
   
     <!-- Primary Breadcrumbs with Slash Separator -->
-    <nav class="breadcrumbs" data-color="primary" data-separator="slash" aria-label="Breadcrumb">
+    <nav class="breadcrumbs" data-variant="primary" data-separator="slash" aria-label="Breadcrumb">
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></div>
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Products</a></div>
       <div class="breadcrumb-item" data-active="true">Electronics</div>
     </nav>
   
     <!-- Secondary Breadcrumbs with Arrow Separator -->
-    <nav class="breadcrumbs" data-color="secondary" data-separator="arrow" aria-label="Breadcrumb">
+    <nav class="breadcrumbs" data-variant="secondary" data-separator="arrow" aria-label="Breadcrumb">
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></div>
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Services</a></div>
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Consulting</a></div>
@@ -287,21 +287,21 @@
     </nav>
   
     <!-- Success Breadcrumbs with Dot Separator -->
-    <nav class="breadcrumbs" data-color="success" data-separator="dot" aria-label="Breadcrumb">
+    <nav class="breadcrumbs" data-variant="success" data-separator="dot" aria-label="Breadcrumb">
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></div>
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Reports</a></div>
       <div class="breadcrumb-item" data-active="true">Annual</div>
     </nav>
   
     <!-- Warning Breadcrumbs with Chevron Separator -->
-    <nav class="breadcrumbs" data-color="warning" data-separator="chevron" aria-label="Breadcrumb">
+    <nav class="breadcrumbs" data-variant="warning" data-separator="chevron" aria-label="Breadcrumb">
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Settings</a></div>
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Account</a></div>
       <div class="breadcrumb-item" data-active="true">Preferences</div>
     </nav>
   
     <!-- Danger Breadcrumbs with Custom Separator and Different Active Color -->
-    <nav class="breadcrumbs" data-color="danger" data-separator="arrow" aria-label="Breadcrumb">
+    <nav class="breadcrumbs" data-variant="danger" data-separator="arrow" aria-label="Breadcrumb">
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></div>
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Security</a></div>
       <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">Password</a></div>
@@ -325,10 +325,10 @@
     <button class="btn" data-variant="danger" data-animate="bounce">Danger</button>
     
     <!-- Outline Button -->
-    <button class="btn" data-variant="outline">Outline</button>
+    <button class="btn" data-variant="success" data-style="outline">Outline</button>
     
     <!-- Ghost Button -->
-    <button class="btn" data-variant="ghost" disabled>Ghost</button>
+    <button class="btn" data-variant="warning" data-style="ghost" disabled>Ghost</button>
     
     <!-- Large Rounded Button -->
     <button class="btn" data-variant="info" data-size="lg" data-shape="rounded">Large Rounded</button>
@@ -501,7 +501,7 @@
     </div>
 
     <!-- Mega Menu Dropdown -->
-    <div class="dropdown" data-variant="info" data-type="mega-menu">
+    <div class="dropdown" data-variant="primary" data-type="mega-menu">
         <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
             Mega Menu Dropdown
         </button>

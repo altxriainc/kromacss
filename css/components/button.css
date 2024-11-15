@@ -106,69 +106,34 @@
 }
 
 /* Button Variants */
-.btn[data-variant="primary"] {
-  --btn-bg: var(--primary-bg);
-  --btn-bg-hover: var(--primary-hover-bg);
-  --btn-color: var(--primary-text);
+.btn[data-variant] {
+  --btn-bg: var(--variant-bg);
+  --btn-bg-hover: var(--variant-hover-bg);
+  --btn-color: var(--variant-text);
 }
 
-.btn[data-variant="secondary"] {
-  --btn-bg: var(--secondary-bg);
-  --btn-bg-hover: var(--secondary-hover-bg);
-  --btn-color: var(--secondary-text);
-}
-
-.btn[data-variant="success"] {
-  --btn-bg: var(--success-bg);
-  --btn-bg-hover: var(--success-hover-bg);
-  --btn-color: var(--success-text);
-}
-
-.btn[data-variant="danger"] {
-  --btn-bg: var(--danger-bg);
-  --btn-bg-hover: var(--danger-hover-bg);
-  --btn-color: var(--danger-text);
-}
-
-.btn[data-variant="warning"] {
-  --btn-bg: var(--warning-bg);
-  --btn-bg-hover: var(--warning-hover-bg);
-  --btn-color: var(--warning-text);
-}
-
-.btn[data-variant="info"] {
-  --btn-bg: var(--info-bg);
-  --btn-bg-hover: var(--info-hover-bg);
-  --btn-color: var(--info-text);
-}
-
-.btn[data-variant="accent"] {
-  --btn-bg: var(--accent-bg);
-  --btn-bg-hover: var(--accent-hover-bg);
-  --btn-color: var(--accent-text);
-}
-
-/* Outline Button */
-.btn[data-variant="outline"] {
-  --btn-bg: transparent;
-  --btn-bg-hover: var(--primary-bg);
-  --btn-color: var(--primary);
-  box-shadow: inset 0 0 0 2px var(--primary);
+.btn[data-style="outline"] {
   background: transparent;
+  box-shadow: inset 0 0 0 2px var(--variant-bg);
+  color: var(--variant-bg);
   transition: box-shadow var(--transition-all), background var(--transition-colors);
 }
 
-.btn[data-variant="outline"]:hover {
-  color: #fff;
+.btn[data-style="outline"]:hover {
+  background: var(--variant-bg);
+  color: var(--variant-hover-text, #fff);
 }
 
-/* Ghost Button */
-.btn[data-variant="ghost"] {
-  --btn-bg: transparent;
-  --btn-bg-hover: var(--neutral-100);
-  --btn-color: var(--neutral-700);
+.btn[data-style="ghost"] {
+  background: transparent;
+  color: var(--variant-bg);
   box-shadow: none;
   transition: background var(--transition-colors);
+}
+
+.btn[data-style="ghost"]:hover {
+  background: var(--variant-hover-bg);
+  color: var(--variant-hover-text, #fff);
 }
 
 /* Button Sizes */
@@ -247,4 +212,3 @@
     font-size: clamp(0.75rem, 1.5vw, 0.875rem);
   }
 }
-

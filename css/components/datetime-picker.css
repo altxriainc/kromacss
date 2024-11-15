@@ -5,244 +5,165 @@
     width: 100%;
     max-width: 400px;
     font-family: var(--font-sans);
-}
-
-/* Input Styling */
-.datetime-input {
+  }
+  
+  /* Input Styling */
+  .datetime-input {
     width: 100%;
     padding: clamp(8px, var(--space-2), 12px);
     border-radius: var(--radius-md);
     font-size: 1rem;
     outline: none;
+    border: 1px solid var(--input-border, var(--neutral-300));
+    background-color: var(--input-bg, var(--neutral-50));
+    color: var(--input-text, var(--neutral-900));
     transition: border-color var(--transition-colors), box-shadow var(--transition-all);
-    background-color: var(--neutral-50);
-    color: var(--neutral-900);
-}
-
-/* Variant Styles for Input based on data-variant */
-[data-variant="primary"] .datetime-input { border-color: var(--primary); }
-[data-variant="secondary"] .datetime-input { border-color: var(--secondary); }
-[data-variant="success"] .datetime-input { border-color: var(--success); }
-[data-variant="warning"] .datetime-input { border-color: var(--warning); }
-[data-variant="danger"] .datetime-input { border-color: var(--danger); }
-[data-variant="info"] .datetime-input { border-color: var(--info); }
-
-/* Input Focus and Hover Effects with Variants */
-.datetime-input:focus {
-    box-shadow: 0px 0px 0px 3px var(--primary-light);
-}
-[data-variant="primary"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--primary-light); }
-[data-variant="secondary"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--secondary-light); }
-[data-variant="success"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--success-light); }
-[data-variant="warning"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--warning-light); }
-[data-variant="danger"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--danger-light); }
-[data-variant="info"] .datetime-input:focus { box-shadow: 0px 0px 0px 3px var(--info-light); }
-
-/* Date Picker Popup */
-.datetime-picker {
+  }
+  
+  .datetime-input:focus {
+    box-shadow: 0px 0px 0px 3px var(--input-focus-shadow, var(--primary-light));
+  }
+  
+  /* Variant Styles */
+  .datetime-picker-container[data-variant] {
+    --input-border: var(--variant-bg);
+    --input-bg: var(--variant-light-bg);
+    --input-text: var(--variant-text);
+    --input-focus-shadow: var(--variant-light-bg);
+  }
+  
+  /* Date Picker Popup */
+  .datetime-picker {
     display: none;
     position: absolute;
     top: calc(100% + var(--space-1));
     left: 0;
     width: 100%;
-    background-color: var(--neutral-50);
-    border: 1px solid var(--neutral-300);
+    background-color: var(--variant-dark-bg);
+    border: 1px solid var(--variant-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     z-index: var(--z-30);
     padding: var(--space-3);
     transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.datetime-picker.active {
+  }
+  
+  .datetime-picker.active {
     display: block;
     transform: scale(1);
     opacity: 1;
-}
-
-/* Variant Border Styles for Popup */
-[data-variant="primary"] .datetime-picker { border-color: var(--primary); }
-[data-variant="secondary"] .datetime-picker { border-color: var(--secondary); }
-[data-variant="success"] .datetime-picker { border-color: var(--success); }
-[data-variant="warning"] .datetime-picker { border-color: var(--warning); }
-[data-variant="danger"] .datetime-picker { border-color: var(--danger); }
-[data-variant="info"] .datetime-picker { border-color: var(--info); }
-
-/* Calendar Header */
-.calendar-header {
+  }
+  
+  /* Popup Variants */
+  .datetime-picker-container[data-variant] {
+    --popup-bg: var(--variant-light-bg);
+    --popup-border: var(--variant-bg);
+  }
+  
+  /* Calendar Header */
+  .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--space-2);
-}
-
-.calendar-header button {
+  }
+  
+  .calendar-header button {
     background: none;
     border: none;
     font-size: clamp(1.25rem, 1.5vw, 1.5rem);
     cursor: pointer;
     padding: var(--space-1);
+    color: var(--header-btn, var(--neutral-800));
     transition: color var(--transition-colors);
-}
-
-/* Variant Color Styles for Header Buttons */
-[data-variant="primary"] .calendar-header button { color: var(--primary); }
-[data-variant="secondary"] .calendar-header button { color: var(--secondary); }
-[data-variant="success"] .calendar-header button { color: var(--success); }
-[data-variant="warning"] .calendar-header button { color: var(--warning); }
-[data-variant="danger"] .calendar-header button { color: var(--danger); }
-[data-variant="info"] .calendar-header button { color: var(--info); }
-
-/* Month and Year Styling */
-.calendar-month,
-.calendar-year {
+  }
+  
+  /* Calendar Variants */
+  .datetime-picker-container[data-variant] {
+    --header-btn: var(--variant-bg);
+  }
+  
+  /* Month and Year Styling */
+  .calendar-month,
+  .calendar-year {
     font-size: clamp(0.875rem, 1rem, 1.125rem);
     font-weight: bold;
     cursor: pointer;
     padding: var(--space-1);
-    transition: background-color var(--transition-colors);
     border-radius: var(--radius-sm);
-}
-
-/* Variant Hover Effects for Month and Year */
-.calendar-month:hover,
-.calendar-year:hover { background-color: var(--primary-light); color: #fff; }
-
-/* Month and Year Selector */
-.month-selector,
-.year-selector {
-    display: none;
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--neutral-50);
-    border: 1px solid var(--neutral-300);
-    border-radius: var(--radius-md);
-    padding: var(--space-2);
-    width: 100%;
-    max-width: 300px;
-    box-shadow: var(--shadow-lg);
-    z-index: var(--z-40);
-}
-
-.month-option,
-.year-option {
-    padding: var(--space-1);
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    text-align: center;
-    transition: background-color var(--transition-colors);
-}
-
-/* Calendar Grid */
-.calendar-grid {
+    transition: background-color var(--transition-colors), color var(--transition-colors);
+  }
+  
+  .calendar-month:hover,
+  .calendar-year:hover {
+    background-color: var(--month-hover-bg, var(--variant-hover));
+    color: #fff;
+  }
+  
+  /* Calendar Grid */
+  .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: var(--space-1);
-}
-
-.calendar-day {
+  }
+  
+  .calendar-day {
     padding: var(--space-1);
     text-align: center;
     cursor: pointer;
-    transition: background-color var(--transition-colors), color var(--transition-colors);
     border-radius: var(--radius-sm);
-}
-
-/* Current Day and Selected Day Styles with Variants */
-
-/* Primary Variant */
-[data-variant="primary"] .calendar-day.current-day {
-    background-color: var(--primary-light);
+    transition: background-color var(--transition-colors), color var(--transition-colors);
+  }
+  
+  /* Hover Effect for Calendar Day */
+  .calendar-day:hover {
+    background-color: var(--variant-hover);
     color: #fff;
-}
-[data-variant="primary"] .calendar-day.selected-day {
-    background-color: var(--primary);
+  }
+  
+  /* Current and Selected Day Styles */
+  .calendar-day.current-day {
+    background-color: var(--current-day-bg, var(--variant-light-bg));
     color: #fff;
-}
-
-/* Secondary Variant */
-[data-variant="secondary"] .calendar-day.current-day {
-    background-color: var(--secondary-light);
+  }
+  
+  .calendar-day.selected-day {
+    background-color: var(--selected-day-bg, var(--variant-bg));
     color: #fff;
-}
-[data-variant="secondary"] .calendar-day.selected-day {
-    background-color: var(--secondary);
-    color: #fff;
-}
-
-/* Success Variant */
-[data-variant="success"] .calendar-day.current-day {
-    background-color: var(--success-light);
-    color: #fff;
-}
-[data-variant="success"] .calendar-day.selected-day {
-    background-color: var(--success);
-    color: #fff;
-}
-
-/* Warning Variant */
-[data-variant="warning"] .calendar-day.current-day {
-    background-color: var(--warning-light);
-    color: #fff;
-}
-[data-variant="warning"] .calendar-day.selected-day {
-    background-color: var(--warning);
-    color: #fff;
-}
-
-/* Danger Variant */
-[data-variant="danger"] .calendar-day.current-day {
-    background-color: var(--danger-light);
-    color: #fff;
-}
-[data-variant="danger"] .calendar-day.selected-day {
-    background-color: var(--danger);
-    color: #fff;
-}
-
-/* Info Variant */
-[data-variant="info"] .calendar-day.current-day {
-    background-color: var(--info-light);
-    color: #fff;
-}
-[data-variant="info"] .calendar-day.selected-day {
-    background-color: var(--info);
-    color: #fff;
-}
-
-/* Accent Variant */
-[data-variant="accent"] .calendar-day.current-day {
-    background-color: var(--accent-light);
-    color: #fff;
-}
-[data-variant="accent"] .calendar-day.selected-day {
-    background-color: var(--accent);
-    color: #fff;
-}
-
-/* Quick Select Buttons */
-.quick-select {
+  }
+  
+  /* Variants for Calendar Day Styles */
+  .datetime-picker-container[data-variant] {
+    --current-day-bg: var(--variant-light-bg);
+    --selected-day-bg: var(--variant-bg);
+  }
+  
+  /* Quick Select Buttons */
+  .quick-select {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
     margin-top: var(--space-2);
     justify-content: space-between;
-}
-
-.quick-select button {
+  }
+  
+  .quick-select button {
     flex: 1 1 30%;
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-md);
-    background-color: var(--neutral-100);
+    background-color: var(--quick-select-bg, var(--neutral-100));
     cursor: pointer;
-    transition: background-color var(--transition-colors), color var(--transition-colors);
     font-size: 0.875rem;
-}
-
-/* Confirm Button */
-.confirm-button {
+    transition: background-color var(--transition-colors), color var(--transition-colors);
+  }
+  
+  .quick-select button:hover {
+    background-color: var(--variant-light-bg);
+    color: #fff;
+  }
+  
+  /* Confirm Button */
+  .confirm-button {
     width: 100%;
     padding: var(--space-2);
     font-size: 0.875rem;
@@ -251,26 +172,27 @@
     border: none;
     border-radius: var(--radius-md);
     margin-top: var(--space-2);
+    background-color: var(--confirm-bg, var(--variant-bg));
+    color: #fff;
     transition: background-color var(--transition-colors);
-}
-
-[data-variant="primary"] .confirm-button { background-color: var(--primary); color: #fff; }
-
-/* Time Selector */
-.time-selector {
+  }
+  
+  /* Time Selector */
+  .time-selector {
     margin-top: var(--space-2);
     display: flex;
     gap: var(--space-2);
     justify-content: center;
-}
-
-.time-selector input {
+  }
+  
+  .time-selector input {
     width: clamp(36px, 3vw, 48px);
     padding: var(--space-1);
     border-radius: var(--radius-md);
     font-size: 0.875rem;
     text-align: center;
     outline: none;
+    border: 1px solid var(--neutral-300);
     transition: border-color var(--transition-colors);
-}
-
+  }
+  
