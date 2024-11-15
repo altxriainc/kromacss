@@ -69,7 +69,7 @@
   --card-text: var(--variant-text);
   --card-header-text: var(--variant-text);
   --card-body-text: var(--variant-text);
-  --card-footer-bg: var(--variant-light-bg, rgba(0, 0, 0, 0.05));
+  --card-footer-bg: var(--variant-light-bg, var(--neutral-200));
   --card-footer-text: var(--variant-text);
   --card-hover-shadow: var(--variant-shadow, var(--shadow-xl));
 }
@@ -77,7 +77,7 @@
 /* Outline Style */
 .card[data-variant="outline"] {
   background-color: transparent;
-  border: 1px solid var(--variant-bg);
+  border: 1px solid var(--variant-border);
   color: var(--variant-text);
 }
 

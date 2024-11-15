@@ -11,13 +11,13 @@
 /* Tooltip Text */
 .tooltip-text {
   position: absolute;
-  background-color: var(--neutral-900);
-  color: var(--neutral-50);
+  background-color: var(--variant-bg, var(--neutral-900));
+  color: var(--variant-text, var(--neutral-50));
   max-height: 0;
   padding: 0;
   overflow: hidden;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--variant-shadow, var(--shadow-md));
   font-size: clamp(0.75rem, 1vw, 0.875rem);
   line-height: 1.2;
   opacity: 0;
@@ -61,7 +61,7 @@
   left: 50%;
   transform: translateX(-50%);
   border-width: 0.5rem 0.5rem 0 0.5rem;
-  border-color: var(--neutral-900) transparent transparent transparent;
+  border-color: var(--variant-bg, var(--neutral-900)) transparent transparent transparent;
 }
 
 [data-position="right"] .tooltip-text {
@@ -74,7 +74,7 @@
   left: -0.5rem;
   transform: translateY(-50%);
   border-width: 0.5rem 0.5rem 0.5rem 0;
-  border-color: transparent var(--neutral-900) transparent transparent;
+  border-color: transparent var(--variant-bg, var(--neutral-900)) transparent transparent;
 }
 
 [data-position="bottom"] .tooltip-text {
@@ -87,7 +87,7 @@
   left: 50%;
   transform: translateX(-50%);
   border-width: 0.5rem 0.5rem 0.5rem 0.5rem;
-  border-color: transparent transparent var(--neutral-900) transparent;
+  border-color: transparent transparent var(--variant-bg, var(--neutral-900)) transparent;
 }
 
 [data-position="left"] .tooltip-text {
@@ -100,33 +100,7 @@
   right: -0.5rem;
   transform: translateY(-50%);
   border-width: 0.5rem 0 0.5rem 0.5rem;
-  border-color: transparent transparent transparent var(--neutral-900);
-}
-
-/* Color Variants */
-[data-variant="primary"] .tooltip-text {
-  background-color: var(--primary-bg);
-  color: var(--primary-text);
-}
-[data-variant="secondary"] .tooltip-text {
-  background-color: var(--secondary-bg);
-  color: var(--secondary-text);
-}
-[data-variant="success"] .tooltip-text {
-  background-color: var(--success-bg);
-  color: var(--success-text);
-}
-[data-variant="danger"] .tooltip-text {
-  background-color: var(--danger-bg);
-  color: var(--danger-text);
-}
-[data-variant="warning"] .tooltip-text {
-  background-color: var(--warning-bg);
-  color: var(--warning-text);
-}
-[data-variant="info"] .tooltip-text {
-  background-color: var(--info-bg);
-  color: var(--info-text);
+  border-color: transparent transparent transparent var(--variant-bg, var(--neutral-900));
 }
 
 /* Accessibility Improvements */

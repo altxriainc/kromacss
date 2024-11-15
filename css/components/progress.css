@@ -26,24 +26,22 @@
 }
 
 /* Variants */
-.progress[data-variant="primary"] .progress-bar { background-color: var(--primary-bg); color: var(--primary-text); }
-.progress[data-variant="secondary"] .progress-bar { background-color: var(--secondary-bg); color: var(--secondary-text); }
-.progress[data-variant="success"] .progress-bar { background-color: var(--success-bg); color: var(--success-text); }
-.progress[data-variant="danger"] .progress-bar { background-color: var(--danger-bg); color: var(--danger-text); }
-.progress[data-variant="warning"] .progress-bar { background-color: var(--warning-bg); color: var(--warning-text); }
-.progress[data-variant="info"] .progress-bar { background-color: var(--info-bg); color: var(--info-text); }
+.progress[data-variant] .progress-bar {
+  background-color: var(--variant-bg);
+  color: var(--variant-text);
+}
 
 /* Striped Style */
 .progress[data-striped="true"] .progress-bar {
   background-image: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.25) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.25) 50%,
-      rgba(255, 255, 255, 0.25) 75%,
-      transparent 75%,
-      transparent
+    45deg,
+    rgba(255, 255, 255, 0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.25) 75%,
+    transparent 75%,
+    transparent
   );
   background-size: 1rem 1rem;
 }
@@ -51,14 +49,14 @@
 /* Animated Stripe */
 .progress[data-animated="true"] .progress-bar {
   background-image: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.25) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.25) 50%,
-      rgba(255, 255, 255, 0.25) 75%,
-      transparent 75%,
-      transparent
+    45deg,
+    rgba(255, 255, 255, 0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.25) 75%,
+    transparent 75%,
+    transparent
   );
   background-size: 1rem 1rem;
   animation: progress-stripe-animation 1s linear infinite;

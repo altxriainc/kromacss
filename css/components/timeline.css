@@ -13,7 +13,7 @@
 .timeline[data-scroll="true"] {
     max-height: 70vh;
     overflow-y: auto;
-    scrollbar-color: var(--primary-bg) var(--neutral-300);
+    scrollbar-color: var(--variant-bg) var(--neutral-300);
     scrollbar-width: thin;
     padding-top: clamp(var(--space-6), 3vw, var(--space-8)); 
     padding-bottom: clamp(var(--space-6), 3vw, var(--space-8)); 
@@ -28,46 +28,9 @@
     background: var(--neutral-300);
 }
 .timeline[data-scroll="true"]::-webkit-scrollbar-thumb {
-    background-color: var(--variant-bg, var(--primary-bg));
+    background-color: var(--variant-bg);
     border-radius: 4px;
     border: 2px solid transparent;
-}
-
-/* Apply Global Variant to Scrollbar and Timeline Items */
-.timeline[data-variant="primary"] {
-    --variant-bg: var(--primary-bg);
-    --variant-text: var(--primary-text);
-    --variant-shadow: var(--primary-shadow);
-}
-.timeline[data-variant="success"] {
-    --variant-bg: var(--success-bg);
-    --variant-text: var(--success-text);
-    --variant-shadow: var(--success-shadow);
-}
-.timeline[data-variant="warning"] {
-    --variant-bg: var(--warning-bg);
-    --variant-text: var(--warning-text);
-    --variant-shadow: var(--warning-shadow);
-}
-.timeline[data-variant="danger"] {
-    --variant-bg: var(--danger-bg);
-    --variant-text: var(--danger-text);
-    --variant-shadow: var(--danger-shadow);
-}
-.timeline[data-variant="info"] {
-    --variant-bg: var(--info-bg);
-    --variant-text: var(--info-text);
-    --variant-shadow: var(--info-shadow);
-}
-.timeline[data-variant="secondary"] {
-    --variant-bg: var(--secondary-bg);
-    --variant-text: var(--secondary-text);
-    --variant-shadow: var(--secondary-shadow);
-}
-.timeline[data-variant="accent"] {
-    --variant-bg: var(--accent-bg);
-    --variant-text: var(--accent-text);
-    --variant-shadow: var(--accent-shadow);
 }
 
 /* Apply Variant to Scrollbar */
@@ -94,7 +57,7 @@
 
 /* First Item Margin Adjustment */
 .timeline-item:first-child {
-    margin-top: clamp(var(--space-4), 2vw, var(--space-6)); /* Space for start icon */
+    margin-top: clamp(var(--space-4), 2vw, var(--space-6));
 }
 
 /* Date Label as Badge - Adjusted Positioning */
@@ -111,9 +74,9 @@
     font-family: var(--font-sans);
     z-index: 2;
     white-space: nowrap;
-    background-color: var(--variant-bg, var(--primary-bg));
-    color: var(--variant-text, var(--primary-text));
-    box-shadow: var(--variant-shadow, var(--primary-shadow));
+    background-color: var(--variant-bg);
+    color: var(--variant-text);
+    box-shadow: var(--variant-shadow);
 }
 
 /* Timeline Content Box */
@@ -125,8 +88,7 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     max-width: 100%;
     margin-top: var(--space-2);
-    position: relative;
-    border-left: 4px solid var(--variant-bg, var(--primary-bg));
+    border-left: 4px solid var(--variant-bg);
 }
 
 .timeline-content:hover {
@@ -150,23 +112,23 @@
 
 /* Completed and Active States */
 .timeline-item[data-state="completed"] .timeline-content {
-    background-color: var(--success-light);
-    border-left: 4px solid var(--success);
-    color: var(--success-dark);
+    background-color: var(--success-light-bg);
+    border-left: 4px solid var(--success-bg);
+    color: var(--success-text);
 }
 
 .timeline-item[data-state="completed"] .timeline-description {
-    color: var(--success-dark);
+    color: var(--success-text);
 }
 
 .timeline-item[data-state="active"] .timeline-content {
-    background-color: var(--primary-light);
-    border-left: 4px solid var(--primary);
-    color: var(--primary-dark);
+    background-color: var(--primary-light-bg);
+    border-left: 4px solid var(--primary-bg);
+    color: var(--primary-text);
 }
 
 .timeline-item[data-state="active"] .timeline-description {
-    color: var(--primary-dark);
+    color: var(--primary-text);
 }
 
 /* Responsive Adjustments */

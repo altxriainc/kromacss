@@ -16,89 +16,49 @@
     overflow: hidden;
 }
 
-/* Background Variants with Design Tokens */
+/* Variants with Gradient Backgrounds */
+.hero[data-variant] {
+    background: linear-gradient(135deg, var(--variant-light-bg), var(--variant-bg));
+    color: var(--variant-text);
+}
+
 .hero[data-variant="primary"] {
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    background: linear-gradient(135deg, var(--primary-light-bg), var(--primary-bg));
     color: var(--primary-text);
 }
+
 .hero[data-variant="secondary"] {
-    background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
+    background: linear-gradient(135deg, var(--secondary-light-bg), var(--secondary-bg));
     color: var(--secondary-text);
 }
+
 .hero[data-variant="success"] {
-    background: linear-gradient(135deg, var(--success-light), var(--success));
+    background: linear-gradient(135deg, var(--success-light-bg), var(--success-bg));
     color: var(--success-text);
 }
+
 .hero[data-variant="danger"] {
-    background: linear-gradient(135deg, var(--danger-light), var(--danger));
+    background: linear-gradient(135deg, var(--danger-light-bg), var(--danger-bg));
     color: var(--danger-text);
 }
+
 .hero[data-variant="warning"] {
-    background: linear-gradient(135deg, var(--warning-light), var(--warning));
+    background: linear-gradient(135deg, var(--warning-light-bg), var(--warning-bg));
     color: var(--warning-text);
 }
+
 .hero[data-variant="info"] {
-    background: linear-gradient(135deg, var(--info-light), var(--info));
+    background: linear-gradient(135deg, var(--info-light-bg), var(--info-bg));
     color: var(--info-text);
 }
+
 .hero[data-variant="accent"] {
-    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    background: linear-gradient(135deg, var(--accent-light-bg), var(--accent-bg));
     color: var(--accent-text);
-}
-
-/* Solid Background Variants */
-.hero[data-variant="primary-solid"] {
-    background-color: var(--primary-bg);
-    color: var(--primary-text);
-}
-.hero[data-variant="secondary-solid"] {
-    background-color: var(--secondary-bg);
-    color: var(--secondary-text);
-}
-.hero[data-variant="success-solid"] {
-    background-color: var(--success-bg);
-    color: var(--success-text);
-}
-.hero[data-variant="danger-solid"] {
-    background-color: var(--danger-bg);
-    color: var(--danger-text);
-}
-.hero[data-variant="warning-solid"] {
-    background-color: var(--warning-bg);
-    color: var(--warning-text);
-}
-.hero[data-variant="info-solid"] {
-    background-color: var(--info-bg);
-    color: var(--info-text);
-}
-.hero[data-variant="accent-solid"] {
-    background-color: var(--accent-bg);
-    color: var(--accent-text);
-}
-
-/* Hero Content */
-.hero-content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: var(--space-4);
-}
-
-/* Background Image */
-.hero[data-bg-image] {
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-position: center;
-    color: var(--neutral-50);
 }
 
 /* Overlay Effects */
-.hero[data-overlay="dark"]::before,
-.hero[data-overlay="light"]::before,
-.hero[data-overlay="gradient-dark"]::before,
-.hero[data-overlay="gradient-light"]::before {
+.hero[data-overlay]::before {
     content: "";
     position: absolute;
     top: 0;
@@ -112,14 +72,27 @@
 .hero[data-overlay="dark"]::before {
     background: rgba(0, 0, 0, 0.4);
 }
+
 .hero[data-overlay="light"]::before {
     background: rgba(255, 255, 255, 0.4);
 }
+
 .hero[data-overlay="gradient-dark"]::before {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
+
 .hero[data-overlay="gradient-light"]::before {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: var(--space-4);
 }
 
 /* Size Variants */

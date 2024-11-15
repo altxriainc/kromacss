@@ -19,30 +19,26 @@
   text-align: center;
   opacity: 0;
   animation: hologram-fade 6s ease-in-out forwards;
+  color: var(--variant-text); /* Uses text color directly */
+  text-shadow: 0px 0px 10px var(--variant-light-bg), 0px 0px 20px var(--variant-bg);
 }
 
 /* Title Base */
 .hologram-title {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.8); /* Default color for light mode */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transform: scale(1.2);
-  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7),
-               0px 0px 20px rgba(255, 255, 255, 0.5),
-               0px 0px 30px rgba(255, 255, 255, 0.3);
+  text-shadow: 0px 0px 15px var(--variant-light-bg), 0px 0px 30px var(--variant-bg);
 }
 
 /* Subtitle Base */
 .hologram-subtitle {
   font-size: clamp(1rem, 2.5vw, 2rem);
-  color: rgba(255, 255, 255, 0.7);
   transform: scale(1.1);
   margin-top: var(--space-2);
-  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6),
-               0px 0px 15px rgba(255, 255, 255, 0.4),
-               0px 0px 25px rgba(255, 255, 255, 0.2);
+  text-shadow: 0px 0px 10px var(--variant-light-bg), 0px 0px 20px var(--variant-bg);
 }
 
 /* Fade Animation */
@@ -52,63 +48,70 @@
   100% { opacity: 0; transform: scale(0.8); }
 }
 
-/* Intensity Variants */
+/* Intensity Levels */
 .hologram-overlay[data-intensity="low"] .hologram-title,
 .hologram-overlay[data-intensity="low"] .hologram-subtitle {
-  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+  text-shadow: 0px 0px 5px var(--variant-bg);
 }
 
 .hologram-overlay[data-intensity="medium"] .hologram-title,
 .hologram-overlay[data-intensity="medium"] .hologram-subtitle {
-  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0px 0px 10px var(--variant-light-bg);
 }
 
 .hologram-overlay[data-intensity="high"] .hologram-title,
 .hologram-overlay[data-intensity="high"] .hologram-subtitle {
-  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 0px 20px var(--variant-dark-bg);
 }
 
 /* Color Variants */
-.hologram-overlay[data-variant="primary"] .hologram-title,
-.hologram-overlay[data-variant="primary"] .hologram-subtitle {
-  color: var(--primary-text);
-  text-shadow: 0px 0px 10px var(--primary-light), 0px 0px 20px var(--primary);
+.hologram-overlay[data-variant="primary"] {
+  --variant-bg: var(--primary-bg);
+  --variant-light-bg: var(--primary-light-bg);
+  --variant-dark-bg: var(--primary-dark-bg);
+  --variant-text: var(--primary-bg);
 }
 
-.hologram-overlay[data-variant="secondary"] .hologram-title,
-.hologram-overlay[data-variant="secondary"] .hologram-subtitle {
-  color: var(--secondary-text);
-  text-shadow: 0px 0px 10px var(--secondary-light), 0px 0px 20px var(--secondary);
+.hologram-overlay[data-variant="secondary"] {
+  --variant-bg: var(--secondary-bg);
+  --variant-light-bg: var(--secondary-light-bg);
+  --variant-dark-bg: var(--secondary-dark-bg);
+  --variant-text: var(--secondary-bg);
 }
 
-.hologram-overlay[data-variant="success"] .hologram-title,
-.hologram-overlay[data-variant="success"] .hologram-subtitle {
-  color: var(--success-text);
-  text-shadow: 0px 0px 10px var(--success-light), 0px 0px 20px var(--success);
+.hologram-overlay[data-variant="success"] {
+  --variant-bg: var(--success-bg);
+  --variant-light-bg: var(--success-light-bg);
+  --variant-dark-bg: var(--success-dark-bg);
+  --variant-text: var(--success-bg);
 }
 
-.hologram-overlay[data-variant="danger"] .hologram-title,
-.hologram-overlay[data-variant="danger"] .hologram-subtitle {
-  color: var(--danger-text);
-  text-shadow: 0px 0px 10px var(--danger-light), 0px 0px 20px var(--danger);
+.hologram-overlay[data-variant="danger"] {
+  --variant-bg: var(--danger-bg);
+  --variant-light-bg: var(--danger-light-bg);
+  --variant-dark-bg: var(--danger-dark-bg);
+  --variant-text: var(--danger-bg);
 }
 
-.hologram-overlay[data-variant="warning"] .hologram-title,
-.hologram-overlay[data-variant="warning"] .hologram-subtitle {
-  color: var(--warning-text);
-  text-shadow: 0px 0px 10px var(--warning-light), 0px 0px 20px var(--warning);
+.hologram-overlay[data-variant="warning"] {
+  --variant-bg: var(--warning-bg);
+  --variant-light-bg: var(--warning-light-bg);
+  --variant-dark-bg: var(--warning-dark-bg);
+  --variant-text: var(--warning-bg);
 }
 
-.hologram-overlay[data-variant="info"] .hologram-title,
-.hologram-overlay[data-variant="info"] .hologram-subtitle {
-  color: var(--info-text);
-  text-shadow: 0px 0px 10px var(--info-light), 0px 0px 20px var(--info);
+.hologram-overlay[data-variant="info"] {
+  --variant-bg: var(--info-bg);
+  --variant-light-bg: var(--info-light-bg);
+  --variant-dark-bg: var(--info-dark-bg);
+  --variant-text: var(--info-bg);
 }
 
-.hologram-overlay[data-variant="accent"] .hologram-title,
-.hologram-overlay[data-variant="accent"] .hologram-subtitle {
-  color: var(--accent-text);
-  text-shadow: 0px 0px 10px var(--accent-light), 0px 0px 20px var(--accent);
+.hologram-overlay[data-variant="accent"] {
+  --variant-bg: var(--accent-bg);
+  --variant-light-bg: var(--accent-light-bg);
+  --variant-dark-bg: var(--accent-dark-bg);
+  --variant-text: var(--accent-bg);
 }
 
 /* Responsive Adjustments */

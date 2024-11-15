@@ -11,31 +11,11 @@
     position: relative;
 }
 
-/* Data Variant */
-.rating[data-variant="primary"] {
-    --star-color: var(--primary);
-    --star-color-hover: var(--primary-hover);
-    --star-color-shadow: var(--primary-shadow);
-}
-.rating[data-variant="success"] {
-    --star-color: var(--success);
-    --star-color-hover: var(--success-hover);
-    --star-color-shadow: var(--success-shadow);
-}
-.rating[data-variant="danger"] {
-    --star-color: var(--danger);
-    --star-color-hover: var(--danger-hover);
-    --star-color-shadow: var(--danger-shadow);
-}
-.rating[data-variant="warning"] {
-    --star-color: var(--warning);
-    --star-color-hover: var(--warning-hover);
-    --star-color-shadow: var(--warning-shadow);
-}
-.rating[data-variant="info"] {
-    --star-color: var(--info);
-    --star-color-hover: var(--info-hover);
-    --star-color-shadow: var(--info-shadow);
+/* Variants for Data-driven Styling */
+.rating[data-variant] {
+    --star-color: var(--variant-bg);
+    --star-color-hover: var(--variant-hover);
+    --star-color-shadow: var(--variant-shadow);
 }
 
 /* Star Rating Icon Styling */
@@ -45,14 +25,16 @@
     cursor: pointer;
     transition: color var(--transition-colors), transform var(--transition-transform);
 }
+
+/* Filled Stars */
 .rating .star.filled {
-    color: var(--star-color, var(--primary));
+    color: var(--star-color);
 }
 .rating .star.filled:hover,
 .rating .star.filled:focus {
-    color: var(--star-color-hover, var(--primary-hover));
+    color: var(--star-color-hover);
     transform: scale(1.1);
-    box-shadow: var(--star-color-shadow, var(--primary-shadow));
+    box-shadow: 0 3px 8px var(--star-color-shadow);
 }
 
 /* Accessibility - Hide Star Labels for Screen Readers */
@@ -67,6 +49,14 @@
     clip-path: inset(50%);
 }
 
+/* Hover and Active Animations */
+.rating .star:hover,
+.rating .star:focus {
+    color: var(--star-color-hover);
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* Responsive Adjustments */
 @media (min-width: 768px) {
     .rating {
@@ -74,12 +64,4 @@
         padding: clamp(var(--space-2), 1vw, var(--space-4));
         border-radius: var(--radius-lg);
     }
-}
-
-/* Animations for Star Hover and Active States */
-.rating .star:hover,
-.rating .star:focus {
-    color: var(--star-color-hover, var(--primary-hover));
-    transform: scale(1.1);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
