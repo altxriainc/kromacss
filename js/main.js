@@ -11,6 +11,7 @@ import { initializeRatingComponents } from './components/rating.js';
 import { initializeCalendarComponents } from './components/calendar.js';
 import { Navbar } from './components/navbar.js';
 import { initializeFileUploadComponents } from './components/file-upload.js';
+import { initializeCommandPalette } from './components/command-palette.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize rating components
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize file upload components
   initializeFileUploadComponents();
+
+  initializeCommandPalette();
 
   // Initialize other components, if applicable
   document.querySelectorAll('.alert .alert-close').forEach(button => {

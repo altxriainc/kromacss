@@ -44,5 +44,6 @@
 @import './components/calendar.css';
 @import './components/navbar.css';
 @import './components/file-upload.css';
+@import './components/command-palette.css';
 
 
