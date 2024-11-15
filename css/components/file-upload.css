@@ -36,7 +36,7 @@
 }
 
 .file-upload[data-variant="success"] {
-    --file-upload-bg: var(--success-light);
+    --file-upload-bg: var(--success-light); 
     --file-upload-text: var(--success-text);
     --file-upload-border: var(--success);
     --file-upload-hover-bg: var(--success-hover);
