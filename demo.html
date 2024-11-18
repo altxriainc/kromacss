@@ -6,6 +6,7 @@
   <title>Button Showcase</title>
   <link rel="stylesheet" href="css/main.css"> <!-- Link to your CSS file -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/components/carousel.css">
   <style>
   </style>
 </head>
@@ -1396,7 +1397,62 @@
   </div>
 </section>
 
-  
+<!-- Carousel -->
+<section class="carousel-section">
+  <div class="carousel-container">
+    <div class="carousel-list">
+
+      <div class="carousel-item">
+        <img src="images/Architecture-by-LRBA-1.jpg" alt="FusionCraft Studios">
+        <div class="carousel-content"></div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/Architecture-by-LRBA-2.jpg" alt="Lieu de Solitude">
+        <div class="carousel-content"></div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/Architecture-by-LRBA-3.jpg" alt="Studio Flottant de Louis Vuitton">
+        <div class="carousel-content"></div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/Architecture-by-LRBA-6.jpg" alt="La Maison Asymétrique">
+        <div class="carousel-content"></div>
+      </div>
+    </div>
+
+     <!-- Navigation controls -->
+    <button class="carousel-prev"> 
+      <div class="tooltip badge" data-variant="prev" data-position="right">
+        &#10094;
+        <span class="tooltip-text">Go to Previous Slide</span>
+      </div>
+    </button>
+
+    <button class="carousel-next">
+      <div class="tooltip badge" data-variant="next" data-position="left">
+        &#10095;
+        <span class="tooltip-text">Go to Next Slide</span>
+      </div>
+    </button>
+
+    <!-- Dots -->
+    <div class="carousel-dots">
+      <button class="dot"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+    </div>
+
+    <!-- Auto-play toggle -->
+    <button class="auto-play-toggle">⏸️</button>
+  </div>
+</section>
+
+<script src="js/components/carousel.js"></script>
+
 </body>
 <script type="module" src="js/main.js"></script>
 <script>
