@@ -25,17 +25,20 @@
 /* Base Table Styles */
 .table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Separate borders for smooth radius */
+  border-spacing: 0; /* Removes spacing between cells */
   font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
   color: var(--variant-text);
   background-color: var(--variant-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden; /* Applies border radius to entire table */
   min-width: min(100%, 600px);
 }
 
 /* Table Head */
 .table th {
-  background-color: var(--variant-light-bg);
-  color: var(--variant-dark-bg);
+  background-color: var(--variant-dark-bg);
+  color: var(--variant-text);
   text-align: left;
   padding: clamp(var(--space-3), 1vw, var(--space-4));
   font-weight: 600;
@@ -56,9 +59,11 @@
   text-overflow: ellipsis;
 }
 
-/* Hover Effect */
-.table tr:not([data-variant]) td:hover {
-  background-color: var(--variant-hover-bg);
+/* Hover Effect for Rows */
+.table tr:hover td {
+  background-color: var(--variant-dark-bg);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Striped Rows */
@@ -74,6 +79,7 @@
 [data-style="bordered"] td,
 [data-style="bordered"] th {
   border: 1px solid var(--variant-border);
+  border-radius: var(--radius-sm);
 }
 
 /* Curved Borders */
