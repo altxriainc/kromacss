@@ -9,11 +9,7 @@
     box-shadow: var(--shadow-sm);
     transition: var(--transition-all);
     position: relative;
-}
-
-/* Variants for Data-driven Styling */
-.rating[data-variant] {
-    --star-color: var(--variant-bg);
+    --star-color: var(--variant-bg); /* Directly applying variant variables */
     --star-color-hover: var(--variant-hover);
     --star-color-shadow: var(--variant-shadow);
 }

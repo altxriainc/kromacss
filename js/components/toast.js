@@ -1,5 +1,3 @@
-let toastHistory = [];
-
 // Function to show toast with updated data-* attributes for customization
 export function showToast(message, variant = 'primary', position = 'top-right', autoDismiss = false, dismissDuration = 5) {
     // Create or get existing container based on position
@@ -49,9 +47,6 @@ export function showToast(message, variant = 'primary', position = 'top-right', 
     // Apply entry animation
     toast.classList.add('toast-enter');
     setTimeout(() => toast.classList.remove('toast-enter'), 300);
-
-    // Save toast in history
-    toastHistory.push({ message, variant });
 }
 
 // Start auto-dismiss functionality with a progress bar
@@ -96,34 +91,4 @@ export function dismissToast(toastElement) {
             startAutoDismiss(remainingToasts[0], parseFloat(remainingToasts[0].progressBar.style.animationDuration));
         }
     }, 300);
-}
-
-// Show toast history in a dedicated container
-export function showToastHistory() {
-    const existingHistory = document.querySelector('.toast-history-container');
-    if (existingHistory) existingHistory.remove();
-
-    const historyContainer = document.createElement('div');
-    historyContainer.className = 'toast-history-container';
-    historyContainer.innerHTML = `
-        <button class="toast-history-close" onclick="closeToastHistory()">&times;</button>
-    `;
-
-    // Add each toast history item to the container
-    toastHistory.slice().reverse().forEach(item => {
-        const historyItem = document.createElement('div');
-        historyItem.className = 'toast-history-item';
-        historyItem.setAttribute('data-variant', item.variant);
-        historyItem.innerHTML = `<span>${item.message}</span>`;
-        historyContainer.appendChild(historyItem);
-    });
-
-    // Append the history container to the body
-    document.body.appendChild(historyContainer);
-}
-
-// Close the toast history container
-export function closeToastHistory() {
-    const historyContainer = document.querySelector('.toast-history-container');
-    if (historyContainer) historyContainer.remove();
 }
