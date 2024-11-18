@@ -5,7 +5,7 @@
     margin: var(--space-8) auto;
     list-style: none;
     max-width: clamp(90%, 700px, 100%);
-    border-left: 2px solid var(--neutral-300);
+    border-left: 2px solid var(--variant-border);
     text-align: left;
 }
 
@@ -13,7 +13,7 @@
 .timeline[data-scroll="true"] {
     max-height: 70vh;
     overflow-y: auto;
-    scrollbar-color: var(--variant-bg) var(--neutral-300);
+    scrollbar-color: var(--variant-bg) var(--variant-border);
     scrollbar-width: thin;
     padding-top: clamp(var(--space-6), 3vw, var(--space-8)); 
     padding-bottom: clamp(var(--space-6), 3vw, var(--space-8)); 
@@ -25,7 +25,7 @@
     width: 8px;
 }
 .timeline[data-scroll="true"]::-webkit-scrollbar-track {
-    background: var(--neutral-300);
+    background: var(--variant-border);
 }
 .timeline[data-scroll="true"]::-webkit-scrollbar-thumb {
     background-color: var(--variant-bg);
@@ -44,7 +44,7 @@
     position: absolute;
     left: -calc(var(--space-10));
     font-size: 1.5rem;
-    color: var(--neutral-500);
+    color: var(--variant-text);
 }
 
 /* Timeline Item */
@@ -60,7 +60,7 @@
     margin-top: clamp(var(--space-4), 2vw, var(--space-6));
 }
 
-/* Date Label as Badge - Adjusted Positioning */
+/* Date Label as Badge */
 .timeline-item::before {
     content: attr(data-date);
     position: absolute;
@@ -82,9 +82,9 @@
 /* Timeline Content Box */
 .timeline-content {
     padding: clamp(var(--space-4), 1.5vw, var(--space-6));
-    background-color: var(--neutral-50);
+    background-color: var(--variant-bg);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--variant-shadow);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     max-width: 100%;
     margin-top: var(--space-2);
@@ -92,43 +92,44 @@
 }
 
 .timeline-content:hover {
-    background-color: var(--neutral-100);
-    box-shadow: var(--shadow-lg);
+    background-color: var(--variant-hover-bg);
+    box-shadow: var(--variant-hover);
 }
 
 /* Title Styling */
 .timeline-title {
     font-size: clamp(1.125rem, 2vw + 0.25rem, 1.25rem);
     font-weight: 700;
-    color: var(--neutral-900);
+    color: var(--variant-text);
     margin-bottom: var(--space-2);
 }
 
 /* Description Styling */
 .timeline-description {
     font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
-    color: var(--neutral-700);
+    color: var(--variant-text);
 }
 
-/* Completed and Active States */
+/* Completed State */
 .timeline-item[data-state="completed"] .timeline-content {
-    background-color: var(--success-light-bg);
-    border-left: 4px solid var(--success-bg);
-    color: var(--success-text);
+    background-color: #28a745; /* Fixed green for success */
+    border-left: 4px solid #218838;
+    color: #ffffff;
 }
 
 .timeline-item[data-state="completed"] .timeline-description {
-    color: var(--success-text);
+    color: #ffffff;
 }
 
+/* Active State */
 .timeline-item[data-state="active"] .timeline-content {
-    background-color: var(--primary-light-bg);
-    border-left: 4px solid var(--primary-bg);
-    color: var(--primary-text);
+    background-color: #007bff; /* Fixed blue for active */
+    border-left: 4px solid #0056b3;
+    color: #ffffff;
 }
 
 .timeline-item[data-state="active"] .timeline-description {
-    color: var(--primary-text);
+    color: #ffffff;
 }
 
 /* Responsive Adjustments */
