@@ -2,7 +2,6 @@
     --nav-size-base: calc(clamp(40px,4vw,60px) / 1.2) ;
 }
 
-
 .nav-logo img {
     width: auto;
     height: 100%;
@@ -12,8 +11,6 @@
     height: calc(var(--nav-size-base) * 1.3 );
     max-width: calc(var(--nav-size-base) * 4 );
 }
-
-
 
 nav.header-navbar {
     width: 100%;

@@ -45,5 +45,6 @@
 @import './components/navbar.css';
 @import './components/file-upload.css';
 @import './components/command-palette.css';
+@import './components/codeblock.css';
 
 
