@@ -10,6 +10,11 @@
 .nav-logo {
     height: calc(var(--nav-size-base) * 1.3 );
     max-width: calc(var(--nav-size-base) * 4 );
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: calc(var(--nav-size-base) / 4);
 }
 
 nav.header-navbar {
