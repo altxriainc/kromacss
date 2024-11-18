@@ -1,198 +1,164 @@
 /* Container and Font Setup */
 .datetime-picker-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 400px;
-    font-family: var(--font-sans);
-  }
-  
-  /* Input Styling */
-  .datetime-input {
-    width: 100%;
-    padding: clamp(8px, var(--space-2), 12px);
-    border-radius: var(--radius-md);
-    font-size: 1rem;
-    outline: none;
-    border: 1px solid var(--input-border, var(--neutral-300));
-    background-color: var(--input-bg, var(--neutral-50));
-    color: var(--input-text, var(--neutral-900));
-    transition: border-color var(--transition-colors), box-shadow var(--transition-all);
-  }
-  
-  .datetime-input:focus {
-    box-shadow: 0px 0px 0px 3px var(--input-focus-shadow, var(--primary-light));
-  }
-  
-  /* Variant Styles */
-  .datetime-picker-container[data-variant] {
-    --input-border: var(--variant-bg);
-    --input-bg: var(--variant-light-bg);
-    --input-text: var(--variant-text);
-    --input-focus-shadow: var(--variant-light-bg);
-  }
-  
-  /* Date Picker Popup */
-  .datetime-picker {
-    display: none;
-    position: absolute;
-    top: calc(100% + var(--space-1));
-    left: 0;
-    width: 100%;
-    background-color: var(--variant-dark-bg);
-    border: 1px solid var(--variant-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    z-index: var(--z-30);
-    padding: var(--space-3);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .datetime-picker.active {
-    display: block;
-    transform: scale(1);
-    opacity: 1;
-  }
-  
-  /* Popup Variants */
-  .datetime-picker-container[data-variant] {
-    --popup-bg: var(--variant-light-bg);
-    --popup-border: var(--variant-bg);
-  }
-  
-  /* Calendar Header */
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-2);
-  }
-  
-  .calendar-header button {
-    background: none;
-    border: none;
-    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
-    cursor: pointer;
-    padding: var(--space-1);
-    color: var(--header-btn, var(--neutral-800));
-    transition: color var(--transition-colors);
-  }
-  
-  /* Calendar Variants */
-  .datetime-picker-container[data-variant] {
-    --header-btn: var(--variant-bg);
-  }
-  
-  /* Month and Year Styling */
-  .calendar-month,
-  .calendar-year {
-    font-size: clamp(0.875rem, 1rem, 1.125rem);
-    font-weight: bold;
-    cursor: pointer;
-    padding: var(--space-1);
-    border-radius: var(--radius-sm);
-    transition: background-color var(--transition-colors), color var(--transition-colors);
-  }
-  
-  .calendar-month:hover,
-  .calendar-year:hover {
-    background-color: var(--month-hover-bg, var(--variant-hover));
-    color: #fff;
-  }
-  
-  /* Calendar Grid */
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--space-1);
-  }
-  
-  .calendar-day {
-    padding: var(--space-1);
-    text-align: center;
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    transition: background-color var(--transition-colors), color var(--transition-colors);
-  }
-  
-  /* Hover Effect for Calendar Day */
-  .calendar-day:hover {
-    background-color: var(--variant-hover);
-    color: #fff;
-  }
-  
-  /* Current and Selected Day Styles */
-  .calendar-day.current-day {
-    background-color: var(--current-day-bg, var(--variant-light-bg));
-    color: #fff;
-  }
-  
-  .calendar-day.selected-day {
-    background-color: var(--selected-day-bg, var(--variant-bg));
-    color: #fff;
-  }
-  
-  /* Variants for Calendar Day Styles */
-  .datetime-picker-container[data-variant] {
-    --current-day-bg: var(--variant-light-bg);
-    --selected-day-bg: var(--variant-bg);
-  }
-  
-  /* Quick Select Buttons */
-  .quick-select {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1);
-    margin-top: var(--space-2);
-    justify-content: space-between;
-  }
-  
-  .quick-select button {
-    flex: 1 1 30%;
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-md);
-    background-color: var(--quick-select-bg, var(--neutral-100));
-    cursor: pointer;
-    font-size: 0.875rem;
-    transition: background-color var(--transition-colors), color var(--transition-colors);
-  }
-  
-  .quick-select button:hover {
-    background-color: var(--variant-light-bg);
-    color: #fff;
-  }
-  
-  /* Confirm Button */
-  .confirm-button {
-    width: 100%;
-    padding: var(--space-2);
-    font-size: 0.875rem;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    border-radius: var(--radius-md);
-    margin-top: var(--space-2);
-    background-color: var(--confirm-bg, var(--variant-bg));
-    color: #fff;
-    transition: background-color var(--transition-colors);
-  }
-  
-  /* Time Selector */
-  .time-selector {
-    margin-top: var(--space-2);
-    display: flex;
-    gap: var(--space-2);
-    justify-content: center;
-  }
-  
-  .time-selector input {
-    width: clamp(36px, 3vw, 48px);
-    padding: var(--space-1);
-    border-radius: var(--radius-md);
-    font-size: 0.875rem;
-    text-align: center;
-    outline: none;
-    border: 1px solid var(--neutral-300);
-    transition: border-color var(--transition-colors);
-  }
-  
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+  font-family: var(--font-sans);
+}
+
+/* Input Styling */
+.datetime-input {
+  width: 100%;
+  padding: clamp(8px, var(--space-2), 12px);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid var(--variant-border);
+  background-color: var(--variant-bg);
+  color: var(--variant-text); 
+  transition: border-color var(--transition-colors), box-shadow var(--transition-all);
+}
+
+.datetime-input::placeholder {
+  color: var(--variant-text);
+  opacity: 0.7;
+}
+
+.datetime-input:focus {
+  box-shadow: 0px 0px 0px 3px var(--variant-hover-bg);
+}
+
+/* Date Picker Popup */
+.datetime-picker {
+  display: none;
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  width: 100%;
+  background-color: var(--variant-bg);
+  border: 1px solid var(--variant-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--variant-shadow);
+  z-index: var(--z-30);
+  padding: var(--space-3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.datetime-picker.active {
+  display: block;
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+  position: relative;
+  z-index: var(--z-40);
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  cursor: pointer;
+  padding: var(--space-1);
+  color: var(--variant-text);
+  transition: color var(--transition-colors);
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+}
+
+.calendar-day {
+  padding: var(--space-1);
+  text-align: center;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-colors), color var(--transition-colors);
+}
+
+/* Hover Effect for Calendar Day */
+.calendar-day:hover {
+  background-color: var(--variant-hover-bg);
+  color: #fff;
+}
+
+/* Current and Selected Day Styles */
+.calendar-day.current-day {
+  background-color: var(--variant-light-bg);
+  color: var(--variant-text);
+}
+
+.calendar-day.selected-day {
+  background-color: var(--variant-bg);
+  color: var(--variant-text);
+}
+
+/* Quick Select Buttons */
+.quick-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+  justify-content: space-between;
+}
+
+.quick-select button {
+  flex: 1 1 30%;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  background-color: var(--variant-light-bg);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color var(--transition-colors), color var(--transition-colors);
+}
+
+.quick-select button:hover {
+  background-color: var(--variant-hover-bg);
+  color: #fff;
+}
+
+/* Confirm Button */
+.confirm-button {
+  width: 100%;
+  padding: var(--space-2);
+  font-size: 0.875rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-2);
+  background-color: var(--variant-bg);
+  color: #fff;
+  transition: background-color var(--transition-colors);
+}
+
+/* Time Selector */
+.time-selector {
+  margin-top: var(--space-2);
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+.time-selector input {
+  width: clamp(36px, 3vw, 48px);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  text-align: center;
+  outline: none;
+  border: 1px solid var(--variant-border);
+  background-color: var(--variant-light-bg);
+  color: var(--variant-text);
+  transition: border-color var(--transition-colors);
+}

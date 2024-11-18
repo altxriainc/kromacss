@@ -85,8 +85,6 @@ export class DateTimePicker {
 
         this.picker.querySelector('.prev-month').addEventListener('click', () => this.changeMonth(-1));
         this.picker.querySelector('.next-month').addEventListener('click', () => this.changeMonth(1));
-        this.monthHeader.addEventListener('click', () => this.showMonthSelector());
-        this.yearHeader.addEventListener('click', () => this.showYearSelector());
     }
 
     togglePicker(open) {
@@ -111,11 +109,10 @@ export class DateTimePicker {
             const day = document.createElement('div');
             day.classList.add('calendar-day');
             day.textContent = i;
-            day.setAttribute('tabindex', 0); // Make day accessible by keyboard
+            day.setAttribute('tabindex', 0);
             day.setAttribute('role', 'button');
             day.setAttribute('aria-label', `Select ${this.formatDate(this.currentDate, i)}`);
             day.addEventListener('click', () => this.selectDate(i));
-            day.addEventListener('keydown', (e) => { if (e.key === 'Enter') this.selectDate(i); });
 
             if (this.isCurrentMonth() && this.isToday(i)) {
                 day.classList.add('current-day');
@@ -172,18 +169,17 @@ export class DateTimePicker {
 
     updateInputValue() {
         const year = this.selectedDate.getFullYear();
-        const month = String(this.selectedDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+        const month = String(this.selectedDate.getMonth() + 1).padStart(2, '0');
         const day = String(this.selectedDate.getDate()).padStart(2, '0');
         const hours = String(this.selectedDate.getHours()).padStart(2, '0');
         const minutes = String(this.selectedDate.getMinutes()).padStart(2, '0');
-    
-        // Construct the date string manually to avoid timezone adjustments
+
         let formattedDate = `${year}-${month}-${day}`;
         if (this.includeTime) {
             formattedDate += ` ${hours}:${minutes}`;
         }
         this.input.value = formattedDate;
-    }    
+    }
 
     updateSelectedDateForMonthChange() {
         const daysInCurrentMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 0).getDate();
@@ -196,55 +192,6 @@ export class DateTimePicker {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    showMonthSelector() {
-        this.removeSelectorContainers();
-        const monthSelector = document.createElement('div');
-        monthSelector.classList.add('month-selector');
-
-        for (let month = 0; month < 12; month++) {
-            const monthOption = document.createElement('div');
-            monthOption.classList.add('month-option');
-            monthOption.textContent = this.capitalizeFirstLetter(new Date(0, month).toLocaleString('default', { month: 'long' }));
-            monthOption.addEventListener('click', () => {
-                this.currentDate.setMonth(month);
-                this.updateSelectedDateForMonthChange();
-                this.buildCalendar();
-                monthSelector.remove();
-            });
-            monthSelector.appendChild(monthOption);
-        }
-
-        this.picker.appendChild(monthSelector);
-        monthSelector.style.display = 'block';
-    }
-
-    showYearSelector() {
-        this.removeSelectorContainers();
-        const yearSelector = document.createElement('div');
-        yearSelector.classList.add('year-selector');
-
-        for (let year = this.currentDate.getFullYear() - 5; year <= this.currentDate.getFullYear() + 5; year++) {
-            const yearOption = document.createElement('div');
-            yearOption.classList.add('year-option');
-            yearOption.textContent = year;
-            yearOption.addEventListener('click', () => {
-                this.currentDate.setFullYear(year);
-                this.updateSelectedDateForMonthChange();
-                this.buildCalendar();
-                yearSelector.remove();
-            });
-            yearSelector.appendChild(yearOption);
-        }
-
-        this.picker.appendChild(yearSelector);
-        yearSelector.style.display = 'block';
-    }
-
-    removeSelectorContainers() {
-        const existingSelectors = this.picker.querySelectorAll('.month-selector, .year-selector');
-        existingSelectors.forEach(selector => selector.remove());
-    }
-
     addQuickSelectButtons() {
         this.quickSelectContainer.innerHTML = '';
         const quickDates = {
@@ -252,7 +199,7 @@ export class DateTimePicker {
             Today: new Date(),
             Tomorrow: new Date(new Date().setDate(new Date().getDate() + 1)),
         };
-    
+
         Object.entries(quickDates).forEach(([label, date]) => {
             const button = document.createElement('button');
             button.textContent = label;
@@ -266,7 +213,7 @@ export class DateTimePicker {
             this.quickSelectContainer.appendChild(button);
         });
     }
-    
+
     addTimeSelectors() {
         const timeSelectorContainer = document.createElement('div');
         timeSelectorContainer.classList.add('time-selector');
