@@ -29,12 +29,12 @@ export class Navbar {
         if(!this.nav){ throw new Error(`element "${id}" not found`); }
         this.nav.classList.add('header-navbar');
 
-        //get logo path/text and remove previous element
+        //get logo path/text
         this.hasLogo = (this.nav.querySelector('img') && this.nav.querySelector('img').src) ? true : false;
         this.logoPath = this.hasLogo ? this.nav.querySelector('img').src : undefined;
         this.siteTitle = document.querySelector('head title');
-        this.siteTitle = siteTitle ?? (this.siteTitle ?? 'Lorem Ipsum');
-        if(this.nav.querySelector('img')){this.nav.querySelector('img').remove();}
+        this.siteTitle = siteTitle ?? (this.siteTitle.innerText ?? 'Lorem Ipsum');
+
 
         //get menu items
         this.hasMenu = this.nav.querySelector('a') ? true : false;
@@ -81,11 +81,12 @@ export class Navbar {
             logo_cnt.appendChild(logo_img);
             
 
-        }else{
-
-            logo_cnt.innerText = this.siteTitle;
-
         }
+
+        var logo_txt = document.createElement('span');
+        logo_txt.innerText = this.siteTitle;
+        logo_cnt.appendChild(logo_txt);
+
 
         this.nav.appendChild(logo_cnt);
 
