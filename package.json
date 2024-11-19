@@ -1,0 +1,60 @@
+{
+    "name": "kromacss",
+    "version": "1.0.2",
+    "description": "A modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability.",
+    "main": "dist/css/main.css",
+    "module": "dist/js/main.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+      "build": "rollup -c",
+      "watch": "rollup -c --watch",
+      "test": "echo \"No test specified\" && exit 0",
+      "start": "npm run build && npm run watch",
+      "lint": "stylelint '**/*.css' --fix"
+    },
+    "keywords": [
+      "css",
+      "framework",
+      "responsive",
+      "modular",
+      "accessible",
+      "frontend",
+      "UI",
+      "design"
+    ],
+    "author": "Altxria Inc.",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/altxriainc/kromacss.git"
+    },
+    "bugs": {
+      "url": "https://github.com/altxriainc/kromacss/issues"
+    },
+    "homepage": "https://github.com/altxriainc/kromacss",
+    "dependencies": {},
+    "devDependencies": {
+      "rollup": "^3.2.0",
+      "rollup-plugin-import-css": "^3.0.0",
+      "postcss": "^8.4.0",
+      "stylelint": "^15.0.0",
+      "autoprefixer": "^10.4.0",
+      "cssnano": "^5.1.0"
+    },
+    "peerDependencies": {
+      "modern-css-reset": "^1.4.0"
+    },
+    "engines": {
+      "node": ">=14.0.0"
+    },
+    "files": [
+      "dist/",
+      "README.md",
+      "LICENSE"
+    ],
+    "funding": {
+      "type": "github",
+      "url": "https://github.com/sponsors/altxriainc"
+    }
+}
+  

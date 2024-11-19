@@ -28,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initializeCodeblock();
 
+  //inizializeNavbar();
+
   // Initialize other components, if applicable
   document.querySelectorAll('.alert .alert-close').forEach(button => {
       button.addEventListener('click', event => {
