@@ -1,4 +1,4 @@
-export class Slideshow {
+export class KromaSlideshow {
 
     /*
     id (string) = slideshow element id
@@ -13,7 +13,7 @@ export class Slideshow {
 
     requires basic preexisting html structure with desired data, such as:
 
-    <div id="slideshow2">
+    <div class="slideshow" id="slideshow2">
 
       <img src="https://t3.ftcdn.net/jpg/05/24/43/88/360_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg">
       <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg">
@@ -32,6 +32,9 @@ export class Slideshow {
         this.id = id;
         this.cnt_sld = document.getElementById(id);
         if(!this.cnt_sld){ throw new Error(`element "${id}" not found`); }
+        if(this.cnt_sld.classList.contains('kromaSlideshow')){ throw new Error(`slideshow already set.`); }
+        this.cnt_sld.classList.add('slideshow');
+        this.cnt_sld.classList.add('kromaSlideshow');
 
 
         //get parameters from call if passed else from element dataset if available else default
@@ -263,5 +266,22 @@ export class Slideshow {
 
 
 }
+
+
+
+//initialize first available
+document.addEventListener("DOMContentLoaded", () => {
+
+    window.kromaSlideshow = KromaSlideshow;
+    if(!window.kromaSlideshows){ window.kromaSlideshows = []; }
+    var domSlideshows = document.querySelectorAll('.slideshow:not(.kromaSlideshow)');
+    if(domSlideshows && domSlideshows[0]){  
+
+        domSlideshows[0].id = (domSlideshows[0].id ?? '').length > 0 ? domSlideshows[0].id : ( 'kromaSlideshow_' + window.kromaSlideshow.length );
+        window.kromaSlideshow[window.kromaSlideshow.length] = new KromaSlideshow( domSlideshows[0].id );
+        
+    }
+
+});
 
 
