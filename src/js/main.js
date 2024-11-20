@@ -9,7 +9,7 @@ import { DateTimePicker } from './components/datetime-picker.js';
 import { Slideshow } from './components/slideshow.js';
 import { initializeRatingComponents } from './components/rating.js';
 import { initializeCalendarComponents } from './components/calendar.js';
-import { Navbar } from './components/navbar.js';
+import { KromaNavbar } from './components/navbar.js';
 import { initializeFileUploadComponents } from './components/file-upload.js';
 import { initializeCommandPalette } from './components/command-palette.js';
 import { initializeCodeblock } from './components/codeblock.js';

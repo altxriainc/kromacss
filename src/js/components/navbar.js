@@ -1,4 +1,4 @@
-export class Navbar {
+export class KromaNavbar {
 
     /*
     id (string) = navbar element id
@@ -150,13 +150,13 @@ export class Navbar {
 //initialize first available
 document.addEventListener("DOMContentLoaded", () => {
 
-    window.Navbar = Navbar;
+    window.KromaNavbar = KromaNavbar;
     if(!window.kromaNavs){ window.kromaNavs = []; }
     var domNavs = document.querySelectorAll('.navbar:not(.kromaNav)');
     if(domNavs && domNavs[0]){  
 
         domNavs[0].id = domNavs[0].id ?? ( 'nav_' + window.kromaNavs.length );
-        window.kromaNavs[window.kromaNavs.length] = new Navbar( domNavs[0].id );
+        window.kromaNavs[window.kromaNavs.length] = new KromaNavbar( domNavs[0].id );
         
     }
 
