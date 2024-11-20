@@ -6,11 +6,11 @@ export class KromaNavbar {
 
     requires basic preexisting html structure with desired data, such as:
 
-        <!--main header nav menu-->
-        <nav id="nav-main">
+        <!--main nav menu-->
+        <nav class="kromaNav">
 
-            <!--logo img-->
-            <img src="./images/dummy-logo.png">
+            <!--logo-->
+            <img src="./src/images/dummy-logo.png">
 
             <!--menu links-->
             <a href="#">Home</a>
@@ -27,9 +27,9 @@ export class KromaNavbar {
         this.id = id;
         this.nav = document.getElementById(id);
         if(!this.nav){ throw new Error(`element "${id}" not found`); }
-        if(this.nav.classList.contains('kromaNav')){ throw new Error(`navbar already set.`); }
-        this.nav.classList.add('navbar');
-        this.nav.classList.add('kromaNav');
+        //if(this.nav.classList.contains('kromaNav')){ throw new Error(`navbar already set.`); }
+        //this.nav.classList.add('navbar');
+        //this.nav.classList.add('kromaNav');
 
         //get logo path/text
         this.hasLogo = (this.nav.querySelector('img') && this.nav.querySelector('img').src) ? true : false;
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.KromaNavbar = KromaNavbar;
     if(!window.kromaNavs){ window.kromaNavs = []; }
-    var domNavs = document.querySelectorAll('.navbar:not(.kromaNav)');
+    var domNavs = document.querySelectorAll('.kromaNav');
     if(domNavs && domNavs[0]){  
 
         domNavs[0].id = (domNavs[0].id ?? '').length > 0 ? domNavs[0].id : ( 'KromaNavbar_' + window.kromaNavs.length );

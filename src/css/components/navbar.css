@@ -17,7 +17,7 @@
     gap: calc(var(--nav-size-base) / 6);
 }
 
-nav.navbar {
+nav.kromaNav {
     width: 100%;
     height: var(--nav-size-base);
     position: sticky;
@@ -36,7 +36,7 @@ nav.navbar {
     padding: calc(var(--nav-size-base) / 6);
 }
 
-nav.navbar:before {
+nav.kromaNav:before {
     content: "";
     display: block;
     position: absolute;
