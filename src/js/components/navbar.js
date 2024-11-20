@@ -7,7 +7,7 @@ export class Navbar {
     requires basic preexisting html structure with desired data, such as:
 
         <!--main header nav menu-->
-        <nav id="nav-main" class="p-3">
+        <nav id="nav-main">
 
             <!--logo img-->
             <img src="./images/dummy-logo.png">
@@ -27,13 +27,15 @@ export class Navbar {
         this.id = id;
         this.nav = document.getElementById(id);
         if(!this.nav){ throw new Error(`element "${id}" not found`); }
-        this.nav.classList.add('header-navbar');
+        if(this.nav.classList.contains('kromaNav')){ throw new Error(`navbar already set.`); }
+        this.nav.classList.add('navbar');
+        this.nav.classList.add('kromaNav');
 
         //get logo path/text
         this.hasLogo = (this.nav.querySelector('img') && this.nav.querySelector('img').src) ? true : false;
         this.logoPath = this.hasLogo ? this.nav.querySelector('img').src : undefined;
         this.siteTitle = document.querySelector('head title');
-        this.siteTitle = siteTitle ?? (this.siteTitle.innerText ?? 'Lorem Ipsum');
+        this.siteTitle = siteTitle ?? (this.siteTitle.innerText ?? '');
 
 
         //get menu items
@@ -42,7 +44,7 @@ export class Navbar {
         this.nav.querySelectorAll('a').forEach((a)=>{
 
             var page = {};
-            page.href = a.href ?? '#';
+            page.href = a.href ?? '';
             page.text = a.innerText ?? 'Page';
             this.pages.push(page);
             
@@ -124,9 +126,9 @@ export class Navbar {
         
         for(var i = 0; i < this.pages.length; i++){
 
-            var li = document.createElement('li')
+            var li = document.createElement('li');
             var a = document.createElement('a');
-            a.href = this.pages[i].href;
+            if(this.pages[i].href.length > 0){ a.href = this.pages[i].href; }
             a.innerText = this.pages[i].text;
             li.appendChild(a);
             ul.appendChild(li);
@@ -143,3 +145,19 @@ export class Navbar {
 }
 
 
+
+
+//initialize first available
+document.addEventListener("DOMContentLoaded", () => {
+
+    window.Navbar = Navbar;
+    if(!window.kromaNavs){ window.kromaNavs = []; }
+    var domNavs = document.querySelectorAll('.navbar:not(.kromaNav)');
+    if(domNavs && domNavs[0]){  
+
+        domNavs[0].id = domNavs[0].id ?? ( 'nav_' + window.kromaNavs.length );
+        window.kromaNavs[window.kromaNavs.length] = new Navbar( domNavs[0].id );
+        
+    }
+
+});

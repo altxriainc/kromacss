@@ -28,8 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initializeCodeblock();
 
-  //inizializeNavbar();
-
   // Initialize other components, if applicable
   document.querySelectorAll('.alert .alert-close').forEach(button => {
       button.addEventListener('click', event => {
@@ -42,8 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  //initialize navbar
-  let navMain = new Navbar('nav-main');
 
 });
 
@@ -61,4 +57,4 @@ window.DateTimePicker = DateTimePicker;
 window.Slideshow = Slideshow;
 window.initializeRatingComponents = initializeRatingComponents;
 window.initializeCalendarComponents = initializeCalendarComponents;
-window.Navbar = Navbar;
+
