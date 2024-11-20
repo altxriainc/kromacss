@@ -8,7 +8,8 @@ html:has(.kromaSidebar) section {
 }
 
 .sdb-logo img {
-    width: calc(var(--sdb-size-base) / 11);
+    max-height: calc(var(--sdb-size-base) / 10);
+    aspect-ratio: 1/1;
 }
 
 .kromaSidebar.collapsed .sdb-logo img {
@@ -31,7 +32,7 @@ html:has(.kromaSidebar) section {
 
 .kromaSidebar {
     width: var(--sdb-size-base);
-    height: calc(100svh - calc(0px +  var(--nav-size-base)));
+    height: calc(100% - calc(0px +  var(--nav-size-base)));
     position: fixed;
     /* top: calc(0px +  var(--nav-size-base)); */
     bottom : 0;
@@ -232,6 +233,7 @@ div#KromaSidebar_0 {}
 
 .kromaSidebar.collapsed .sdb-logo {
     /* justify-content: center; */
+    margin: auto;
 }
 
 .kromaSidebar.collapsed .sdb-logo:not(:has(img)) {
