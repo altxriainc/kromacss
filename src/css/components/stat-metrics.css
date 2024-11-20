@@ -28,18 +28,21 @@
 /* Icon Styling */
 .stat-box .icon {
     font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: clamp(2.5rem, 5vw, 4rem);
     color: var(--neutral-800);
 }
 
 /* Title and Value Styling */
 .stat-box .title {
     font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+    line-height: clamp(1rem, 2vw + 0.5rem, 1.25rem);
     font-weight: 500;
     color: var(--neutral-900);
     margin-bottom: var(--space-1);
 }
 .stat-box .value {
     font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+    line-height: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
     font-weight: 700;
     color: var(--neutral-900);
 }
@@ -50,6 +53,7 @@
     align-items: center;
     gap: var(--space-1);
     font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+    line-height: clamp(0.875rem, 1vw + 0.5rem, 1rem);
     font-weight: 500;
 }
 

@@ -953,21 +953,21 @@
     <h2 class="font-lg text-primary my-4">Skeleton Component Demo</h2>
   
     <!-- Rectangular Skeleton with Primary Variant -->
-    <div class="skeleton" data-shape="rect" data-size="lg"></div>
+    <div class="skeleton mb-2" data-shape="rect" data-size="lg"></div>
   
     <!-- Circle Skeleton Avatar -->
-    <div class="skeleton" data-shape="circle" data-size="md"></div>
+    <div class="skeleton mb-2" data-shape="circle" data-size="md"></div>
   
     <!-- Multi-Line Text Skeleton -->
-    <div class="skeleton-multiline">
+    <div class="skeleton-multiline mb-2">
         <div class="skeleton skeleton-text" data-size="md"></div>
         <div class="skeleton skeleton-text" data-size="md"></div>
         <div class="skeleton skeleton-text" data-size="sm"></div>
     </div>
   
     <!-- Skeleton for Avatar with Button -->
-    <div class="skeleton" data-shape="avatar"></div>
-    <div class="skeleton" data-shape="button"></div>
+    <div class="skeleton mb-2" data-shape="avatar"></div>
+    <div class="skeleton mb-2" data-shape="button"></div>
   
     <!-- Skeleton Thumbnail for Content Loading -->
     <div class="skeleton" data-shape="thumbnail"></div>
@@ -1164,39 +1164,40 @@
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Stat Box Component Demo</h2>
-    <section class="stat-box" data-variant="primary" data-layout="vertical" data-shadow="lg" tabindex="0" aria-label="Monthly Sales">
+    <div class="stat-box" data-variant="primary" data-layout="vertical" data-shadow="lg" tabindex="0" aria-label="Monthly Sales">
       <div class="icon">💵</div>
       <div class="title">Monthly Sales</div>
       <div class="value">$35,000</div>
       <div class="change" data-change="positive">+12%</div>
-    </section>
+    </div>
     
-    <section class="stat-box" data-variant="success" data-layout="horizontal" data-shadow="sm" aria-label="Active Users">
+    <div class="stat-box" data-variant="success" data-layout="horizontal" data-shadow="sm" aria-label="Active Users">
         <div class="icon">👥</div>
         <div class="title">Active Users</div>
         <div class="value">5,720</div>
         <div class="change" data-change="positive">+5%</div>
-    </section>
+    </div>
     
-    <section class="stat-box" data-variant="danger" data-layout="expanded" data-radius="full" aria-label="Churn Rate">
+    <div class="stat-box" data-variant="danger" data-layout="expanded" data-radius="full" aria-label="Churn Rate">
         <div class="icon">⚠️</div>
         <div class="title">Churn Rate</div>
         <div class="value">8%</div>
         <div class="change" data-change="negative">-2%</div>
-    </section>
+    </div>
     
-    <section class="stat-box" data-variant="warning" data-layout="compact" aria-label="Pending Tickets">
+    <div class="stat-box" data-variant="warning" data-layout="compact" aria-label="Pending Tickets">
         <div class="icon">📩</div>
         <div class="title">Pending Tickets</div>
         <div class="value">27</div>
         <div class="change" data-change="neutral">+0%</div>
-    </section>  
+
+    </div>  
   </section>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Timeline Component Demo</h2>
 
-    <section class="timeline" data-variant="primary" data-scroll="true">
+    <div class="timeline" data-variant="primary" data-scroll="true">
       <div class="timeline-item" data-date="2023-01-01" data-state="completed">
           <div class="timeline-content">
               <h3 class="timeline-title">Project Initiation</h3>
@@ -1227,9 +1228,9 @@
               <p class="timeline-description">The project is scheduled for completion, with final deliverables submitted.</p>
           </div>
       </div>
-    </section>
+    </div>
 
-    <section class="timeline" data-variant="success">
+    <div class="timeline" data-variant="success">
       <div class="timeline-item" data-date="2023-01-01" data-state="completed">
           <div class="timeline-content">
               <h3 class="timeline-title">Idea Development</h3>
@@ -1254,7 +1255,7 @@
               <p class="timeline-description">Currently refining the product based on user feedback and data.</p>
           </div>
       </div>
-    </section>
+    </div>
   </section>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
