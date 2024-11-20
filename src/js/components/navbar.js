@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var domNavs = document.querySelectorAll('.navbar:not(.kromaNav)');
     if(domNavs && domNavs[0]){  
 
-        domNavs[0].id = domNavs[0].id ?? ( 'nav_' + window.kromaNavs.length );
+        domNavs[0].id = (domNavs[0].id ?? '').length > 0 ? domNavs[0].id : ( 'KromaNavbar_' + window.kromaNavs.length );
         window.kromaNavs[window.kromaNavs.length] = new KromaNavbar( domNavs[0].id );
         
     }
