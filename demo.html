@@ -12,10 +12,10 @@
 <body class="dark-mode">
 
   <!--main header nav menu-->
-  <nav class="navbar" id="nav-main">
+  <nav class="navbar">
 
     <!--logo-->
-    <img src="./images/dummy-logo.png">
+    <img src="./src/images/dummy-logo.png">
 
     <!--menu links-->
     <a href="#">Home</a>
@@ -24,7 +24,27 @@
 
   </nav>
 
- 
+
+  <!--main sidebar menu-->
+  <div class="sidebar" data-title="The Sidebar">
+
+      <!--logo img-->
+      <img src="./src/images/star.png">
+
+      <!--menu links-->
+      <i class="fa-solid fa-home"></i>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contacts</a>
+
+      <!--menu links with children-->
+      <a>Profile</a>
+      <a data-child="true" href="#">Login</a>
+      <a data-child="true" href="#">Register</a>
+
+
+  </div>
+
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Alert Component Showcase</h2>
   
