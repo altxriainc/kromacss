@@ -13,7 +13,7 @@ import { } from './components/calendar.js';
 import { KromaNavbar } from './components/navbar.js';
 import { initializeFileUploadComponents } from './components/file-upload.js';
 import { initializeCommandPalette } from './components/command-palette.js';
-import { initializeCodeblock } from './components/codeblock.js';
+import {  } from './components/codeblock.js';
 import { KromaSidebar } from './components/sidebar.js';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeFileUploadComponents();
 
   initializeCommandPalette();
-
-  initializeCodeblock();
 
 });
 

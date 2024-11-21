@@ -1,15 +1,19 @@
+document.addEventListener('DOMContentLoaded', () => {
+  initializeCodeblock(document);
+});
+
 export function initializeCodeblock() {
-  document.querySelectorAll('.code-block').forEach((block) => {
+  document.querySelectorAll('.kroma-code-block').forEach((block) => {
     // Check if buttons are already rendered to avoid duplication
-    if (block.querySelector('.code-block-header')) return;
+    if (block.querySelector('.kroma-code-block-header')) return;
 
     // Create action buttons container
     const header = document.createElement('div');
-    header.className = 'code-block-header';
+    header.className = 'kroma-code-block-header';
 
     // Copy Button
     const copyBtn = document.createElement('button');
-    copyBtn.className = 'action-btn copy-btn';
+    copyBtn.className = 'kroma-action-btn kroma-copy-btn';
     copyBtn.textContent = 'Copy';
     copyBtn.setAttribute('aria-label', 'Copy code');
     copyBtn.addEventListener('click', () => {
@@ -25,12 +29,12 @@ export function initializeCodeblock() {
 
     // Fullscreen Button
     const fullscreenBtn = document.createElement('button');
-    fullscreenBtn.className = 'action-btn fullscreen-btn';
+    fullscreenBtn.className = 'kroma-action-btn kroma-fullscreen-btn';
     fullscreenBtn.textContent = 'Full Screen';
     fullscreenBtn.setAttribute('aria-label', 'Toggle full screen');
     fullscreenBtn.addEventListener('click', () => {
-      block.classList.toggle('fullscreen');
-      fullscreenBtn.textContent = block.classList.contains('fullscreen')
+      block.classList.toggle('kroma-fullscreen');
+      fullscreenBtn.textContent = block.classList.contains('kroma-fullscreen')
         ? 'Exit Full Screen'
         : 'Full Screen';
     });

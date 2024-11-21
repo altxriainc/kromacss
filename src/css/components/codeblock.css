@@ -1,5 +1,5 @@
 /* Base Styling for Code Block */
-.code-block {
+.kroma-code-block {
   background: var(--variant-bg);
   color: var(--variant-text);
   border: 1px solid var(--variant-border);
@@ -10,26 +10,26 @@
   overflow: hidden;
   transition: var(--transition-all);
   font-family: var(--font-mono);
-  margin: clamp(var(--space-3), 2vh, var(--space-6)) auto; /* Adjust vertical margins */
+  margin: clamp(var(--space-3), 2vh, var(--space-6)) auto;
   max-width: 90%;
 }
 
 /* Responsive Margins and Padding */
 @media (min-width: 768px) {
-  .code-block {
+  .kroma-code-block {
     margin: var(--space-4) auto;
     max-width: 80%;
   }
 }
 @media (min-width: 1024px) {
-  .code-block {
+  .kroma-code-block {
     margin: var(--space-6) auto;
     max-width: 70%;
   }
 }
 
 /* Code Block Content */
-.code-block-content {
+.kroma-code-block-content {
   max-height: 20rem;
   overflow: auto;
   padding: clamp(var(--space-2), 1.5vw, var(--space-4));
@@ -39,13 +39,13 @@
   box-shadow: var(--shadow-sm);
   font-size: clamp(0.875rem, 1.5vw, 1rem);
   line-height: 1.5;
-  margin-bottom: var(--space-4); /* Add dynamic bottom spacing */
+  margin-bottom: var(--space-4);
 }
 
-/* Adjusted Fullscreen */
-.code-block.fullscreen {
+/* Fullscreen Code Block */
+.kroma-code-block.kroma-fullscreen {
   position: fixed;
-  inset: 0; /* Shorthand for top, right, bottom, left: 0 */
+  inset: 0;
   margin: auto;
   width: 90%;
   height: 90%;
@@ -56,27 +56,26 @@
   border: 2px solid var(--neutral-200);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
-  animation: fadeIn 0.3s ease-in-out;
+  animation: kroma-fadeIn 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align to top within fullscreen */
+  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
 }
 
-/* Fullscreen Content Area */
-.code-block.fullscreen .code-block-content {
+.kroma-code-block.kroma-fullscreen .kroma-code-block-content {
   width: 100%;
   height: calc(100% - var(--space-12));
   overflow: auto;
   padding: var(--space-4);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  margin-bottom: var(--space-6); /* Add spacing from bottom */
+  margin-bottom: var(--space-6);
 }
 
-/* Adjusted Fade-In Animation */
-@keyframes fadeIn {
+/* Fade-In Animation */
+@keyframes kroma-fadeIn {
   from {
     opacity: 0;
     transform: scale(0.95);
@@ -87,14 +86,20 @@
   }
 }
 
-/* Action Button Styling */
-.code-block .action-btn {
+/* Header Buttons */
+.kroma-code-block .kroma-code-block-header {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.kroma-code-block .kroma-action-btn {
   background: var(--variant-hover-bg);
   color: var(--variant-text);
   border: none;
   border-radius: var(--radius-md);
   padding: clamp(var(--space-2), 1vw, var(--space-3)) var(--space-4);
-  margin-right: var(--space-2);
   font-size: clamp(0.75rem, 1.2vw, 0.875rem);
   font-weight: bold;
   cursor: pointer;
@@ -102,7 +107,8 @@
   transition: var(--transition-transform), var(--transition-colors);
   transform: scale(1);
 }
-.code-block .action-btn:hover {
+
+.kroma-code-block .kroma-action-btn:hover {
   background: var(--variant-hover);
   transform: scale(1.05);
 }
