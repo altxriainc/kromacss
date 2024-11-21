@@ -1,6 +1,6 @@
 // Import components
 import { } from './components/alert.js';
-import { toggleAccordion } from './components/accordion.js';
+import {  } from './components/accordion.js';
 import { showHologram } from './components/hologram.js';
 import { showTabContent } from './components/tabs.js';
 import { showToast, dismissToast, startAutoDismiss, pauseAllProgressBars } from './components/toast.js';
@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Export functions globally if needed
-window.toggleAccordion = toggleAccordion;
 window.showHologram = showHologram;
 window.showTabContent = showTabContent;
 window.showToast = showToast;

@@ -1,5 +1,5 @@
-/* Accordion Container */
-.accordion-container {
+/* Base Accordion Container */
+.kroma-accordion-container {
   max-width: 100%;
   margin: auto;
   padding: var(--space-4);
@@ -9,15 +9,15 @@
 }
 
 /* Accordion Item */
-.accordion-item {
+.kroma-accordion-item {
   border-bottom: 1px solid var(--neutral-200);
 }
-.accordion-item:last-child {
+.kroma-accordion-item:last-child {
   border-bottom: none;
 }
 
 /* Accordion Header */
-.accordion-header {
+.kroma-accordion-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,15 +32,15 @@
   border-radius: var(--radius-md);
   transition: background-color var(--transition-colors), box-shadow var(--transition-all);
 }
-.accordion-header:hover,
-.accordion-header:focus {
+.kroma-accordion-header:hover,
+.kroma-accordion-header:focus {
   background-color: var(--neutral-100);
   outline: none;
 }
 
 /* Accordion Content */
-.accordion-content,
-.accordion-sub-content {
+.kroma-accordion-content,
+.kroma-accordion-sub-content {
   height: 0;
   overflow: hidden;
   transition: height 0.4s ease;
@@ -49,12 +49,12 @@
 }
 
 /* Sub-Item */
-.accordion-sub-item {
+.kroma-accordion-sub-item {
   border-top: 1px solid var(--neutral-200);
   padding-left: var(--space-4);
   transition: padding 0.3s ease;
 }
-.accordion-sub-header {
+.kroma-accordion-sub-header {
   padding: clamp(var(--space-2), 1vw + var(--space-1), var(--space-3));
   font-size: 0.9rem;
   font-weight: 400;
@@ -67,28 +67,28 @@
   border-radius: var(--radius-md);
   transition: background-color var(--transition-colors);
 }
-.accordion-sub-header:hover {
+.kroma-accordion-sub-header:hover {
   background-color: var(--neutral-100);
 }
 
-/* Variants (Dynamic) */
-.accordion-container[data-variant] .accordion-header {
+/* Variants */
+.kroma-accordion-container[data-variant] .kroma-accordion-header {
   background-color: var(--variant-bg);
   color: var(--variant-text);
   box-shadow: var(--variant-shadow);
   border: 1px solid var(--variant-border);
 }
-.accordion-container[data-variant] .accordion-header:hover {
+.kroma-accordion-container[data-variant] .kroma-accordion-header:hover {
   background-color: var(--variant-hover-bg);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .accordion-container {
+  .kroma-accordion-container {
     padding: var(--space-2);
   }
-  .accordion-header,
-  .accordion-sub-header {
+  .kroma-accordion-header,
+  .kroma-accordion-sub-header {
     padding: var(--space-2);
   }
 }

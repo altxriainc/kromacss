@@ -66,64 +66,15 @@
   
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Accordion Component Showcase</h2>
-    
-      <!-- Primary Accordion with Sub-Content -->
-      <div class="accordion-container" data-variant="primary">
-        <div class="accordion-item">
-          <button class="accordion-header" onclick="toggleAccordion(this)" aria-label="Toggle primary accordion item 1">
-            Primary Accordion - Item 1
-          </button>
-          <div class="accordion-content">
-            <p>This is the main content of the primary accordion item 1.</p>
-    
-            <!-- Sub-Items within Primary Accordion Item 1 -->
-            <div class="accordion-sub-item">
-              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 1">
-                Sub-Item 1
-              </button>
-              <div class="accordion-sub-content">
-                <p>This is the content of sub-item 1 under primary accordion item 1.</p>
-              </div>
-            </div>
-            <div class="accordion-sub-item">
-              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 2">
-                Sub-Item 2
-              </button>
-              <div class="accordion-sub-content">
-                <p>This is the content of sub-item 2 under primary accordion item 1.</p>
-              </div>
-            </div>
-          </div>
+
+      <div class="kroma-accordion-container" data-variant="secondary">
+        <div class="kroma-accordion-item" data-header="Primary Accordion - Item 1" data-content="This is the main content of the primary accordion item 1."></div>
+        <div class="kroma-accordion-item" data-header="Primary Accordion - Item 2" data-content="This is the main content of the primary accordion item 2.">
+          <div class="kroma-accordion-sub-item" data-header="Sub-Item 1" data-content="This is the content of sub-item 1 under primary accordion item 2."></div>
+          <div class="kroma-accordion-sub-item" data-header="Sub-Item 2" data-content="This is the content of sub-item 2 under primary accordion item 2."></div>
         </div>
+      </div>    
     
-        <!-- Primary Accordion Item 2 with Sub-Items -->
-        <div class="accordion-item">
-          <button class="accordion-header" onclick="toggleAccordion(this)" aria-label="Toggle primary accordion item 2">
-            Primary Accordion - Item 2
-          </button>
-          <div class="accordion-content">
-            <p>This is the main content of the primary accordion item 2.</p>
-    
-            <!-- Sub-Items within Primary Accordion Item 2 -->
-            <div class="accordion-sub-item">
-              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 1">
-                Sub-Item 1
-              </button>
-              <div class="accordion-sub-content">
-                <p>This is the content of sub-item 1 under primary accordion item 2.</p>
-              </div>
-            </div>
-            <div class="accordion-sub-item">
-              <button class="accordion-sub-header" onclick="toggleAccordion(this)" aria-label="Toggle sub-item 2">
-                Sub-Item 2
-              </button>
-              <div class="accordion-sub-content">
-                <p>This is the content of sub-item 2 under primary accordion item 2.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
   </section>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
