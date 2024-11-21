@@ -1,20 +1,23 @@
 /* Base Skeleton Container */
-.skeleton {
+.kroma-skeleton {
   display: inline-block;
+  padding: clamp(var(--space-4), 1vw + var(--space-3), var(--space-6));
+  margin: var(--space-4) auto;
   background-color: var(--neutral-300);
   border-radius: var(--radius-md);
   position: relative;
   overflow: hidden;
   width: 100%;
+  height: 1rem; /* Default height for generic skeletons */
 }
 
 /* Shimmer Animation */
-@keyframes skeleton-shimmer-animation {
+@keyframes kroma-skeleton-shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
 
-.skeleton::after {
+.kroma-skeleton::after {
   content: '';
   position: absolute;
   top: 0;
@@ -22,43 +25,67 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
-  animation: skeleton-shimmer-animation 1.8s infinite;
+  animation: kroma-skeleton-shimmer 1.6s infinite;
   background-size: 200% 100%;
 }
 
-
 /* Size Variants */
-.skeleton[data-size="sm"] { height: 0.5rem; }
-.skeleton[data-size="md"] { height: 1rem; }
-.skeleton[data-size="lg"] { height: 1.5rem; }
+.kroma-skeleton[data-size="sm"] { height: 0.5rem; }
+.kroma-skeleton[data-size="md"] { height: 1rem; }
+.kroma-skeleton[data-size="lg"] { height: 1.5rem; }
 
 /* Shape Variants */
-.skeleton[data-shape="rect"] { height: 100px; border-radius: var(--radius-md); }
-.skeleton[data-shape="circle"] { width: 50px; height: 50px; border-radius: 50%; }
-.skeleton[data-shape="text"] { height: 1rem; border-radius: var(--radius-sm); margin-bottom: var(--space-2); }
-
+.kroma-skeleton[data-shape="rect"] { height: 100px; border-radius: var(--radius-md); }
+.kroma-skeleton[data-shape="circle"] { width: 50px; height: 50px; border-radius: 50%; }
+.kroma-skeleton[data-shape="text"] { height: 1rem; border-radius: var(--radius-sm); margin-bottom: var(--space-2); }
 
 /* Skeleton for Multi-Line Text */
-.skeleton-multiline {
+.kroma-skeleton-multiline {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
-.skeleton-multiline .skeleton[data-shape="text"] { width: 100%; }
-.skeleton-multiline .skeleton[data-shape="text"]:first-child { width: 80%; }
-.skeleton-multiline .skeleton[data-shape="text"]:nth-child(2) { width: 95%; }
-.skeleton-multiline .skeleton[data-shape="text"]:last-child { width: 90%; }
+
+.kroma-skeleton-multiline .kroma-skeleton[data-shape="text"] { width: 100%; }
+.kroma-skeleton-multiline .kroma-skeleton[data-shape="text"]:first-child { width: 80%; }
+.kroma-skeleton-multiline .kroma-skeleton[data-shape="text"]:nth-child(2) { width: 95%; }
+.kroma-skeleton-multiline .kroma-skeleton[data-shape="text"]:last-child { width: 90%; }
 
 /* Custom Shapes */
-.skeleton[data-shape="avatar"] { width: 3rem; height: 3rem; border-radius: 50%; }
-.skeleton[data-shape="button"] { width: 6rem; height: 2.5rem; border-radius: var(--radius-md); }
-.skeleton[data-shape="thumbnail"] { width: 100%; height: 200px; border-radius: var(--radius-lg); }
+.kroma-skeleton[data-shape="avatar"] { width: 3rem; height: 3rem; border-radius: 50%; }
+.kroma-skeleton[data-shape="button"] { width: 6rem; height: 2.5rem; border-radius: var(--radius-md); }
+.kroma-skeleton[data-shape="thumbnail"] { width: 100%; height: 200px; border-radius: var(--radius-lg); }
+
+/* Animation Speed Variants */
+.kroma-skeleton[data-speed="slow"]::after {
+  animation-duration: 2.5s;
+}
+.kroma-skeleton[data-speed="medium"]::after {
+  animation-duration: 1.6s;
+}
+.kroma-skeleton[data-speed="fast"]::after {
+  animation-duration: 1s;
+}
+
+/* Color Variants */
+.kroma-skeleton[data-variant="light"] {
+  background-color: var(--neutral-200);
+}
+.kroma-skeleton[data-variant="dark"] {
+  background-color: var(--neutral-600);
+}
+.kroma-skeleton[data-variant="primary"] {
+  background-color: var(--primary-light);
+}
+.kroma-skeleton[data-variant="accent"] {
+  background-color: var(--accent-light);
+}
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
-  .skeleton[data-shape="rect"] { height: 80px; }
-  .skeleton[data-shape="circle"] { width: 40px; height: 40px; }
-  .skeleton[data-size="lg"] { height: 1rem; }
-  .skeleton[data-shape="avatar"] { width: 2.5rem; height: 2.5rem; }
-  .skeleton[data-shape="thumbnail"] { height: 150px; }
+  .kroma-skeleton[data-shape="rect"] { height: 80px; }
+  .kroma-skeleton[data-shape="circle"] { width: 40px; height: 40px; }
+  .kroma-skeleton[data-size="lg"] { height: 1rem; }
+  .kroma-skeleton[data-shape="avatar"] { width: 2.5rem; height: 2.5rem; }
+  .kroma-skeleton[data-shape="thumbnail"] { height: 150px; }
 }
