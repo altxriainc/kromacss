@@ -1,140 +1,163 @@
 /* Command Palette Base */
-.command-palette {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: var(--z-50);
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+.kroma-command-palette {
+  display: none;
+  position: fixed;
+  inset: 0; /* Shorthand for top: 0, right: 0, bottom: 0, left: 0 */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+  backdrop-filter: blur(4px); /* Blur effect for the backdrop */
+  z-index: var(--z-50); /* Ensure it appears on top */
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Initial hidden state */
+  transform: scale(0.95); /* Initial zoom effect */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.kroma-command-palette.kroma-open {
+  display: flex; /* Flexbox for centering */
+  opacity: 1; /* Fade-in effect */
+  transform: scale(1); /* Reset scale */
+}
+
+/* Palette Modal */
+.kroma-command-palette .kroma-palette-modal {
+  width: clamp(320px, 85%, 600px); /* Responsive width */
+  background: var(--palette-bg, var(--neutral-50)); /* Background color */
+  color: var(--palette-text, var(--neutral-900)); /* Text color */
+  border-radius: var(--radius-lg); /* Rounded corners */
+  box-shadow: var(--shadow-xl); /* Shadow for modal */
+  padding: var(--space-4); /* Internal spacing */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3); /* Space between elements */
+  animation: kroma-fadeIn 0.3s ease; /* Entry animation */
+}
+
+/* Palette Header */
+.kroma-command-palette .kroma-palette-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2); /* Space between header elements */
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--palette-header-border, var(--neutral-200));
+}
+
+.kroma-command-palette .kroma-palette-header input {
+  width: 100%;
+  font-size: clamp(1rem, 1.2vw, 1.125rem); /* Responsive font size */
+  padding: var(--space-3); /* Internal spacing */
+  border: none;
+  outline: none;
+  border-radius: var(--radius-md);
+  background: var(--palette-input-bg, var(--neutral-100));
+  color: var(--palette-input-text, var(--neutral-900));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.kroma-command-palette .kroma-palette-header input::placeholder {
+  color: var(--neutral-400); /* Placeholder text color */
+}
+
+.kroma-command-palette .kroma-palette-header input:focus {
+  background: var(--palette-input-focus-bg, var(--neutral-200));
+  color: var(--palette-input-focus-text, var(--neutral-900));
+}
+
+/* Palette List */
+.kroma-command-palette .kroma-palette-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px; /* Maximum height for scrolling */
+  overflow-y: auto; /* Vertical scrolling */
+  gap: var(--space-2); /* Space between items */
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: var(--palette-scrollbar-thumb, var(--neutral-300)) var(--palette-scrollbar-track, var(--neutral-100));
+}
+
+.kroma-command-palette .kroma-palette-list::-webkit-scrollbar {
+  width: 6px; /* Scrollbar width */
+}
+
+.kroma-command-palette .kroma-palette-list::-webkit-scrollbar-thumb {
+  background-color: var(--palette-scrollbar-thumb, var(--neutral-300));
+  border-radius: var(--radius-md); /* Rounded scrollbar */
+}
+
+.kroma-command-palette .kroma-palette-list::-webkit-scrollbar-track {
+  background-color: var(--palette-scrollbar-track, var(--neutral-100));
+}
+
+/* Palette Item */
+.kroma-command-palette .kroma-palette-item {
+  padding: var(--space-3);
+  font-size: clamp(0.875rem, 1vw, 1rem); /* Responsive font size */
+  border-radius: var(--radius-md); /* Rounded corners */
+  color: var(--palette-item-text, var(--neutral-800)); /* Text color */
+  background: var(--palette-item-bg, var(--neutral-100)); /* Background color */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.kroma-command-palette .kroma-palette-item:hover,
+.kroma-command-palette .kroma-palette-item:focus {
+  background: var(--palette-item-hover-bg, var(--variant-hover-bg));
+  color: var(--neutral-700);
+}
+
+.kroma-command-palette .kroma-palette-item[data-active="true"] {
+  background: var(--palette-item-active-bg, var(--variant-bg));
+  color: var(--palette-item-active-text, var(--variant-text));
+}
+
+/* No Results Message */
+.kroma-command-palette .kroma-no-results {
+  text-align: center;
+  color: var(--neutral-600); /* Subtle color for "No Results" */
+  font-size: clamp(0.875rem, 1vw, 1rem); /* Responsive font size */
+  padding: var(--space-3);
+}
+
+/* Palette Footer */
+.kroma-command-palette .kroma-palette-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--palette-footer-border, var(--neutral-200));
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+}
+
+/* Variants */
+.kroma-command-palette[data-variant] {
+  --palette-bg: var(--variant-bg);
+  --palette-text: var(--variant-text);
+  --palette-header-border: var(--variant-border);
+  --palette-input-bg: var(--neutral-50);
+  --palette-input-focus-bg: var(--variant-hover-bg);
+  --palette-input-focus-text: var(--variant-text);
+  --palette-item-hover-bg: var(--variant-hover-bg);
+  --palette-item-hover-text: var(--neutral-50);
+  --palette-item-active-bg: var(--variant-bg);
+  --palette-item-active-text: var(--variant-text);
+  --palette-footer-border: var(--variant-border);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .kroma-command-palette .kroma-palette-modal {
+    width: 95%; /* Full width for smaller screens */
   }
-  
-  .command-palette.open {
-    display: flex;
+}
+
+/* Fade In Animation */
+@keyframes kroma-fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
     opacity: 1;
     transform: scale(1);
   }
-  
-  .command-palette .palette-modal {
-    width: clamp(320px, 85%, 600px);
-    background: var(--palette-bg, var(--neutral-50));
-    color: var(--palette-text, var(--neutral-900));
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    padding: var(--space-4);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    animation: fadeIn 0.3s ease;
-  }
-  
-  /* Palette Header */
-  .command-palette .palette-header {
-    display: flex;
-    align-items: center;
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--palette-header-border, var(--neutral-200));
-  }
-  
-  .command-palette .palette-header input {
-    width: 100%;
-    font-size: clamp(1rem, 1.2vw, 1.125rem);
-    padding: var(--space-3);
-    border: none;
-    outline: none;
-    border-radius: var(--radius-md);
-    background: var(--palette-input-bg, var(--neutral-100));
-    color: var(--palette-input-text, var(--neutral-900));
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .command-palette .palette-header input::placeholder {
-    color: var(--neutral-400);
-  }
-  
-  .command-palette .palette-header input:focus {
-    background: var(--palette-input-focus-bg, var(--neutral-200));
-    color: var(--palette-input-focus-text, var(--neutral-900));
-  }
-  
-  /* Palette List */
-  .command-palette .palette-list {
-    display: flex;
-    flex-direction: column;
-    max-height: 300px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    gap: var(--space-2);
-  }
-  
-  /* Palette Item */
-  .command-palette .palette-item {
-    padding: var(--space-3);
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    border-radius: var(--radius-md);
-    color: var(--palette-item-text, var(--neutral-800));
-    background: var(--palette-item-bg, var(--neutral-100));
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .command-palette .palette-item:hover,
-  .command-palette .palette-item:focus {
-    background: var(--palette-item-hover-bg, var(--variant-hover-bg));
-    color: var(--palette-item-hover-text, var(--neutral-50));
-  }
-  
-  .command-palette .palette-item[data-active="true"] {
-    background: var(--palette-item-active-bg, var(--variant-bg));
-    color: var(--palette-item-active-text, var(--variant-text));
-  }
-  
-  /* No Results */
-  .command-palette .no-results {
-    text-align: center;
-    color: var(--neutral-600);
-    font-size: 0.875rem;
-    padding: var(--space-3);
-  }
-  
-  /* Palette Footer */
-  .command-palette .palette-footer {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--palette-footer-border, var(--neutral-200));
-    font-size: 0.875rem;
-    color: var(--neutral-600);
-  }
-  
-  /* Variants */
-  .command-palette[data-variant] {
-    --palette-bg: var(--variant-bg);
-    --palette-text: var(--variant-text);
-    --palette-header-border: var(--variant-border);
-    --palette-input-bg: var(--neutral-50); /* Ensures a solid background for inputs */
-    --palette-input-text: var(--neutral-900); /* Text remains readable */
-    --palette-input-focus-bg: var(--variant-hover-bg);
-    --palette-input-focus-text: var(--variant-text);
-    --palette-item-bg: var(--neutral-100); /* Neutral background for items */
-    --palette-item-text: var(--neutral-800); /* Ensures text is readable */
-    --palette-item-hover-bg: var(--variant-hover-bg); /* Bold hover background */
-    --palette-item-hover-text: var(--neutral-50); /* Contrasting text on hover */
-    --palette-item-active-bg: var(--variant-bg);
-    --palette-item-active-text: var(--variant-text);
-    --palette-footer-border: var(--variant-border);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .command-palette .palette-modal {
-      width: 95%;
-    }
-  }
-  
+}

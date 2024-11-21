@@ -1285,29 +1285,25 @@
 
 <section class="p-6 bg-neutral-50 shadow-md rounded my-6">
   <h2 class="text-lg text-primary mb-4">Command Palette Showcase</h2>
+  <button class="kroma-btn" data-open-palette="palette1">Open Command Palette</button>
 
-  <!-- Trigger Button -->
-  <button id="open-palette" class="btn" data-variant="primary">Open Command Palette</button>
-
-  <!-- Command Palette -->
-  <div class="command-palette" id="command-palette" data-variant="warning">
-    <div class="palette-modal">
-      <div class="palette-header">
+  <div id="kroma-command-palette" class="kroma-command-palette" data-palette-id="palette1">
+    <div class="kroma-palette-modal">
+      <div class="kroma-palette-header">
         <input
           type="text"
-          placeholder="Search or type a command..."
-          id="command-search"
-          aria-label="Command Search"
+          placeholder="Search commands..."
+          aria-label="Search commands"
         />
       </div>
-      <div class="palette-list">
-        <div class="palette-item" tabindex="0" data-command="action1">Action 1</div>
-        <div class="palette-item" tabindex="0" data-command="action2">Action 2</div>
-        <div class="palette-item" tabindex="0" data-command="action3">Action 3</div>
-        <div class="palette-item" tabindex="0" data-command="action4">Action 4</div>
+      <div class="kroma-palette-list">
+        <div class="kroma-palette-item" data-command="action1">Command 1</div>
+        <div class="kroma-palette-item" data-command="action2">Command 2</div>
+        <div class="kroma-palette-item" data-command="action3">Command 3</div>
       </div>
+      <div class="kroma-palette-footer"><strong>Esc</strong></div>
     </div>
-  </div>
+  </div>  
 </section>
 <section class="p-6 bg-neutral-50 shadow-md rounded my-6">
   <h2 class="text-lg text-primary mb-4">Codeblock Component Showcase</h2>
