@@ -894,89 +894,74 @@
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Table Component Demo</h2>
   
-    <!-- Basic Table with Primary Variant and Curved Borders -->
-    <div class="table-container" data-variant="primary" data-style="curved">
-      <table class="table">
+    <div class="kroma-table-container">
+      <table class="kroma-table" data-style="striped" data-variant="primary" data-align="left">
+        <thead>
+          <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+          </tr>
+          <tr>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>    
+  
+    <div class="kroma-table-container">
+      <table class="kroma-table" data-variant="danger" data-size="compact">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Role</th>
-            <th>Department</th>
-            <th>Status</th>
+            <th>Email</th>
+            <th>Phone</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Jane Doe</td>
-            <td>Manager</td>
-            <td>Marketing</td>
-            <td>Active</td>
-          </tr>
-          <tr>
-            <td>John Smith</td>
-            <td>Developer</td>
-            <td>Engineering</td>
-            <td>On Leave</td>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>123-456-7890</td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </div>    
   
-    <!-- Striped and Bordered Warning Table with Compact Spacing -->
-    <div class="table-container" data-variant="warning" data-style="striped bordered" data-size="compact">
-      <table class="table">
+    <div class="kroma-table-container">
+      <table class="kroma-table" data-variant="primary">
         <thead>
           <tr>
-            <th>Project</th>
-            <th>Owner</th>
-            <th>Deadline</th>
-            <th>Priority</th>
+            <th>Field</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Website Redesign</td>
-            <td>Jane Doe</td>
-            <td>July 20, 2023</td>
-            <td>High</td>
+            <th>Name</th>
+            <td>John Doe</td>
           </tr>
           <tr>
-            <td>Product Launch</td>
-            <td>John Smith</td>
-            <td>August 10, 2023</td>
-            <td>Medium</td>
+            <th>Email</th>
+            <td>john@example.com</td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td>123-456-7890</td>
           </tr>
         </tbody>
       </table>
-    </div>
-  
-    <!-- Success Variant Table with Center-Aligned Columns -->
-    <div class="table-container" data-variant="success" data-align="center">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>Assignee</th>
-            <th>Due Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Code Review</td>
-            <td>Jane Doe</td>
-            <td>June 15, 2023</td>
-            <td>Completed</td>
-          </tr>
-          <tr>
-            <td>Testing</td>
-            <td>John Smith</td>
-            <td>June 18, 2023</td>
-            <td>In Progress</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    </div>    
+    
   </section>  
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">

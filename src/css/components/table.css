@@ -1,5 +1,5 @@
 /* Table Container with Custom Scrollbar */
-.table-container {
+.kroma-table-container {
   overflow-x: auto;
   max-width: 100%;
   margin: 0 auto;
@@ -8,35 +8,36 @@
   scrollbar-width: thin;
 }
 
-.table-container::-webkit-scrollbar {
+.kroma-table-container::-webkit-scrollbar {
   height: 8px;
   width: 8px;
 }
 
-.table-container::-webkit-scrollbar-thumb {
+.kroma-table-container::-webkit-scrollbar-thumb {
   background-color: var(--variant-hover-bg);
   border-radius: var(--radius-md);
 }
 
-.table-container::-webkit-scrollbar-track {
+.kroma-table-container::-webkit-scrollbar-track {
   background-color: var(--neutral-200);
 }
 
 /* Base Table Styles */
-.table {
+.kroma-table {
   width: 100%;
-  border-collapse: separate; /* Separate borders for smooth radius */
-  border-spacing: 0; /* Removes spacing between cells */
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
   color: var(--variant-text);
   background-color: var(--variant-bg);
   border-radius: var(--radius-lg);
-  overflow: hidden; /* Applies border radius to entire table */
+  overflow: hidden;
   min-width: min(100%, 600px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Table Head */
-.table th {
+.kroma-table th {
   background-color: var(--variant-dark-bg);
   color: var(--variant-text);
   text-align: left;
@@ -49,7 +50,7 @@
 }
 
 /* Table Data Cells */
-.table td {
+.kroma-table td {
   padding: clamp(var(--space-2), 1vw, var(--space-4));
   border-bottom: 1px solid var(--variant-border);
   color: var(--variant-text);
@@ -60,59 +61,120 @@
 }
 
 /* Hover Effect for Rows */
-.table tr:hover td {
-  background-color: var(--variant-dark-bg);
+.kroma-table tr:hover td {
+  background-color: var(--variant-hover-bg);
+  color: var(--variant-hover-text, #fff);
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Striped Rows */
-[data-style="striped"] tr:nth-child(odd) td {
+/* Striped Rows with Hover Fix */
+.kroma-table[data-style="striped"] tr:nth-child(odd) td {
   background-color: var(--variant-light-bg);
 }
 
-[data-style="striped"] tr:nth-child(even) td {
+.kroma-table[data-style="striped"] tr:nth-child(even) td {
   background-color: var(--variant-bg);
 }
 
+.kroma-table[data-style="striped"] tr:hover td {
+  background-color: var(--variant-hover-bg);
+  color: var(--variant-hover-text, #fff);
+}
+
 /* Bordered Variant */
-[data-style="bordered"] td,
-[data-style="bordered"] th {
+.kroma-table[data-style="bordered"] td,
+.kroma-table[data-style="bordered"] th {
   border: 1px solid var(--variant-border);
   border-radius: var(--radius-sm);
 }
 
 /* Curved Borders */
-[data-style="curved"] {
+.kroma-table[data-style="curved"] {
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--variant-border);
 }
 
 /* Compact Spacing */
-[data-size="compact"] td,
-[data-size="compact"] th {
+.kroma-table[data-size="compact"] td,
+.kroma-table[data-size="compact"] th {
   padding: clamp(var(--space-1), 0.75vw, var(--space-3));
 }
 
 /* Column Alignments */
-[data-align="left"] th,
-[data-align="left"] td {
+.kroma-table[data-align="left"] th,
+.kroma-table[data-align="left"] td {
   text-align: left;
 }
-[data-align="center"] th,
-[data-align="center"] td {
+.kroma-table[data-align="center"] th,
+.kroma-table[data-align="center"] td {
   text-align: center;
 }
-[data-align="right"] th,
-[data-align="right"] td {
+.kroma-table[data-align="right"] th,
+.kroma-table[data-align="right"] td {
   text-align: right;
+}
+
+/* Responsive Table - Stacked for Small Screens */
+.kroma-table[data-responsive="stacked"] {
+  display: block;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.kroma-table[data-responsive="stacked"] tr {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--variant-border);
+}
+
+.kroma-table[data-responsive="stacked"] th,
+.kroma-table[data-responsive="stacked"] td {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--space-3);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  line-height: 1.25;
+}
+
+.kroma-table[data-responsive="stacked"] th {
+  font-weight: 600;
+  color: var(--variant-dark-text);
+  text-align: left;
+  width: 50%; /* Adjusted width for better spacing */
+}
+
+.kroma-table[data-responsive="stacked"] td {
+  text-align: left;
+  width: 50%; /* Match the width of header */
+}
+
+.kroma-table[data-responsive="stacked"] tr:hover td {
+  background-color: var(--variant-hover-bg); /* Add hover effect to rows */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .table th,
-  .table td {
+  .kroma-table th,
+  .kroma-table td {
     padding: clamp(var(--space-2), 1vw, var(--space-3));
+  }
+}
+
+@media (max-width: 480px) {
+  .kroma-table-container {
+    padding: var(--space-3);
+  }
+
+  .kroma-table {
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+  }
+
+  .kroma-table[data-responsive="stacked"] th,
+  .kroma-table[data-responsive="stacked"] td {
+    padding: var(--space-2);
   }
 }
