@@ -1,4 +1,5 @@
 // Import components
+import { } from './components/alert.js';
 import { toggleAccordion } from './components/accordion.js';
 import { showHologram } from './components/hologram.js';
 import { showTabContent } from './components/tabs.js';
@@ -28,19 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeCommandPalette();
 
   initializeCodeblock();
-
-  // Initialize other components, if applicable
-  document.querySelectorAll('.alert .alert-close').forEach(button => {
-      button.addEventListener('click', event => {
-          const alert = button.closest('.alert');
-          alert.style.maxHeight = alert.scrollHeight + 'px'; 
-          alert.classList.add('fade-out');
-          alert.addEventListener('transitionend', () => {
-              if (alert.parentNode) alert.remove();
-          });
-      });
-  });
-
 
 });
 
