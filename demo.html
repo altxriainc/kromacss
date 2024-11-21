@@ -265,57 +265,86 @@
   
   </section> 
 
-  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4 text-center">Card Component Showcase</h2>
+  <section class="p-6 bg-neutral-50 shadow-md rounded-lg my-8">
+    <h2 class="font-lg text-primary my-6 text-center">Kroma Card Component Showcase</h2>
   
     <div class="grid grid-loose">
       <!-- Primary Card with Fixed Label -->
-      <div class="card" data-variant="primary" data-label="fixed">
-        <span class="card-label">New</span>
-        <div class="card-header">Primary Card</div>
-        <img src="https://via.placeholder.com/400x200" alt="Media" class="card-media">
-        <div class="card-body">This primary card has a fixed label and light background.</div>
-        <div class="card-footer">
-          <button class="btn" data-variant="primary">Action</button>
+      <div class="kroma-card" data-variant="primary" data-label="fixed">
+        <span class="kroma-card-label">New</span>
+        <div class="kroma-card-header">Primary Card</div>
+        <img src="https://via.placeholder.com/400x200" alt="Media" class="kroma-card-media">
+        <div class="kroma-card-body">This primary card has a fixed label and a light background.</div>
+        <div class="kroma-card-footer">
+          <button class="kroma-btn" data-variant="primary">Action</button>
         </div>
       </div>
   
-      <!-- Success Card with Gradient Background -->
-      <div class="card" data-variant="success" data-label="fixed">
-        <span class="card-label">Featured</span>
-        <div class="card-header">Success Card</div>
-        <img src="https://via.placeholder.com/400x200" alt="Media" class="card-media">
-        <div class="card-body">This is a success variant card with a fixed label and success background.</div>
+      <!-- Success Card -->
+      <div class="kroma-card" data-variant="success" data-label="fixed">
+        <span class="kroma-card-label">Featured</span>
+        <div class="kroma-card-header">Success Card</div>
+        <img src="https://via.placeholder.com/400x200" alt="Media" class="kroma-card-media">
+        <div class="kroma-card-body">This success variant card has a bold background and featured label.</div>
+        <div class="kroma-card-footer">
+          <button class="kroma-btn" data-variant="success">Learn More</button>
+        </div>
       </div>
   
-      <!-- Danger Card with Outline -->
-      <div class="card" data-variant="danger" data-label="fixed">
-        <span class="card-label">Urgent</span>
-        <div class="card-header">Danger Card</div>
-        <div class="card-body">This card uses a danger color scheme, highlighting urgent content.</div>
+      <!-- Danger Card -->
+      <div class="kroma-card" data-variant="danger">
+        <div class="kroma-card-header">Danger Card</div>
+        <div class="kroma-card-body">A danger card highlighting urgent information.</div>
+        <div class="kroma-card-footer">
+          <button class="kroma-btn" data-variant="danger">Resolve</button>
+        </div>
       </div>
   
       <!-- Warning Card with Horizontal Layout -->
-      <div class="card" data-variant="warning" data-layout="horizontal">
-        <img src="https://via.placeholder.com/150x150" alt="Media" class="card-media">
-        <div class="card-body">A warning card with a horizontal layout, great for side-by-side content.</div>
+      <div class="kroma-card" data-variant="warning" data-layout="horizontal">
+        <img src="https://via.placeholder.com/150x150" alt="Media" class="kroma-card-media">
+        <div class="kroma-card-body">
+          A warning card with a horizontal layout, ideal for side-by-side content.
+        </div>
       </div>
   
       <!-- Info Card with Outline Style -->
-      <div class="card" data-variant="outline">
-        <div class="card-header">Info Card (Outline)</div>
-        <div class="card-body">This info card has an outline style to provide a lighter visual impact.</div>
+      <div class="kroma-card" data-variant="outline">
+        <div class="kroma-card-header">Info Card</div>
+        <div class="kroma-card-body">An outline style info card for minimalistic designs.</div>
+        <div class="kroma-card-footer">
+          <button class="kroma-btn" data-variant="info">More Info</button>
+        </div>
       </div>
   
-      <!-- Scrollable Card Section -->
-      <div class="card-scrollable flex gap-4">
-        <div class="card" data-variant="info">Scrollable Card 1</div>
-        <div class="card" data-variant="success">Scrollable Card 2</div>
-        <div class="card" data-variant="danger">Scrollable Card 3</div>
-        <div class="card" data-variant="primary">Scrollable Card 4</div>
+      <!-- Flat Card Variant -->
+      <div class="kroma-card" data-variant="flat">
+        <div class="kroma-card-header">Flat Card</div>
+        <div class="kroma-card-body">This flat variant has no shadow, perfect for clean interfaces.</div>
       </div>
     </div>
-  </section>  
+  
+    <!-- Scrollable Card Section -->
+    <h3 class="font-md text-secondary mt-8 mb-4 text-center">Scrollable Cards</h3>
+    <div class="kroma-card-scrollable">
+      <div class="kroma-card" data-variant="info">
+        <div class="kroma-card-header">Scrollable Card 1</div>
+        <div class="kroma-card-body">This is the first scrollable card.</div>
+      </div>
+      <div class="kroma-card" data-variant="success">
+        <div class="kroma-card-header">Scrollable Card 2</div>
+        <div class="kroma-card-body">This is the second scrollable card.</div>
+      </div>
+      <div class="kroma-card" data-variant="danger">
+        <div class="kroma-card-header">Scrollable Card 3</div>
+        <div class="kroma-card-body">This is the third scrollable card.</div>
+      </div>
+      <div class="kroma-card" data-variant="primary">
+        <div class="kroma-card-header">Scrollable Card 4</div>
+        <div class="kroma-card-body">This is the fourth scrollable card.</div>
+      </div>
+    </div>
+  </section>   
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
       <h2 class="font-lg text-primary my-4">DateTime Picker Component Showcase</h2>

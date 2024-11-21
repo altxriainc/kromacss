@@ -1,5 +1,5 @@
 /* Base Card Styles */
-.card {
+.kroma-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,13 +15,13 @@
   margin: var(--space-4) auto;
 }
 
-.card:hover {
+.kroma-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--card-hover-shadow, var(--shadow-xl));
 }
 
 /* Card Header */
-.card-header {
+.kroma-card-header {
   width: 100%;
   padding: var(--space-5) var(--space-6);
   font-weight: bold;
@@ -32,27 +32,28 @@
 }
 
 /* Card Media */
-.card-media {
+.kroma-card-media {
   width: 100%;
   height: 200px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-.card:hover .card-media {
+.kroma-card:hover .kroma-card-media {
   transform: scale(1.05);
 }
 
 /* Card Body */
-.card-body {
+.kroma-card-body {
   padding: var(--space-6);
   text-align: center;
   color: var(--card-body-text, var(--neutral-700));
   font-size: 1rem;
+  flex: 1 0 auto; /* Ensure body grows to fill available space */
 }
 
 /* Card Footer */
-.card-footer {
+.kroma-card-footer {
   width: 100%;
   padding: var(--space-4) var(--space-6);
   background-color: var(--card-footer-bg, var(--neutral-100));
@@ -61,10 +62,11 @@
   justify-content: center;
   gap: var(--space-2);
   color: var(--card-footer-text, var(--neutral-900));
+  flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
 /* Card Variants */
-.card[data-variant] {
+.kroma-card[data-variant] {
   --card-bg: var(--variant-bg);
   --card-text: var(--variant-text);
   --card-header-text: var(--variant-text);
@@ -75,18 +77,30 @@
 }
 
 /* Outline Style */
-.card[data-variant="outline"] {
+.kroma-card[data-variant="outline"] {
   background-color: transparent;
   border: 1px solid var(--variant-border);
   color: var(--variant-text);
 }
 
-.card[data-variant="outline"]:hover {
+.kroma-card[data-variant="outline"]:hover {
   box-shadow: var(--card-hover-shadow, var(--shadow-lg));
 }
 
+/* Elevated Variant */
+.kroma-card[data-variant="elevated"] {
+  background-color: var(--variant-bg);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Flat Variant */
+.kroma-card[data-variant="flat"] {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 /* Labels */
-.card-label {
+.kroma-card-label {
   position: absolute;
   top: var(--space-3);
   left: var(--space-3);
@@ -99,49 +113,104 @@
   box-shadow: var(--shadow-md);
 }
 
-.card[data-label="fixed"] .card-label {
+.kroma-card[data-label="fixed"] .kroma-card-label {
   display: block; /* Always visible */
 }
 
 /* Horizontal Layout */
-.card[data-layout="horizontal"] {
+.kroma-card[data-layout="horizontal"] {
   flex-direction: row;
-  align-items: center;
+  align-items: stretch; /* Ensure consistent alignment of all items */
 }
 
-.card[data-layout="horizontal"] .card-media {
+.kroma-card[data-layout="horizontal"] .kroma-card-media {
   width: 40%;
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-/* Scrollable Card Section */
-.card-scrollable {
+.kroma-card[data-layout="horizontal"] .kroma-card-body {
+  text-align: left; /* Align content for horizontal layouts */
+  padding: var(--space-4);
+  flex: 1; /* Ensure body takes up available space */
+}
+
+.kroma-card[data-layout="horizontal"] .kroma-card-footer {
+  margin-top: auto; /* Push footer to the bottom of the card */
+  width: 100%; /* Ensure footer spans the full width */
+  align-self: stretch; /* Stretch footer to align with the card's layout */
+}
+
+.kroma-card-scrollable {
   display: flex;
   overflow-x: auto;
   gap: var(--space-4);
   padding: var(--space-4);
-  scrollbar-width: thin;
+  scroll-snap-type: x mandatory; /* Enable smooth snapping for cards */
 }
 
-.card-scrollable .card {
+.kroma-card-scrollable::-webkit-scrollbar {
+  height: 8px;
+}
+
+.kroma-card-scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--neutral-400); /* Scrollbar thumb color */
+  border-radius: var(--radius-md);
+}
+
+.kroma-card-scrollable::-webkit-scrollbar-track {
+  background-color: var(--neutral-200); /* Scrollbar track color */
+}
+
+/* Scrollable Cards */
+.kroma-card-scrollable .kroma-card {
   flex: 0 0 auto;
-  scroll-snap-align: start;
+  scroll-snap-align: center; /* Center cards in the viewport */
 }
 
 /* Shadow Variants */
-.card[data-shadow="light"] {
+.kroma-card[data-shadow="light"] {
   box-shadow: var(--shadow-sm);
 }
 
-.card[data-shadow="heavy"] {
+.kroma-card[data-shadow="medium"] {
+  box-shadow: var(--shadow-md);
+}
+
+.kroma-card[data-shadow="heavy"] {
   box-shadow: var(--shadow-xl);
+}
+
+/* Card Sizes */
+.kroma-card[data-size="small"] {
+  max-width: 300px;
+  padding: var(--space-4);
+  font-size: 0.875rem;
+}
+
+.kroma-card[data-size="large"] {
+  max-width: 600px;
+  padding: var(--space-6);
+  font-size: 1.25rem;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
-  .card {
+  .kroma-card {
     max-width: 100%;
+  }
+
+  .kroma-card[data-layout="horizontal"] {
+    flex-direction: column;
+  }
+
+  .kroma-card[data-layout="horizontal"] .kroma-card-media {
+    width: 100%;
+    height: auto;
+  }
+
+  .kroma-card[data-layout="horizontal"] .kroma-card-footer {
+    margin-top: var(--space-2); /* Restore proper spacing for smaller screens */
   }
 }
