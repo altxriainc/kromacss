@@ -1,6 +1,8 @@
 /* Base Breadcrumbs Styles */
 .kroma-breadcrumbs {
   display: flex;
+  margin: auto;
+  padding: var(--space-4);
   align-items: center;
   flex-wrap: wrap;
   font-family: var(--font-sans);
