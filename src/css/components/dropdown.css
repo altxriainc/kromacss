@@ -1,168 +1,128 @@
-/* Base Styles */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    font-family: var(--font-sans);
+/* Base Dropdown Styles */
+.kroma-dropdown {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  font-family: var(--font-sans);
+}
+
+/* Dropdown Trigger Wrapper */
+.kroma-dropdown-trigger {
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dropdown Menu */
+.kroma-dropdown-menu {
+  position: absolute;
+  top: calc(100% + var(--space-1)); /* Reduced spacing for closer alignment */
+  left: 0;
+  min-width: 150px;
+  background-color: var(--variant-bg, var(--neutral-50));
+  color: var(--variant-text, var(--neutral-900));
+  box-shadow: var(--variant-shadow, var(--shadow-lg));
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) 0;
+  opacity: 0;
+  transform: translateY(-5px); /* Slight offset for a subtle animation effect */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  visibility: hidden;
+  z-index: var(--z-30);
+  overflow: hidden;
+}
+
+/* Active State for Dropdown */
+.kroma-dropdown.kroma-open .kroma-dropdown-menu {
+  opacity: 1;
+  transform: translateY(0); /* Reset translation when active */
+  visibility: visible;
+}
+
+/* Dropdown Items */
+.kroma-dropdown-item {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-sm);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--variant-text, var(--neutral-900));
+}
+
+.kroma-dropdown-item:hover,
+.kroma-dropdown-item:focus {
+  background-color: var(--variant-hover-bg, var(--neutral-200));
+  color: var(--variant-hover, var(--primary));
+}
+
+/* Position Variants */
+.kroma-dropdown[data-position="top"] .kroma-dropdown-menu {
+  top: auto;
+  bottom: calc(100% + var(--space-1)); /* Reduced spacing for top positioning */
+  transform: translateY(5px); /* Subtle animation effect */
+}
+
+.kroma-dropdown[data-position="right"] .kroma-dropdown-menu {
+  top: 0;
+  left: calc(100% + var(--space-1)); /* Reduced spacing for right positioning */
+  transform: translateX(-5px); /* Subtle animation effect */
+}
+
+.kroma-dropdown[data-position="left"] .kroma-dropdown-menu {
+  top: 0;
+  right: calc(100% + var(--space-1)); /* Reduced spacing for left positioning */
+  transform: translateX(5px); /* Subtle animation effect */
+}
+
+/* Variants Handling */
+.kroma-dropdown[data-variant="dark"] {
+  --variant-bg: var(--neutral-900);
+  --variant-text: var(--neutral-50);
+  --variant-hover-bg: var(--neutral-700);
+  --variant-hover: var(--neutral-50);
+  --variant-shadow: var(--shadow-lg);
+}
+
+/* Mega Menu */
+.kroma-dropdown[data-type="mega-menu"] .kroma-dropdown-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: var(--space-4);
+  gap: var(--space-4);
+  max-width: 40rem;
+}
+
+/* Mega Menu Items */
+.kroma-mega-menu-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kroma-mega-menu-title {
+  font-weight: bold;
+  font-size: var(--font-md);
+  padding: var(--space-1) 0;
+  color: var(--variant-text, var(--neutral-700));
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .kroma-dropdown-menu {
     width: 100%;
-  }
-  
-  /* Dropdown Trigger */
-  .dropdown-trigger {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: clamp(0.5rem, 1vw, 0.75rem);
-    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    font-weight: 500;
-    background-color: var(--trigger-bg, var(--primary-bg));
-    color: var(--trigger-color, #fff);
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: background-color var(--transition-all), transform 0.3s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    outline: none;
-  }
-  
-  .dropdown-trigger:focus {
-    box-shadow: 0 0 0 3px var(--trigger-focus-shadow, var(--primary-light));
-  }
-  
-  /* Dropdown Menu */
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
     left: 0;
-    min-width: 100%;
-    max-width: clamp(10rem, 100vw - 2rem, 20rem);
-    background-color: var(--menu-bg, var(--neutral-50));
-    color: var(--menu-color, var(--neutral-900));
-    box-shadow: var(--shadow-lg);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2) 0;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    visibility: hidden;
-    z-index: var(--z-30);
-    overflow: hidden;
+    min-width: auto;
   }
-  
-  /* Show Menu on Hover or Focus */
-  .dropdown:focus-within .dropdown-menu,
-  .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
+
+  .kroma-dropdown-item {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-sm);
   }
-  
-  /* Dropdown Item */
-  .dropdown-item {
-    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
-    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: background-color var(--transition-all), color var(--transition-colors);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+  .kroma-dropdown[data-type="mega-menu"] .kroma-dropdown-menu {
+    grid-template-columns: 1fr;
   }
-  
-  .dropdown-item:focus {
-    background-color: var(--item-focus-bg, var(--neutral-200));
-    outline: none;
-    box-shadow: 0 0 0 3px var(--focus-shadow, var(--primary-light));
-  }
-  
-  .dropdown-item:hover {
-    background-color: var(--item-hover-bg, var(--neutral-200));
-    color: var(--item-hover-color, var(--primary));
-  }
-  
-  /* Mega Menu Styles */
-  .dropdown[data-type="mega-menu"] .dropdown-menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    padding: var(--space-4);
-    gap: var(--space-4);
-    max-width: clamp(20rem, 80vw, 40rem);
-  }
-  
-  .mega-menu-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-  
-  .mega-menu-title {
-    font-weight: bold;
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-    color: var(--neutral-700);
-    padding: var(--space-1) 0;
-    border-bottom: 1px solid var(--neutral-300);
-  }
-  
-  .mega-menu-item {
-    display: flex;
-    align-items: center;
-    padding: var(--space-2) 0;
-    padding-left: 0.5rem;
-    color: var(--neutral-800);
-    transition: background-color var(--transition-colors);
-  }
-  
-  .mega-menu-item:hover {
-    background-color: var(--item-hover-bg, var(--neutral-200));
-    cursor: pointer;
-  }
-  
-  .mega-menu-item-icon {
-    margin-right: var(--space-2);
-    font-size: 1.25rem;
-    color: var(--neutral-500);
-  }
-  
-  /* Variant Handling */
-  .dropdown[data-variant] {
-    --trigger-bg: var(--variant-dark-bg);
-    --trigger-color: var(--variant-text);
-    --menu-bg: var(--variant-bg);
-    --menu-color: var(--variant-text);
-    --item-hover-bg: var(--variant-dark-bg);
-    --item-hover-color: var(--variant-text);
-  }
-  
-  /* Responsive Positioning */
-  .dropdown[data-position="top"] .dropdown-menu {
-    top: auto;
-    bottom: 100%;
-    transform: translateY(10px);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 600px) {
-    .dropdown-menu {
-      width: 100%;
-      left: 0;
-      min-width: auto;
-      padding: 0;
-    }
-  
-    .dropdown-item {
-      padding: 0.75rem 1rem;
-      font-size: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
-    }
-  
-    .dropdown-trigger {
-      padding: clamp(0.5rem, 1vw, 0.75rem);
-    }
-  
-    /* Mega Menu Mobile Adjustments */
-    .dropdown[data-type="mega-menu"] .dropdown-menu {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}

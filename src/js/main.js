@@ -15,6 +15,7 @@ import { initializeFileUploadComponents } from './components/file-upload.js';
 import {  } from './components/command-palette.js';
 import {  } from './components/codeblock.js';
 import { KromaSidebar } from './components/sidebar.js';
+import {} from './components/dropdown.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize rating components

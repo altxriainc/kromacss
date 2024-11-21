@@ -366,119 +366,33 @@
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Dropdown Component Showcase</h2>
     
-    <!-- Primary Dropdown -->
-    <div class="dropdown" data-variant="primary">
-        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Primary Dropdown
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option 1</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option 2</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option 3</div>
+    <!-- Example Dropdown over Kroma Avatar -->
+    <div class="kroma-dropdown" data-variant="primary" data-position="bottom">
+      <div class="kroma-dropdown-trigger">
+        <div class="kroma-avatar">
+          <img src="https://via.placeholder.com/40" alt="Avatar">
         </div>
+      </div>
+      <div class="kroma-dropdown-menu">
+        <div class="kroma-dropdown-item">Profile</div>
+        <div class="kroma-dropdown-item">Settings</div>
+        <div class="kroma-dropdown-item">Logout</div>
+      </div>
     </div>
+    
+    <!-- Example Dropdown over Button -->
+    <div class="kroma-dropdown" data-variant="primary" data-on-hover="true">
+      <div class="kroma-dropdown-trigger">
+        <button class="kroma-btn" data-variant="primary">Menu</button>
+      </div>
+      <div class="kroma-dropdown-menu">
+        <div class="kroma-dropdown-item">Option 1</div>
+        <div class="kroma-dropdown-item">Option 2</div>
+        <div class="kroma-dropdown-item">Option 3</div>
+      </div>
+    </div>
+    
 
-    <!-- Warning Dropdown -->
-    <div class="dropdown" data-variant="warning">
-        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Warning Dropdown
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option A</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option B</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option C</div>
-        </div>
-    </div>
-
-    <!-- Info Dropdown -->
-    <div class="dropdown" data-variant="info">
-        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Info Dropdown
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option X</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option Y</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Option Z</div>
-        </div>
-    </div>
-
-    <!-- Success Dropdown -->
-    <div class="dropdown" data-variant="success">
-        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Success Dropdown
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <div class="dropdown-item" tabindex="0" role="menuitem">Success 1</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Success 2</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Success 3</div>
-        </div>
-    </div>
-
-    <!-- Danger Dropdown -->
-    <div class="dropdown" data-variant="danger">
-        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Danger Dropdown
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <div class="dropdown-item" tabindex="0" role="menuitem">Alert 1</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Alert 2</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Alert 3</div>
-        </div>
-    </div>
-
-    <!-- Accent Dropdown -->
-    <div class="dropdown" data-variant="accent">
-        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Accent Dropdown
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <div class="dropdown-item" tabindex="0" role="menuitem">Special 1</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Special 2</div>
-            <div class="dropdown-item" tabindex="0" role="menuitem">Special 3</div>
-        </div>
-    </div>
-
-    <!-- Mega Menu Dropdown -->
-    <div class="dropdown" data-variant="primary" data-type="mega-menu">
-        <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Mega Menu Dropdown
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <div class="mega-menu-group">
-                <h3 class="mega-menu-title">Category 1</h3>
-                <div class="mega-menu-item" tabindex="0" role="menuitem">
-                    <span class="mega-menu-item-icon">📁</span>
-                    Item 1
-                </div>
-                <div class="mega-menu-item" tabindex="0" role="menuitem">
-                    <span class="mega-menu-item-icon">📁</span>
-                    Item 2
-                </div>
-            </div>
-            <div class="mega-menu-group">
-                <h3 class="mega-menu-title">Category 2</h3>
-                <div class="mega-menu-item" tabindex="0" role="menuitem">
-                    <span class="mega-menu-item-icon">📊</span>
-                    Item A
-                </div>
-                <div class="mega-menu-item" tabindex="0" role="menuitem">
-                    <span class="mega-menu-item-icon">📊</span>
-                    Item B
-                </div>
-            </div>
-            <div class="mega-menu-group">
-                <h3 class="mega-menu-title">Category 3</h3>
-                <div class="mega-menu-item" tabindex="0" role="menuitem">
-                    <span class="mega-menu-item-icon">🔗</span>
-                    Link 1
-                </div>
-                <div class="mega-menu-item" tabindex="0" role="menuitem">
-                    <span class="mega-menu-item-icon">🔗</span>
-                    Link 2
-                </div>
-            </div>
-        </div>
-    </div>
   </section>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
