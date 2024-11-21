@@ -1,5 +1,5 @@
 /* Base Avatar Styles */
-.avatar {
+.kroma-avatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11,120 +11,132 @@
   position: relative;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
   box-shadow: var(--shadow-sm);
+  isolation: isolate; /* Prevent nested contexts from affecting styles */
 }
 
 /* Avatar Sizes */
-.avatar[data-size="sm"] {
+.kroma-avatar[data-size="sm"] {
   width: clamp(2rem, 2vw, 3rem);
   height: clamp(2rem, 2vw, 3rem);
   font-size: clamp(0.75rem, 1vw + 0.25rem, 1rem);
 }
 
-.avatar[data-size="md"] {
+.kroma-avatar[data-size="md"] {
   width: clamp(3rem, 3vw, 4rem);
   height: clamp(3rem, 3vw, 4rem);
   font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
 }
 
-.avatar[data-size="lg"] {
+.kroma-avatar[data-size="lg"] {
   width: clamp(4rem, 4vw, 5rem);
   height: clamp(4rem, 4vw, 5rem);
   font-size: clamp(1.25rem, 1vw + 0.75rem, 1.5rem);
 }
 
-.avatar[data-size="xl"] {
+.kroma-avatar[data-size="xl"] {
   width: clamp(5rem, 5vw, 6rem);
   height: clamp(5rem, 5vw, 6rem);
   font-size: clamp(1.5rem, 1vw + 1rem, 1.75rem);
 }
 
 /* Avatar Shapes */
-.avatar[data-shape="rounded"] {
+.kroma-avatar[data-shape="rounded"] {
   border-radius: var(--radius-lg);
 }
-.avatar[data-shape="square"] {
+
+.kroma-avatar[data-shape="square"] {
   border-radius: 0;
 }
 
 /* Avatar Variants */
-.avatar[data-variant] {
+.kroma-avatar[data-variant] {
   background-color: var(--variant-bg);
   color: var(--variant-text);
 }
 
 /* Ghost Variant */
-.avatar[data-variant="ghost"] {
+.kroma-avatar[data-variant="ghost"] {
   background-color: transparent;
   border: 1.5px dashed var(--variant-border, var(--neutral-400));
   color: var(--neutral-500);
   box-shadow: none;
 }
-.avatar[data-variant="ghost"] .avatar-status {
+
+.kroma-avatar[data-variant="ghost"] .avatar-status {
   background-color: transparent;
   border: 2px dashed var(--neutral-400);
 }
 
 /* Avatar with Image */
-.avatar img {
+.kroma-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
-.avatar img:hover {
+
+.kroma-avatar img:hover {
   transform: scale(1.1);
 } /* Zoom effect on hover */
 
 /* Initials Avatar */
-.avatar-initials {
+.kroma-avatar-initials {
   font-size: inherit;
+  font-weight: 700; /* Bold initials for better visibility */
+  line-height: 1; /* Prevent misalignment */
+  text-transform: uppercase; /* Uniform appearance for initials */
 }
 
 /* Status Indicators */
-.avatar-status {
+.kroma-avatar-status {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid var(--status-border-color, #fff); /* Customizable border color */
   background-color: var(--status-color, var(--success-bg));
   box-shadow: var(--shadow-sm);
 }
 
 /* Status Colors */
-.avatar[data-status="online"] .avatar-status {
+.kroma-avatar[data-status="online"] .kroma-avatar-status {
   --status-color: var(--success-bg);
 }
-.avatar[data-status="offline"] .avatar-status {
+
+.kroma-avatar[data-status="offline"] .kroma-avatar-status {
   --status-color: var(--neutral-400);
 }
-.avatar[data-status="busy"] .avatar-status {
+
+.kroma-avatar[data-status="busy"] .kroma-avatar-status {
   --status-color: var(--danger-bg);
 }
-.avatar[data-status="away"] .avatar-status {
+
+.kroma-avatar[data-status="away"] .kroma-avatar-status {
   --status-color: var(--warning-bg);
 }
 
 /* Avatar Group */
-.avatar-group {
+.kroma-avatar-group {
   display: flex;
   align-items: center;
 }
-.avatar-group .avatar:not(:first-child) {
-  margin-left: -0.5rem;
-  border: 2px solid #fff;
-  box-shadow: var(--shadow-sm); /* Slight shadow for overlap */
+
+.kroma-avatar-group .kroma-avatar:not(:first-child) {
+  margin-left: -0.5rem; /* Overlap effect */
+  border: 2px solid var(--group-border-color, #fff); /* Customizable overlap border */
+  box-shadow: var(--shadow-sm); /* Slight shadow for depth */
 }
 
-/* Pulsing Avatar */
-.avatar[data-effect="pulsing"] {
+/* Pulsing Avatar Effect */
+.kroma-avatar[data-effect="pulsing"] {
   position: relative;
   z-index: 1;
 }
-.avatar[data-effect="pulsing"]::after {
+
+.kroma-avatar[data-effect="pulsing"]::after {
   content: "";
   position: absolute;
   top: 0;
@@ -136,6 +148,7 @@
   animation: avatarPulse 3s ease-in-out infinite;
   z-index: -1;
 }
+
 @keyframes avatarPulse {
   0% {
     transform: scale(1);
@@ -148,13 +161,14 @@
 }
 
 /* Disabled Avatar */
-.avatar[data-disabled="true"] {
+.kroma-avatar[data-disabled="true"] {
   opacity: 0.5;
   cursor: not-allowed;
+  pointer-events: none; /* Prevent interaction */
 }
 
 /* Bordered Avatar */
-.avatar-bordered {
+.kroma-avatar-bordered {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -164,6 +178,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-xs);
 }
-.avatar[data-variant].avatar-bordered {
+
+.kroma-avatar[data-variant].kroma-avatar-bordered {
   border-color: var(--variant-border);
 }
