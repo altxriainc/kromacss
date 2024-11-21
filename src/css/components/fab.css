@@ -1,5 +1,5 @@
 /* Base Floating Action Button (FAB) Styling */
-.fab {
+.kroma-fab {
   position: fixed;
   bottom: var(--space-8, 2rem);
   right: var(--space-8, 2rem);
@@ -24,7 +24,7 @@
 }
 
 /* Ensure Icon Stays Centered Inside FAB */
-.fab > * {
+.kroma-fab > * {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,43 +35,43 @@
 }
 
 /* FAB Hover and Active States */
-.fab:hover {
+.kroma-fab:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md, 0 6px 10px rgba(0, 0, 0, 0.15));
   background-color: var(--variant-hover-bg, var(--primary-hover));
 }
 
-.fab:active {
+.kroma-fab:active {
   transform: translateY(1px);
   box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 /* Shape Variants */
-.fab[data-shape="circular"] {
+.kroma-fab[data-shape="circular"] {
   border-radius: var(--radius-full, 50%);
   padding: 0; /* Ensure circular shape is preserved */
 }
 
-.fab[data-shape="square"] {
+.kroma-fab[data-shape="square"] {
   border-radius: 0;
 }
 
-.fab[data-shape="rectangular"] {
+.kroma-fab[data-shape="rectangular"] {
   border-radius: var(--radius-md, 0.375rem);
   padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .fab {
-      width: clamp(2.5rem, 8vw, 3rem);
-      height: clamp(2.5rem, 8vw, 3rem);
-      bottom: var(--space-4, 1rem);
-      right: var(--space-4, 1rem);
-      font-size: 1.25rem;
+  .kroma-fab {
+    width: clamp(2.5rem, 8vw, 3rem);
+    height: clamp(2.5rem, 8vw, 3rem);
+    bottom: var(--space-4, 1rem);
+    right: var(--space-4, 1rem);
+    font-size: 1.25rem;
   }
 
-  .fab > * {
-      font-size: 1.25rem;
+  .kroma-fab > * {
+    font-size: 1.25rem;
   }
 }
