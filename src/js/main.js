@@ -9,7 +9,7 @@ import { MultiSelect } from './components/multiselect.js';
 import { DateTimePicker } from './components/datetime-picker.js';
 import { KromaSlideshow } from './components/slideshow.js';
 import { initializeRatingComponents } from './components/rating.js';
-import { initializeCalendarComponents } from './components/calendar.js';
+import { } from './components/calendar.js';
 import { KromaNavbar } from './components/navbar.js';
 import { initializeFileUploadComponents } from './components/file-upload.js';
 import { initializeCommandPalette } from './components/command-palette.js';
@@ -19,9 +19,6 @@ import { KromaSidebar } from './components/sidebar.js';
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize rating components
   initializeRatingComponents();
-
-  // Initialize calendar components
-  initializeCalendarComponents();
 
   // Initialize file upload components
   initializeFileUploadComponents();
@@ -43,5 +40,4 @@ window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 window.DateTimePicker = DateTimePicker;
 window.initializeRatingComponents = initializeRatingComponents;
-window.initializeCalendarComponents = initializeCalendarComponents;
 

@@ -1,28 +1,25 @@
 export function initializeCalendarComponents() {
-    document.querySelectorAll('.calendar').forEach(initCalendar);
+    document.querySelectorAll('.kroma-calendar').forEach(initCalendar);
 }
 
 function initCalendar(calendarElement) {
-    const monthYearDisplay = calendarElement.querySelector('.calendar-month-year');
-    const prevButton = calendarElement.querySelector('.calendar-nav.prev');
-    const nextButton = calendarElement.querySelector('.calendar-nav.next');
-    const weekdaysContainer = calendarElement.querySelector('.calendar-weekdays');
-    const datesContainer = calendarElement.querySelector('.calendar-dates');
+    ensureCalendarStructure(calendarElement);
+
+    const monthYearDisplay = calendarElement.querySelector('.kroma-calendar-month-year');
+    const prevButton = calendarElement.querySelector('.kroma-calendar-nav.prev');
+    const nextButton = calendarElement.querySelector('.kroma-calendar-nav.next');
+    const weekdaysContainer = calendarElement.querySelector('.kroma-calendar-weekdays');
+    const datesContainer = calendarElement.querySelector('.kroma-calendar-dates');
     
     // Load events from data attribute if present
     const eventsData = calendarElement.getAttribute('data-events');
     const events = eventsData ? JSON.parse(eventsData) : {};
 
-    // Create selectors once
     const monthSelector = document.createElement('select');
     const yearSelector = document.createElement('select');
 
-    if (weekdaysContainer.childElementCount === 0) {
-        addWeekdays(weekdaysContainer);
-    }
-    if (!calendarElement.querySelector('.calendar-selectors')) {
-        calendarElement.querySelector('.calendar-header').appendChild(createMonthYearSelectors());
-    }
+    addWeekdays(weekdaysContainer);
+    addMonthYearSelectors(calendarElement, monthSelector, yearSelector);
 
     let currentDate = new Date();
     renderCalendar();
@@ -63,10 +60,12 @@ function initCalendar(calendarElement) {
         const firstDayOfMonth = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
+        // Add empty divs for offset
         for (let i = 0; i < firstDayOfMonth; i++) {
             datesContainer.appendChild(document.createElement('div'));
         }
 
+        // Add days of the month
         for (let day = 1; day <= daysInMonth; day++) {
             const dateButton = document.createElement('button');
             dateButton.textContent = day;
@@ -97,39 +96,86 @@ function initCalendar(calendarElement) {
             datesContainer.appendChild(dateButton);
         }
     }
+}
 
-    function createMonthYearSelectors() {
-        const currentYear = new Date().getFullYear();
+function ensureCalendarStructure(calendarElement) {
+    // Check and render missing calendar structure
+    if (!calendarElement.querySelector('.kroma-calendar-header')) {
+        const header = document.createElement('div');
+        header.className = 'kroma-calendar-header';
 
-        for (let m = 0; m < 12; m++) {
-            const option = document.createElement('option');
-            option.value = m;
-            option.textContent = new Date(0, m).toLocaleString('default', { month: 'long' });
-            monthSelector.appendChild(option);
-        }
-        
-        for (let y = currentYear - 10; y <= currentYear + 10; y++) {
-            const option = document.createElement('option');
-            option.value = y;
-            option.textContent = y;
-            yearSelector.appendChild(option);
-        }
+        const prevButton = document.createElement('button');
+        prevButton.className = 'kroma-calendar-nav prev';
+        prevButton.setAttribute('aria-label', 'Previous Month');
+        prevButton.textContent = '‹';
 
-        const selectorContainer = document.createElement('div');
-        selectorContainer.className = 'calendar-selectors';
-        selectorContainer.appendChild(monthSelector);
-        selectorContainer.appendChild(yearSelector);
-        return selectorContainer;
+        const nextButton = document.createElement('button');
+        nextButton.className = 'kroma-calendar-nav next';
+        nextButton.setAttribute('aria-label', 'Next Month');
+        nextButton.textContent = '›';
+
+        const monthYearDisplay = document.createElement('div');
+        monthYearDisplay.className = 'kroma-calendar-month-year';
+
+        header.appendChild(prevButton);
+        header.appendChild(monthYearDisplay);
+        header.appendChild(nextButton);
+
+        calendarElement.appendChild(header);
     }
 
-    function addWeekdays(container) {
-        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        weekdays.forEach(day => {
-            const weekdayElement = document.createElement('div');
-            weekdayElement.textContent = day;
-            container.appendChild(weekdayElement);
-        });
+    if (!calendarElement.querySelector('.kroma-calendar-body')) {
+        const body = document.createElement('div');
+        body.className = 'kroma-calendar-body';
+
+        const weekdays = document.createElement('div');
+        weekdays.className = 'kroma-calendar-weekdays';
+
+        const dates = document.createElement('div');
+        dates.className = 'kroma-calendar-dates';
+
+        body.appendChild(weekdays);
+        body.appendChild(dates);
+
+        calendarElement.appendChild(body);
     }
+}
+
+function addWeekdays(container) {
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    container.innerHTML = ''; // Clear weekdays if already present
+    weekdays.forEach(day => {
+        const weekdayElement = document.createElement('div');
+        weekdayElement.textContent = day;
+        container.appendChild(weekdayElement);
+    });
+}
+
+function addMonthYearSelectors(calendarElement, monthSelector, yearSelector) {
+    if (calendarElement.querySelector('.kroma-calendar-selectors')) return;
+
+    const currentYear = new Date().getFullYear();
+
+    for (let m = 0; m < 12; m++) {
+        const option = document.createElement('option');
+        option.value = m;
+        option.textContent = new Date(0, m).toLocaleString('default', { month: 'long' });
+        monthSelector.appendChild(option);
+    }
+
+    for (let y = currentYear - 10; y <= currentYear + 10; y++) {
+        const option = document.createElement('option');
+        option.value = y;
+        option.textContent = y;
+        yearSelector.appendChild(option);
+    }
+
+    const selectorContainer = document.createElement('div');
+    selectorContainer.className = 'kroma-calendar-selectors';
+    selectorContainer.appendChild(monthSelector);
+    selectorContainer.appendChild(yearSelector);
+
+    calendarElement.querySelector('.kroma-calendar-header').appendChild(selectorContainer);
 }
 
 // Automatically initialize on DOMContentLoaded
