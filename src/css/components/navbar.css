@@ -2,12 +2,12 @@
     --nav-size-base: calc(clamp(50px,5vw,70px));
 }
 
-.nav-logo img {
+.kroma-navbar .nav-logo img {
     width: auto;
     height: 100%;
 }
 
-.nav-logo {
+.kroma-navbar .nav-logo {
     height: calc(var(--nav-size-base) / 1.5 );
     width: min-content;
     display: flex;
@@ -17,7 +17,7 @@
     gap: calc(var(--nav-size-base) / 6);
 }
 
-nav.kromaNav {
+nav.kroma-navbar {
     width: 100%;
     height: var(--nav-size-base);
     position: sticky;
@@ -36,7 +36,7 @@ nav.kromaNav {
     padding: calc(var(--nav-size-base) / 6);
 }
 
-nav.kromaNav:before {
+nav.kroma-navbar:before {
     content: "";
     display: block;
     position: absolute;
@@ -51,7 +51,7 @@ nav.kromaNav:before {
     border-bottom: 1px solid var(--neutral-300);
 }
 
-.nav-toggle {
+.kroma-navbar .nav-toggle {
     width: calc(var(--nav-size-base) / 1.4);
     height: calc(var(--nav-size-base) / 1.5);
     gap: 10%;
@@ -63,7 +63,7 @@ nav.kromaNav:before {
     cursor: pointer;
 }
 
-span.nav-line {
+.kroma-navbar span.nav-line {
     display: block;
     width: 100%;
     height: 25%;
@@ -74,28 +74,28 @@ span.nav-line {
     top: 0;
 }
 
-.nav-toggle.show {
+.kroma-navbar .nav-toggle.show {
     gap: 0;
 }
 
-.nav-toggle.show #nav-line-3 {
+.kroma-navbar .nav-toggle.show #nav-line-3 {
     opacity: 0;
     /* top: 20px; */
     height: 0;
 }
 
-.nav-toggle.show #nav-line-1 {
+.kroma-navbar .nav-toggle.show #nav-line-1 {
     transform: translate(0px, 50%) rotate(45deg);
     transform-origin: center;
 }
 
-.nav-toggle.show #nav-line-2 {
+.kroma-navbar .nav-toggle.show #nav-line-2 {
     /* background: var(--neutral-700); */
     transform: translate(0px, -50%) rotate(-45deg);
     transform-origin: center;
 }
 
-.nav-menu {
+.kroma-navbar .nav-menu {
     display: flex;
     position: absolute;
     top: 100%;
@@ -113,7 +113,7 @@ span.nav-line {
     transition: opacity 100ms, max-height 2s 0ms;
 }
 
-.nav-menu ul li a {
+.kroma-navbar .nav-menu ul li a {
     text-decoration: none;
     list-style: none;
     padding: calc(var(--nav-size-base) / 6) calc(var(--nav-size-base) / 1.5);
@@ -121,27 +121,27 @@ span.nav-line {
 }
 
 
-.nav-menu ul {
+.kroma-navbar .nav-menu ul {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.nav-toggle.show ~ .nav-menu {
+.kroma-navbar .nav-toggle.show ~ .nav-menu {
     max-height: 1000px;
     opacity: 1;
     transition: max-height 0s 0ms, opacity 100ms;
 }
 
-.nav-menu ul li:first-child a {
+.kroma-navbar .nav-menu ul li:first-child a {
     padding-top: calc(var(--nav-size-base) / 3);
 }
 
-.nav-menu ul li:last-child a {
+.kroma-navbar .nav-menu ul li:last-child a {
     padding-bottom: calc(var(--nav-size-base) / 3);
 }
 
-.nav-menu ul li a.nav-current,.nav-menu ul li:hover a {
+.kroma-navbar .nav-menu ul li a.nav-current,.nav-menu ul li:hover a {
     background: var(--neutral-100);
 }
