@@ -1,18 +1,19 @@
 /* General Toggle Styling */
-.toggle {
+.kroma-toggle {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-}
-
-/* Label */
-.toggle-label {
+  }
+  
+  /* Label */
+  .kroma-toggle-label {
     font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
     color: var(--neutral-700);
-}
-
-/* Base Checkbox Styling */
-.toggle input[type="checkbox"] {
+    cursor: pointer;
+  }
+  
+  /* Base Checkbox Styling */
+  .kroma-toggle input[type="checkbox"] {
     position: relative;
     width: clamp(var(--space-10), 5vw, var(--space-16));
     height: clamp(var(--space-5), 3vw, var(--space-8));
@@ -24,10 +25,34 @@
     cursor: pointer;
     transition: background-color var(--transition-colors), box-shadow var(--transition-all);
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-/* Toggle Knob */
-.toggle input[type="checkbox"]::before {
+    overflow: hidden;
+    display: inline-flex;
+  }
+  
+  /* Ripple Effect for Toggle */
+  .kroma-toggle input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+  }
+  
+  /* Ripple Animation on Interaction */
+  .kroma-toggle input[type="checkbox"]:checked::after {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+  
+  /* Toggle Knob */
+  .kroma-toggle input[type="checkbox"]::before {
     content: "";
     width: clamp(var(--space-5), 2vw, var(--space-8));
     height: clamp(var(--space-5), 2vw, var(--space-8));
@@ -37,67 +62,77 @@
     top: 50%;
     left: var(--space-1);
     transform: translateY(-50%);
-    transition: transform var(--transition-transform), background-color var(--transition-colors), box-shadow var(--transition-all);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     z-index: 1;
-}
-
-/* Checked State */
-.toggle input[type="checkbox"]:checked {
+  }
+  
+  /* Checked State */
+  .kroma-toggle input[type="checkbox"]:checked {
     background-color: var(--variant-light-bg);
     box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
-}
-
-.toggle input[type="checkbox"]:checked::before {
+  }
+  
+  .kroma-toggle input[type="checkbox"]:checked::before {
     transform: translate(calc(100% - var(--space-1)), -50%);
     background-color: var(--variant-bg);
-}
-
-/* Disabled State */
-.toggle input[type="checkbox"]:disabled {
+  }
+  
+  /* Disabled State */
+  .kroma-toggle input[type="checkbox"]:disabled {
     background-color: var(--neutral-200);
     cursor: not-allowed;
     opacity: 0.6;
-}
-.toggle input[type="checkbox"]:disabled::before {
+  }
+  .kroma-toggle input[type="checkbox"]:disabled::before {
     background-color: var(--neutral-400);
-}
-.toggle input[type="checkbox"]:disabled:checked {
+  }
+  .kroma-toggle input[type="checkbox"]:disabled:checked {
     background-color: var(--neutral-300);
-}
-.toggle input[type="checkbox"]:disabled:checked::before {
+  }
+  .kroma-toggle input[type="checkbox"]:disabled:checked::before {
     background-color: var(--neutral-400);
-}
-
-/* Readonly State */
-[data-state="readonly"] input[type="checkbox"] {
+  }
+  
+  /* Readonly State */
+  [data-state="readonly"] input[type="checkbox"] {
     pointer-events: none;
     cursor: not-allowed;
     background-color: var(--neutral-200);
-}
-[data-state="readonly"] input[type="checkbox"]::before {
+  }
+  [data-state="readonly"] input[type="checkbox"]::before {
     background-color: var(--neutral-400);
-}
-[data-state="readonly"] input[type="checkbox"]:checked {
+  }
+  [data-state="readonly"] input[type="checkbox"]:checked {
     background-color: var(--neutral-300);
-}
-[data-state="readonly"] input[type="checkbox"]:checked::before {
+  }
+  [data-state="readonly"] input[type="checkbox"]:checked::before {
     background-color: var(--neutral-400);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .toggle {
-        gap: var(--space-1);
+  }
+  
+  /* Hover and Active States */
+  .kroma-toggle input[type="checkbox"]:hover {
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
+  }
+  .kroma-toggle input[type="checkbox"]:active::before {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95) translate(calc(100% - var(--space-1)), -50%);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .kroma-toggle {
+      gap: var(--space-1);
     }
-
-    .toggle input[type="checkbox"] {
-        width: clamp(var(--space-8), 4vw, var(--space-12));
-        height: clamp(var(--space-4), 2vw, var(--space-6));
+  
+    .kroma-toggle input[type="checkbox"] {
+      width: clamp(var(--space-8), 4vw, var(--space-12));
+      height: clamp(var(--space-4), 2vw, var(--space-6));
     }
-
-    .toggle input[type="checkbox"]::before {
-        width: clamp(var(--space-4), 1.5vw, var(--space-5));
-        height: clamp(var(--space-4), 1.5vw, var(--space-5));
+  
+    .kroma-toggle input[type="checkbox"]::before {
+      width: clamp(var(--space-4), 1.5vw, var(--space-5));
+      height: clamp(var(--space-4), 1.5vw, var(--space-5));
     }
-}
+  }
+  
