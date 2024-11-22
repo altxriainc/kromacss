@@ -975,37 +975,62 @@
     </div>
   </section>  
 
-  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Stat Box Component Demo</h2>
-    <div class="stat-box" data-variant="primary" data-layout="vertical" data-shadow="lg" tabindex="0" aria-label="Monthly Sales">
-      <div class="icon">💵</div>
-      <div class="title">Monthly Sales</div>
-      <div class="value">$35,000</div>
-      <div class="change" data-change="positive">+12%</div>
+  <section class="p-6 bg-neutral-50 shadow-md rounded-xl my-8">
+    <h2 class="font-xl text-primary mb-6 text-center">Stat Box Component Showcase</h2>
+    <div class="grid grid-loose">
+      <!-- Primary Variant -->
+      <div class="kroma-stat-box" data-variant="primary" data-layout="vertical" data-shadow="lg" tabindex="0" aria-label="Monthly Sales">
+        <div class="kroma-icon">💵</div>
+        <div class="kroma-title">Monthly Sales</div>
+        <div class="kroma-value">$35,000</div>
+        <div class="kroma-change" data-change="positive">+12%</div>
+      </div>
+  
+      <!-- Success Variant -->
+      <div class="kroma-stat-box" data-variant="success" data-layout="horizontal" data-shadow="sm" tabindex="0" aria-label="Active Users">
+        <div class="kroma-icon">👥</div>
+        <div>
+          <div class="kroma-title">Active Users</div>
+          <div class="kroma-value">5,720</div>
+          <div class="kroma-change" data-change="positive">+5%</div>
+        </div>
+      </div>
+  
+      <!-- Danger Variant -->
+      <div class="kroma-stat-box" data-variant="danger" data-layout="expanded" data-radius="full" tabindex="0" aria-label="Churn Rate">
+        <div class="kroma-icon">⚠️</div>
+        <div class="kroma-title">Churn Rate</div>
+        <div class="kroma-value">8%</div>
+        <div class="kroma-change" data-change="negative">-2%</div>
+      </div>
+  
+      <!-- Warning Variant -->
+      <div class="kroma-stat-box" data-variant="warning" data-layout="compact" tabindex="0" aria-label="Pending Tickets">
+        <div class="kroma-icon">📩</div>
+        <div class="kroma-title">Pending Tickets</div>
+        <div class="kroma-value">27</div>
+        <div class="kroma-change" data-change="neutral">+0%</div>
+      </div>
+  
+      <!-- Info Variant -->
+      <div class="kroma-stat-box" data-variant="info" data-layout="horizontal" data-shadow="lg" tabindex="0" aria-label="New Subscriptions">
+        <div class="kroma-icon">📈</div>
+        <div>
+          <div class="kroma-title">New Subscriptions</div>
+          <div class="kroma-value">1,025</div>
+          <div class="kroma-change" data-change="positive">+18%</div>
+        </div>
+      </div>
+  
+      <!-- Accent Variant -->
+      <div class="kroma-stat-box" data-variant="accent" data-layout="vertical" data-shadow="none" tabindex="0" aria-label="Server Uptime">
+        <div class="kroma-icon">⏳</div>
+        <div class="kroma-title">Server Uptime</div>
+        <div class="kroma-value">99.99%</div>
+        <div class="kroma-change" data-change="positive">+0.01%</div>
+      </div>
     </div>
-    
-    <div class="stat-box" data-variant="success" data-layout="horizontal" data-shadow="sm" aria-label="Active Users">
-        <div class="icon">👥</div>
-        <div class="title">Active Users</div>
-        <div class="value">5,720</div>
-        <div class="change" data-change="positive">+5%</div>
-    </div>
-    
-    <div class="stat-box" data-variant="danger" data-layout="expanded" data-radius="full" aria-label="Churn Rate">
-        <div class="icon">⚠️</div>
-        <div class="title">Churn Rate</div>
-        <div class="value">8%</div>
-        <div class="change" data-change="negative">-2%</div>
-    </div>
-    
-    <div class="stat-box" data-variant="warning" data-layout="compact" aria-label="Pending Tickets">
-        <div class="icon">📩</div>
-        <div class="title">Pending Tickets</div>
-        <div class="value">27</div>
-        <div class="change" data-change="neutral">+0%</div>
-
-    </div>  
-  </section>
+  </section>  
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Timeline Component Demo</h2>
