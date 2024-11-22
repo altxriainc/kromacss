@@ -7,7 +7,7 @@ export class KromaSidebar {
     requires basic preexisting html structure with desired data, such as:
 
     <!--main sidebar menu-->
-    <div class="kromaSidebar" data-title="The Sidebar">
+    <div class="kroma-sidebar" data-title="The Sidebar">
 
         <!--logo img-->
         <img src="./src/images/star.png">
@@ -34,9 +34,8 @@ export class KromaSidebar {
         this.id = id;
         this.sdb = document.getElementById(id);
         if(!this.sdb){ throw new Error(`element "${id}" not found`); }
-        //if(this.sdb.classList.contains('kromaSidebar')){ throw new Error(`sidebar already set.`); }
-        //this.sdb.classList.add('sidebar');
-        //this.sdb.classList.add('kromaSidebar');
+        if(this.sdb.classList.contains('kroma-sidebar-set')){ throw new Error(`sidebar already set.`); }
+        this.sdb.classList.add('kroma-sidebar-set');
         this.sdb.classList.add('collapsed');
 
         //get logo path/text
@@ -115,7 +114,7 @@ export class KromaSidebar {
         
 
         toggle.classList.add('sdb-toggle');
-        toggle.addEventListener('click',function(){if(this.closest('.kromaSidebar').classList.contains('collapsed')){this.closest('.kromaSidebar').classList.remove('collapsed');}else{this.closest('.kromaSidebar').classList.add('collapsed');}});
+        toggle.addEventListener('click',function(){if(this.closest('.kroma-sidebar').classList.contains('collapsed')){this.closest('.kroma-sidebar').classList.remove('collapsed');}else{this.closest('.kroma-sidebar').classList.add('collapsed');}});
 
         var arrow = document.createElement('i');
         arrow.classList.add('fa-solid');
@@ -147,7 +146,7 @@ export class KromaSidebar {
                 li.dataset.myid = i;
                 li.addEventListener('click',function(){
 
-                    var children = this.closest('.kromaSidebar').querySelectorAll('a[idparent="'+this.dataset.myid+'"]');
+                    var children = this.closest('.kroma-sidebar').querySelectorAll('a[idparent="'+this.dataset.myid+'"]');
                     if(children){
                         children.forEach(function(a){
 
@@ -195,10 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.KromaSidebar = KromaSidebar;
     if(!window.kromaSides){ window.kromaSides = []; }
-    var domSides = document.querySelectorAll('.kromaSidebar');
+    var domSides = document.querySelectorAll('.kroma-sidebar');
     if(domSides && domSides[0]){  
 
-        domSides[0].id = (domSides[0].id ?? '').length > 0 ? domSides[0].id : ( 'KromaSidebar_' + window.kromaSides.length );
+        domSides[0].id = (domSides[0].id ?? '').length > 0 ? domSides[0].id : ( 'kroma-sidebar-' + window.kromaSides.length );
         window.kromaSides[window.kromaSides.length] = new KromaSidebar( domSides[0].id );
         
     }
