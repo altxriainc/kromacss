@@ -1,5 +1,5 @@
 /* Base Hologram Overlay Styles */
-.hologram-overlay {
+.kroma-hologram-overlay {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -13,18 +13,18 @@
 }
 
 /* Hologram Title and Subtitle */
-.hologram-title,
-.hologram-subtitle {
+.kroma-hologram-title,
+.kroma-hologram-subtitle {
   font-family: var(--font-sans);
   text-align: center;
   opacity: 0;
-  animation: hologram-fade 6s ease-in-out forwards;
-  color: var(--variant-text); /* Uses text color directly */
+  animation: kroma-hologram-fade 6s ease-in-out forwards;
+  color: var(--variant-text);
   text-shadow: 0px 0px 10px var(--variant-light-bg), 0px 0px 20px var(--variant-bg);
 }
 
 /* Title Base */
-.hologram-title {
+.kroma-hologram-title {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
   text-transform: uppercase;
@@ -34,80 +34,92 @@
 }
 
 /* Subtitle Base */
-.hologram-subtitle {
+.kroma-hologram-subtitle {
   font-size: clamp(1rem, 2.5vw, 2rem);
   transform: scale(1.1);
-  margin-top: var(--space-2);
+  margin-top: var(--space-8);
   text-shadow: 0px 0px 10px var(--variant-light-bg), 0px 0px 20px var(--variant-bg);
 }
 
 /* Fade Animation */
-@keyframes hologram-fade {
+@keyframes kroma-hologram-fade {
   0% { opacity: 0; transform: scale(1.2); }
   10%, 90% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(0.8); }
 }
 
+/* Body Dim Effect */
+.kroma-body-dim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: var(--z-40);
+  pointer-events: none;
+}
+
 /* Intensity Levels */
-.hologram-overlay[data-intensity="low"] .hologram-title,
-.hologram-overlay[data-intensity="low"] .hologram-subtitle {
+.kroma-hologram-overlay[data-intensity="low"] .kroma-hologram-title,
+.kroma-hologram-overlay[data-intensity="low"] .kroma-hologram-subtitle {
   text-shadow: 0px 0px 5px var(--variant-bg);
 }
 
-.hologram-overlay[data-intensity="medium"] .hologram-title,
-.hologram-overlay[data-intensity="medium"] .hologram-subtitle {
+.kroma-hologram-overlay[data-intensity="medium"] .kroma-hologram-title,
+.kroma-hologram-overlay[data-intensity="medium"] .kroma-hologram-subtitle {
   text-shadow: 0px 0px 10px var(--variant-light-bg);
 }
 
-.hologram-overlay[data-intensity="high"] .hologram-title,
-.hologram-overlay[data-intensity="high"] .hologram-subtitle {
+.kroma-hologram-overlay[data-intensity="high"] .kroma-hologram-title,
+.kroma-hologram-overlay[data-intensity="high"] .kroma-hologram-subtitle {
   text-shadow: 0px 0px 20px var(--variant-dark-bg);
 }
 
 /* Color Variants */
-.hologram-overlay[data-variant="primary"] {
+.kroma-hologram-overlay[data-variant="primary"] {
   --variant-bg: var(--primary-bg);
   --variant-light-bg: var(--primary-light-bg);
   --variant-dark-bg: var(--primary-dark-bg);
   --variant-text: var(--primary-bg);
 }
 
-.hologram-overlay[data-variant="secondary"] {
+.kroma-hologram-overlay[data-variant="secondary"] {
   --variant-bg: var(--secondary-bg);
   --variant-light-bg: var(--secondary-light-bg);
   --variant-dark-bg: var(--secondary-dark-bg);
   --variant-text: var(--secondary-bg);
 }
 
-.hologram-overlay[data-variant="success"] {
+.kroma-hologram-overlay[data-variant="success"] {
   --variant-bg: var(--success-bg);
   --variant-light-bg: var(--success-light-bg);
   --variant-dark-bg: var(--success-dark-bg);
   --variant-text: var(--success-bg);
 }
 
-.hologram-overlay[data-variant="danger"] {
+.kroma-hologram-overlay[data-variant="danger"] {
   --variant-bg: var(--danger-bg);
   --variant-light-bg: var(--danger-light-bg);
   --variant-dark-bg: var(--danger-dark-bg);
   --variant-text: var(--danger-bg);
 }
 
-.hologram-overlay[data-variant="warning"] {
+.kroma-hologram-overlay[data-variant="warning"] {
   --variant-bg: var(--warning-bg);
   --variant-light-bg: var(--warning-light-bg);
   --variant-dark-bg: var(--warning-dark-bg);
   --variant-text: var(--warning-bg);
 }
 
-.hologram-overlay[data-variant="info"] {
+.kroma-hologram-overlay[data-variant="info"] {
   --variant-bg: var(--info-bg);
   --variant-light-bg: var(--info-light-bg);
   --variant-dark-bg: var(--info-dark-bg);
   --variant-text: var(--info-bg);
 }
 
-.hologram-overlay[data-variant="accent"] {
+.kroma-hologram-overlay[data-variant="accent"] {
   --variant-bg: var(--accent-bg);
   --variant-light-bg: var(--accent-light-bg);
   --variant-dark-bg: var(--accent-dark-bg);
@@ -116,10 +128,10 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hologram-title {
+  .kroma-hologram-title {
       font-size: clamp(1.5rem, 4vw, 3rem);
   }
-  .hologram-subtitle {
+  .kroma-hologram-subtitle {
       font-size: clamp(0.875rem, 2vw, 1.5rem);
   }
 }
