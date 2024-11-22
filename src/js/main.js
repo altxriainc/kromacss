@@ -6,7 +6,7 @@ import { showTabContent } from './components/tabs.js';
 import { showToast, dismissToast, startAutoDismiss, pauseAllProgressBars } from './components/toast.js';
 import { Modal } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
-import { DateTimePicker } from './components/datetime-picker.js';
+import { } from './components/datetime-picker.js';
 import { KromaSlideshow } from './components/slideshow.js';
 import { initializeRatingComponents } from './components/rating.js';
 import { } from './components/calendar.js';
@@ -35,6 +35,5 @@ window.startAutoDismiss = startAutoDismiss;
 window.pauseAllProgressBars = pauseAllProgressBars;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
-window.DateTimePicker = DateTimePicker;
 window.initializeRatingComponents = initializeRatingComponents;
 

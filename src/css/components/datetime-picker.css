@@ -1,5 +1,5 @@
-/* Container and Font Setup */
-.datetime-picker-container {
+/* Base Container Styling */
+.kroma-datetime-picker-container {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -7,78 +7,81 @@
   font-family: var(--font-sans);
 }
 
-/* Input Styling */
-.datetime-input {
+/* Input Field Styling */
+.kroma-datetime-input {
   width: 100%;
   padding: clamp(8px, var(--space-2), 12px);
   border-radius: var(--radius-md);
   font-size: 1rem;
   outline: none;
-  border: 1px solid var(--variant-border);
-  background-color: var(--variant-bg);
-  color: var(--variant-text); 
+  border: 1px solid var(--variant-border, var(--neutral-300));
+  background-color: var(--variant-bg, var(--neutral-50));
+  color: var(--variant-text, var(--neutral-900));
   transition: border-color var(--transition-colors), box-shadow var(--transition-all);
 }
 
-.datetime-input::placeholder {
-  color: var(--variant-text);
-  opacity: 0.7;
+.kroma-datetime-input::placeholder {
+  color: var(--variant-text-light, rgba(255, 255, 255, 0.7));
 }
 
-.datetime-input:focus {
-  box-shadow: 0px 0px 0px 3px var(--variant-hover-bg);
+.kroma-datetime-input:focus {
+  box-shadow: 0 0 0 3px var(--variant-hover-bg, var(--neutral-200));
 }
 
-/* Date Picker Popup */
-.datetime-picker {
+/* Picker Popup Styling */
+.kroma-datetime-picker {
   display: none;
   position: absolute;
   top: calc(100% + var(--space-1));
   left: 0;
   width: 100%;
-  background-color: var(--variant-bg);
-  border: 1px solid var(--variant-border);
+  background-color: var(--variant-bg, var(--neutral-50));
+  border: 1px solid var(--variant-border, var(--neutral-300));
   border-radius: var(--radius-md);
-  box-shadow: var(--variant-shadow);
+  box-shadow: var(--variant-shadow, var(--shadow-lg));
   z-index: var(--z-30);
   padding: var(--space-3);
+  opacity: 0;
+  transform: scale(0.95);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.datetime-picker.active {
+.kroma-datetime-picker.kroma-active {
   display: block;
   transform: scale(1);
   opacity: 1;
 }
 
 /* Calendar Header */
-.calendar-header {
+.kroma-calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--space-2);
-  position: relative;
-  z-index: var(--z-40);
 }
 
-.calendar-header button {
+.kroma-calendar-header button {
   background: none;
   border: none;
   font-size: clamp(1.25rem, 1.5vw, 1.5rem);
   cursor: pointer;
   padding: var(--space-1);
-  color: var(--variant-text);
+  color: var(--variant-text, var(--neutral-900));
   transition: color var(--transition-colors);
 }
 
+.kroma-calendar-header button:hover {
+  color: var(--variant-hover-bg, var(--neutral-700));
+}
+
 /* Calendar Grid */
-.calendar-grid {
+.kroma-calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: var(--space-1);
 }
 
-.calendar-day {
+.kroma-calendar-day {
   padding: var(--space-1);
   text-align: center;
   cursor: pointer;
@@ -86,25 +89,25 @@
   transition: background-color var(--transition-colors), color var(--transition-colors);
 }
 
-/* Hover Effect for Calendar Day */
-.calendar-day:hover {
-  background-color: var(--variant-hover-bg);
+/* Day Hover Effect */
+.kroma-calendar-day:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-200));
   color: #fff;
 }
 
-/* Current and Selected Day Styles */
-.calendar-day.current-day {
-  background-color: var(--variant-light-bg);
-  color: var(--variant-text);
+/* Special Day Styles */
+.kroma-calendar-day.current-day {
+  background-color: var(--variant-light-bg, var(--neutral-300));
+  color: var(--variant-text, var(--neutral-900));
 }
 
-.calendar-day.selected-day {
-  background-color: var(--variant-bg);
-  color: var(--variant-text);
+.kroma-calendar-day.selected-day {
+  background-color: var(--variant-bg, var(--neutral-700));
+  color: var(--variant-text, var(--neutral-50));
 }
 
 /* Quick Select Buttons */
-.quick-select {
+.kroma-quick-select {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
@@ -112,23 +115,48 @@
   justify-content: space-between;
 }
 
-.quick-select button {
+.kroma-quick-select button {
   flex: 1 1 30%;
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-md);
-  background-color: var(--variant-light-bg);
+  background-color: var(--variant-light-bg, var(--neutral-300));
   cursor: pointer;
   font-size: 0.875rem;
   transition: background-color var(--transition-colors), color var(--transition-colors);
 }
 
-.quick-select button:hover {
-  background-color: var(--variant-hover-bg);
+.kroma-quick-select button:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-400));
   color: #fff;
 }
 
+/* Time Selector */
+.kroma-time-selector {
+  margin-top: var(--space-2);
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+.kroma-time-selector input {
+  width: clamp(36px, 3vw, 48px);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  text-align: center;
+  outline: none;
+  border: 1px solid var(--variant-border, var(--neutral-300));
+  background-color: var(--variant-light-bg, var(--neutral-100));
+  color: var(--variant-text, var(--neutral-900));
+  transition: border-color var(--transition-colors);
+}
+
+.kroma-time-selector input:focus {
+  border-color: var(--variant-hover-bg, var(--neutral-400));
+}
+
 /* Confirm Button */
-.confirm-button {
+.kroma-confirm-button {
   width: 100%;
   padding: var(--space-2);
   font-size: 0.875rem;
@@ -137,28 +165,28 @@
   border: none;
   border-radius: var(--radius-md);
   margin-top: var(--space-2);
-  background-color: var(--variant-bg);
+  background-color: var(--variant-bg, var(--neutral-700));
   color: #fff;
   transition: background-color var(--transition-colors);
 }
 
-/* Time Selector */
-.time-selector {
-  margin-top: var(--space-2);
-  display: flex;
-  gap: var(--space-2);
-  justify-content: center;
+.kroma-confirm-button:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-800));
 }
 
-.time-selector input {
-  width: clamp(36px, 3vw, 48px);
-  padding: var(--space-1);
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
-  text-align: center;
-  outline: none;
-  border: 1px solid var(--variant-border);
-  background-color: var(--variant-light-bg);
-  color: var(--variant-text);
-  transition: border-color var(--transition-colors);
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .kroma-datetime-picker {
+    width: 100%;
+    left: 0;
+    padding: var(--space-2);
+  }
+
+  .kroma-calendar-grid {
+    grid-template-columns: repeat(7, minmax(20px, 1fr));
+  }
+
+  .kroma-quick-select button {
+    flex: 1 1 45%;
+  }
 }

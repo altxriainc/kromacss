@@ -25,53 +25,53 @@ export class DateTimePicker {
         // Create input field
         this.input = document.createElement('input');
         this.input.type = 'text';
-        this.input.classList.add('datetime-input');
+        this.input.classList.add('kroma-datetime-input');
         this.input.placeholder = 'Select Date';
         this.input.setAttribute('aria-label', `${this.variant} DateTime Input`);
         this.container.appendChild(this.input);
 
         // Create the picker container
         this.picker = document.createElement('div');
-        this.picker.classList.add('datetime-picker');
+        this.picker.classList.add('kroma-datetime-picker');
         this.picker.setAttribute('aria-hidden', 'true');
         this.container.appendChild(this.picker);
 
         // Create calendar header
         const calendarHeader = document.createElement('div');
-        calendarHeader.classList.add('calendar-header');
+        calendarHeader.classList.add('kroma-calendar-header');
         this.picker.appendChild(calendarHeader);
 
         // Previous month button
         const prevMonthButton = document.createElement('button');
-        prevMonthButton.classList.add('prev-month');
+        prevMonthButton.classList.add('kroma-prev-month');
         prevMonthButton.setAttribute('aria-label', 'Previous Month');
         prevMonthButton.textContent = '<';
         calendarHeader.appendChild(prevMonthButton);
 
         // Month and year display
         this.monthHeader = document.createElement('span');
-        this.monthHeader.classList.add('calendar-month');
+        this.monthHeader.classList.add('kroma-calendar-month');
         calendarHeader.appendChild(this.monthHeader);
 
         this.yearHeader = document.createElement('span');
-        this.yearHeader.classList.add('calendar-year');
+        this.yearHeader.classList.add('kroma-calendar-year');
         calendarHeader.appendChild(this.yearHeader);
 
         // Next month button
         const nextMonthButton = document.createElement('button');
-        nextMonthButton.classList.add('next-month');
+        nextMonthButton.classList.add('kroma-next-month');
         nextMonthButton.setAttribute('aria-label', 'Next Month');
         nextMonthButton.textContent = '>';
         calendarHeader.appendChild(nextMonthButton);
 
         // Calendar grid
         this.calendarGrid = document.createElement('div');
-        this.calendarGrid.classList.add('calendar-grid');
+        this.calendarGrid.classList.add('kroma-calendar-grid');
         this.picker.appendChild(this.calendarGrid);
 
         // Quick select container
         this.quickSelectContainer = document.createElement('div');
-        this.quickSelectContainer.classList.add('quick-select');
+        this.quickSelectContainer.classList.add('kroma-quick-select');
         this.picker.appendChild(this.quickSelectContainer);
     }
 
@@ -83,12 +83,12 @@ export class DateTimePicker {
             }
         });
 
-        this.picker.querySelector('.prev-month').addEventListener('click', () => this.changeMonth(-1));
-        this.picker.querySelector('.next-month').addEventListener('click', () => this.changeMonth(1));
+        this.picker.querySelector('.kroma-prev-month').addEventListener('click', () => this.changeMonth(-1));
+        this.picker.querySelector('.kroma-next-month').addEventListener('click', () => this.changeMonth(1));
     }
 
     togglePicker(open) {
-        this.picker.classList.toggle('active', open);
+        this.picker.classList.toggle('kroma-active', open);
     }
 
     buildCalendar() {
@@ -101,13 +101,13 @@ export class DateTimePicker {
 
         for (let i = 0; i < firstDay; i++) {
             const filler = document.createElement('div');
-            filler.classList.add('calendar-day', 'disabled');
+            filler.classList.add('kroma-calendar-day', 'disabled');
             this.calendarGrid.appendChild(filler);
         }
 
         for (let i = 1; i <= daysInMonth; i++) {
             const day = document.createElement('div');
-            day.classList.add('calendar-day');
+            day.classList.add('kroma-calendar-day');
             day.textContent = i;
             day.setAttribute('tabindex', 0);
             day.setAttribute('role', 'button');
@@ -115,11 +115,11 @@ export class DateTimePicker {
             day.addEventListener('click', () => this.selectDate(i));
 
             if (this.isCurrentMonth() && this.isToday(i)) {
-                day.classList.add('current-day');
+                day.classList.add('kroma-current-day');
             }
 
             if (this.isSelectedMonth() && this.isSelectedDay(i)) {
-                day.classList.add('selected-day');
+                day.classList.add('kroma-selected-day');
             }
 
             this.calendarGrid.appendChild(day);
@@ -203,7 +203,7 @@ export class DateTimePicker {
         Object.entries(quickDates).forEach(([label, date]) => {
             const button = document.createElement('button');
             button.textContent = label;
-            button.classList.add('quick-select-button');
+            button.classList.add('kroma-quick-select-button');
             button.addEventListener('click', () => {
                 this.selectedDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), this.selectedDate.getHours(), this.selectedDate.getMinutes());
                 this.currentDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate());
@@ -216,7 +216,7 @@ export class DateTimePicker {
 
     addTimeSelectors() {
         const timeSelectorContainer = document.createElement('div');
-        timeSelectorContainer.classList.add('time-selector');
+        timeSelectorContainer.classList.add('kroma-time-selector');
 
         const hourInput = document.createElement('input');
         hourInput.type = 'number';
@@ -248,7 +248,7 @@ export class DateTimePicker {
 
     addConfirmButton() {
         const confirmButton = document.createElement('button');
-        confirmButton.classList.add('confirm-button');
+        confirmButton.classList.add('kroma-confirm-button');
         confirmButton.textContent = 'OK';
         confirmButton.addEventListener('click', () => this.togglePicker(false));
         this.picker.appendChild(confirmButton);
@@ -256,14 +256,14 @@ export class DateTimePicker {
 
     applyVariantStyles() {
         this.container.dataset.variant = this.variant;
-        this.input.classList.add(`datetime-input-${this.variant}`);
-        this.picker.classList.add(`datetime-picker-${this.variant}`);
+        this.input.classList.add(`kroma-datetime-input-${this.variant}`);
+        this.picker.classList.add(`kroma-datetime-picker-${this.variant}`);
     }
 }
 
 // Initialize DateTimePicker
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.datetime-picker-container').forEach((el) => {
+    document.querySelectorAll('.kroma-datetime-picker-container').forEach((el) => {
         const format = el.dataset.format || 'YYYY-MM-DD HH:mm';
         const includeTime = el.dataset.time !== 'false';
         const variant = el.dataset.variant || 'primary';
