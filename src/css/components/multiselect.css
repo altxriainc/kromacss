@@ -1,5 +1,5 @@
 /* Base MultiSelect Styles */
-.multiselect {
+.kroma-multiselect {
     position: relative;
     width: 100%;
     max-width: 400px;
@@ -8,7 +8,7 @@
 }
 
 /* Dropdown Field */
-.multiselect-dropdown {
+.kroma-multiselect-dropdown {
     display: flex;
     align-items: center;
     padding: var(--space-2);
@@ -22,13 +22,13 @@
     color: var(--variant-text);
 }
 
-.multiselect-dropdown:focus-within {
+.kroma-multiselect-dropdown:focus-within {
     border-color: var(--variant-hover-bg);
     box-shadow: 0 0 0 3px var(--variant-light-bg);
 }
 
 /* Search Input */
-.multiselect-search {
+.kroma-multiselect-search {
     flex: 1;
     border: none;
     outline: none;
@@ -39,7 +39,7 @@
 }
 
 /* Clear Button */
-.clear-selection {
+.kroma-clear-selection {
     font-size: 1.25rem;
     color: var(--variant-text);
     cursor: pointer;
@@ -54,12 +54,12 @@
     transform: translateY(-50%);
 }
 
-.multiselect-dropdown.active .clear-selection {
+.kroma-multiselect-dropdown.active .kroma-clear-selection {
     display: block;
 }
 
 /* Options Container */
-.multiselect-options {
+.kroma-multiselect-options {
     position: absolute;
     top: calc(100% + var(--space-1));
     left: 0;
@@ -75,30 +75,30 @@
     margin-top: var(--space-2);
 }
 
-.multiselect-options.active {
+.kroma-multiselect-options.active {
     display: block;
 }
 
 /* Option Items */
-.multiselect-option {
+.kroma-multiselect-option {
     padding: var(--space-2);
     cursor: pointer;
     transition: background-color var(--transition-colors), color var(--transition-colors);
     color: var(--variant-text);
 }
 
-.multiselect-option:hover {
+.kroma-multiselect-option:hover {
     background-color: var(--variant-hover-bg);
     color: #fff;
 }
 
-.multiselect-option.selected {
+.kroma-multiselect-option.selected {
     background-color: var(--variant-hover-bg);
     color: var(--variant-text);
 }
 
 /* Chips for Selected Options */
-.multiselect-chips {
+.kroma-multiselect-chips {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
@@ -106,7 +106,7 @@
     padding-left: var(--space-1);
 }
 
-.multiselect-chip {
+.kroma-multiselect-chip {
     display: flex;
     align-items: center;
     padding: var(--space-1) var(--space-2);
@@ -117,7 +117,7 @@
     background-color: var(--variant-bg);
 }
 
-.chip-remove {
+.kroma-chip-remove {
     margin-left: var(--space-1);
     cursor: pointer;
     font-size: 1rem;
@@ -125,24 +125,24 @@
 }
 
 /* Scrollbar Customization */
-.multiselect-options::-webkit-scrollbar {
+.kroma-multiselect-options::-webkit-scrollbar {
     width: 8px;
     background-color: var(--variant-light-bg);
 }
 
-.multiselect-options::-webkit-scrollbar-thumb {
+.kroma-multiselect-options::-webkit-scrollbar-thumb {
     background-color: var(--variant-hover-bg);
     border-radius: 4px;
 }
 
 /* Placeholder Color */
-.multiselect-search::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Ensures readability */
+.kroma-multiselect-search::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .multiselect {
+    .kroma-multiselect {
         max-width: 100%;
     }
 }

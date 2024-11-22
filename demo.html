@@ -604,63 +604,67 @@
   </div>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">MultiSelect Component Demo</h2>
+    <h2 class="font-lg text-primary my-4">Kroma MultiSelect Component Demo</h2>
     
-    <!-- Default MultiSelect -->
-    <div class="multiselect" id="default-multiselect" data-variant="secondary">
-        <div class="multiselect-dropdown" tabindex="0">
-            <input type="text" class="multiselect-search" placeholder="Select options">
-            <button class="clear-selection" aria-label="Clear selection">&times;</button>
+    <p>Explore the MultiSelect component with different variants and configurations.</p>
+    
+    <div class="grid gap-6 mt-6 md:grid-cols-2 lg:grid-cols-4">
+        <!-- Default MultiSelect -->
+        <div class="kroma-multiselect" id="default-multiselect" data-variant="secondary">
+            <div class="kroma-multiselect-dropdown" tabindex="0" aria-expanded="false">
+                <input type="text" class="kroma-multiselect-search" placeholder="Select options" aria-label="Select options">
+                <button class="kroma-clear-selection" aria-label="Clear selection">&times;</button>
+            </div>
+            <div class="kroma-multiselect-chips"></div>
+            <div class="kroma-multiselect-options" aria-hidden="true">
+                <div class="kroma-multiselect-option" data-value="Option 1">Option 1</div>
+                <div class="kroma-multiselect-option" data-value="Option 2">Option 2</div>
+                <div class="kroma-multiselect-option" data-value="Option 3">Option 3</div>
+                <div class="kroma-multiselect-option" data-value="Option 4">Option 4</div>
+                <div class="kroma-multiselect-option" data-value="Option 5">Option 5</div>
+            </div>
         </div>
-        <div class="multiselect-chips"></div>
-        <div class="multiselect-options">
-            <div class="multiselect-option" data-value="Option 1">Option 1</div>
-            <div class="multiselect-option" data-value="Option 2">Option 2</div>
-            <div class="multiselect-option" data-value="Option 3">Option 3</div>
-            <div class="multiselect-option" data-value="Option 4">Option 4</div>
-            <div class="multiselect-option" data-value="Option 5">Option 5</div>
-        </div>
-    </div>
 
-    <!-- Success Variant MultiSelect -->
-    <div class="multiselect" id="success-multiselect" data-variant="success">
-        <div class="multiselect-dropdown" tabindex="0">
-            <input type="text" class="multiselect-search" placeholder="Select options" aria-label="Select options">
-            <button class="clear-selection" aria-label="Clear selection">&times;</button>
+        <!-- Success Variant MultiSelect -->
+        <div class="kroma-multiselect" id="success-multiselect" data-variant="success">
+            <div class="kroma-multiselect-dropdown" tabindex="0" aria-expanded="false">
+                <input type="text" class="kroma-multiselect-search" placeholder="Select options" aria-label="Select options">
+                <button class="kroma-clear-selection" aria-label="Clear selection">&times;</button>
+            </div>
+            <div class="kroma-multiselect-chips"></div>
+            <div class="kroma-multiselect-options" aria-hidden="true">
+                <div class="kroma-multiselect-option" data-value="Success 1">Success 1</div>
+                <div class="kroma-multiselect-option" data-value="Success 2">Success 2</div>
+                <div class="kroma-multiselect-option" data-value="Success 3">Success 3</div>
+            </div>
         </div>
-        <div class="multiselect-chips"></div>
-        <div class="multiselect-options">
-            <div class="multiselect-option" data-value="Success 1">Success 1</div>
-            <div class="multiselect-option" data-value="Success 2">Success 2</div>
-            <div class="multiselect-option" data-value="Success 3">Success 3</div>
-        </div>
-    </div>
 
-    <!-- Danger Variant MultiSelect -->
-    <div class="multiselect" id="danger-multiselect" data-variant="danger">
-        <div class="multiselect-dropdown" tabindex="0">
-            <input type="text" class="multiselect-search" placeholder="Select options" aria-label="Select options">
-            <button class="clear-selection" aria-label="Clear selection">&times;</button>
+        <!-- Danger Variant MultiSelect -->
+        <div class="kroma-multiselect" id="danger-multiselect" data-variant="danger">
+            <div class="kroma-multiselect-dropdown" tabindex="0" aria-expanded="false">
+                <input type="text" class="kroma-multiselect-search" placeholder="Select options" aria-label="Select options">
+                <button class="kroma-clear-selection" aria-label="Clear selection">&times;</button>
+            </div>
+            <div class="kroma-multiselect-chips"></div>
+            <div class="kroma-multiselect-options" aria-hidden="true">
+                <div class="kroma-multiselect-option" data-value="Danger 1">Danger 1</div>
+                <div class="kroma-multiselect-option" data-value="Danger 2">Danger 2</div>
+                <div class="kroma-multiselect-option" data-value="Danger 3">Danger 3</div>
+            </div>
         </div>
-        <div class="multiselect-chips"></div>
-        <div class="multiselect-options">
-            <div class="multiselect-option" data-value="Danger 1">Danger 1</div>
-            <div class="multiselect-option" data-value="Danger 2">Danger 2</div>
-            <div class="multiselect-option" data-value="Danger 3">Danger 3</div>
-        </div>
-    </div>
 
-    <!-- Info Variant MultiSelect -->
-    <div class="multiselect" id="info-multiselect" data-variant="info">
-        <div class="multiselect-dropdown" tabindex="0">
-            <input type="text" class="multiselect-search" placeholder="Select options" aria-label="Select options">
-            <button class="clear-selection" aria-label="Clear selection">&times;</button>
-        </div>
-        <div class="multiselect-chips"></div>
-        <div class="multiselect-options">
-            <div class="multiselect-option" data-value="Info 1">Info 1</div>
-            <div class="multiselect-option" data-value="Info 2">Info 2</div>
-            <div class="multiselect-option" data-value="Info 3">Info 3</div>
+        <!-- Info Variant MultiSelect -->
+        <div class="kroma-multiselect" id="info-multiselect" data-variant="info">
+            <div class="kroma-multiselect-dropdown" tabindex="0" aria-expanded="false">
+                <input type="text" class="kroma-multiselect-search" placeholder="Select options" aria-label="Select options">
+                <button class="kroma-clear-selection" aria-label="Clear selection">&times;</button>
+            </div>
+            <div class="kroma-multiselect-chips"></div>
+            <div class="kroma-multiselect-options" aria-hidden="true">
+                <div class="kroma-multiselect-option" data-value="Info 1">Info 1</div>
+                <div class="kroma-multiselect-option" data-value="Info 2">Info 2</div>
+                <div class="kroma-multiselect-option" data-value="Info 3">Info 3</div>
+            </div>
         </div>
     </div>
   </section>
