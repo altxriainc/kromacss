@@ -1,9 +1,12 @@
-export class Modal {
+class KromaModal {
     constructor(modalId) {
         this.modal = document.getElementById(modalId);
-        this.overlay = this.modal.closest('.modal-overlay');
-        this.closeButton = this.modal.querySelector('.modal-close');
+        this.overlay = this.modal.closest('.kroma-modal-overlay');
+        this.closeButton = this.modal.querySelector('.kroma-modal-close');
+        this.init();
+    }
 
+    init() {
         // Close button in header
         if (this.closeButton) {
             this.closeButton.addEventListener('click', () => this.close());
@@ -33,21 +36,22 @@ export class Modal {
     }
 
     static initAll() {
-        document.querySelectorAll('.modal-overlay').forEach((overlay) => {
-            const modalId = overlay.querySelector('.modal').id;
-            new Modal(modalId);
+        document.querySelectorAll('.kroma-modal-overlay').forEach((overlay) => {
+            const modalId = overlay.querySelector('.kroma-modal').id;
+            new KromaModal(modalId);
         });
     }
 }
 
 // Initialize modals on document load
 document.addEventListener('DOMContentLoaded', () => {
-    Modal.initAll();
+    KromaModal.initAll();
 
-    document.querySelectorAll('[data-toggle="modal"]').forEach((trigger) => {
+    // Trigger modal open via data attributes
+    document.querySelectorAll('[data-toggle="kroma-modal"]').forEach((trigger) => {
         const targetId = trigger.dataset.target;
         trigger.addEventListener('click', () => {
-            const modal = new Modal(targetId);
+            const modal = new KromaModal(targetId);
             modal.open();
         });
     });

@@ -1,11 +1,11 @@
-/* Base Modal Overlay */
-.modal-overlay {
+/* Base Kroma Modal Overlay */
+.kroma-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,28 +13,28 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px); 
 }
 
-.modal-overlay.active {
+.kroma-modal-overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
 /* Modal Container */
-.modal {
+.kroma-modal {
     background-color: var(--variant-bg);
     border-radius: var(--radius-2xl);
     box-shadow: var(--variant-shadow);
     max-width: clamp(20rem, 50vw, 40rem);
     width: 100%;
     position: relative;
-    animation: modal-appear 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: kroma-modal-appear 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
     color: var(--variant-text);
 }
 
-@keyframes modal-appear {
+@keyframes kroma-modal-appear {
     from {
         transform: translateY(-20px);
         opacity: 0;
@@ -46,7 +46,7 @@
 }
 
 /* Modal Header */
-.modal-header {
+.kroma-modal-header {
     padding: var(--space-4);
     background-color: var(--variant-light-bg);
     border-bottom: 1px solid var(--variant-border);
@@ -56,12 +56,12 @@
     color: var(--variant-text);
 }
 
-.modal-title {
+.kroma-modal-title {
     font-size: clamp(1.125rem, 2vw, 1.5rem);
     font-weight: 600;
 }
 
-.modal-close {
+.kroma-modal-close {
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -70,13 +70,13 @@
     transition: color 0.2s ease-in-out, transform 0.2s ease;
 }
 
-.modal-close:hover {
+.kroma-modal-close:hover {
     color: var(--variant-hover-bg);
     transform: scale(1.1);
 }
 
 /* Modal Body */
-.modal-body {
+.kroma-modal-body {
     padding: var(--space-4);
     overflow-y: auto;
     max-height: 60vh;
@@ -84,45 +84,43 @@
     scrollbar-width: thin;
 }
 
-.modal-body::-webkit-scrollbar {
+.kroma-modal-body::-webkit-scrollbar {
     width: 8px;
     background-color: var(--variant-light-bg);
 }
 
-.modal-body::-webkit-scrollbar-thumb {
+.kroma-modal-body::-webkit-scrollbar-thumb {
     background-color: var(--variant-hover-bg);
     border-radius: 4px;
 }
 
 /* Modal Footer */
-.modal-footer {
+.kroma-modal-footer {
     padding: var(--space-4);
     background-color: var(--variant-light-bg);
     border-top: 1px solid var(--variant-border);
     text-align: right;
 }
 
-/* Border Variants */
-[data-variant] .modal {
-    border-left: 5px solid var(--variant-border);
-}
-
 /* Fullscreen Modal */
-[data-size="fullscreen"] .modal {
+[data-size="fullscreen"] .kroma-modal {
     width: 100%;
     height: 100%;
     border-radius: 0;
     max-width: none;
     max-height: none;
+    padding: var(--space-6); 
+    background-color: var(--neutral-200); 
+    color: var(--neutral-50); 
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .modal {
+    .kroma-modal {
         max-width: 90vw;
-        padding: var(--space-2);
+        padding: var(--space-3);
     }
-    .modal-body {
+    .kroma-modal-body {
         max-height: 50vh;
     }
 }

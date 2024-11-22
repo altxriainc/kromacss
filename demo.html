@@ -532,76 +532,76 @@
   </section>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Modal Component Demo</h2>
+    <h2 class="font-lg text-primary my-4">Kroma Modal Component Demo</h2>
     <p>Click the buttons below to see modals with different styles and configurations.</p>
     <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
-        <button class="btn" data-variant="primary" data-toggle="modal" data-target="modal-primary">Open Primary Modal</button>
-        <button class="btn" data-variant="success" data-toggle="modal" data-target="modal-success">Open Success Modal</button>
-        <button class="btn" data-variant="danger" data-toggle="modal" data-target="modal-danger">Open Danger Modal</button>
-        <button class="btn" data-variant="primary" data-toggle="modal" data-target="modal-fullscreen">Open Fullscreen Modal</button>
+        <button class="kroma-btn" data-variant="primary" data-toggle="kroma-modal" data-target="kroma-modal-primary">Open Primary Modal</button>
+        <button class="kroma-btn" data-variant="success" data-toggle="kroma-modal" data-target="kroma-modal-success">Open Success Modal</button>
+        <button class="kroma-btn" data-variant="danger" data-toggle="kroma-modal" data-target="kroma-modal-danger">Open Danger Modal</button>
+        <button class="kroma-btn" data-variant="primary" data-toggle="kroma-modal" data-target="kroma-modal-fullscreen">Open Fullscreen Modal</button>
     </div>
   </section>
 
-<!-- Modals -->
-<div class="modal-overlay" id="modal-primary-overlay" data-variant="primary">
-    <div class="modal" id="modal-primary">
-        <div class="modal-header">
-            <h3 class="modal-title">Primary Modal</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>This is a primary-styled modal with interactive content and a close button.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="close-modal btn">Close</button>
-        </div>
-    </div>
-</div>
+  <!-- Modals -->
+  <div class="kroma-modal-overlay" id="kroma-modal-primary-overlay" data-variant="primary">
+      <div class="kroma-modal" id="kroma-modal-primary">
+          <div class="kroma-modal-header">
+              <h3 class="kroma-modal-title">Primary Modal</h3>
+              <button class="kroma-modal-close">&times;</button>
+          </div>
+          <div class="kroma-modal-body">
+              <p>This is a primary-styled modal with interactive content and a close button.</p>
+          </div>
+          <div class="kroma-modal-footer">
+              <button class="close-modal kroma-btn" data-variant="primary">Close</button>
+          </div>
+      </div>
+  </div>
 
-<div class="modal-overlay" id="modal-success-overlay" data-variant="success">
-    <div class="modal" id="modal-success">
-        <div class="modal-header">
-            <h3 class="modal-title">Success Modal</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>Operation completed successfully!</p>
-        </div>
-        <div class="modal-footer">
-            <button class="close-modal btn">Close</button>
-        </div>
-    </div>
-</div>
+  <div class="kroma-modal-overlay" id="kroma-modal-success-overlay" data-variant="success">
+      <div class="kroma-modal" id="kroma-modal-success">
+          <div class="kroma-modal-header">
+              <h3 class="kroma-modal-title">Success Modal</h3>
+              <button class="kroma-modal-close">&times;</button>
+          </div>
+          <div class="kroma-modal-body">
+              <p>Operation completed successfully!</p>
+          </div>
+          <div class="kroma-modal-footer">
+              <button class="close-modal kroma-btn" data-variant="success">Close</button>
+          </div>
+      </div>
+  </div>
 
-<div class="modal-overlay" id="modal-danger-overlay" data-variant="danger">
-    <div class="modal" id="modal-danger">
-        <div class="modal-header">
-            <h3 class="modal-title">Danger Modal</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>Warning! This action may be irreversible.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="close-modal btn">Close</button>
-        </div>
-    </div>
-</div>
+  <div class="kroma-modal-overlay" id="kroma-modal-danger-overlay" data-variant="danger">
+      <div class="kroma-modal" id="kroma-modal-danger">
+          <div class="kroma-modal-header">
+              <h3 class="kroma-modal-title">Danger Modal</h3>
+              <button class="kroma-modal-close">&times;</button>
+          </div>
+          <div class="kroma-modal-body">
+              <p>Warning! This action may be irreversible.</p>
+          </div>
+          <div class="kroma-modal-footer">
+              <button class="close-modal kroma-btn" data-variant="danger">Close</button>
+          </div>
+      </div>
+  </div>
 
-<div class="modal-overlay" id="modal-fullscreen-overlay" data-size="fullscreen">
-    <div class="modal" id="modal-fullscreen">
-        <div class="modal-header">
-            <h3 class="modal-title">Fullscreen Modal</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>This is a fullscreen modal that spans the entire viewport.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="close-modal btn">Close</button>
-        </div>
-    </div>
-</div>
+  <div class="kroma-modal-overlay" id="kroma-modal-fullscreen-overlay" data-size="fullscreen">
+      <div class="kroma-modal" id="kroma-modal-fullscreen">
+          <div class="kroma-modal-header">
+              <h3 class="kroma-modal-title">Fullscreen Modal</h3>
+              <button class="kroma-modal-close">&times;</button>
+          </div>
+          <div class="kroma-modal-body">
+              <p>This is a fullscreen modal that spans the entire viewport.</p>
+          </div>
+          <div class="kroma-modal-footer">
+              <button class="close-modal kroma-btn" data-variant="secondary">Close</button>
+          </div>
+      </div>
+  </div>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">MultiSelect Component Demo</h2>

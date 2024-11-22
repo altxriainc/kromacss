@@ -4,7 +4,7 @@ import {  } from './components/accordion.js';
 import { showHologram } from './components/hologram.js';
 import { toggleTabContent } from './components/tabs.js';
 import { showKromaToast } from './components/toast.js';
-import { Modal } from './components/modal.js';
+import { } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
 import { } from './components/datetime-picker.js';
 import { KromaSlideshow } from './components/slideshow.js';
@@ -21,6 +21,5 @@ import {} from './components/dropdown.js';
 window.showHologram = showHologram;
 window.toggleTabContent = toggleTabContent;
 window.showKromaToast = showKromaToast;
-window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 
