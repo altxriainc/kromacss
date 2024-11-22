@@ -1,5 +1,5 @@
 /* Base Stepper Container */
-.stepper {
+.kroma-stepper {
     display: flex;
     gap: var(--space-6);
     padding: var(--space-4) 0;
@@ -7,13 +7,13 @@
     color: var(--neutral-700);
 }
 
-.stepper[data-orientation="vertical"] {
+.kroma-stepper[data-orientation="vertical"] {
     flex-direction: column;
     align-items: flex-start;
 }
 
 /* Step Styling */
-.step {
+.kroma-step {
     display: flex;
     align-items: center;
     gap: var(--space-3);
@@ -21,12 +21,12 @@
     font-family: var(--font-sans);
 }
 
-.step:not(:last-child) .step-bar {
+.kroma-step:not(:last-child) .kroma-step-bar {
     display: block;
 }
 
 /* Step Icon */
-.step-icon {
+.kroma-step-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +43,7 @@
 }
 
 /* Step Label */
-.step-label {
+.kroma-step-label {
     font-size: clamp(0.875rem, 1vw, 1rem);
     font-weight: 500;
     color: var(--neutral-800);
@@ -51,64 +51,71 @@
 }
 
 /* Step Bar - Horizontal and Vertical Orientation */
-.step-bar {
+.kroma-step-bar {
     flex-grow: 1;
     height: 3px;
     background-color: var(--neutral-300);
     transition: background-color 0.3s ease;
 }
 
-.stepper[data-orientation="vertical"] .step-bar {
+.kroma-stepper[data-orientation="vertical"] .kroma-step-bar {
     height: auto;
     width: 3px;
     align-self: stretch;
 }
 
 /* State Styling for Completed, Active, and Pending */
-.step[data-state="completed"] .step-icon {
+.kroma-step[data-state="completed"] .kroma-step-icon {
     background-color: var(--variant-bg);
     color: var(--variant-text);
     box-shadow: var(--variant-shadow);
 }
 
-.step[data-state="completed"] .step-bar {
+.kroma-step[data-state="completed"] .kroma-step-bar {
     background-color: var(--variant-bg);
 }
 
-.step[data-state="completed"] .step-label {
+.kroma-step[data-state="completed"] .kroma-step-label {
     color: var(--variant-dark-bg);
 }
 
-.step[data-state="active"] .step-icon {
+.kroma-step[data-state="active"] .kroma-step-icon {
     border: 2px solid var(--variant-hover);
     color: var(--variant-hover);
+    animation: kroma-step-pulse 1s ease-in-out infinite;
 }
 
-.step[data-state="pending"] .step-icon {
+.kroma-step[data-state="pending"] .kroma-step-icon {
     background-color: var(--neutral-200);
     color: var(--neutral-500);
 }
 
 /* Variants */
-.stepper[data-variant] .step[data-state="completed"] .step-icon,
-.stepper[data-variant] .step[data-state="completed"] .step-bar {
+.kroma-stepper[data-variant] .kroma-step[data-state="completed"] .kroma-step-icon,
+.kroma-stepper[data-variant] .kroma-step[data-state="completed"] .kroma-step-bar {
     background-color: var(--variant-bg);
     color: var(--variant-text);
     box-shadow: var(--variant-shadow);
 }
 
+/* Animations */
+@keyframes kroma-step-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .stepper {
+    .kroma-stepper {
         flex-direction: column;
     }
-    .step-bar {
+    .kroma-step-bar {
         display: none;
     }
-    .step {
+    .kroma-step {
         text-align: center;
     }
-    .step-label {
+    .kroma-step-label {
         font-size: clamp(0.75rem, 1vw, 0.875rem);
     }
 }
