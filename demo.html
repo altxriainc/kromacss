@@ -949,33 +949,39 @@
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Pagination Component Demo</h2>
-  
-    <!-- Full Pagination with Previous and Next -->
-    <div class="pagination" role="navigation" aria-label="Pagination Navigation" data-variant="primary" data-type="default">
-      <button class="pagination-button" aria-label="Previous page" disabled>Previous</button>
-      <button class="pagination-button" data-active="true" aria-label="Page 1">1</button>
-      <button class="pagination-button" aria-label="Page 2">2</button>
-      <button class="pagination-button" aria-label="Page 3">3</button>
-      <button class="pagination-button" aria-label="Page 4">4</button>
-      <button class="pagination-button" aria-label="Page 5">5</button>
-      <button class="pagination-button" aria-label="Next page">Next</button>
-    </div>
-  
-    <!-- Simple Pagination (No Previous/Next) -->
-    <div class="pagination" role="navigation" aria-label="Pagination Navigation" data-variant="info" data-type="simple">
-      <button class="pagination-button" data-active="true" aria-label="Page 1">1</button>
-      <button class="pagination-button" aria-label="Page 2">2</button>
-      <button class="pagination-button" aria-label="Page 3">3</button>
-    </div>
-  
-    <!-- Centered Pagination with Boxed Style -->
-    <div class="pagination" role="navigation" aria-label="Pagination Navigation" data-variant="success" data-style="boxed">
-      <button class="pagination-button" aria-label="Previous page">Previous</button>
-      <button class="pagination-button" data-active="true" aria-label="Page 1">1</button>
-      <button class="pagination-button" aria-label="Page 2">2</button>
-      <button class="pagination-button" aria-label="Next page">Next</button>
-    </div>
-  </section>  
+    
+    <!-- Default Pagination -->
+    <nav class="kroma-pagination" data-variant="primary">
+        <button class="kroma-pagination-button" disabled>Previous</button>
+        <button class="kroma-pagination-button" data-active="true">1</button>
+        <button class="kroma-pagination-button">2</button>
+        <button class="kroma-pagination-button">3</button>
+        <button class="kroma-pagination-button">Next</button>
+    </nav>
+    
+    <!-- Simple Pagination -->
+    <nav class="kroma-pagination" data-type="simple" data-variant="success">
+        <button class="kroma-pagination-button">1</button>
+        <button class="kroma-pagination-button" data-active="true">2</button>
+        <button class="kroma-pagination-button">3</button>
+    </nav>
+    
+    <!-- Boxed Pagination -->
+    <nav class="kroma-pagination" data-style="boxed" data-variant="info" data-alignment="center">
+        <button class="kroma-pagination-button">1</button>
+        <button class="kroma-pagination-button" data-active="true">2</button>
+        <button class="kroma-pagination-button">3</button>
+        <button class="kroma-pagination-button">Next</button>
+    </nav>
+    
+    <!-- Right Aligned Pagination -->
+    <nav class="kroma-pagination" data-alignment="right" data-variant="danger">
+        <button class="kroma-pagination-button">Previous</button>
+        <button class="kroma-pagination-button">1</button>
+        <button class="kroma-pagination-button" data-active="true">2</button>
+        <button class="kroma-pagination-button">Next</button>
+    </nav>
+  </section>
 
   <section class="p-6 bg-neutral-50 shadow-md rounded-xl my-8">
     <h2 class="font-xl text-primary mb-6 text-center">Stat Box Component Showcase</h2>

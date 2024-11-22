@@ -1,5 +1,5 @@
 /* Pagination Container */
-.pagination {
+.kroma-pagination {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,7 @@
 }
 
 /* Base Pagination Button Styles */
-.pagination-button {
+.kroma-pagination-button {
     padding: clamp(var(--space-2), 1vw, var(--space-3)) clamp(var(--space-3), 2vw, var(--space-4));
     font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
     font-family: var(--font-sans);
@@ -25,36 +25,37 @@
 }
 
 /* Hover, Focus, and Active States */
-.pagination-button:hover {
+.kroma-pagination-button:hover {
     background-color: var(--neutral-100);
     border-color: var(--neutral-400);
     color: var(--neutral-900);
 }
 
-.pagination-button:focus {
+.kroma-pagination-button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px var(--variant-hover-bg);
+    box-shadow: 0 0 0 3px var(--variant-hover-bg, var(--primary-light-bg));
 }
 
 /* Active Page Style */
-.pagination-button[data-active="true"] {
-    background-color: var(--variant-bg);
-    color: var(--variant-text);
-    border-color: var(--variant-border);
-    box-shadow: var(--variant-shadow);
+.kroma-pagination-button[data-active="true"] {
+    background-color: var(--variant-bg, var(--primary-bg));
+    color: var(--variant-text, #fff);
+    border-color: var(--variant-border, var(--primary-border));
+    box-shadow: var(--variant-shadow, var(--shadow-lg));
     font-weight: bold;
 }
 
 /* Disabled Button Style */
-.pagination-button[disabled] {
+.kroma-pagination-button[disabled] {
     background-color: var(--neutral-200);
     color: var(--neutral-500);
     cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* Variants for Active Buttons */
-.pagination[data-variant] .pagination-button[data-active="true"],
-.pagination-button[data-variant][data-active="true"] {
+.kroma-pagination[data-variant] .kroma-pagination-button[data-active="true"],
+.kroma-pagination-button[data-variant][data-active="true"] {
     background-color: var(--variant-bg);
     color: var(--variant-text);
     border-color: var(--variant-border);
@@ -63,30 +64,39 @@
 }
 
 /* Borderless Pagination */
-.pagination[data-border="false"] .pagination-button {
+.kroma-pagination[data-border="false"] .kroma-pagination-button {
     border: none;
+    box-shadow: none;
 }
 
 /* Pagination without Previous/Next */
-.pagination[data-type="simple"] .pagination-button:first-child,
-.pagination[data-type="simple"] .pagination-button:last-child {
+.kroma-pagination[data-type="simple"] .kroma-pagination-button:first-child,
+.kroma-pagination[data-type="simple"] .kroma-pagination-button:last-child {
     display: none;
 }
 
 /* Centered Pagination with Boxed Style */
-.pagination[data-style="boxed"] {
+.kroma-pagination[data-style="boxed"] {
     padding: var(--space-4);
     background-color: var(--variant-light-bg);
     border-radius: var(--radius-lg);
     box-shadow: var(--variant-shadow);
 }
 
+/* Pagination Alignment */
+.kroma-pagination[data-alignment="left"] {
+    justify-content: flex-start;
+}
+.kroma-pagination[data-alignment="right"] {
+    justify-content: flex-end;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 600px) {
-    .pagination {
+    .kroma-pagination {
         gap: var(--space-1);
     }
-    .pagination-button {
+    .kroma-pagination-button {
         padding: var(--space-2);
         font-size: clamp(0.75rem, 1vw, 0.875rem);
     }
