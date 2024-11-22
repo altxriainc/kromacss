@@ -921,18 +921,34 @@
     </div>  
   </section>
 
-  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Toast Component Demo</h2>
-    <p>Click the buttons below to see toasts with different styles, positions, and configurations.</p>
-    <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
-        <button class="btn" data-variant="primary" onclick="showToast('Primary Toast Message', 'primary')">Show Primary Toast</button>
-        <button class="btn" data-variant="success" onclick="showToast('Success Toast Message', 'success')">Show Success Toast</button>
-        <button class="btn" data-variant="danger" onclick="showToast('Danger Toast Message', 'danger')">Show Danger Toast</button>
-        <button class="btn" data-variant="warning" onclick="showToast('Warning Toast Message', 'warning')">Show Warning Toast</button>
-        <button class="btn" data-variant="info" onclick="showToast('Info Toast Message', 'info')">Show Info Toast</button>
-        <button class="btn" data-variant="primary" onclick="showToast('Top-Left Positioned Toast', 'primary', 'top-left')">Top-Left Position</button>
-        <button class="btn" data-variant="secondary" onclick="showToast('Bottom-Center Positioned Toast', 'secondary', 'bottom-center')">Bottom-Center Position</button>
-        <button class="btn" data-variant="primary" onclick="showToast('Auto-dismiss Toast', 'primary', 'top-right', true, 5)">Auto-Dismiss (5s)</button>
+  <section class="kroma-section p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="kroma-heading font-lg text-primary my-4">Toast Component Demo</h2>
+    <p class="kroma-text text-neutral-800">Click the buttons below to see toasts with different styles, positions, and configurations.</p>
+    <div class="kroma-btn-container" style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
+        <button class="kroma-btn" data-variant="primary" onclick="showKromaToast('Primary Toast Message', { variant: 'primary' })">
+            Show Primary Toast
+        </button>
+        <button class="kroma-btn" data-variant="success" onclick="showKromaToast('Success Toast Message', { variant: 'success' })">
+            Show Success Toast
+        </button>
+        <button class="kroma-btn" data-variant="danger" onclick="showKromaToast('Danger Toast Message', { variant: 'danger' })">
+            Show Danger Toast
+        </button>
+        <button class="kroma-btn" data-variant="warning" onclick="showKromaToast('Warning Toast Message', { variant: 'warning' })">
+            Show Warning Toast
+        </button>
+        <button class="kroma-btn" data-variant="info" onclick="showKromaToast('Info Toast Message', { variant: 'info' })">
+            Show Info Toast
+        </button>
+        <button class="kroma-btn" data-variant="primary" onclick="showKromaToast('Top-Left Positioned Toast', { variant: 'primary', position: 'top-left' })">
+            Top-Left Position
+        </button>
+        <button class="kroma-btn" data-variant="secondary" onclick="showKromaToast('Bottom-Center Positioned Toast', { variant: 'secondary', position: 'bottom-center' })">
+            Bottom-Center Position
+        </button>
+        <button class="kroma-btn" data-variant="primary" onclick="showKromaToast('Auto-dismiss Toast', { variant: 'primary', position: 'top-right', autoDismiss: true, dismissDuration: 5 })">
+            Auto-Dismiss (5s)
+        </button>
     </div>
   </section>
 

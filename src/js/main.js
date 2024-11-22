@@ -3,7 +3,7 @@ import { } from './components/alert.js';
 import {  } from './components/accordion.js';
 import { showHologram } from './components/hologram.js';
 import { toggleTabContent } from './components/tabs.js';
-import { showToast, dismissToast, startAutoDismiss, pauseAllProgressBars } from './components/toast.js';
+import { showKromaToast } from './components/toast.js';
 import { Modal } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
 import { } from './components/datetime-picker.js';
@@ -20,10 +20,7 @@ import {} from './components/dropdown.js';
 // Export functions globally if needed
 window.showHologram = showHologram;
 window.toggleTabContent = toggleTabContent;
-window.showToast = showToast;
-window.dismissToast = dismissToast;
-window.startAutoDismiss = startAutoDismiss;
-window.pauseAllProgressBars = pauseAllProgressBars;
+window.showKromaToast = showKromaToast;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
 
