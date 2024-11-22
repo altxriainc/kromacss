@@ -1,203 +1,211 @@
 /* Base Form Group Styling */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    width: 100%;
-    margin-bottom: var(--space-4);
+.kroma-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+  margin-bottom: var(--space-4);
 }
 
 /* Label Styling */
-.label {
-    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
-    font-weight: 500;
-    color: var(--neutral-700);
-    transition: color var(--transition-colors);
+.kroma-label {
+  font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+  font-weight: 500;
+  color: var(--neutral-700);
+  transition: color var(--transition-colors);
 }
 
-.label-required::after {
-    content: " *";
-    color: var(--danger);
+.kroma-label-required::after {
+  content: " *";
+  color: var(--variant-text, var(--danger));
 }
 
 /* Input, Textarea, and Select Base Styles */
-.input, .textarea, .select {
-    font-family: var(--font-sans);
-    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
-    padding: var(--space-3) var(--space-4);
-    border: 1px solid var(--neutral-300);
-    border-radius: var(--radius-md);
-    background-color: var(--neutral-50);
-    color: var(--neutral-900);
-    transition: border-color var(--transition-colors), box-shadow var(--transition-all);
-    width: 100%;
-    box-shadow: var(--shadow-sm);
+.kroma-input, .kroma-textarea, .kroma-select {
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  background-color: var(--neutral-50);
+  color: var(--neutral-900);
+  transition: border-color var(--transition-colors), box-shadow var(--transition-all);
+  width: 100%;
+  box-shadow: var(--shadow-sm);
 }
 
 /* Placeholder Styling */
-.input::placeholder, .textarea::placeholder, .select::placeholder {
-    color: var(--neutral-500);
+.kroma-input::placeholder, .kroma-textarea::placeholder, .kroma-select::placeholder {
+  color: var(--neutral-500);
 }
 
 /* Focus and Hover Styles */
-.input:focus, .textarea:focus, .select:focus {
-    outline: none;
-    border-color: var(--primary-border);
-    box-shadow: 0px 0px 0px 3px var(--primary-light-bg);
+.kroma-input:focus, .kroma-textarea:focus, .kroma-select:focus {
+  outline: none;
+  border-color: var(--variant-border, var(--neutral-400));
+  box-shadow: 0px 0px 0px 3px var(--variant-light-bg, var(--neutral-200));
 }
 
-.input:hover, .textarea:hover, .select:hover {
-    border-color: var(--neutral-400);
-    box-shadow: var(--shadow-md);
+.kroma-input:hover, .kroma-textarea:hover, .kroma-select:hover {
+  border-color: var(--neutral-400);
+  box-shadow: var(--shadow-md);
 }
 
 /* Variants for Input, Textarea, and Select */
-[data-variant] .input, [data-variant] .textarea, [data-variant] .select {
-    background-color: var(--variant-bg); /* Use full background for readability */
-    border-color: var(--variant-border);
-    color: var(--variant-text);
-    box-shadow: var(--variant-shadow);
+[data-variant] .kroma-input, [data-variant] .kroma-textarea, [data-variant] .kroma-select {
+  background-color: var(--variant-bg);
+  border-color: var(--variant-border);
+  color: var(--variant-text);
+  box-shadow: var(--variant-shadow);
 }
 
-[data-variant] .input::placeholder, [data-variant] .textarea::placeholder {
-    color: rgba(255, 255, 255, 0.8); /* Adjusted for readability */
+[data-variant] .kroma-input::placeholder, [data-variant] .kroma-textarea::placeholder {
+  color: var(--variant-text-light, rgba(255, 255, 255, 0.8));
 }
 
 /* Disabled State */
-.input:disabled, .textarea:disabled, .select:disabled {
-    color: var(--neutral-800);
-    cursor: not-allowed;
-    opacity: 1;
+.kroma-input:disabled, .kroma-textarea:disabled, .kroma-select:disabled {
+  color: var(--neutral-700);
+  background-color: var(--neutral-200);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* Readonly State */
-.input-readonly, .textarea-readonly {
-    background-color: var(--neutral-100);
-    color: var(--neutral-800);
+.kroma-input-readonly, .kroma-textarea-readonly {
+  background-color: var(--neutral-100);
+  color: var(--neutral-800);
+  cursor: default;
 }
 
 /* Helper and Error Text */
-.helper-text {
-    font-size: clamp(0.75rem, 1vw, 0.875rem);
-    color: var(--neutral-500);
-    margin-top: var(--space-1);
+.kroma-helper-text {
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  color: var(--neutral-500);
+  margin-top: var(--space-1);
 }
 
-.error-text {
-    font-size: clamp(0.75rem, 1vw, 0.875rem);
-    color: var(--danger);
-    margin-top: var(--space-1);
+.kroma-error-text {
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  color: var(--danger);
+  margin-top: var(--space-1);
 }
 
 /* Textarea Styling */
-.textarea {
-    resize: vertical;
-    min-height: 100px;
+.kroma-textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 /* Select Dropdown Arrow */
-.select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='gray' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right var(--space-3) center;
-    background-size: 1rem;
+.kroma-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='gray' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 1rem;
+}
+
+/* Select Option Styling */
+.kroma-select option:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-200));
+  color: var(--variant-hover, var(--neutral-900));
 }
 
 /* Error State */
-.input-error, .textarea-error, .select-error {
-    border-color: var(--danger-border);
-    box-shadow: 0px 0px 0px 3px var(--danger-light-bg);
+.kroma-input-error, .kroma-textarea-error, .kroma-select-error {
+  border-color: var(--variant-border, var(--danger-border));
+  box-shadow: 0px 0px 0px 3px var(--variant-light-bg, var(--danger-light-bg));
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .form-group {
-        flex-direction: column;
-    }
+  .kroma-form-group {
+    flex-direction: column;
+  }
 }
 
 /* Checkbox & Radio Groups */
-.checkbox-group, .radio-group {
-    display: flex;
-    gap: var(--space-4);
-    align-items: center;
-    flex-wrap: wrap;
+.kroma-checkbox-group, .kroma-radio-group {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Base Checkbox and Radio Styles */
-.checkbox, .radio {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
-    cursor: pointer;
-    position: relative;
-    transition: color var(--transition-colors);
+.kroma-checkbox, .kroma-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+  cursor: pointer;
+  position: relative;
+  transition: color var(--transition-colors);
 }
 
-.checkbox input[type="checkbox"], .radio input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+.kroma-checkbox input[type="checkbox"], .kroma-radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 /* Checkbox and Radio Icons */
-.checkbox-icon, .radio-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: var(--neutral-100);
-    border: 1.5px solid var(--neutral-300);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
+.kroma-checkbox-icon, .kroma-radio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--neutral-100);
+  border: 1.5px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 /* Checked State */
-.checkbox input[type="checkbox"]:checked + .checkbox-icon,
-.radio input[type="radio"]:checked + .radio-icon {
-    background-color: var(--variant-bg);
-    border-color: var(--variant-border);
-    color: var(--variant-text);
-    box-shadow: var(--variant-shadow);
+.kroma-checkbox input[type="checkbox"]:checked + .kroma-checkbox-icon,
+.kroma-radio input[type="radio"]:checked + .kroma-radio-icon {
+  background-color: var(--variant-bg);
+  border-color: var(--variant-border);
+  color: var(--variant-text);
+  box-shadow: var(--variant-shadow);
 }
 
 /* Hover and Active States */
-.checkbox:hover .checkbox-icon, .radio:hover .radio-icon {
-    border-color: var(--neutral-400);
-    box-shadow: var(--shadow-lg);
-    transform: scale(1.05);
+.kroma-checkbox:hover .kroma-checkbox-icon, .kroma-radio:hover .kroma-radio-icon {
+  border-color: var(--neutral-400);
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
-.checkbox:active .checkbox-icon, .radio:active .radio-icon {
-    box-shadow: var(--shadow-sm);
-    transform: scale(0.95);
+.kroma-checkbox:active .kroma-checkbox-icon, .kroma-radio:active .kroma-radio-icon {
+  box-shadow: var(--shadow-sm);
+  transform: scale(0.95);
 }
 
 /* Disabled State */
-.checkbox input[type="checkbox"]:disabled + .checkbox-icon,
-.radio input[type="radio"]:disabled + .radio-icon {
-    background-color: var(--neutral-200);
-    border-color: var(--neutral-300);
-    color: var(--neutral-400);
-    cursor: not-allowed;
-    opacity: 0.6;
-    box-shadow: none;
+.kroma-checkbox input[type="checkbox"]:disabled + .kroma-checkbox-icon,
+.kroma-radio input[type="radio"]:disabled + .kroma-radio-icon {
+  background-color: var(--neutral-200);
+  border-color: var(--neutral-300);
+  color: var(--neutral-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
 }
 
-.checkbox input[type="checkbox"]:disabled ~ label,
-.radio input[type="radio"]:disabled ~ label {
-    color: var(--neutral-500);
-    cursor: not-allowed;
-    opacity: 0.7;
+.kroma-checkbox input[type="checkbox"]:disabled ~ label,
+.kroma-radio input[type="radio"]:disabled ~ label {
+  color: var(--neutral-500);
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* Icons for Checked State */
-.checkbox input[type="checkbox"]:checked + .checkbox-icon::before {
-    content: "✔";
-    font-size: 0.85rem;
-    color: var(--variant-text);
+.kroma-checkbox input[type="checkbox"]:checked + .kroma-checkbox-icon::before {
+  content: "✔";
+  font-size: 0.85rem;
+  color: var(--variant-text);
 }
