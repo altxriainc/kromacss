@@ -1,200 +1,192 @@
-/* Base Styles */
-.file-upload {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    width: 100%;
-    max-width: clamp(320px, 80vw, 600px);
-    font-family: var(--font-sans);
-    color: var(--neutral-800);
-    padding: var(--space-6);
-    transition: var(--transition-all);
-  }
-  
-  .file-upload[data-variant] {
-    --file-upload-bg: var(--variant-light-bg);
-    --file-upload-text: var(--variant-text);
-    --file-upload-border: var(--variant-border);
-    --file-upload-hover-bg: var(--variant-hover-bg);
-  }
-  
-  /* Dropzone Styles */
-  .file-upload-dropzone {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: clamp(200px, 35vw, 320px);
-    background: var(--file-upload-bg);
-    border: 5px dashed var(--file-upload-border);
-    border-radius: var(--radius-lg);
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    padding: var(--space-4);
-    transition: 
+/* Base File Upload Styles */
+.kroma-file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: clamp(320px, 80vw, 600px);
+  font-family: var(--font-sans);
+  color: var(--neutral-800);
+  padding: var(--space-6);
+  transition: var(--transition-all);
+}
+
+.kroma-file-upload[data-variant] {
+  --file-upload-bg: var(--variant-light-bg);
+  --file-upload-text: var(--variant-text);
+  --file-upload-border: var(--variant-border);
+  --file-upload-hover-bg: var(--variant-hover-bg);
+}
+
+/* Dropzone Styles */
+.kroma-file-upload-dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(200px, 35vw, 320px);
+  background: var(--file-upload-bg);
+  border: 5px dashed var(--file-upload-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-4);
+  transition: 
       background-color 0.3s ease, 
       border-color 0.3s ease, 
       transform 0.2s ease;
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .file-upload-dropzone::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    color: var(--neutral-50);
-    background-color: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    content: "Drop File to Upload";
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 2;
-  }
-  
-  .file-upload-dropzone:hover::after,
-  .file-upload-dropzone.dragging::after {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05);
-    background-color: var(--file-upload-hover-bg);
-    color: var(--file-upload-text);
-  }
-  
-  .file-upload-dropzone:hover,
-  .file-upload-dropzone:focus,
-  .file-upload-dropzone.dragging {
-    background-color: var(--file-upload-hover-bg);
-    border-color: var(--file-upload-border);
-    transform: scale(1.03);
-    cursor: copy;
-  }
-  
-  .file-upload-instructions {
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    color: var(--neutral-900);
-    font-weight: 500;
-    text-align: center;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  
-  .file-upload-dropzone:hover ~ .file-upload-instructions,
-  .file-upload-dropzone.dragging ~ .file-upload-instructions {
-    opacity: 0;
-    visibility: hidden;
-  }
-  
-  .file-upload-browse {
-    font-weight: bold;
-    color: var(--file-upload-text);
-    cursor: pointer;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-  }
-  
-  .file-upload-browse:hover {
-    color: var(--file-upload-border);
-  }
-  
-  /* Hidden File Input */
-  .file-upload-input {
-    display: none;
-  }
-  
-  /* File Details */
-  .file-upload-details {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    animation: file-fadeIn 0.3s ease;
-  }
-  
-  .file-upload-filename {
-    font-size: clamp(1rem, 1.2vw, 1.125rem);
-    color: var(--neutral-800);
-    word-break: break-word;
-  }
-  
-  .file-upload-progress {
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    color: var(--neutral-600);
-    display: inline-block;
-    margin-top: var(--space-1);
-  }
-  
-  /* Multiple File Upload List */
-  .file-upload-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-  
-  .file-upload-list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--neutral-100);
-    padding: var(--space-3);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    font-size: clamp(1rem, 1.2vw, 1.125rem);
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-  
-  .file-upload-list-item:hover {
-    background-color: var(--neutral-200);
-    transform: translateY(-2px);
-  }
-  
-  .file-upload-list-item button {
-    background: none;
-    border: none;
-    color: var(--danger);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-  
-  .file-upload-list-item button:hover {
-    color: var(--danger-hover);
-  }
-  
-  /* Animations */
-  @keyframes file-fadeIn {
-    from {
+  box-shadow: var(--shadow-lg);
+}
+
+.kroma-file-upload-dropzone::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--neutral-50);
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  content: "Drop File to Upload";
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.kroma-file-upload-dropzone:hover::after,
+.kroma-file-upload-dropzone.dragging::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+  background-color: var(--file-upload-hover-bg);
+  color: var(--file-upload-text);
+}
+
+.kroma-file-upload-dropzone:hover,
+.kroma-file-upload-dropzone:focus,
+.kroma-file-upload-dropzone.dragging {
+  background-color: var(--file-upload-hover-bg);
+  border-color: var(--file-upload-border);
+  transform: scale(1.03);
+  cursor: copy;
+}
+
+/* Instructions */
+.kroma-file-upload-instructions {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--neutral-900);
+  font-weight: 500;
+  text-align: center;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.kroma-file-upload-dropzone:hover ~ .kroma-file-upload-instructions,
+.kroma-file-upload-dropzone.dragging ~ .kroma-file-upload-instructions {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.kroma-file-upload-browse {
+  font-weight: bold;
+  color: var(--file-upload-text);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.kroma-file-upload-browse:hover {
+  color: var(--file-upload-border);
+}
+
+/* Hidden File Input */
+.kroma-file-upload-input {
+  display: none;
+}
+
+/* File Details */
+.kroma-file-upload-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: kroma-file-fadeIn 0.3s ease;
+}
+
+.kroma-file-upload-filename {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  color: var(--neutral-800);
+  word-break: break-word;
+}
+
+.kroma-file-upload-progress {
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  color: var(--neutral-600);
+  display: inline-block;
+  margin-top: var(--space-1);
+}
+
+/* Multiple File Upload List */
+.kroma-file-upload-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kroma-file-upload-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--neutral-100);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.kroma-file-upload-list-item:hover {
+  background-color: var(--neutral-200);
+  transform: translateY(-2px);
+}
+
+.kroma-file-upload-list-item button {
+  background: none;
+  border: none;
+  color: var(--danger);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.kroma-file-upload-list-item button:hover {
+  color: var(--danger-hover);
+}
+
+/* Animations */
+@keyframes kroma-file-fadeIn {
+  from {
       opacity: 0;
       transform: translateY(10px);
-    }
-    to {
+  }
+  to {
       opacity: 1;
       transform: translateY(0);
-    }
   }
-  
-  /* Placeholder Animation for Dropzone */
-  .file-upload-dropzone-placeholder {
-    position: absolute;
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    color: var(--neutral-600);
-    animation: file-fadeIn 0.3s ease-in-out;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .file-upload-dropzone {
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .kroma-file-upload-dropzone {
       height: clamp(150px, 30vw, 250px);
-    }
-  
-    .file-upload-instructions {
-      font-size: clamp(0.875rem, 1.2vw, 1rem);
-    }
-  
-    .file-upload {
-      padding: var(--space-3);
-    }
   }
-  
+
+  .kroma-file-upload-instructions {
+      font-size: clamp(0.875rem, 1.2vw, 1rem);
+  }
+
+  .kroma-file-upload {
+      padding: var(--space-3);
+  }
+}

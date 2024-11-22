@@ -11,7 +11,7 @@ import { KromaSlideshow } from './components/slideshow.js';
 import { initializeRatingComponents } from './components/rating.js';
 import { } from './components/calendar.js';
 import { KromaNavbar } from './components/navbar.js';
-import { initializeFileUploadComponents } from './components/file-upload.js';
+import { } from './components/file-upload.js';
 import {  } from './components/command-palette.js';
 import {  } from './components/codeblock.js';
 import { KromaSidebar } from './components/sidebar.js';
@@ -20,9 +20,6 @@ import {} from './components/dropdown.js';
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize rating components
   initializeRatingComponents();
-
-  // Initialize file upload components
-  initializeFileUploadComponents();
 
 });
 

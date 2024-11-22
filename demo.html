@@ -1184,36 +1184,42 @@
   </div>
 </section>
 
-<section class="p-6 bg-neutral-50 shadow-md rounded my-6">
-  <h2 class="text-lg text-primary mb-6">File Upload Component Showcase</h2>
+<section class="kroma-section p-4 bg-neutral-50 shadow-md rounded my-6">
+  <h2 class="font-lg text-primary my-4">Kroma File Upload Component Demo</h2>
 
   <!-- Single File Upload -->
-  <div class="flex justify-center">
-    <div class="file-upload" data-variant="primary">
-      <div class="file-upload-dropzone" tabindex="0" aria-label="Drop a file or browse to upload">
-        <div class="file-upload-instructions">
-          <span class="file-upload-title">Upload a File</span><br />
-          Drag & Drop a File or <span class="file-upload-browse">Browse</span>
-        </div>
-        <input type="file" class="file-upload-input" />
-      </div>
-      <div class="file-upload-details">
-        <div class="file-upload-filename" aria-live="polite"></div>
-        <div class="file-upload-progress" aria-live="polite"></div>
-      </div>
+  <div class="kroma-file-upload" data-variant="primary">
+    <div class="kroma-file-upload-dropzone" tabindex="0" aria-label="Drop or select a file to upload">
+      <p class="kroma-file-upload-instructions">Drag & drop your file here, or <span class="kroma-file-upload-browse">browse</span></p>
+    </div>
+    <input type="file" class="kroma-file-upload-input" />
+    <div class="kroma-file-upload-details">
+      <span class="kroma-file-upload-filename"></span>
+      <span class="kroma-file-upload-progress"></span>
     </div>
   </div>
 
-  <!-- Multiple File Upload -->
-  <div class="file-upload" data-variant="success" data-multiple="true">
-    <div class="file-upload-dropzone" tabindex="0" aria-label="Drop files or browse to upload multiple files">
-      <div class="file-upload-instructions">
-        <span class="file-upload-title">Upload Multiple Files</span><br />
-        Drag & Drop Files or <span class="file-upload-browse">Browse</span>
-      </div>
-      <input type="file" class="file-upload-input" multiple />
+  <!-- Multiple Files Upload -->
+  <div class="kroma-file-upload" data-variant="secondary" data-multiple="true">
+    <div class="kroma-file-upload-dropzone" tabindex="0" aria-label="Drop or select multiple files to upload">
+      <p class="kroma-file-upload-instructions">Drag & drop files here, or <span class="kroma-file-upload-browse">browse</span></p>
     </div>
-    <div class="file-upload-list" aria-live="polite"></div>
+    <input type="file" class="kroma-file-upload-input" multiple />
+    <div class="kroma-file-upload-list">
+      <!-- File list will be dynamically populated -->
+    </div>
+  </div>
+
+  <!-- File Upload with a Dark Theme -->
+  <div class="kroma-file-upload" data-variant="dark">
+    <div class="kroma-file-upload-dropzone" tabindex="0" aria-label="Drop or select a file with dark theme">
+      <p class="kroma-file-upload-instructions">Drag & drop your file here, or <span class="kroma-file-upload-browse">browse</span></p>
+    </div>
+    <input type="file" class="kroma-file-upload-input" />
+    <div class="kroma-file-upload-details">
+      <span class="kroma-file-upload-filename"></span>
+      <span class="kroma-file-upload-progress"></span>
+    </div>
   </div>
 </section>
 
