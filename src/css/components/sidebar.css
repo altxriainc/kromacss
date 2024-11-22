@@ -9,11 +9,11 @@ html:has(.kromaSidebar) section {
 
 .sdb-logo img {
     max-height: calc(var(--sdb-size-base) / 10);
-    aspect-ratio: 1/1;
+    /* max-width: 1000px; */
 }
 
 .kromaSidebar.collapsed .sdb-logo img {
-    /* width: calc(var(--sdb-size-base) / 10); */
+    /* max-width: 10px; */
 }
 
 .sdb-logo {
@@ -22,9 +22,9 @@ html:has(.kromaSidebar) section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: calc(var(--sdb-size-base) / 25);
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     padding: calc(var(--sdb-size-base) / 30) calc(var(--sdb-size-base) / 40);
     box-sizing: border-box;
     float: left;
@@ -32,7 +32,7 @@ html:has(.kromaSidebar) section {
 
 .kromaSidebar {
     width: var(--sdb-size-base);
-    height: calc(100% - calc(0px +  var(--nav-size-base)));
+    height: 100%;
     position: fixed;
     /* top: calc(0px +  var(--nav-size-base)); */
     bottom : 0;
@@ -50,6 +50,13 @@ html:has(.kromaSidebar) section {
     max-width: 1000px;
 }
 
+html:has(.kromaNav) .kromaSidebar{
+
+    height: calc(100% - calc(0px +  var(--nav-size-base)));
+    
+}
+
+
 .kromaSidebar:before {
     content: "";
     display: block;
@@ -58,11 +65,11 @@ html:has(.kromaSidebar) section {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.9;
+    opacity: 0.95;
     z-index: -1;
     background: var(--neutral-50);
-    box-shadow: var(--shadow-md);
-
+    /* box-shadow: var(--shadow-md); */
+    border-right: 1px solid var(--neutral-300);
 }
 
 .kromaSidebar,.kromaSidebar * {
@@ -130,43 +137,55 @@ html:has(.kromaSidebar) section {
     overflow-x: hidden;
 }
 
-.kromaSidebar:not(.collapsed) .sdb-logo:after {
-    content: "";
+.kromaSidebar .sdb-logo:after {
+    content: ""; 
     display: block;
     width: 100%;
     height: 1px;
     background: var(--neutral-300);
 }
 
+.sdb-logo span {
+    margin: auto 0;
+}
+
+.kromaSidebar.collapsed .sdb-logo {
+    flex-wrap: nowrap;
+}
+
 .sdb-menu ul li a {
     text-decoration: none;
     list-style: none;
-    line-height: 0;
+    /* line-height: 0; */
     display: flex;
-    gap: calc(var(--sdb-size-base) / 25);
+    /* gap: calc(var(--sdb-size-base) / 25); */
+    width: 100%;
     align-items: center;
+    padding: calc(var(--sdb-size-base) / 40) 0px;
+    position: relative;
+}
+
+.sdb-menu ul li a span{
+    margin-left:calc(var(--sdb-size-base) / 25);
 }
 
 .kromaSidebar.collapsed .sdb-menu li:has(a:not([href])) {
-    display: none;
+    max-width: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
 }
 
 
 .sdb-menu a span{
-    display: inline-block;
+    /* display: inline-block; */
 }
 
-.kromaSidebar.collapsed .sdb-logo span{
-
-    display:none;
-    
-}
-
-.kromaSidebar.collapsed .sdb-menu a span
-{
-    width: 0;
-    overflow:hidden;
-}
+.kromaSidebar.collapsed .sdb-logo span
+,.kromaSidebar.collapsed .sdb-menu a span{opacity:0;max-width: 0;max-height: 0;overflow:hidden;margin: auto;}
 
 
 .sdb-menu ul {
@@ -174,27 +193,17 @@ html:has(.kromaSidebar) section {
     /* height: 100%; */
     display: flex;
     flex-direction: column;
-    gap: calc(var(--sdb-size-base) / 30);
-}
-
-.kromaSidebar .sdb-menu  li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
-    height: min-content;
-    gap: calc(var(--sdb-size-base) / 40);
-    align-content: center;
-    justify-content: flex-start;
+    /* gap: calc(var(--sdb-size-base) / 30); */
 }
 
 .kromaSidebar li i {
     font-size: calc(var(--sdb-size-base) / 16 );
     text-align: left;
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     width: calc(var(--sdb-size-base) / 9.5);
     justify-content: center;
+    color: var(--neutral-700);
 }
 
 
@@ -203,37 +212,15 @@ html:has(.kromaSidebar) section {
     width: calc(var(--sdb-size-base) / 14);
 }
 
-
-
 .sdb-toggle.show ~ .sdb-menu {
     max-height: 1000px;
     opacity: 1;
     transition: max-height 0s 0ms, opacity 100ms;
 }
 
-.sdb-menu ul li:first-child a {
-    /* padding-top: calc(var(--sdb-size-base) / 3); */
-}
-
-.sdb-menu ul li:last-child a {
-    /* padding-bottom: calc(var(--sdb-size-base) / 3); */
-}
-
-.sdb-menu ul li a.sdb-current,.sdb-menu ul li:hover a {
-    /*background: var(--neutral-100);*/
-}
-
-
 .kromaSidebar.collapsed {
     max-width: calc(var(--sdb-size-base) / 6 );
     align-items: center;
-}
-
-div#KromaSidebar_0 {}
-
-.kromaSidebar.collapsed .sdb-logo {
-    /* justify-content: center; */
-    margin: auto;
 }
 
 .kromaSidebar.collapsed .sdb-logo:not(:has(img)) {
@@ -242,11 +229,19 @@ div#KromaSidebar_0 {}
     
 }
 
-.kromaSidebar.collapsed .sdb-logo {
-    width: calc(var(--sdb-size-base) / 9);
+.sdb-menu ul li a:hover:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #00000008;
+    border-radius: 5px;
+    z-index: -1;
+    /* opacity: 0.5; */
 }
 
-
-
-
-
+.dark-mode .sdb-menu ul li a:hover:before {
+    background: #ffffff0f;
+}
