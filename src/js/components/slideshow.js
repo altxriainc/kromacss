@@ -13,7 +13,15 @@ export class KromaSlideshow {
 
     requires basic preexisting html structure with desired data, such as:
 
-    <div class="kromaSlideshow">
+    <div class="kroma-slideshow rounded"
+        data-autoscroll="fase"
+        data-waitime="3000"
+        data-hoverpause="true"
+        data-scrollingpausetime="2000"
+        data-enablearrows="true"
+        data-enablebullets="true"
+        data-inheritsize="true"
+    >
 
       <img src="https://t3.ftcdn.net/jpg/05/24/43/88/360_F_524438877_PZFzwc5OWJ3MTWQVFfHKwu1DRVMaSgPx.jpg">
       <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg">
@@ -32,9 +40,8 @@ export class KromaSlideshow {
         this.id = id;
         this.cnt_sld = document.getElementById(id);
         if(!this.cnt_sld){ throw new Error(`element "${id}" not found`); }
-        //if(this.cnt_sld.classList.contains('kromaSlideshow')){ throw new Error(`slideshow already set.`); }
-        //this.cnt_sld.classList.add('slideshow');
-        //this.cnt_sld.classList.add('kromaSlideshow');
+        if(this.cnt_sld.classList.contains('kroma-slideshow-set')){ throw new Error(`slideshow already set.`); }
+        this.cnt_sld.classList.add('kroma-slideshow-set');
 
 
         //get parameters from call if passed else from element dataset if available else default
@@ -56,16 +63,22 @@ export class KromaSlideshow {
         if(this.enableArrows && prvSlds.length>1){
 
             var arrowLeft = document.createElement('div');
+            var arrowLeftIcon = document.createElement('i');
             arrowLeft.classList.add('arrow');
             arrowLeft.classList.add('arrowLeft');
             arrowLeft.classList.add('hidden');
-            arrowLeft.innerHTML = '<';
+            arrowLeftIcon.classList.add('fa-solid');
+            arrowLeftIcon.classList.add('fa-chevron-left');
+            arrowLeft.appendChild(arrowLeftIcon);
             
             var arrowRight = document.createElement('div');
+            var arrowRightIcon = document.createElement('i');
             arrowRight.classList.add('arrow');
             arrowRight.classList.add('arrowRight');
             arrowRight.classList.add('hidden');
-            arrowRight.innerHTML = '>';
+            arrowRightIcon.classList.add('fa-solid');
+            arrowRightIcon.classList.add('fa-chevron-right');
+            arrowRight.appendChild(arrowRightIcon);
 
             this.cnt_sld.appendChild(arrowRight);
             this.cnt_sld.appendChild(arrowLeft);
@@ -220,7 +233,6 @@ export class KromaSlideshow {
         });
 
         //start automatic scroll
-        console.log(this.autoScroll);
         if(this.autoScroll){this.slideAuto();}
 
         
@@ -274,10 +286,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.kromaSlideshow = KromaSlideshow;
     if(!window.kromaSlideshows){ window.kromaSlideshows = []; }
-    var domSlideshows = document.querySelectorAll('.kromaSlideshow');
+    var domSlideshows = document.querySelectorAll('.kroma-slideshow');
     if(domSlideshows && domSlideshows[0]){  
 
-        domSlideshows[0].id = (domSlideshows[0].id ?? '').length > 0 ? domSlideshows[0].id : ( 'kromaSlideshow_' + window.kromaSlideshow.length );
+        domSlideshows[0].id = (domSlideshows[0].id ?? '').length > 0 ? domSlideshows[0].id : ( 'kroma-slideshow-' + window.kromaSlideshow.length );
         window.kromaSlideshow[window.kromaSlideshow.length] = new KromaSlideshow( domSlideshows[0].id );
         
     }
