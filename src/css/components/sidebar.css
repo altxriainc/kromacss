@@ -68,7 +68,8 @@ html:has(.kromaNav) .kromaSidebar{
     opacity: 0.95;
     z-index: -1;
     background: var(--neutral-50);
-    box-shadow: var(--shadow-md);
+    /* box-shadow: var(--shadow-md); */
+    border-right: 1px solid var(--neutral-300);
 }
 
 .kromaSidebar,.kromaSidebar * {

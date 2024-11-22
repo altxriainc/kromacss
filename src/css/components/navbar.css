@@ -47,8 +47,8 @@ nav.kromaNav:before {
     opacity: 0.9;
     z-index: -1;
     background: var(--neutral-50);
-    box-shadow: var(--shadow-md);
-
+    /* box-shadow: var(--shadow-md); */
+    border-bottom: 1px solid var(--neutral-300);
 }
 
 .nav-toggle {
@@ -103,7 +103,7 @@ span.nav-line {
     margin: calc(var(--nav-size-base) / 3);
     background: var(--neutral-50);
     border-radius: 10px;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     align-items: center;
     justify-content: center;
     /* min-width: 170px; */
