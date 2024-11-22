@@ -715,40 +715,29 @@
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Progress Component Demo</h2>
-
-    <!-- Basic Progress Bar with Primary Variant and Inside Label -->
-    <div class="progress" data-variant="primary" data-size="medium" data-label="inside" data-progress="70">
-        <div class="progress-bar" style="width: 70%;"></div>
+  
+    <!-- Default Progress -->
+    <div class="kroma-progress" data-variant="primary" data-size="medium" data-label="inside">
+      <div class="kroma-progress-bar" style="width: 70%;" data-progress="70"></div>
     </div>
-
-    <!-- Success Progress Bar with Outside Label -->
-    <div class="progress" data-variant="success" data-size="large" data-label="outside" data-progress="85">
-        <div class="progress-bar" style="width: 85%;"></div>
+  
+    <!-- Striped Progress -->
+    <div class="kroma-progress" data-variant="success" data-striped="true" data-size="large" data-label="outside">
+      <div class="kroma-progress-bar" style="width: 50%;" data-progress="50"></div>
     </div>
-
-    <!-- Danger Progress Bar with Striped Style -->
-    <div class="progress" data-variant="danger" data-size="medium" data-striped="true" data-progress="40">
-        <div class="progress-bar" style="width: 40%;"></div>
+  
+    <!-- Animated Progress -->
+    <div class="kroma-progress" data-variant="info" data-animated="true" data-size="medium">
+      <div class="kroma-progress-bar" style="width: 30%;" data-progress="30"></div>
     </div>
-
-    <!-- Animated Info Progress Bar with Inside Label -->
-    <div class="progress" data-variant="info" data-size="large" data-animated="true" data-label="inside" data-progress="60">
-        <div class="progress-bar" style="width: 60%;"></div>
+  
+    <!-- Multi-Step Progress -->
+    <div class="kroma-progress-steps">
+      <div class="kroma-progress-step" data-step="completed">1</div>
+      <div class="kroma-progress-step" data-step="current">2</div>
+      <div class="kroma-progress-step">3</div>
     </div>
-
-    <!-- Warning Progress Bar with Border and Completion Animation -->
-    <div class="progress" data-variant="warning" data-size="thin" data-bordered="true" data-completed="true" data-progress="100">
-        <div class="progress-bar" style="width: 100%;"></div>
-    </div>
-
-    <!-- Multi-Step Progress with Steps -->
-    <div class="progress-steps">
-        <div class="progress-step" data-step="completed">1</div>
-        <div class="progress-step" data-step="completed">2</div>
-        <div class="progress-step" data-step="current">3</div>
-        <div class="progress-step">4</div>
-    </div>
-  </section>
+  </section>  
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Separator Component Demo</h2>

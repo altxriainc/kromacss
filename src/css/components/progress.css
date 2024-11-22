@@ -1,5 +1,5 @@
 /* Base Progress Container */
-.progress {
+.kroma-progress {
   position: relative;
   width: 100%;
   background-color: var(--neutral-200);
@@ -8,12 +8,12 @@
   display: flex;
   align-items: center;
   box-shadow: var(--shadow-md);
-  transition: height 0.3s ease;
+  transition: height 0.3s ease, background-color var(--transition-colors);
   margin-bottom: var(--space-4);
 }
 
 /* Progress Bar */
-.progress-bar {
+.kroma-progress-bar {
   height: 100%;
   display: flex;
   align-items: center;
@@ -26,13 +26,13 @@
 }
 
 /* Variants */
-.progress[data-variant] .progress-bar {
+.kroma-progress[data-variant] .kroma-progress-bar {
   background-color: var(--variant-bg);
   color: var(--variant-text);
 }
 
 /* Striped Style */
-.progress[data-striped="true"] .progress-bar {
+.kroma-progress[data-striped="true"] .kroma-progress-bar {
   background-image: linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.25) 25%,
@@ -47,7 +47,7 @@
 }
 
 /* Animated Stripe */
-.progress[data-animated="true"] .progress-bar {
+.kroma-progress[data-animated="true"] .kroma-progress-bar {
   background-image: linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.25) 25%,
@@ -63,22 +63,22 @@
 }
 
 /* Pulse Animation on Completion */
-.progress-bar[data-completed="true"] {
+.kroma-progress-bar[data-completed="true"] {
   animation: progress-pulse-animation 1s ease-in-out infinite;
 }
 
 /* Border Styling */
-.progress[data-bordered="true"] {
+.kroma-progress[data-bordered="true"] {
   border: 1px solid var(--neutral-300);
 }
 
 /* Thickness Sizes */
-.progress[data-size="thin"] { height: 0.5rem; }
-.progress[data-size="medium"] { height: 1rem; }
-.progress[data-size="large"] { height: 1.5rem; }
+.kroma-progress[data-size="thin"] { height: 0.5rem; }
+.kroma-progress[data-size="medium"] { height: 1rem; }
+.kroma-progress[data-size="large"] { height: 1.5rem; }
 
 /* Inside Percentage Label */
-.progress-bar[data-label="inside"]::after {
+.kroma-progress-bar[data-label="inside"]::after {
   content: attr(data-progress) '%';
   color: var(--neutral-50);
   font-size: 0.75rem;
@@ -89,7 +89,7 @@
 }
 
 /* Outside Percentage Label */
-.progress[data-label="outside"]::after {
+.kroma-progress[data-label="outside"]::after {
   content: attr(data-progress) '%';
   position: absolute;
   right: var(--space-2);
@@ -99,12 +99,12 @@
 }
 
 /* Multi-Step Progress */
-.progress-steps {
+.kroma-progress-steps {
   display: flex;
   gap: var(--space-1); /* Spacing between steps */
 }
 
-.progress-step {
+.kroma-progress-step {
   flex: 1;
   height: 1rem;
   border-radius: var(--radius-md);
@@ -120,18 +120,18 @@
 }
 
 /* Step Progress Variants */
-.progress-step[data-step="completed"] {
+.kroma-progress-step[data-step="completed"] {
   background-color: var(--success-bg);
   color: var(--success-text);
 }
 
-.progress-step[data-step="current"] {
+.kroma-progress-step[data-step="current"] {
   background-color: var(--primary-bg);
   color: var(--primary-text);
 }
 
 /* Responsive Step Label */
-.progress-step-label {
+.kroma-progress-step-label {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -140,12 +140,12 @@
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
-  .progress[data-size="medium"] { height: 0.75rem; }
-  .progress-step {
-      height: 0.75rem;
+  .kroma-progress[data-size="medium"] { height: 0.75rem; }
+  .kroma-progress-step {
+    height: 0.75rem;
   }
-  .progress-step-label {
-      font-size: 0.625rem;
+  .kroma-progress-step-label {
+    font-size: 0.625rem;
   }
 }
 
