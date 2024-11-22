@@ -1,5 +1,5 @@
-/* Star Rating Container */
-.rating {
+/* Base Rating Container */
+.kroma-rating {
     display: inline-flex;
     align-items: center;
     gap: clamp(var(--space-1), 0.5vw, var(--space-2));
@@ -9,32 +9,42 @@
     box-shadow: var(--shadow-sm);
     transition: var(--transition-all);
     position: relative;
-    --star-color: var(--variant-bg); /* Directly applying variant variables */
-    --star-color-hover: var(--variant-hover);
-    --star-color-shadow: var(--variant-shadow);
+    --kroma-star-color: var(--variant-bg);
+    --kroma-star-color-hover: var(--variant-hover);
+    --kroma-star-color-shadow: var(--variant-shadow);
 }
 
-/* Star Rating Icon Styling */
-.rating .star {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+/* Star Styling */
+.kroma-rating .kroma-star {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
     color: var(--neutral-300);
     cursor: pointer;
     transition: color var(--transition-colors), transform var(--transition-transform);
+    outline: none;
 }
 
 /* Filled Stars */
-.rating .star.filled {
-    color: var(--star-color);
+.kroma-rating .kroma-star.filled {
+    color: var(--kroma-star-color);
 }
-.rating .star.filled:hover,
-.rating .star.filled:focus {
-    color: var(--star-color-hover);
+
+.kroma-rating .kroma-star.filled:hover,
+.kroma-rating .kroma-star.filled:focus {
+    color: var(--kroma-star-color-hover);
     transform: scale(1.1);
-    box-shadow: 0 3px 8px var(--star-color-shadow);
+    box-shadow: 0 3px 8px var(--kroma-star-color-shadow);
+}
+
+/* Hover Effects */
+.kroma-rating .kroma-star:hover,
+.kroma-rating .kroma-star:focus {
+    color: var(--kroma-star-color-hover);
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Accessibility - Hide Star Labels for Screen Readers */
-.rating .star[aria-hidden="true"] {
+.kroma-rating .kroma-star[aria-hidden="true"] {
     display: inline-block;
     position: absolute;
     width: 0;
@@ -45,17 +55,21 @@
     clip-path: inset(50%);
 }
 
-/* Hover and Active Animations */
-.rating .star:hover,
-.rating .star:focus {
-    color: var(--star-color-hover);
-    transform: scale(1.1);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+/* Disabled State */
+.kroma-rating[data-disabled="true"] .kroma-star {
+    cursor: not-allowed;
+    color: var(--neutral-300);
+}
+
+.kroma-rating[data-disabled="true"] .kroma-star:hover,
+.kroma-rating[data-disabled="true"] .kroma-star:focus {
+    transform: none;
+    box-shadow: none;
 }
 
 /* Responsive Adjustments */
 @media (min-width: 768px) {
-    .rating {
+    .kroma-rating {
         gap: clamp(var(--space-2), 1vw, var(--space-4));
         padding: clamp(var(--space-2), 1vw, var(--space-4));
         border-radius: var(--radius-lg);

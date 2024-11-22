@@ -8,7 +8,7 @@ import { Modal } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
 import { } from './components/datetime-picker.js';
 import { KromaSlideshow } from './components/slideshow.js';
-import { initializeRatingComponents } from './components/rating.js';
+import {  } from './components/rating.js';
 import { } from './components/calendar.js';
 import { KromaNavbar } from './components/navbar.js';
 import { } from './components/file-upload.js';
@@ -16,12 +16,6 @@ import {  } from './components/command-palette.js';
 import {  } from './components/codeblock.js';
 import { KromaSidebar } from './components/sidebar.js';
 import {} from './components/dropdown.js';
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize rating components
-  initializeRatingComponents();
-
-});
 
 // Export functions globally if needed
 window.showHologram = showHologram;
@@ -32,5 +26,4 @@ window.startAutoDismiss = startAutoDismiss;
 window.pauseAllProgressBars = pauseAllProgressBars;
 window.Modal = Modal;
 window.MultiSelect = MultiSelect;
-window.initializeRatingComponents = initializeRatingComponents;
 

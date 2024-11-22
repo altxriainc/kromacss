@@ -1093,24 +1093,37 @@
     </div>
   </section>
 
-  <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Rating Component Demo</h2>
-    <div class="rating" data-variant="primary" data-rating="4" aria-label="4 out of 5 stars">
-        <span class="star filled" role="button" tabindex="0">★</span>
-        <span class="star filled" role="button" tabindex="0">★</span>
-        <span class="star filled" role="button" tabindex="0">★</span>
-        <span class="star filled" role="button" tabindex="0">★</span>
-        <span class="star" role="button" tabindex="0">★</span>
+  <section class="kroma-section p-4 bg-neutral-50 shadow-md rounded my-6">
+    <h2 class="font-lg text-primary my-4">Kroma Rating Component Demo</h2>
+
+    <!-- Primary Rating -->
+    <div class="kroma-rating" data-variant="primary" data-rating="3" aria-label="Rate this item">
+        <span class="kroma-star" role="button" aria-label="1 star">★</span>
+        <span class="kroma-star" role="button" aria-label="2 stars">★</span>
+        <span class="kroma-star" role="button" aria-label="3 stars">★</span>
+        <span class="kroma-star" role="button" aria-label="4 stars">★</span>
+        <span class="kroma-star" role="button" aria-label="5 stars">★</span>
     </div>
 
-    <div class="rating" data-variant="success" data-rating="3" aria-label="3 out of 5 stars">
-        <span class="star filled" role="button" tabindex="0">★</span>
-        <span class="star filled" role="button" tabindex="0">★</span>
-        <span class="star filled" role="button" tabindex="0">★</span>
-        <span class="star" role="button" tabindex="0">★</span>
-        <span class="star" role="button" tabindex="0">★</span>
+    <!-- Success Rating -->
+    <div class="kroma-rating" data-variant="success" data-rating="5" aria-label="Rate this item">
+        <span class="kroma-star" role="button" aria-label="1 star">★</span>
+        <span class="kroma-star" role="button" aria-label="2 stars">★</span>
+        <span class="kroma-star" role="button" aria-label="3 stars">★</span>
+        <span class="kroma-star" role="button" aria-label="4 stars">★</span>
+        <span class="kroma-star" role="button" aria-label="5 stars">★</span>
+    </div>
+
+    <!-- Disabled Rating -->
+    <div class="kroma-rating" data-variant="danger" data-rating="2" data-disabled="true" aria-label="Rate this item">
+        <span class="kroma-star" aria-label="1 star">★</span>
+        <span class="kroma-star" aria-label="2 stars">★</span>
+        <span class="kroma-star" aria-label="3 stars">★</span>
+        <span class="kroma-star" aria-label="4 stars">★</span>
+        <span class="kroma-star" aria-label="5 stars">★</span>
     </div>
   </section>
+
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Stepper Component Demo</h2>
