@@ -1,5 +1,5 @@
 /* Base Tooltip */
-.tooltip {
+.kroma-tooltip {
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -9,40 +9,40 @@
 }
 
 /* Tooltip Text */
-.tooltip-text {
+.kroma-tooltip-text {
   position: absolute;
   background-color: var(--variant-bg, var(--neutral-900));
   color: var(--variant-text, var(--neutral-50));
-  max-height: 0;
   padding: 0;
-  overflow: hidden;
   border-radius: var(--radius-md);
   box-shadow: var(--variant-shadow, var(--shadow-md));
   font-size: clamp(0.75rem, 1vw, 0.875rem);
-  line-height: 1.2;
+  line-height: 1.5;
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.25s ease, transform 0.25s ease, max-height 0.25s ease, padding 0.25s ease;
+  transform: translate(-50%, -50%) scale(0.95); /* Center and shrink initially */
+  transition: opacity 0.25s ease, transform 0.25s ease;
   pointer-events: none;
-  width: max-content;
   z-index: var(--z-50);
   display: flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  width: max-content;
+  overflow: hidden;
 }
 
-/* Show Tooltip on Hover or Focus */
-.tooltip:hover .tooltip-text,
-.tooltip:focus .tooltip-text {
+/* Show Tooltip on Hover, Focus, or Active */
+.kroma-tooltip:hover .kroma-tooltip-text,
+.kroma-tooltip:focus-within .kroma-tooltip-text,
+.kroma-tooltip:active .kroma-tooltip-text {
   opacity: 1;
-  max-height: 200px;
+  transform: translate(-50%, -50%) scale(1);
   padding: clamp(var(--space-1), 1vw, var(--space-2)) clamp(var(--space-2), 2vw, var(--space-4));
-  overflow: visible;
+  pointer-events: auto;
 }
 
 /* Tooltip Arrow */
-.tooltip-text::after {
+.kroma-tooltip-text::after {
   content: "";
   position: absolute;
   width: 0;
@@ -51,25 +51,24 @@
 }
 
 /* Position Variants */
-[data-position="top"] .tooltip-text {
-  bottom: calc(100% + var(--space-2));
+[data-position="top"] .kroma-tooltip-text {
+  top: calc(-1 * var(--space-2)); /* Tooltip above the trigger */
   left: 50%;
-  transform: translateX(-50%);
 }
-[data-position="top"] .tooltip-text::after {
-  top: 100%;
+[data-position="top"] .kroma-tooltip-text::after {
+  bottom: -0.5rem;
   left: 50%;
   transform: translateX(-50%);
   border-width: 0.5rem 0.5rem 0 0.5rem;
   border-color: var(--variant-bg, var(--neutral-900)) transparent transparent transparent;
 }
 
-[data-position="right"] .tooltip-text {
+[data-position="right"] .kroma-tooltip-text {
   top: 50%;
-  left: calc(100% + var(--space-2));
-  transform: translateY(-50%);
+  left: calc(100% + var(--space-2)); /* Tooltip to the right */
+  transform: translate(-50%, -50%);
 }
-[data-position="right"] .tooltip-text::after {
+[data-position="right"] .kroma-tooltip-text::after {
   top: 50%;
   left: -0.5rem;
   transform: translateY(-50%);
@@ -77,25 +76,23 @@
   border-color: transparent var(--variant-bg, var(--neutral-900)) transparent transparent;
 }
 
-[data-position="bottom"] .tooltip-text {
-  top: calc(100% + var(--space-2));
+[data-position="bottom"] .kroma-tooltip-text {
+  top: calc(100% + var(--space-2)); /* Tooltip below the trigger */
   left: 50%;
-  transform: translateX(-50%);
 }
-[data-position="bottom"] .tooltip-text::after {
-  bottom: 100%;
+[data-position="bottom"] .kroma-tooltip-text::after {
+  top: -0.5rem;
   left: 50%;
   transform: translateX(-50%);
   border-width: 0.5rem 0.5rem 0.5rem 0.5rem;
   border-color: transparent transparent var(--variant-bg, var(--neutral-900)) transparent;
 }
 
-[data-position="left"] .tooltip-text {
+[data-position="left"] .kroma-tooltip-text {
   top: 50%;
-  right: calc(100% + var(--space-2));
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 }
-[data-position="left"] .tooltip-text::after {
+[data-position="left"] .kroma-tooltip-text::after {
   top: 50%;
   right: -0.5rem;
   transform: translateY(-50%);
@@ -103,17 +100,12 @@
   border-color: transparent transparent transparent var(--variant-bg, var(--neutral-900));
 }
 
-/* Accessibility Improvements */
-.tooltip:focus .tooltip-text,
-.tooltip:active .tooltip-text {
-  opacity: 1;
-  max-height: 200px;
-  padding: clamp(var(--space-1), 1vw, var(--space-2)) clamp(var(--space-2), 2vw, var(--space-4));
-  transform: scale(1);
-  overflow: visible;
-}
-
-/* Smooth Fade Out */
-.tooltip .tooltip-text {
-  will-change: opacity, transform;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .kroma-tooltip-text {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
+  }
 }
