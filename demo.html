@@ -1050,67 +1050,96 @@
   </section>  
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
-    <h2 class="font-lg text-primary my-4">Timeline Component Demo</h2>
+    <h2 class="font-lg text-primary my-4">Timeline Component Showcase</h2>
+    <p class="mb-6">
+        Explore different styles and variants of the timeline component, including vertical and horizontal timelines.
+    </p>
 
-    <div class="timeline" data-variant="primary" data-scroll="true">
-      <div class="timeline-item" data-date="2023-01-01" data-state="completed">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Project Initiation</h3>
-              <p class="timeline-description">The project was officially initiated, and initial planning began.</p>
-          </div>
-      </div>
-      <div class="timeline-item" data-date="2023-03-15">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Phase 1 Completion</h3>
-              <p class="timeline-description">Completion of phase 1 with significant milestones achieved.</p>
-          </div>
-      </div>
-      <div class="timeline-item" data-date="2023-06-30">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Phase 2 Kickoff</h3>
-              <p class="timeline-description">The project moves into phase 2 with updated goals and deliverables.</p>
-          </div>
-      </div>
-      <div class="timeline-item" data-date="2023-09-30" data-state="active">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Current Development</h3>
-              <p class="timeline-description">Active development stage with ongoing updates and improvements.</p>
-          </div>
-      </div>
-      <div class="timeline-item" data-date="2023-12-31">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Project Completion</h3>
-              <p class="timeline-description">The project is scheduled for completion, with final deliverables submitted.</p>
-          </div>
-      </div>
-    </div>
+    <!-- Vertical Timeline - Default Variant -->
+    <h3 class="font-md text-secondary my-4">Vertical Timeline (Default)</h3>
+    <ul class="kroma-timeline" id="vertical-timeline-default" data-variant="primary" data-scroll="true">
+        <li class="kroma-timeline-item" data-date="2024-01-01">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Event 1</h4>
+                <p class="kroma-timeline-description">Description of the first event in the timeline.</p>
+            </div>
+        </li>
+        <li class="kroma-timeline-item" data-date="2024-02-15" data-state="completed">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Completed Event</h4>
+                <p class="kroma-timeline-description">Details of a completed milestone.</p>
+            </div>
+        </li>
+        <li class="kroma-timeline-item" data-date="2024-03-30" data-state="active">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Active Event</h4>
+                <p class="kroma-timeline-description">This event is currently in progress.</p>
+            </div>
+        </li>
+    </ul>
 
-    <div class="timeline" data-variant="success">
-      <div class="timeline-item" data-date="2023-01-01" data-state="completed">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Idea Development</h3>
-              <p class="timeline-description">The initial idea was developed, and key objectives were outlined.</p>
-          </div>
-      </div>
-      <div class="timeline-item" data-date="2023-02-15">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Prototype Created</h3>
-              <p class="timeline-description">A prototype was created to visualize the project’s potential.</p>
-          </div>
-      </div>
-      <div class="timeline-item" data-date="2023-04-01">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Market Testing</h3>
-              <p class="timeline-description">Initial market testing was conducted with positive feedback.</p>
-          </div>
-      </div>
-      <div class="timeline-item" data-date="2023-06-01" data-state="active">
-          <div class="timeline-content">
-              <h3 class="timeline-title">Final Product Development</h3>
-              <p class="timeline-description">Currently refining the product based on user feedback and data.</p>
-          </div>
-      </div>
-    </div>
+    <!-- Horizontal Timeline - Success Variant -->
+    <h3 class="font-md text-success my-4">Horizontal Timeline (Success)</h3>
+    <ul class="kroma-timeline" id="horizontal-timeline-success" data-style="horizontal" data-variant="success" data-scroll="true">
+        <li class="kroma-timeline-item" data-date="2024-01-01">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Success Event 1</h4>
+                <p class="kroma-timeline-description">Details about the first success event.</p>
+            </div>
+        </li>
+        <li class="kroma-timeline-item" data-date="2024-02-15">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Success Event 2</h4>
+                <p class="kroma-timeline-description">Description of another success story.</p>
+            </div>
+        </li>
+        <li class="kroma-timeline-item" data-date="2024-03-30">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Success Event 3</h4>
+                <p class="kroma-timeline-description">Details about the latest success event.</p>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Vertical Timeline - Danger Variant -->
+    <h3 class="font-md text-danger my-4">Vertical Timeline (Danger)</h3>
+    <ul class="kroma-timeline" id="vertical-timeline-danger" data-variant="danger">
+        <li class="kroma-timeline-item" data-date="2024-04-10">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Danger Event 1</h4>
+                <p class="kroma-timeline-description">Critical milestone description.</p>
+            </div>
+        </li>
+        <li class="kroma-timeline-item" data-date="2024-05-20">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Danger Event 2</h4>
+                <p class="kroma-timeline-description">Details of a high-risk event.</p>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Horizontal Timeline - Default Variant -->
+    <h3 class="font-md text-primary my-4">Horizontal Timeline (Default)</h3>
+    <ul class="kroma-timeline" id="horizontal-timeline-default" data-style="horizontal" data-variant="primary" data-scroll="true">
+        <li class="kroma-timeline-item" data-date="2024-06-01">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Default Event 1</h4>
+                <p class="kroma-timeline-description">Introduction of a major feature.</p>
+            </div>
+        </li>
+        <li class="kroma-timeline-item" data-date="2024-07-15" data-state="completed">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Default Completed Event</h4>
+                <p class="kroma-timeline-description">A project milestone achieved successfully.</p>
+            </div>
+        </li>
+        <li class="kroma-timeline-item" data-date="2024-08-30" data-state="active">
+            <div class="kroma-timeline-content">
+                <h4 class="kroma-timeline-title">Default Active Event</h4>
+                <p class="kroma-timeline-description">Ongoing activities and updates.</p>
+            </div>
+        </li>
+    </ul>
   </section>
 
   <section class="kroma-section p-4 bg-neutral-50 shadow-md rounded my-6">
