@@ -13,9 +13,16 @@
   position: fixed;
   pointer-events: all;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 9999;
+
   opacity: 1;
 }
+
+.kroma-toast-container{
+  z-index: 9999;
+  position:fixed;
+}
+
+
 
 /* Toast Position Variants */
 .kroma-toast[data-position="top-right"], 

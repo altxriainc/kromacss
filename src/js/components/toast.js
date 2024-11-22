@@ -19,9 +19,12 @@ export function showKromaToast(message, {
     if (!container) {
         container = document.createElement('div');
         container.setAttribute('data-toast-container', position);
-        container.style.position = 'fixed';
+        //container.style.position = 'fixed';
         document.body.appendChild(container);
+        
     }
+
+    container.classList.add('kroma-toast-container');
 
     // Create toast element
     const toast = document.createElement('div');
