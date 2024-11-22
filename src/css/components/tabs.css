@@ -1,5 +1,5 @@
-/* Tabs Container */
-.tabs-container {
+/* Base Tabs Container */
+.kroma-tabs-container {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -8,7 +8,7 @@
 }
 
 /* Tabs Header */
-.tabs {
+.kroma-tabs {
   display: flex;
   gap: var(--space-2);
   align-items: center;
@@ -16,40 +16,41 @@
 }
 
 /* Active Tab */
-.tab-active {
+.kroma-tab-active {
   color: var(--variant-text);
   background-color: var(--variant-bg);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
   border-radius: var(--radius-md);
+  font-weight: bold;
 }
 
 /* Horizontal Layout */
-[data-layout="horizontal"] {
+.kroma-tabs-container[data-layout="horizontal"] {
   flex-direction: column;
 }
-[data-layout="horizontal"] .tabs {
+.kroma-tabs-container[data-layout="horizontal"] .kroma-tabs {
   flex-direction: row;
   border-bottom: 2px solid var(--variant-border);
   padding-bottom: var(--space-1);
 }
 
 /* Vertical Layout */
-[data-layout="vertical"] {
+.kroma-tabs-container[data-layout="vertical"] {
   flex-direction: row;
 }
-[data-layout="vertical"] .tabs {
+.kroma-tabs-container[data-layout="vertical"] .kroma-tabs {
   flex-direction: column;
   align-items: flex-start;
   border-right: 2px solid var(--variant-border);
   padding-right: var(--space-2);
 }
-[data-layout="vertical"] .tab-content {
+.kroma-tabs-container[data-layout="vertical"] .kroma-tab-content {
   margin-left: var(--space-4);
   margin-top: 0;
 }
 
 /* Tab Styling */
-.tab {
+.kroma-tab {
   position: relative;
   padding: clamp(0.5rem, 1vw, 1rem) clamp(1rem, 2vw, 1.5rem);
   font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
@@ -63,13 +64,13 @@
   outline: none;
 }
 
-.tab:hover,
-.tab:focus {
+.kroma-tab:hover,
+.kroma-tab:focus {
   color: var(--variant-hover);
 }
 
 /* Underlined Variant */
-[data-style="underlined"] .tab-active::after {
+.kroma-tabs-container[data-style="underlined"] .kroma-tab-active::after {
   content: "";
   position: absolute;
   left: 0;
@@ -81,12 +82,12 @@
 }
 
 /* Pill Variant */
-[data-style="pill"] .tab {
+.kroma-tabs-container[data-style="pill"] .kroma-tab {
   padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.25rem);
   border-radius: var(--radius-full);
   border: 1px solid var(--variant-border);
 }
-[data-style="pill"] .tab-active {
+.kroma-tabs-container[data-style="pill"] .kroma-tab-active {
   color: var(--variant-text);
   background-color: var(--variant-bg);
   border-color: var(--variant-border);
@@ -94,21 +95,21 @@
 }
 
 /* Boxed Variant */
-[data-style="boxed"] .tab {
+.kroma-tabs-container[data-style="boxed"] .kroma-tab {
   background-color: var(--variant-light-bg);
   border: 1px solid var(--variant-border);
   border-radius: var(--radius-md);
   padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.25rem);
   box-shadow: var(--variant-shadow);
 }
-[data-style="boxed"] .tab-active {
+.kroma-tabs-container[data-style="boxed"] .kroma-tab-active {
   background-color: var(--variant-bg);
   color: var(--variant-text);
   border-color: var(--variant-border);
 }
 
 /* Tab Content */
-.tab-content {
+.kroma-tab-content {
   display: none;
   padding: var(--space-4);
   border: 1px solid var(--variant-border);
@@ -116,13 +117,19 @@
   background-color: var(--variant-light-bg);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
   margin-top: var(--space-2);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: scale(0.98);
 }
-.tab-content-active {
+
+.kroma-tab-content-active {
   display: block;
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* No Content Box Variant */
-[data-style="no-content-box"] .tab-content {
+.kroma-tabs-container[data-style="no-content-box"] .kroma-tab-content {
   border: none;
   background-color: transparent;
   box-shadow: none;
@@ -131,20 +138,20 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  [data-layout="vertical"] {
-    flex-direction: column;
+  .kroma-tabs-container[data-layout="vertical"] {
+      flex-direction: column;
   }
 
-  [data-layout="vertical"] .tabs {
-    flex-direction: row;
-    border-right: none;
-    border-bottom: 2px solid var(--variant-border);
-    padding-right: 0;
-    padding-bottom: var(--space-1);
+  .kroma-tabs-container[data-layout="vertical"] .kroma-tabs {
+      flex-direction: row;
+      border-right: none;
+      border-bottom: 2px solid var(--variant-border);
+      padding-right: 0;
+      padding-bottom: var(--space-1);
   }
 
-  [data-layout="vertical"] .tab-content {
-    margin-left: 0;
-    margin-top: var(--space-2);
+  .kroma-tabs-container[data-layout="vertical"] .kroma-tab-content {
+      margin-left: 0;
+      margin-top: var(--space-2);
   }
 }

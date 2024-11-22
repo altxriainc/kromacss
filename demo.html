@@ -903,22 +903,22 @@
   
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">
     <h2 class="font-lg text-primary my-4">Tabs Component Demo</h2>
-    <div class="tabs-container" id="tabExample" data-variant="primary" data-style="pill" data-layout="horizontal">
-      <div class="tabs">
-          <button class="tab tab-active" onclick="showTabContent(event, 'content1', 'tabExample')">Tab 1</button>
-          <button class="tab" onclick="showTabContent(event, 'content2', 'tabExample')">Tab 2</button>
-          <button class="tab" onclick="showTabContent(event, 'content3', 'tabExample')">Tab 3</button>
+    <div class="kroma-tabs-container" id="example-tabs" data-layout="horizontal" data-style="pill" data-variant="accent">
+      <div class="kroma-tabs">
+          <button class="kroma-tab kroma-tab-active" onclick="toggleTabContent(event, 'tab-1', 'example-tabs')">Tab 1</button>
+          <button class="kroma-tab" onclick="toggleTabContent(event, 'tab-2', 'example-tabs')">Tab 2</button>
+          <button class="kroma-tab" onclick="toggleTabContent(event, 'tab-3', 'example-tabs')">Tab 3</button>
       </div>
-      <div id="content1" class="tab-content tab-content-active">
-          <p>Content for Tab 1</p>
+      <div id="tab-1" class="kroma-tab-content kroma-tab-content-active">
+          <p>This is content for Tab 1.</p>
       </div>
-      <div id="content2" class="tab-content">
-          <p>Content for Tab 2</p>
+      <div id="tab-2" class="kroma-tab-content">
+          <p>This is content for Tab 2.</p>
       </div>
-      <div id="content3" class="tab-content">
-          <p>Content for Tab 3</p>
+      <div id="tab-3" class="kroma-tab-content">
+          <p>This is content for Tab 3.</p>
       </div>
-    </div>
+    </div>  
   </section>
 
   <section class="p-4 bg-neutral-50 shadow-md rounded my-6">

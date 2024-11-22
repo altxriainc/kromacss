@@ -2,7 +2,7 @@
 import { } from './components/alert.js';
 import {  } from './components/accordion.js';
 import { showHologram } from './components/hologram.js';
-import { showTabContent } from './components/tabs.js';
+import { toggleTabContent } from './components/tabs.js';
 import { showToast, dismissToast, startAutoDismiss, pauseAllProgressBars } from './components/toast.js';
 import { Modal } from './components/modal.js';
 import { MultiSelect } from './components/multiselect.js';
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Export functions globally if needed
 window.showHologram = showHologram;
-window.showTabContent = showTabContent;
+window.toggleTabContent = toggleTabContent;
 window.showToast = showToast;
 window.dismissToast = dismissToast;
 window.startAutoDismiss = startAutoDismiss;
