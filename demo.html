@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Button Showcase</title>
-  <link rel="stylesheet" href="src/css/main.css"> <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="src/css/bundle.css"> <!-- Link to your CSS file -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
   </style>
@@ -1339,13 +1339,12 @@
   </div>  
 </section>
 </body>
-<script type="module" src="src/js/main.js"></script>
+<script type="module" src="src/js/bundle.js"></script>
 <script>
 // Wait for the DOM to load before setting up the event listener
 document.addEventListener("DOMContentLoaded", () => {
     // Select the calendar element
-    const calendarElement = document.querySelector('.calendar[data-variant="with-items"]');
-    
+    const calendarElement = document.querySelector('.kroma-calendar[data-type="with-items"]');
     // Check if the calendar element exists
     if (calendarElement) {
         // Add an event listener for the custom 'dateSelected' event
