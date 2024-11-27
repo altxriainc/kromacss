@@ -372,6 +372,21 @@ svg {
 .inline-block { display: inline-block; }
 .inline { display: inline; }
 
+/*REMOVE HIGHLIGHT BACKGROUND*/
+.no-selection::selection {
+  background: transparent;
+  color: inherit; 
+}
+
+.no-selection::-moz-selection {
+  background: transparent;
+  color: inherit;
+}
+
+.no-selection {
+  user-select: none;
+}
+
 
 /* --- flexbox.css --- */
 .flex { display: flex; gap: var(--space-4); }
@@ -4548,6 +4563,35 @@ html:has(.kroma-navbar) .kroma-sidebar{
 
 .dark-mode .kroma-sidebar .sdb-menu ul li a:hover:before {
     background: #ffffff0f;
+}
+
+.kroma-sidebar li{
+
+  cursor:pointer;
+
+}
+
+.kroma-sidebar li[data-idparent] {
+  padding-left: 10px;
+  max-height: 100px;
+  transition: 100ms;
+}
+
+.kroma-sidebar:not(.collapsed) li.parent a span:before {
+  content: "\f054";
+  margin-right: 10px;
+  font-family: 'FontAwesome';
+  display: inline-block;
+}
+
+.kroma-sidebar li[data-idparent].collapsed {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.kroma-sidebar li.parent:not(.collapsed) a span:before {
+  transform: rotate(90deg);
+  transform-origin: center;
 }
 
 /* --- skeleton.css --- */

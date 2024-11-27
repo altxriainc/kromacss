@@ -138,6 +138,8 @@ export class KromaSidebar {
         for(var i = 0; i < this.pages.length; i++){
 
             var li = document.createElement('li');
+            li.querySelector('a').removeAttribute('href'); //remove href from collapsable parent
+            li.classList.add('no-selection');
 
             //parent page
             if(!this.pages[i].isChild){
@@ -178,6 +180,36 @@ export class KromaSidebar {
 
         menu.appendChild(ul);
         this.sdb.appendChild(menu);
+
+        //remove parent class from childless links
+        document.querySelectorAll('#'+this.sdb.id+' .sdb-menu ul li.parent').forEach((li)=>{
+            var liChildren = document.querySelectorAll('#'+this.sdb.id+' .sdb-menu ul li[data-idparent="'+li.dataset.myid+'"]');
+            if(liChildren.length < 1){li.classList.remove('parent');}
+            else{
+                li.classList.add('collapsed');
+                li.addEventListener('click',function(){
+
+                    var sdbId = this.closest('.kroma-sidebar').id;
+                    var liChildren = document.querySelectorAll('#'+sdbId+' .sdb-menu ul li[data-idparent="'+this.dataset.myid+'"]');
+
+                    if(this.classList.contains('collapsed')){
+                        this.classList.remove('collapsed');
+                        liChildren.forEach(function(liChild){ liChild.classList.remove('collapsed'); });
+                    }
+                    else{
+                        this.classList.add('collapsed');
+                        liChildren.forEach(function(liChild){ liChild.classList.add('collapsed'); });
+                    }
+
+                });
+            
+            }
+        });
+
+        //collapse all children links
+        document.querySelectorAll('#'+this.sdb.id+' .sdb-menu ul li[data-idparent]').forEach((li)=>{
+            li.classList.add('collapsed');
+        });
 
 
     }
