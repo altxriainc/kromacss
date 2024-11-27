@@ -1509,7 +1509,7 @@ export class KromaSidebar {
             page.text = a.innerText ?? 'Page';
             page.title = page.text;
             page.icon = a.previousElementSibling;
-            if( (page.icon.tagName ?? '') != 'I' ){
+            if(!page.icon || (page.icon.tagName ?? '') != 'I' ){
                 page.icon = document.createElement('i');
                 page.icon.classList.add('fa-solid');
                 page.icon.classList.add('fa-link');

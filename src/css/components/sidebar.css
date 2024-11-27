@@ -142,6 +142,10 @@ html:has(.kroma-navbar) .kroma-sidebar{
     background: var(--neutral-300);
 }
 
+.kroma-sidebar.collapsed .sdb-logo:not(:has(img)):after {
+    display: none;
+}
+
 .kroma-sidebar .sdb-logo span {
     margin: auto 0;
 }
