@@ -256,7 +256,7 @@ html:has(.kroma-navbar) .kroma-sidebar{
   
   }
 
-.kroma-sidebar li[data-idparent] {
+.kroma-sidebar:not(.collapsed) li[data-idparent] {
     padding-left: 10px;
     max-height: 100px;
     transition: 100ms;
