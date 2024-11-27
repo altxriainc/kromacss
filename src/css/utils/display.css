@@ -2,3 +2,20 @@
 .block { display: block; }
 .inline-block { display: inline-block; }
 .inline { display: inline; }
+
+
+/*REMOVE HIGHLIGHT BACKGROUND*/
+.no-selection::selection {
+    background: transparent;
+    color: inherit; 
+}
+
+.no-selection::-moz-selection {
+    background: transparent;
+    color: inherit;
+}
+
+.no-selection {
+    user-select: none;
+}
+
