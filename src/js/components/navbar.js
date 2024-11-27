@@ -34,7 +34,7 @@ export class KromaNavbar {
         this.hasLogo = (this.nav.querySelector('img') && this.nav.querySelector('img').src) ? true : false;
         this.logoPath = this.hasLogo ? this.nav.querySelector('img').src : undefined;
         this.siteTitle = document.querySelector('head title');
-        this.siteTitle = siteTitle ?? (this.siteTitle.innerText ?? '');
+        this.siteTitle = ( this.nav.dataset.title ?? title ) ?? (this.siteTitle.innerText ?? '');
 
 
         //get menu items

@@ -3720,6 +3720,7 @@ blockquote {
 .kroma-navbar .nav-logo img {
     width: auto;
     height: 100%;
+    min-width: min-content;
 }
 
 .kroma-navbar .nav-logo {
