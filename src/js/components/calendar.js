@@ -1,4 +1,4 @@
-function initializeCalendarComponents() {
+export function initializeCalendarComponents() {
     document.querySelectorAll('.kroma-calendar').forEach(initCalendar);
 }
 

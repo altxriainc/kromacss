@@ -1,4 +1,4 @@
-class KromaNavbar {
+export class KromaNavbar {
 
     /*
     id (string) = navbar element id

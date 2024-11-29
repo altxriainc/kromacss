@@ -1,4 +1,4 @@
-function toggleTabContent(event, contentId, containerId) {
+export function toggleTabContent(event, contentId, containerId) {
     const container = document.getElementById(containerId);
     const tabs = container.querySelectorAll('.kroma-tab');
     const contents = container.querySelectorAll('.kroma-tab-content');

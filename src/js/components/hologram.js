@@ -1,4 +1,4 @@
-function showHologram(titleText, subtitleText, variant = 'primary', intensity = 'medium', duration = 6000) {
+export function showHologram(titleText, subtitleText, variant = 'primary', intensity = 'medium', duration = 6000) {
     // Remove any existing holograms and dim overlay
     document.querySelectorAll('.kroma-hologram-overlay, .kroma-body-dim').forEach(el => el.remove());
 

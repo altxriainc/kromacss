@@ -1,4 +1,4 @@
-class KromaSlideshow {
+export class KromaSlideshow {
 
     /*
     id (string) = slideshow element id
