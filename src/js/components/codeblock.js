@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeCodeblock(document);
 });
 
-export function initializeCodeblock() {
+function initializeCodeblock() {
   document.querySelectorAll('.kroma-code-block').forEach((block) => {
     // Check if buttons are already rendered to avoid duplication
     if (block.querySelector('.kroma-code-block-header')) return;

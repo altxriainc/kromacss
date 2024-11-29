@@ -1,4 +1,4 @@
-export class DateTimePicker {
+class DateTimePicker {
     constructor(elementId, { format = 'YYYY-MM-DD HH:mm', includeTime = true, variant = 'primary' } = {}) {
         this.container = document.getElementById(elementId);
         this.format = format;

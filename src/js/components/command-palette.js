@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeCommandPalettes();
 });
 
-export function initializeCommandPalettes() {
+function initializeCommandPalettes() {
     // Select all command palettes on the page
     const palettes = document.querySelectorAll('.kroma-command-palette');
 
