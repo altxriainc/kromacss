@@ -3,7 +3,7 @@ Project: kromacss
 Version: 1.0.2
 Description: A modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability.
 Author: Altxria Inc.
-License: MIT
+License: CC BY-ND 4.0
 */
 
 /* --- design-tokens.css --- */
@@ -372,20 +372,22 @@ svg {
 .inline-block { display: inline-block; }
 .inline { display: inline; }
 
+
 /*REMOVE HIGHLIGHT BACKGROUND*/
 .no-selection::selection {
-  background: transparent;
-  color: inherit; 
+    background: transparent;
+    color: inherit; 
 }
 
 .no-selection::-moz-selection {
-  background: transparent;
-  color: inherit;
+    background: transparent;
+    color: inherit;
 }
 
 .no-selection {
-  user-select: none;
+    user-select: none;
 }
+
 
 
 /* --- flexbox.css --- */
@@ -2749,136 +2751,6 @@ blockquote {
 }
 
 
-/* --- footer.css --- */
-/* Base Footer Styles */
-.kroma-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--space-6) var(--space-8);
-    background-color: var(--variant-bg, var(--neutral-900));
-    color: var(--variant-text, var(--neutral-50));
-    font-family: var(--font-sans);
-    gap: var(--space-4);
-    border-top: 1px solid var(--variant-border, var(--neutral-700));
-    transition: background-color var(--transition-colors), box-shadow var(--transition-all);
-    z-index: var(--z-10);
-    width: 100%;
-}
-
-/* Footer Position: Sticky Bottom */
-.kroma-footer[data-stick="bottom"] {
-    position: sticky;
-    bottom: 0;
-}
-
-/* Footer Position: Fixed Bottom */
-.kroma-footer[data-stick="fixed"] {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: var(--shadow-lg);
-}
-
-/* Footer Layouts */
-.kroma-footer[data-layout="center"] {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-4);
-}
-
-.kroma-footer[data-layout="stacked"] {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-6);
-}
-
-/* Footer Links */
-.kroma-footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-4);
-}
-
-.kroma-footer-link {
-    color: inherit;
-    text-decoration: none;
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    font-weight: 500;
-    transition: color var(--transition-colors);
-}
-
-.kroma-footer-link:hover,
-.kroma-footer-link:focus {
-    color: var(--variant-hover-bg, var(--neutral-300));
-    text-decoration: underline;
-}
-
-/* Footer Brand Section */
-.kroma-footer-brand {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    font-weight: bold;
-}
-
-.kroma-footer-logo {
-    max-height: 50px;
-    object-fit: contain;
-}
-
-/* Footer Copyright Section */
-.kroma-footer-copyright {
-    font-size: clamp(0.75rem, 1vw, 0.875rem);
-    color: var(--neutral-400);
-    margin-top: var(--space-4);
-    text-align: center;
-    width: 100%;
-}
-
-/* Footer Social Links */
-.kroma-footer-social {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-3);
-}
-
-.kroma-footer-social a {
-    font-size: 1.5rem;
-    color: inherit;
-    transition: color var(--transition-colors);
-}
-
-.kroma-footer-social a:hover,
-.kroma-footer-social a:focus {
-    color: var(--variant-hover-bg, var(--neutral-300));
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .kroma-footer {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-6);
-        padding: var(--space-4);
-    }
-
-    .kroma-footer-links,
-    .kroma-footer-social {
-        justify-content: center;
-        gap: var(--space-3);
-    }
-
-    .kroma-footer-copyright {
-        margin-top: var(--space-6);
-    }
-}
-
-
 /* --- form.css --- */
 /* Base Form Group Styling */
 .kroma-form-group {
@@ -3905,34 +3777,6 @@ color: var(--variant-hover);
 
 
 
-
-.kroma-navbar:not(.toggled-menu) .nav-menu {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.kroma-navbar:not(.toggled-menu) .nav-menu ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: calc(var(--nav-size-base) / 6);
-}
-
-.kroma-navbar:not(.toggled-menu) .nav-menu ul li a {
-  text-decoration: none;
-}
-
-.kroma-navbar:not(.toggled-menu) .nav-menu ul li a:hover {
-  text-decoration: underline;
-}
-
-.kroma-navbar .kroma-avatar {
-  max-height: calc(var(--nav-size-base) / 1.5);
-  max-width: calc(var(--nav-size-base) / 1.5);
-}
-
 /* --- pagination.css --- */
 /* Pagination Container */
 .kroma-pagination {
@@ -4530,7 +4374,7 @@ html:has(.kroma-navbar) .kroma-sidebar{
 }
 
 .kroma-sidebar.collapsed .sdb-logo:not(:has(img)):after {
-  display: none;
+    display: none;
 }
 
 .kroma-sidebar .sdb-logo span {
@@ -4639,59 +4483,59 @@ html:has(.kroma-navbar) .kroma-sidebar{
 
 .kroma-sidebar li{
 
-  cursor:pointer;
-
-}
+    cursor:pointer;
+  
+  }
 
 .kroma-sidebar:not(.collapsed) li[data-idparent] {
-  padding-left: 10px;
-  max-height: 100px;
-  transition: 100ms;
+    padding-left: 10px;
+    max-height: 100px;
+    transition: 100ms;
 }
 
 .kroma-sidebar:not(.collapsed) li.parent a span:before {
-  content: "\f054";
-  margin-right: 10px;
-  font-family: 'FontAwesome';
-  display: inline-block;
+    content: "\f054";
+    margin-right: 10px;
+    font-family: 'FontAwesome';
+    display: inline-block;
 }
 
 .kroma-sidebar li[data-idparent].collapsed {
-  max-height: 0;
-  overflow: hidden;
+    max-height: 0;
+    overflow: hidden;
 }
 
 .kroma-sidebar li.parent:not(.collapsed) a span:before {
-  transform: rotate(90deg);
-  transform-origin: center;
+    transform: rotate(90deg);
+    transform-origin: center;
 }
 
 
 /*variants*/
 
 .kroma-sidebar[data-variant]:before {
-  background: var(--variant-bg);
-  border-color: var(--variant-border);
+    background: var(--variant-bg);
+    border-color: var(--variant-border);
 }
 
 .kroma-sidebar[data-variant] .sdb-logo:after{
-  background: var(--variant-border);
+    background: var(--variant-border);
 }
 
 .kroma-sidebar[data-variant] .sdb-logo span, 
 .kroma-sidebar[data-variant] .sdb-menu ul li i,
 .kroma-sidebar[data-variant] .sdb-menu ul li span,
 .kroma-sidebar[data-variant] .sdb-arrow{
-  color: var(--variant-text);
+    color: var(--variant-text);
 }
 
 .kroma-sidebar[data-variant] .sdb-menu ul li a:hover:before{
-  background: var(--variant-hover-bg);
+    background: var(--variant-hover-bg);
 }
 
 .kroma-sidebar[data-variant] .sdb-menu ul li a:hover > i,
 .kroma-sidebar[data-variant] .sdb-menu ul li a:hover > span {
-  color: var(--variant-hover);
+    color: var(--variant-hover);
 }
 
 /* --- skeleton.css --- */
