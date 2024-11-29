@@ -1,207 +1,204 @@
 /* Calendar Container */
 .kroma-calendar {
-    max-width: 100%;
-    width: 100%;
-    font-family: var(--font-sans);
-    color: var(--neutral-800);
-    background-color: var(--neutral-50);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    padding: var(--space-4);
-    overflow: hidden; 
-    transition: var(--transition-all);
-  }
-  
-  /* Calendar Variant Colors */
+  max-width: 100%;
+  width: 100%;
+  font-family: var(--font-sans);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-4);
+  overflow: hidden;
+  transition: var(--transition-all);
+  background-color: var(--calendar-bg, var(--neutral-100));
+  color: var(--calendar-text, var(--neutral-800));
+}
+
+/* Dynamic Variant Handling */
+.kroma-calendar {
+  --calendar-bg: var(--variant-bg, var(--neutral-100));
+  --calendar-text: var(--variant-text, var(--neutral-800));
+  --calendar-hover-bg: var(--variant-light-bg, var(--neutral-300));
+  --calendar-selected-bg: var(--variant-hover, var(--neutral-200));
+  --calendar-today-border: var(--variant-border, var(--neutral-500));
+  --calendar-scrollbar: var(--variant-dark-bg, var(--neutral-400));
+}
+
+/* Calendar Header */
+.kroma-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  background-color: var(--calendar-bg);
+  color: var(--calendar-text);
+  border-radius: var(--radius-md);
+  font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+  text-transform: uppercase;
+  gap: var(--space-4);
+  height: clamp(3.5rem, 7vw, 4.5rem);
+}
+
+/* Navigation Icons */
+.kroma-calendar-nav {
+  background: none;
+  border: none;
+  color: var(--calendar-text);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  cursor: pointer;
+  transition: color var(--transition-colors), transform var(--transition-transform);
+  display: flex;
+  align-items: center;
+}
+
+.kroma-calendar-nav:hover {
+  color: var(--calendar-hover-bg);
+  transform: scale(1.2);
+}
+
+/* Month and Year Display */
+.kroma-calendar-month-year {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Month and Year Selectors */
+.kroma-calendar-selectors {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.kroma-calendar-selectors select {
+  padding: var(--space-2) var(--space-3);
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--neutral-300);
+  color: var(--neutral-800);
+  background-color: var(--neutral-100);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color var(--transition-colors), border-color var(--transition-colors);
+}
+
+/* Calendar Body */
+.kroma-calendar-body {
+  padding: var(--space-4);
+}
+
+/* Weekday Names and Dates */
+.kroma-calendar-weekdays,
+.kroma-calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  justify-items: center;
+  align-items: center;
+}
+
+/* Weekday Styling */
+.kroma-calendar-weekdays div {
+  text-align: center;
+  font-weight: 600;
+  color: var(--neutral-200);
+  padding: var(--space-1) 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Dates Styling */
+.kroma-calendar-dates button {
+  position: relative;
+  width: 100%;
+  height: clamp(4rem, 8vw, 5rem);
+  text-align: center;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: clamp(1rem, 1vw, 1.125rem);
+  color: var(--calendar-text);
+  cursor: pointer;
+  transition: background-color var(--transition-colors), color var(--transition-colors), box-shadow var(--transition-all);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Hover and Selected Date Effects */
+.kroma-calendar-dates button:hover {
+  background-color: var(--calendar-hover-bg);
+  color: var(--calendar-text);
+}
+
+.kroma-calendar-dates button[data-selected="true"] {
+  background-color: var(--calendar-selected-bg);
+  color: var(--calendar-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.kroma-calendar-dates button[data-today="true"] {
+  border: 2px solid var(--calendar-today-border);
+  border-radius: var(--radius-md);
+}
+
+/* Disabled Dates */
+.kroma-calendar-dates button[data-disabled="true"] {
+  color: var(--neutral-400);
+  cursor: not-allowed;
+}
+
+/* Calendar Variant with Items */
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-1) var(--space-2);
+  overflow-y: auto;
+}
+
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates .date-item {
+  font-size: 0.75rem;
+  color: var(--neutral-800);
+  background-color: var(--neutral-200);
+  border-radius: var(--radius-sm);
+  padding: 0.125rem var(--space-1);
+  margin-top: var(--space-1);
+  white-space: nowrap;
+}
+
+/* Scrollbar for Day Cells */
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar {
+  width: 6px;
+}
+
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-thumb {
+  background-color: var(--calendar-scrollbar);
+  border-radius: var(--radius-md);
+}
+
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-track {
+  background-color: var(--neutral-200);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .kroma-calendar {
-    --calendar-bg: var(--variant-bg);
-    --calendar-text: var(--variant-text);
-    --calendar-hover-bg: var(--variant-hover);
-    --calendar-selected-bg: var(--variant-light-bg);
-    --calendar-today-border: var(--variant-border);
-    --calendar-scrollbar: var(--variant-dark-bg);
+    padding: var(--space-2);
   }
-  
-  /* Calendar Header */
+
   .kroma-calendar-header {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    padding: var(--space-4);
-    background-color: var(--calendar-bg, var(--neutral-200));
-    color: var(--calendar-text, var(--neutral-800));
-    border-radius: var(--radius-md);
-    font-size: clamp(1.5rem, 2.5vw, 1.75rem);
-    text-transform: uppercase;
-    gap: var(--space-4); 
-    height: clamp(3rem, 6vw, 4rem); 
-  }
-  
-  /* Navigation Icons */
-  .kroma-calendar-nav {
-    background: none;
-    border: none;
-    color: var(--neutral-800);
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    cursor: pointer;
-    transition: color var(--transition-colors), transform var(--transition-transform);
-    display: flex;
-    align-items: center; 
-  }
-  
-  .kroma-calendar-nav:hover {
-    color: var(--calendar-hover-bg, var(--neutral-600));
-    transform: scale(1.2);
-  }
-  
-  /* Month and Year Display */
-  .kroma-calendar-month-year {
-    font-size: clamp(1.5rem, 3vw, 1.75rem);
-    font-weight: bold;
-    text-align: center; 
-    flex-grow: 1; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Month and Year Selectors */
-  .kroma-calendar-selectors {
-    display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-2);
-    margin-top: var(--space-2);
+    height: auto;
   }
-  
-  .kroma-calendar-selectors select {
-    padding: var(--space-2) var(--space-3);
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--neutral-300);
-    color: var(--neutral-800);
-    background-color: var(--neutral-100);
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-    transition: background-color var(--transition-colors), border-color var(--transition-colors);
-  }
-  
-  /* Calendar Body */
-  .kroma-calendar-body {
-    padding: var(--space-4);
-  }
-  
-  /* Weekday Names and Dates */
-  .kroma-calendar-weekdays,
-  .kroma-calendar-dates {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--space-2);
-    margin-top: var(--space-2);
-    justify-items: center; 
-    align-items: center;
-  }
-  
-  /* Weekday Styling */
-  .kroma-calendar-weekdays div {
-    text-align: center;
-    font-weight: 600;
-    color: var(--neutral-600);
-    padding: var(--space-1) 0;
-    border-radius: var(--radius-sm);
-  }
-  
-  /* Dates Styling */
+
+  .kroma-calendar-weekdays div,
   .kroma-calendar-dates button {
-    position: relative;
-    width: 100%; 
-    height: clamp(3.5rem, 7vw, 4.5rem); 
-    max-height: 5rem; 
-    text-align: center;
-    background: none;
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    color: var(--neutral-800);
-    cursor: pointer;
-    transition: background-color var(--transition-colors), color var(--transition-colors), box-shadow var(--transition-all);
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden; 
-    flex-direction: column;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    height: clamp(3rem, 10vw, 4rem);
   }
-  
-  /* Hover and Selected Date Effects */
-  .kroma-calendar-dates button:hover {
-    background-color: var(--calendar-hover-bg, var(--neutral-300));
-    color: var(--calendar-text);
-  }
-  
-  .kroma-calendar-dates button[data-selected="true"] {
-    background-color: var(--calendar-selected-bg);
-    color: var(--calendar-text);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .kroma-calendar-dates button[data-today="true"] {
-    border: 2px solid var(--calendar-today-border);
-    border-radius: var(--radius-md);
-  }
-  
-  /* Disabled Dates */
-  .kroma-calendar-dates button[data-disabled="true"] {
-    color: var(--neutral-400);
-    cursor: not-allowed;
-  }
-  
-  /* Calendar Variant with Items */
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-1) var(--space-2);
-    overflow-y: auto; 
-  }
-  
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates .date-item {
-    font-size: 0.75rem;
-    color: var(--neutral-500);
-    background-color: var(--neutral-200);
-    border-radius: var(--radius-sm);
-    padding: 0.125rem var(--space-1);
-    margin-top: var(--space-1);
-    white-space: nowrap;
-  }
-  
-  /* Scrollbar for Day Cells */
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-thumb {
-    background-color: var(--calendar-scrollbar);
-    border-radius: var(--radius-md);
-  }
-  
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-track {
-    background-color: var(--neutral-200);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .kroma-calendar {
-      padding: var(--space-2); 
-    }
-  
-    .kroma-calendar-header {
-      flex-wrap: nowrap; 
-      gap: var(--space-2);
-      height: auto; 
-    }
-  
-    .kroma-calendar-weekdays div,
-    .kroma-calendar-dates button {
-      font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-      height: clamp(2.5rem, 10vw, 3rem);
-    }
-  }
-  
+}

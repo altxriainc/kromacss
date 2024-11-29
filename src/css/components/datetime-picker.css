@@ -128,7 +128,7 @@
 .kroma-quick-select button:hover {
   background-color: var(--variant-hover-bg, var(--neutral-400));
   color: #fff;
-}
+} 
 
 /* Time Selector */
 .kroma-time-selector {

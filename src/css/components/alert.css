@@ -6,17 +6,29 @@
   padding: clamp(var(--space-4), 1vw + var(--space-3), var(--space-6));
   margin: var(--space-4) auto;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--variant-shadow, var(--shadow-md));
   font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
   position: relative;
-  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, background-color 0.3s ease;
   opacity: 1;
-  background-color: var(--neutral-50);
-  color: var(--neutral-900);
+  background-color: var(--variant-bg, var(--neutral-50));
+  color: var(--variant-text, var(--neutral-900));
   gap: var(--space-3);
+  max-height: 500px;
   overflow: hidden;
-  max-height: 500px; /* Set an arbitrary large value to allow transition */
-  overflow: hidden; /* Prevent overflow during the transition */
+}
+
+.kroma-alert[data-variant="default"],
+.kroma-alert:not([data-variant]) {
+  --variant-bg: var(--neutral-100);
+  --variant-text: var(--neutral-900);
+  --variant-shadow: var(--shadow-md);
+  --variant-border: var(--neutral-200);
+  --variant-hover-bg: var(--neutral-200);
+}
+
+.kroma-alert:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-200));
 }
 
 /* Variant Styles */
@@ -47,11 +59,6 @@
 /* Shape Modifiers */
 .kroma-alert[data-shape="rounded"] {
   border-radius: var(--radius-xl);
-}
-
-.kroma-alert[data-shape="circle"] {
-  border-radius: var(--radius-full);
-  padding: var(--space-4);
 }
 
 /* Icon */
@@ -97,8 +104,7 @@
   transition: var(--transition-colors);
 }
 
-.kroma-alert[data-shape="rounded"] .kroma-alert-close,
-.kroma-alert[data-shape="circle"] .kroma-alert-close {
+.kroma-alert[data-shape="rounded"] .kroma-alert-close {
   top: var(--space-4);
   right: var(--space-4);
 }

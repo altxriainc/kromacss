@@ -662,9 +662,21 @@ blockquote {
   margin: auto;
   padding: var(--space-4);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: var(--neutral-50);
-  transition: padding 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--variant-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
+  background-color: var(--variant-bg, var(--neutral-50));
+  transition: padding 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.kroma-accordion-container[data-variant="default"],
+.kroma-accordion-container:not([data-variant]) {
+  --variant-bg: var(--neutral-100);
+  --variant-light-bg: var(--neutral-50);
+  --variant-dark-bg: var(--neutral-300);
+  --variant-text: var(--neutral-900);
+  --variant-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --variant-border: var(--neutral-200);
+  --variant-hover-bg: var(--neutral-200);
+  --variant-hover: var(--neutral-700);
 }
 
 .kroma-accordion-container[data-responsive="auto"] {
@@ -676,9 +688,6 @@ blockquote {
 
 /* Accordion Item */
 .kroma-accordion-item {
-  border-bottom: 1px solid var(--neutral-200);
-}
-.kroma-accordion-item:last-child {
   border-bottom: none;
 }
 
@@ -691,57 +700,57 @@ blockquote {
   padding: clamp(var(--space-3), 1.5vw, var(--space-5));
   font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
   font-weight: 600;
-  color: var(--neutral-700);
+  color: var(--variant-text, var(--neutral-700));
   cursor: pointer;
-  background-color: var(--neutral-50);
-  border: 1px solid transparent;
+  background-color: var(--variant-bg, var(--neutral-50));
+  border: 1px solid var(--variant-border, transparent);
   border-radius: var(--radius-lg);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .kroma-accordion-header:hover,
 .kroma-accordion-header:focus {
-  background-color: var(--neutral-100);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--variant-hover-bg, var(--neutral-100));
+  box-shadow: 0 0 8px var(--variant-shadow, rgba(0, 0, 0, 0.1));
   outline: none;
 }
 .kroma-accordion-header:focus-visible {
-  border: 1px solid var(--focus-color);
+  border-color: var(--focus-color);
 }
 
 /* Accordion Content */
 .kroma-accordion-content {
   height: 0;
   overflow: hidden;
-  transition: height 0.4s ease, padding 0.3s ease;
+  transition: height 0.4s ease, padding 0.3s ease, background-color 0.3s ease;
   padding: 0 var(--space-3);
-  background-color: var(--neutral-50);
+  background-color: var(--variant-light-bg, var(--neutral-50));
 }
 .kroma-accordion-content[data-expanded="true"] {
   height: auto;
   padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-3);
 }
 
 /* Sub-Item */
 .kroma-accordion-sub-item {
-  border-top: 1px solid var(--neutral-200);
   padding-left: var(--space-4);
-  transition: padding 0.3s ease;
+  transition: padding 0.3s ease, border-color 0.3s ease;
 }
 .kroma-accordion-sub-header {
   padding: clamp(var(--space-2), 1vw, var(--space-4));
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--neutral-500);
+  color: var(--variant-text, var(--neutral-500));
   cursor: pointer;
-  background: var(--neutral-50);
+  background: var(--variant-light-bg, var(--neutral-50));
   border: none;
   text-align: left;
   width: 100%;
   border-radius: var(--radius-lg);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .kroma-accordion-sub-header:hover {
-  background-color: var(--neutral-100);
+  background-color: var(--variant-hover-bg, var(--neutral-100));
 }
 
 /* Variants */
@@ -791,17 +800,29 @@ blockquote {
   padding: clamp(var(--space-4), 1vw + var(--space-3), var(--space-6));
   margin: var(--space-4) auto;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--variant-shadow, var(--shadow-md));
   font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
   position: relative;
-  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, background-color 0.3s ease;
   opacity: 1;
-  background-color: var(--neutral-50);
-  color: var(--neutral-900);
+  background-color: var(--variant-bg, var(--neutral-50));
+  color: var(--variant-text, var(--neutral-900));
   gap: var(--space-3);
+  max-height: 500px;
   overflow: hidden;
-  max-height: 500px; /* Set an arbitrary large value to allow transition */
-  overflow: hidden; /* Prevent overflow during the transition */
+}
+
+.kroma-alert[data-variant="default"],
+.kroma-alert:not([data-variant]) {
+  --variant-bg: var(--neutral-100);
+  --variant-text: var(--neutral-900);
+  --variant-shadow: var(--shadow-md);
+  --variant-border: var(--neutral-200);
+  --variant-hover-bg: var(--neutral-200);
+}
+
+.kroma-alert:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-200));
 }
 
 /* Variant Styles */
@@ -832,11 +853,6 @@ blockquote {
 /* Shape Modifiers */
 .kroma-alert[data-shape="rounded"] {
   border-radius: var(--radius-xl);
-}
-
-.kroma-alert[data-shape="circle"] {
-  border-radius: var(--radius-full);
-  padding: var(--space-4);
 }
 
 /* Icon */
@@ -882,8 +898,7 @@ blockquote {
   transition: var(--transition-colors);
 }
 
-.kroma-alert[data-shape="rounded"] .kroma-alert-close,
-.kroma-alert[data-shape="circle"] .kroma-alert-close {
+.kroma-alert[data-shape="rounded"] .kroma-alert-close {
   top: var(--space-4);
   right: var(--space-4);
 }
@@ -924,8 +939,16 @@ blockquote {
   font-weight: 500;
   position: relative;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  box-shadow: var(--shadow-sm);
-  isolation: isolate; /* Prevent nested contexts from affecting styles */
+  box-shadow: var(--variant-shadow, var(--shadow-sm));
+  isolation: isolate;
+}
+
+.kroma-avatar[data-variant="default"],
+.kroma-avatar:not([data-variant]) {
+  --variant-bg: var(--neutral-100);
+  --variant-text: var(--neutral-900);
+  --variant-shadow: var(--shadow-sm);
+  --variant-border: var(--neutral-200);
 }
 
 /* Avatar Sizes */
@@ -966,6 +989,8 @@ blockquote {
 .kroma-avatar[data-variant] {
   background-color: var(--variant-bg);
   color: var(--variant-text);
+  box-shadow: var(--variant-shadow);
+  border: 1px solid var(--variant-border);
 }
 
 /* Ghost Variant */
@@ -976,7 +1001,7 @@ blockquote {
   box-shadow: none;
 }
 
-.kroma-avatar[data-variant="ghost"] .avatar-status {
+.kroma-avatar[data-variant="ghost"] .kroma-avatar-status {
   background-color: transparent;
   border: 2px dashed var(--neutral-400);
 }
@@ -992,14 +1017,14 @@ blockquote {
 
 .kroma-avatar img:hover {
   transform: scale(1.1);
-} /* Zoom effect on hover */
+}
 
 /* Initials Avatar */
 .kroma-avatar-initials {
   font-size: inherit;
-  font-weight: 700; /* Bold initials for better visibility */
-  line-height: 1; /* Prevent misalignment */
-  text-transform: uppercase; /* Uniform appearance for initials */
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 /* Status Indicators */
@@ -1010,7 +1035,7 @@ blockquote {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
-  border: 2px solid var(--status-border-color, #fff); /* Customizable border color */
+  border: 2px solid var(--status-border-color, #fff);
   background-color: var(--status-color, var(--success-bg));
   box-shadow: var(--shadow-sm);
 }
@@ -1039,9 +1064,9 @@ blockquote {
 }
 
 .kroma-avatar-group .kroma-avatar:not(:first-child) {
-  margin-left: -0.5rem; /* Overlap effect */
-  border: 2px solid var(--group-border-color, #fff); /* Customizable overlap border */
-  box-shadow: var(--shadow-sm); /* Slight shadow for depth */
+  margin-left: -0.5rem;
+  border: 2px solid var(--group-border-color, #fff);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Pulsing Avatar Effect */
@@ -1078,7 +1103,7 @@ blockquote {
 .kroma-avatar[data-disabled="true"] {
   opacity: 0.5;
   cursor: not-allowed;
-  pointer-events: none; /* Prevent interaction */
+  pointer-events: none;
 }
 
 /* Bordered Avatar */
@@ -1115,7 +1140,15 @@ blockquote {
   text-transform: uppercase;
   white-space: nowrap;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--variant-shadow, var(--shadow-sm));
+}
+
+.kroma-badge[data-variant="default"],
+.kroma-badge:not([data-variant]) {
+  --variant-bg: var(--neutral-700);
+  --variant-text: #ffffff;
+  --variant-shadow: var(--shadow-sm);
+  --variant-light-bg: var(--neutral-500);
 }
 
 /* Outline Variant */
@@ -1220,6 +1253,13 @@ blockquote {
   transition: color 0.3s ease;
 }
 
+.kroma-breadcrumbs[data-variant="default"],
+.kroma-breadcrumbs:not([data-variant]) {
+  --variant-text: var(--neutral-700);
+  --variant-hover: var(--primary-hover);
+  --variant-separator: var(--neutral-400);
+}
+
 /* Breadcrumb Item */
 .kroma-breadcrumb-item {
   display: inline-flex;
@@ -1271,7 +1311,7 @@ blockquote {
 
 /* Breadcrumb Color Variants */
 .kroma-breadcrumbs[data-variant] {
-  --variant-text: var(--variant-bg); /* Fallback to --variant-bg for text color */
+  --variant-text: var(--variant-bg);
   --variant-hover: var(--variant-hover-bg);
   --variant-separator: var(--variant-light-bg);
 }
@@ -1312,8 +1352,16 @@ blockquote {
   transition: color var(--transition-colors), background-color var(--transition-colors), transform 0.2s;
   background: var(--kroma-btn-bg, var(--primary-bg));
   color: var(--kroma-btn-color, var(--primary-text));
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--variant-shadow, var(--shadow-md));
   overflow: hidden;
+}
+
+.kroma-btn[data-variant="default"],
+.kroma-btn:not([data-variant]) {
+  --kroma-btn-bg: var(--neutral-700);
+  --kroma-btn-bg-hover: var(--neutral-800);
+  --kroma-btn-color: #fff;
+  --variant-shadow: var(--shadow-sm);
 }
 
 /* Hover and Active States */
@@ -1515,211 +1563,209 @@ blockquote {
 /* --- calendar.css --- */
 /* Calendar Container */
 .kroma-calendar {
-    max-width: 100%;
-    width: 100%;
-    font-family: var(--font-sans);
-    color: var(--neutral-800);
-    background-color: var(--neutral-50);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    padding: var(--space-4);
-    overflow: hidden; 
-    transition: var(--transition-all);
-  }
-  
-  /* Calendar Variant Colors */
+  max-width: 100%;
+  width: 100%;
+  font-family: var(--font-sans);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-4);
+  overflow: hidden;
+  transition: var(--transition-all);
+  background-color: var(--calendar-bg, var(--neutral-100));
+  color: var(--calendar-text, var(--neutral-800));
+}
+
+/* Dynamic Variant Handling */
+.kroma-calendar {
+  --calendar-bg: var(--variant-bg, var(--neutral-100));
+  --calendar-text: var(--variant-text, var(--neutral-800));
+  --calendar-hover-bg: var(--variant-light-bg, var(--neutral-300));
+  --calendar-selected-bg: var(--variant-hover, var(--neutral-200));
+  --calendar-today-border: var(--variant-border, var(--neutral-500));
+  --calendar-scrollbar: var(--variant-dark-bg, var(--neutral-400));
+}
+
+/* Calendar Header */
+.kroma-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  background-color: var(--calendar-bg);
+  color: var(--calendar-text);
+  border-radius: var(--radius-md);
+  font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+  text-transform: uppercase;
+  gap: var(--space-4);
+  height: clamp(3.5rem, 7vw, 4.5rem);
+}
+
+/* Navigation Icons */
+.kroma-calendar-nav {
+  background: none;
+  border: none;
+  color: var(--calendar-text);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  cursor: pointer;
+  transition: color var(--transition-colors), transform var(--transition-transform);
+  display: flex;
+  align-items: center;
+}
+
+.kroma-calendar-nav:hover {
+  color: var(--calendar-hover-bg);
+  transform: scale(1.2);
+}
+
+/* Month and Year Display */
+.kroma-calendar-month-year {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Month and Year Selectors */
+.kroma-calendar-selectors {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.kroma-calendar-selectors select {
+  padding: var(--space-2) var(--space-3);
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--neutral-300);
+  color: var(--neutral-800);
+  background-color: var(--neutral-100);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color var(--transition-colors), border-color var(--transition-colors);
+}
+
+/* Calendar Body */
+.kroma-calendar-body {
+  padding: var(--space-4);
+}
+
+/* Weekday Names and Dates */
+.kroma-calendar-weekdays,
+.kroma-calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  justify-items: center;
+  align-items: center;
+}
+
+/* Weekday Styling */
+.kroma-calendar-weekdays div {
+  text-align: center;
+  font-weight: 600;
+  color: var(--neutral-200);
+  padding: var(--space-1) 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Dates Styling */
+.kroma-calendar-dates button {
+  position: relative;
+  width: 100%;
+  height: clamp(4rem, 8vw, 5rem);
+  text-align: center;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: clamp(1rem, 1vw, 1.125rem);
+  color: var(--calendar-text);
+  cursor: pointer;
+  transition: background-color var(--transition-colors), color var(--transition-colors), box-shadow var(--transition-all);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Hover and Selected Date Effects */
+.kroma-calendar-dates button:hover {
+  background-color: var(--calendar-hover-bg);
+  color: var(--calendar-text);
+}
+
+.kroma-calendar-dates button[data-selected="true"] {
+  background-color: var(--calendar-selected-bg);
+  color: var(--calendar-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.kroma-calendar-dates button[data-today="true"] {
+  border: 2px solid var(--calendar-today-border);
+  border-radius: var(--radius-md);
+}
+
+/* Disabled Dates */
+.kroma-calendar-dates button[data-disabled="true"] {
+  color: var(--neutral-400);
+  cursor: not-allowed;
+}
+
+/* Calendar Variant with Items */
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-1) var(--space-2);
+  overflow-y: auto;
+}
+
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates .date-item {
+  font-size: 0.75rem;
+  color: var(--neutral-800);
+  background-color: var(--neutral-200);
+  border-radius: var(--radius-sm);
+  padding: 0.125rem var(--space-1);
+  margin-top: var(--space-1);
+  white-space: nowrap;
+}
+
+/* Scrollbar for Day Cells */
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar {
+  width: 6px;
+}
+
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-thumb {
+  background-color: var(--calendar-scrollbar);
+  border-radius: var(--radius-md);
+}
+
+.kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-track {
+  background-color: var(--neutral-200);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .kroma-calendar {
-    --calendar-bg: var(--variant-bg);
-    --calendar-text: var(--variant-text);
-    --calendar-hover-bg: var(--variant-hover);
-    --calendar-selected-bg: var(--variant-light-bg);
-    --calendar-today-border: var(--variant-border);
-    --calendar-scrollbar: var(--variant-dark-bg);
+    padding: var(--space-2);
   }
-  
-  /* Calendar Header */
+
   .kroma-calendar-header {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    padding: var(--space-4);
-    background-color: var(--calendar-bg, var(--neutral-200));
-    color: var(--calendar-text, var(--neutral-800));
-    border-radius: var(--radius-md);
-    font-size: clamp(1.5rem, 2.5vw, 1.75rem);
-    text-transform: uppercase;
-    gap: var(--space-4); 
-    height: clamp(3rem, 6vw, 4rem); 
-  }
-  
-  /* Navigation Icons */
-  .kroma-calendar-nav {
-    background: none;
-    border: none;
-    color: var(--neutral-800);
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    cursor: pointer;
-    transition: color var(--transition-colors), transform var(--transition-transform);
-    display: flex;
-    align-items: center; 
-  }
-  
-  .kroma-calendar-nav:hover {
-    color: var(--calendar-hover-bg, var(--neutral-600));
-    transform: scale(1.2);
-  }
-  
-  /* Month and Year Display */
-  .kroma-calendar-month-year {
-    font-size: clamp(1.5rem, 3vw, 1.75rem);
-    font-weight: bold;
-    text-align: center; 
-    flex-grow: 1; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Month and Year Selectors */
-  .kroma-calendar-selectors {
-    display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-2);
-    margin-top: var(--space-2);
+    height: auto;
   }
-  
-  .kroma-calendar-selectors select {
-    padding: var(--space-2) var(--space-3);
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--neutral-300);
-    color: var(--neutral-800);
-    background-color: var(--neutral-100);
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-    transition: background-color var(--transition-colors), border-color var(--transition-colors);
-  }
-  
-  /* Calendar Body */
-  .kroma-calendar-body {
-    padding: var(--space-4);
-  }
-  
-  /* Weekday Names and Dates */
-  .kroma-calendar-weekdays,
-  .kroma-calendar-dates {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--space-2);
-    margin-top: var(--space-2);
-    justify-items: center; 
-    align-items: center;
-  }
-  
-  /* Weekday Styling */
-  .kroma-calendar-weekdays div {
-    text-align: center;
-    font-weight: 600;
-    color: var(--neutral-600);
-    padding: var(--space-1) 0;
-    border-radius: var(--radius-sm);
-  }
-  
-  /* Dates Styling */
+
+  .kroma-calendar-weekdays div,
   .kroma-calendar-dates button {
-    position: relative;
-    width: 100%; 
-    height: clamp(3.5rem, 7vw, 4.5rem); 
-    max-height: 5rem; 
-    text-align: center;
-    background: none;
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    color: var(--neutral-800);
-    cursor: pointer;
-    transition: background-color var(--transition-colors), color var(--transition-colors), box-shadow var(--transition-all);
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden; 
-    flex-direction: column;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    height: clamp(3rem, 10vw, 4rem);
   }
-  
-  /* Hover and Selected Date Effects */
-  .kroma-calendar-dates button:hover {
-    background-color: var(--calendar-hover-bg, var(--neutral-300));
-    color: var(--calendar-text);
-  }
-  
-  .kroma-calendar-dates button[data-selected="true"] {
-    background-color: var(--calendar-selected-bg);
-    color: var(--calendar-text);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .kroma-calendar-dates button[data-today="true"] {
-    border: 2px solid var(--calendar-today-border);
-    border-radius: var(--radius-md);
-  }
-  
-  /* Disabled Dates */
-  .kroma-calendar-dates button[data-disabled="true"] {
-    color: var(--neutral-400);
-    cursor: not-allowed;
-  }
-  
-  /* Calendar Variant with Items */
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-1) var(--space-2);
-    overflow-y: auto; 
-  }
-  
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates .date-item {
-    font-size: 0.75rem;
-    color: var(--neutral-500);
-    background-color: var(--neutral-200);
-    border-radius: var(--radius-sm);
-    padding: 0.125rem var(--space-1);
-    margin-top: var(--space-1);
-    white-space: nowrap;
-  }
-  
-  /* Scrollbar for Day Cells */
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-thumb {
-    background-color: var(--calendar-scrollbar);
-    border-radius: var(--radius-md);
-  }
-  
-  .kroma-calendar[data-type="with-items"] .kroma-calendar-dates button::-webkit-scrollbar-track {
-    background-color: var(--neutral-200);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .kroma-calendar {
-      padding: var(--space-2); 
-    }
-  
-    .kroma-calendar-header {
-      flex-wrap: nowrap; 
-      gap: var(--space-2);
-      height: auto; 
-    }
-  
-    .kroma-calendar-weekdays div,
-    .kroma-calendar-dates button {
-      font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-      height: clamp(2.5rem, 10vw, 3rem);
-    }
-  }
-  
+}
+
 
 /* --- card.css --- */
 /* Base Card Styles */
@@ -1744,59 +1790,14 @@ blockquote {
   box-shadow: var(--card-hover-shadow, var(--shadow-xl));
 }
 
-/* Card Header */
-.kroma-card-header {
-  width: 100%;
-  padding: var(--space-5) var(--space-6);
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: var(--card-header-text, var(--neutral-800));
-  border-bottom: 1px solid var(--card-header-border, var(--neutral-200));
-  text-align: center;
-}
-
-/* Card Media */
-.kroma-card-media {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.kroma-card:hover .kroma-card-media {
-  transform: scale(1.05);
-}
-
-/* Card Body */
-.kroma-card-body {
-  padding: var(--space-6);
-  text-align: center;
-  color: var(--card-body-text, var(--neutral-700));
-  font-size: 1rem;
-  flex: 1 0 auto; /* Ensure body grows to fill available space */
-}
-
-/* Card Footer */
-.kroma-card-footer {
-  width: 100%;
-  padding: var(--space-4) var(--space-6);
-  background-color: var(--card-footer-bg, var(--neutral-100));
-  border-top: 1px solid var(--card-footer-border, var(--neutral-200));
-  display: flex;
-  justify-content: center;
-  gap: var(--space-2);
-  color: var(--card-footer-text, var(--neutral-900));
-  flex-shrink: 0; /* Prevent footer from shrinking */
-}
-
 /* Card Variants */
-.kroma-card[data-variant] {
-  --card-bg: var(--variant-bg);
-  --card-text: var(--variant-text);
-  --card-header-text: var(--variant-text);
-  --card-body-text: var(--variant-text);
-  --card-footer-bg: var(--variant-light-bg, var(--neutral-200));
-  --card-footer-text: var(--variant-text);
+.kroma-card {
+  --card-bg: var(--variant-bg, var(--neutral-50));
+  --card-text: var(--variant-text, var(--neutral-900));
+  --card-header-text: var(--variant-text, var(--neutral-800));
+  --card-body-text: var(--variant-text, var(--neutral-700));
+  --card-footer-bg: var(--variant-light-bg, var(--neutral-100));
+  --card-footer-text: var(--variant-text, var(--neutral-900));
   --card-hover-shadow: var(--variant-shadow, var(--shadow-xl));
 }
 
@@ -1821,6 +1822,51 @@ blockquote {
 .kroma-card[data-variant="flat"] {
   background-color: transparent;
   box-shadow: none;
+}
+
+/* Card Header */
+.kroma-card-header {
+  width: 100%;
+  padding: var(--space-5) var(--space-6);
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--card-header-text);
+  border-bottom: 1px solid var(--card-header-border, var(--neutral-200));
+  text-align: center;
+}
+
+/* Card Media */
+.kroma-card-media {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.kroma-card:hover .kroma-card-media {
+  transform: scale(1.05);
+}
+
+/* Card Body */
+.kroma-card-body {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--card-body-text);
+  font-size: 1rem;
+  flex: 1 0 auto; /* Ensure body grows to fill available space */
+}
+
+/* Card Footer */
+.kroma-card-footer {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--card-footer-bg);
+  border-top: 1px solid var(--card-footer-border, var(--neutral-200));
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  color: var(--card-footer-text);
+  flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
 /* Labels */
@@ -1866,6 +1912,7 @@ blockquote {
   align-self: stretch; /* Stretch footer to align with the card's layout */
 }
 
+/* Scrollable Cards */
 .kroma-card-scrollable {
   display: flex;
   overflow-x: auto;
@@ -1887,7 +1934,6 @@ blockquote {
   background-color: var(--neutral-200); /* Scrollbar track color */
 }
 
-/* Scrollable Cards */
 .kroma-card-scrollable .kroma-card {
   flex: 0 0 auto;
   scroll-snap-align: center; /* Center cards in the viewport */
@@ -1943,11 +1989,11 @@ blockquote {
 /* --- codeblock.css --- */
 /* Base Styling for Code Block */
 .kroma-code-block {
-  background: var(--variant-bg);
-  color: var(--variant-text);
-  border: 1px solid var(--variant-border);
+  background: var(--variant-bg, var(--neutral-50));
+  color: var(--variant-text, var(--neutral-900));
+  border: 1px solid var(--variant-border, var(--neutral-200));
   border-radius: var(--radius-lg);
-  box-shadow: var(--variant-shadow);
+  box-shadow: var(--variant-shadow, var(--shadow-lg));
   padding: clamp(var(--space-3), 2vw, var(--space-5));
   position: relative;
   overflow: hidden;
@@ -1964,6 +2010,7 @@ blockquote {
     max-width: 80%;
   }
 }
+
 @media (min-width: 1024px) {
   .kroma-code-block {
     margin: var(--space-6) auto;
@@ -2038,8 +2085,8 @@ blockquote {
 }
 
 .kroma-code-block .kroma-action-btn {
-  background: var(--variant-hover-bg);
-  color: var(--variant-text);
+  background: var(--variant-hover-bg, var(--neutral-200));
+  color: var(--variant-text, var(--neutral-900));
   border: none;
   border-radius: var(--radius-md);
   padding: clamp(var(--space-2), 1vw, var(--space-3)) var(--space-4);
@@ -2052,7 +2099,7 @@ blockquote {
 }
 
 .kroma-code-block .kroma-action-btn:hover {
-  background: var(--variant-hover);
+  background: var(--variant-hover, var(--neutral-300));
   transform: scale(1.05);
 }
 
@@ -2162,7 +2209,7 @@ blockquote {
 .kroma-command-palette .kroma-palette-item:hover,
 .kroma-command-palette .kroma-palette-item:focus {
   background: var(--palette-item-hover-bg, var(--variant-hover-bg));
-  color: var(--neutral-700);
+  color: var(--palette-item-hover-text, var(--neutral-700));
 }
 
 .kroma-command-palette .kroma-palette-item[data-active="true"] {
@@ -2354,7 +2401,7 @@ blockquote {
 .kroma-quick-select button:hover {
   background-color: var(--variant-hover-bg, var(--neutral-400));
   color: #fff;
-}
+} 
 
 /* Time Selector */
 .kroma-time-selector {
@@ -2437,7 +2484,7 @@ blockquote {
 /* Dropdown Menu */
 .kroma-dropdown-menu {
   position: absolute;
-  top: calc(100% + var(--space-1)); /* Reduced spacing for closer alignment */
+  top: calc(100% + var(--space-1));
   left: 0;
   min-width: 150px;
   background-color: var(--variant-bg, var(--neutral-50));
@@ -2446,7 +2493,7 @@ blockquote {
   border-radius: var(--radius-lg);
   padding: var(--space-2) 0;
   opacity: 0;
-  transform: translateY(-5px); /* Slight offset for a subtle animation effect */
+  transform: translateY(-5px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   visibility: hidden;
   z-index: var(--z-30);
@@ -2456,7 +2503,7 @@ blockquote {
 /* Active State for Dropdown */
 .kroma-dropdown.kroma-open .kroma-dropdown-menu {
   opacity: 1;
-  transform: translateY(0); /* Reset translation when active */
+  transform: translateY(0);
   visibility: visible;
 }
 
@@ -2475,36 +2522,26 @@ blockquote {
 
 .kroma-dropdown-item:hover,
 .kroma-dropdown-item:focus {
-  background-color: var(--variant-hover-bg, var(--neutral-200));
-  color: var(--variant-hover, var(--primary));
+  background-color: var(--variant-dark-bg, var(--neutral-200));
 }
 
 /* Position Variants */
 .kroma-dropdown[data-position="top"] .kroma-dropdown-menu {
   top: auto;
-  bottom: calc(100% + var(--space-1)); /* Reduced spacing for top positioning */
-  transform: translateY(5px); /* Subtle animation effect */
+  bottom: calc(100% + var(--space-1));
+  transform: translateY(5px);
 }
 
 .kroma-dropdown[data-position="right"] .kroma-dropdown-menu {
   top: 0;
-  left: calc(100% + var(--space-1)); /* Reduced spacing for right positioning */
-  transform: translateX(-5px); /* Subtle animation effect */
+  left: calc(100% + var(--space-1));
+  transform: translateX(-5px);
 }
 
 .kroma-dropdown[data-position="left"] .kroma-dropdown-menu {
   top: 0;
-  right: calc(100% + var(--space-1)); /* Reduced spacing for left positioning */
-  transform: translateX(5px); /* Subtle animation effect */
-}
-
-/* Variants Handling */
-.kroma-dropdown[data-variant="dark"] {
-  --variant-bg: var(--neutral-900);
-  --variant-text: var(--neutral-50);
-  --variant-hover-bg: var(--neutral-700);
-  --variant-hover: var(--neutral-50);
-  --variant-shadow: var(--shadow-lg);
+  right: calc(100% + var(--space-1));
+  transform: translateX(5px);
 }
 
 /* Mega Menu */
@@ -2555,19 +2592,19 @@ blockquote {
   position: fixed;
   bottom: var(--space-8, 2rem);
   right: var(--space-8, 2rem);
-  display: flex; /* Flexbox ensures centering of children */
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  padding: 0; /* Remove default padding for precise centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   font-size: 1.5rem;
-  width: clamp(3rem, 8vw, 4rem); /* Ensure FAB is always square */
-  height: clamp(3rem, 8vw, 4rem); /* Match width for perfect circle */
+  width: clamp(3rem, 8vw, 4rem);
+  height: clamp(3rem, 8vw, 4rem);
   background-color: var(--variant-bg, var(--primary));
   color: var(--variant-text, #ffffff);
   cursor: pointer;
   border: none;
   box-shadow: var(--shadow-lg, 0 4px 8px rgba(0, 0, 0, 0.2));
-  border-radius: var(--radius-full, 50%); /* Circular shape */
+  border-radius: var(--radius-full, 50%);
   transition: 
     background-color var(--transition-colors, 0.2s ease), 
     transform var(--transition-transform, 0.2s ease), 
@@ -2580,10 +2617,10 @@ blockquote {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Icon scales with FAB size */
-  height: 100%; /* Icon scales with FAB size */
-  font-size: inherit; /* Inherit FAB font size */
-  line-height: 1; /* Prevent text alignment issues */
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
+  line-height: 1;
 }
 
 /* FAB Hover and Active States */
@@ -2601,7 +2638,7 @@ blockquote {
 /* Shape Variants */
 .kroma-fab[data-shape="circular"] {
   border-radius: var(--radius-full, 50%);
-  padding: 0; /* Ensure circular shape is preserved */
+  padding: 0;
 }
 
 .kroma-fab[data-shape="square"] {
@@ -2611,6 +2648,19 @@ blockquote {
 .kroma-fab[data-shape="rectangular"] {
   border-radius: var(--radius-md, 0.375rem);
   padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Size Variants */
+.kroma-fab[data-size="small"] {
+  width: clamp(2.5rem, 6vw, 3rem);
+  height: clamp(2.5rem, 6vw, 3rem);
+  font-size: 1.25rem;
+}
+
+.kroma-fab[data-size="large"] {
+  width: clamp(4rem, 10vw, 5rem);
+  height: clamp(4rem, 10vw, 5rem);
+  font-size: 1.75rem;
 }
 
 /* Responsive Adjustments */
@@ -2806,7 +2856,7 @@ blockquote {
       opacity: 1;
       transform: translateY(0);
   }
-}
+} 
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -2848,7 +2898,9 @@ blockquote {
 }
 
 /* Input, Textarea, and Select Base Styles */
-.kroma-input, .kroma-textarea, .kroma-select {
+.kroma-input,
+.kroma-textarea,
+.kroma-select {
   font-family: var(--font-sans);
   font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
   padding: var(--space-3) var(--space-4);
@@ -2862,36 +2914,47 @@ blockquote {
 }
 
 /* Placeholder Styling */
-.kroma-input::placeholder, .kroma-textarea::placeholder, .kroma-select::placeholder {
+.kroma-input::placeholder,
+.kroma-textarea::placeholder,
+.kroma-select::placeholder {
   color: var(--neutral-500);
 }
 
 /* Focus and Hover Styles */
-.kroma-input:focus, .kroma-textarea:focus, .kroma-select:focus {
+.kroma-input:focus,
+.kroma-textarea:focus,
+.kroma-select:focus {
   outline: none;
   border-color: var(--variant-border, var(--neutral-400));
   box-shadow: 0px 0px 0px 3px var(--variant-light-bg, var(--neutral-200));
 }
 
-.kroma-input:hover, .kroma-textarea:hover, .kroma-select:hover {
+.kroma-input:hover,
+.kroma-textarea:hover,
+.kroma-select:hover {
   border-color: var(--neutral-400);
   box-shadow: var(--shadow-md);
 }
 
 /* Variants for Input, Textarea, and Select */
-[data-variant] .kroma-input, [data-variant] .kroma-textarea, [data-variant] .kroma-select {
+[data-variant] .kroma-input,
+[data-variant] .kroma-textarea,
+[data-variant] .kroma-select {
   background-color: var(--variant-bg);
   border-color: var(--variant-border);
   color: var(--variant-text);
   box-shadow: var(--variant-shadow);
 }
 
-[data-variant] .kroma-input::placeholder, [data-variant] .kroma-textarea::placeholder {
+[data-variant] .kroma-input::placeholder,
+[data-variant] .kroma-textarea::placeholder {
   color: var(--variant-text-light, rgba(255, 255, 255, 0.8));
 }
 
 /* Disabled State */
-.kroma-input:disabled, .kroma-textarea:disabled, .kroma-select:disabled {
+.kroma-input:disabled,
+.kroma-textarea:disabled,
+.kroma-select:disabled {
   color: var(--neutral-700);
   background-color: var(--neutral-200);
   cursor: not-allowed;
@@ -2899,7 +2962,8 @@ blockquote {
 }
 
 /* Readonly State */
-.kroma-input-readonly, .kroma-textarea-readonly {
+.kroma-input-readonly,
+.kroma-textarea-readonly {
   background-color: var(--neutral-100);
   color: var(--neutral-800);
   cursor: default;
@@ -2940,7 +3004,9 @@ blockquote {
 }
 
 /* Error State */
-.kroma-input-error, .kroma-textarea-error, .kroma-select-error {
+.kroma-input-error,
+.kroma-textarea-error,
+.kroma-select-error {
   border-color: var(--variant-border, var(--danger-border));
   box-shadow: 0px 0px 0px 3px var(--variant-light-bg, var(--danger-light-bg));
 }
@@ -2953,7 +3019,8 @@ blockquote {
 }
 
 /* Checkbox & Radio Groups */
-.kroma-checkbox-group, .kroma-radio-group {
+.kroma-checkbox-group,
+.kroma-radio-group {
   display: flex;
   gap: var(--space-4);
   align-items: center;
@@ -2961,7 +3028,8 @@ blockquote {
 }
 
 /* Base Checkbox and Radio Styles */
-.kroma-checkbox, .kroma-radio {
+.kroma-checkbox,
+.kroma-radio {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -2971,14 +3039,16 @@ blockquote {
   transition: color var(--transition-colors);
 }
 
-.kroma-checkbox input[type="checkbox"], .kroma-radio input[type="radio"] {
+.kroma-checkbox input[type="checkbox"],
+.kroma-radio input[type="radio"] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
 /* Checkbox and Radio Icons */
-.kroma-checkbox-icon, .kroma-radio-icon {
+.kroma-checkbox-icon,
+.kroma-radio-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3001,13 +3071,15 @@ blockquote {
 }
 
 /* Hover and Active States */
-.kroma-checkbox:hover .kroma-checkbox-icon, .kroma-radio:hover .kroma-radio-icon {
+.kroma-checkbox:hover .kroma-checkbox-icon,
+.kroma-radio:hover .kroma-radio-icon {
   border-color: var(--neutral-400);
   box-shadow: var(--shadow-lg);
   transform: scale(1.05);
 }
 
-.kroma-checkbox:active .kroma-checkbox-icon, .kroma-radio:active .kroma-radio-icon {
+.kroma-checkbox:active .kroma-checkbox-icon,
+.kroma-radio:active .kroma-radio-icon {
   box-shadow: var(--shadow-sm);
   transform: scale(0.95);
 }
@@ -3041,201 +3113,176 @@ blockquote {
 /* --- hero.css --- */
 /* Base Hero Styles */
 .kroma-hero {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: var(--radius-lg);
-    color: var(--neutral-900);
-    background-color: var(--neutral-50);
-    box-shadow: var(--shadow-lg);
-    margin: var(--space-4);
-    padding: var(--space-4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-colors);
-    width: calc(100% - var(--space-8));
-    overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  color: var(--neutral-900);
+  background-color: var(--neutral-50);
+  box-shadow: var(--shadow-lg);
+  margin: var(--space-4);
+  padding: var(--space-4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-colors);
+  width: calc(100% - var(--space-8));
+  overflow: hidden;
+}
+
+/* Gradient Variants */
+.kroma-hero[data-variant] {
+  background: linear-gradient(135deg, var(--variant-light-bg), var(--variant-bg));
+  color: var(--variant-text);
+}
+
+/* Overlay Effects */
+.kroma-hero[data-overlay]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.kroma-hero[data-overlay="dark"]::before {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.kroma-hero[data-overlay="light"]::before {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.kroma-hero[data-overlay="gradient-dark"]::before {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+}
+
+.kroma-hero[data-overlay="gradient-light"]::before {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+}
+
+/* Hero Content */
+.kroma-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: var(--space-4);
+  font-size: var(--font-lg);
+}
+
+/* Size Variants */
+.kroma-hero[data-size="sm"] { max-height: 40vh; }
+.kroma-hero[data-size="md"] { max-height: 60vh; }
+.kroma-hero[data-size="lg"] { max-height: 80vh; }
+.kroma-hero[data-size="full"] { max-height: 100vh; }
+
+/* Layout Options */
+.kroma-hero[data-layout="row"] {
+  flex-direction: row;
+  text-align: left;
+}
+
+.kroma-hero[data-layout="row-reverse"] {
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+.kroma-hero[data-layout="column"] {
+  flex-direction: column;
+}
+
+/* Content Alignment */
+.kroma-hero[data-alignment="start"] { justify-content: flex-start; }
+.kroma-hero[data-alignment="end"] { justify-content: flex-end; }
+.kroma-hero[data-alignment="center"] { justify-content: center; }
+
+/* Content Width Variants */
+.kroma-hero[data-content-width="narrow"] .kroma-hero-content { max-width: 65ch; }
+.kroma-hero[data-content-width="wide"] .kroma-hero-content { max-width: 100ch; }
+
+/* Spacing Variants */
+.kroma-hero[data-spacing="sm"] { padding: var(--space-3); }
+.kroma-hero[data-spacing="md"] { padding: var(--space-6); }
+.kroma-hero[data-spacing="lg"] { padding: var(--space-8); }
+
+/* Border Radius Variants */
+.kroma-hero[data-radius="none"] { border-radius: 0; }
+.kroma-hero[data-radius="sm"] { border-radius: var(--radius-sm); }
+.kroma-hero[data-radius="lg"] { border-radius: var(--radius-lg); }
+
+/* Shadow Variants */
+.kroma-hero[data-shadow="none"] { box-shadow: none; }
+.kroma-hero[data-shadow="sm"] { box-shadow: var(--shadow-sm); }
+.kroma-hero[data-shadow="xl"] { box-shadow: var(--shadow-xl); }
+
+/* Hover Effects */
+.kroma-hero[data-hover="lift"]:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.kroma-hero[data-hover="scale"]:hover {
+  transform: scale(1.03);
+}
+
+.kroma-hero[data-hover="brightness"]:hover {
+  filter: brightness(1.15);
+}
+
+/* Animation Variants */
+.kroma-hero[data-animation="fade"] { animation: heroFade 0.5s ease-in; }
+.kroma-hero[data-animation="slide"] { animation: heroSlide 0.5s ease-out; }
+.kroma-hero[data-animation="scale"] { animation: heroScale 0.5s ease-in-out; }
+
+@keyframes heroFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes heroSlide {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes heroScale {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Hero Image */
+.kroma-hero[data-image] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.kroma-hero[data-image]::before {
+  background: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1280px) {
+  .kroma-hero-content { max-width: 95%; }
+}
+
+@media (max-width: 1024px) {
+  .kroma-hero {
+    margin: var(--space-3);
+    padding: var(--space-3);
   }
-  
-  /* Gradient Variants */
-  .kroma-hero[data-variant] {
-    background: linear-gradient(135deg, var(--variant-light-bg), var(--variant-bg));
-    color: var(--variant-text);
-  }
-  
-  /* Specific Variants */
-  .kroma-hero[data-variant="primary"] {
-    --variant-light-bg: var(--primary-light-bg);
-    --variant-bg: var(--primary-bg);
-    --variant-text: var(--primary-text);
-  }
-  
-  .kroma-hero[data-variant="secondary"] {
-    --variant-light-bg: var(--secondary-light-bg);
-    --variant-bg: var(--secondary-bg);
-    --variant-text: var(--secondary-text);
-  }
-  
-  .kroma-hero[data-variant="danger"] {
-    --variant-light-bg: var(--danger-light-bg);
-    --variant-bg: var(--danger-bg);
-    --variant-text: var(--danger-text);
-  }
-  
-  .kroma-hero[data-variant="info"] {
-    --variant-light-bg: var(--info-light-bg);
-    --variant-bg: var(--info-bg);
-    --variant-text: var(--info-text);
-  }
-  
-  /* Overlay Effects */
-  .kroma-hero[data-overlay]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    border-radius: inherit;
-    pointer-events: none;
-  }
-  
-  .kroma-hero[data-overlay="dark"]::before {
-    background: rgba(0, 0, 0, 0.5);
-  }
-  
-  .kroma-hero[data-overlay="light"]::before {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  
-  .kroma-hero[data-overlay="gradient-dark"]::before {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
-  }
-  
-  .kroma-hero[data-overlay="gradient-light"]::before {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
-  }
-  
-  /* Hero Content */
+}
+
+@media (max-width: 768px) {
   .kroma-hero-content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: var(--space-4);
-    font-size: var(--font-lg);
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
   }
-  
-  /* Size Variants */
-  .kroma-hero[data-size="sm"] { max-height: 40vh; }
-  .kroma-hero[data-size="md"] { max-height: 60vh; }
-  .kroma-hero[data-size="lg"] { max-height: 80vh; }
-  .kroma-hero[data-size="full"] { max-height: 100vh; }
-  
-  /* Layout Options */
-  .kroma-hero[data-layout="row"] {
-    flex-direction: row;
-    text-align: left;
-  }
-  
-  .kroma-hero[data-layout="row-reverse"] {
-    flex-direction: row-reverse;
-    text-align: left;
-  }
-  
-  .kroma-hero[data-layout="column"] {
-    flex-direction: column;
-  }
-  
-  /* Content Alignment */
-  .kroma-hero[data-alignment="start"] { justify-content: flex-start; }
-  .kroma-hero[data-alignment="end"] { justify-content: flex-end; }
-  .kroma-hero[data-alignment="center"] { justify-content: center; }
-  
-  /* Content Width Variants */
-  .kroma-hero[data-content-width="narrow"] .kroma-hero-content { max-width: 65ch; }
-  .kroma-hero[data-content-width="wide"] .kroma-hero-content { max-width: 100ch; }
-  
-  /* Spacing Variants */
-  .kroma-hero[data-spacing="sm"] { padding: var(--space-3); }
-  .kroma-hero[data-spacing="md"] { padding: var(--space-6); }
-  .kroma-hero[data-spacing="lg"] { padding: var(--space-8); }
-  
-  /* Border Radius Variants */
-  .kroma-hero[data-radius="none"] { border-radius: 0; }
-  .kroma-hero[data-radius="sm"] { border-radius: var(--radius-sm); }
-  .kroma-hero[data-radius="lg"] { border-radius: var(--radius-lg); }
-  
-  /* Shadow Variants */
-  .kroma-hero[data-shadow="none"] { box-shadow: none; }
-  .kroma-hero[data-shadow="sm"] { box-shadow: var(--shadow-sm); }
-  .kroma-hero[data-shadow="xl"] { box-shadow: var(--shadow-xl); }
-  
-  /* Hover Effects */
-  .kroma-hero[data-hover="lift"]:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-  }
-  
-  .kroma-hero[data-hover="scale"]:hover {
-    transform: scale(1.03);
-  }
-  
-  .kroma-hero[data-hover="brightness"]:hover {
-    filter: brightness(1.15);
-  }
-  
-  /* Animation Variants */
-  .kroma-hero[data-animation="fade"] { animation: heroFade 0.5s ease-in; }
-  .kroma-hero[data-animation="slide"] { animation: heroSlide 0.5s ease-out; }
-  .kroma-hero[data-animation="scale"] { animation: heroScale 0.5s ease-in-out; }
-  
-  @keyframes heroFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  @keyframes heroSlide {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  @keyframes heroScale {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  
-  /* Hero Image */
-  .kroma-hero[data-image] {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  .kroma-hero[data-image]::before {
-    background: none; /* Ensures overlay is only applied on image backgrounds */
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 1280px) {
-    .kroma-hero-content { max-width: 95%; }
-  }
-  
-  @media (max-width: 1024px) {
-    .kroma-hero {
-      margin: var(--space-3);
-      padding: var(--space-3);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .kroma-hero-content {
-      font-size: clamp(0.875rem, 1.5vw, 1rem);
-    }
-  }
-  
+}
+
 
 /* --- hologram.css --- */
 /* Base Hologram Overlay Styles */
@@ -3369,10 +3416,10 @@ blockquote {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .kroma-hologram-title {
-      font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
   }
   .kroma-hologram-subtitle {
-      font-size: clamp(0.875rem, 2vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1.5rem);
   }
 }
 
@@ -3385,7 +3432,7 @@ blockquote {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent backdrop */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3393,7 +3440,7 @@ blockquote {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
-    backdrop-filter: blur(6px); 
+    backdrop-filter: blur(6px); /* Smooth backdrop blur */
 }
 
 .kroma-modal-overlay.active {
@@ -3403,15 +3450,15 @@ blockquote {
 
 /* Modal Container */
 .kroma-modal {
-    background-color: var(--variant-bg);
+    background-color: var(--variant-bg, var(--neutral-50));
     border-radius: var(--radius-2xl);
-    box-shadow: var(--variant-shadow);
+    box-shadow: var(--variant-shadow, var(--shadow-lg));
     max-width: clamp(20rem, 50vw, 40rem);
     width: 100%;
     position: relative;
     animation: kroma-modal-appear 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 @keyframes kroma-modal-appear {
@@ -3428,12 +3475,12 @@ blockquote {
 /* Modal Header */
 .kroma-modal-header {
     padding: var(--space-4);
-    background-color: var(--variant-light-bg);
-    border-bottom: 1px solid var(--variant-border);
+    background-color: var(--variant-light-bg, var(--neutral-100));
+    border-bottom: 1px solid var(--variant-border, var(--neutral-300));
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-800));
 }
 
 .kroma-modal-title {
@@ -3446,12 +3493,12 @@ blockquote {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-800));
     transition: color 0.2s ease-in-out, transform 0.2s ease;
 }
 
 .kroma-modal-close:hover {
-    color: var(--variant-hover-bg);
+    color: var(--variant-hover-bg, var(--neutral-700));
     transform: scale(1.1);
 }
 
@@ -3460,25 +3507,25 @@ blockquote {
     padding: var(--space-4);
     overflow-y: auto;
     max-height: 60vh;
-    scrollbar-color: var(--variant-hover-bg) var(--variant-light-bg);
+    scrollbar-color: var(--variant-hover-bg, var(--neutral-300)) var(--variant-light-bg, var(--neutral-100));
     scrollbar-width: thin;
 }
 
 .kroma-modal-body::-webkit-scrollbar {
     width: 8px;
-    background-color: var(--variant-light-bg);
+    background-color: var(--variant-light-bg, var(--neutral-100));
 }
 
 .kroma-modal-body::-webkit-scrollbar-thumb {
-    background-color: var(--variant-hover-bg);
+    background-color: var(--variant-hover-bg, var(--neutral-300));
     border-radius: 4px;
 }
 
 /* Modal Footer */
 .kroma-modal-footer {
     padding: var(--space-4);
-    background-color: var(--variant-light-bg);
-    border-top: 1px solid var(--variant-border);
+    background-color: var(--variant-light-bg, var(--neutral-100));
+    border-top: 1px solid var(--variant-border, var(--neutral-300));
     text-align: right;
 }
 
@@ -3489,9 +3536,9 @@ blockquote {
     border-radius: 0;
     max-width: none;
     max-height: none;
-    padding: var(--space-6); 
-    background-color: var(--neutral-200); 
-    color: var(--neutral-50); 
+    padding: var(--space-6);
+    background-color: var(--neutral-200);
+    color: var(--neutral-50);
 }
 
 /* Responsive Adjustments */
@@ -3521,19 +3568,19 @@ blockquote {
     display: flex;
     align-items: center;
     padding: var(--space-2);
-    border: 1px solid var(--variant-border);
+    border: 1px solid var(--variant-border, var(--neutral-300));
     border-radius: var(--radius-md);
-    background-color: var(--variant-bg);
-    box-shadow: var(--variant-shadow);
+    background-color: var(--variant-bg, var(--neutral-50));
+    box-shadow: var(--variant-shadow, var(--shadow-md));
     cursor: pointer;
     transition: border-color var(--transition-colors), box-shadow var(--transition-all);
     position: relative;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 .kroma-multiselect-dropdown:focus-within {
-    border-color: var(--variant-hover-bg);
-    box-shadow: 0 0 0 3px var(--variant-light-bg);
+    border-color: var(--variant-hover-bg, var(--neutral-400));
+    box-shadow: 0 0 0 3px var(--variant-light-bg, var(--neutral-200));
 }
 
 /* Search Input */
@@ -3544,13 +3591,13 @@ blockquote {
     padding: var(--space-1);
     background: transparent;
     font-size: 1rem;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 /* Clear Button */
 .kroma-clear-selection {
     font-size: 1.25rem;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
     cursor: pointer;
     background: none;
     border: none;
@@ -3573,10 +3620,10 @@ blockquote {
     top: calc(100% + var(--space-1));
     left: 0;
     width: 100%;
-    border: 1px solid var(--variant-border);
+    border: 1px solid var(--variant-border, var(--neutral-300));
     border-radius: var(--radius-md);
-    background-color: var(--variant-dark-bg);
-    box-shadow: var(--variant-shadow);
+    background-color: var(--variant-dark-bg, var(--neutral-100));
+    box-shadow: var(--variant-shadow, var(--shadow-lg));
     max-height: 200px;
     overflow-y: auto;
     display: none;
@@ -3593,17 +3640,17 @@ blockquote {
     padding: var(--space-2);
     cursor: pointer;
     transition: background-color var(--transition-colors), color var(--transition-colors);
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 .kroma-multiselect-option:hover {
-    background-color: var(--variant-hover-bg);
+    background-color: var(--variant-hover-bg, var(--neutral-300));
     color: #fff;
 }
 
 .kroma-multiselect-option.selected {
-    background-color: var(--variant-hover-bg);
-    color: var(--variant-text);
+    background-color: var(--variant-hover-bg, var(--neutral-400));
+    color: var(--variant-text, var(--neutral-900));
 }
 
 /* Chips for Selected Options */
@@ -3623,7 +3670,7 @@ blockquote {
     font-size: 0.875rem;
     line-height: 1.2;
     color: #fff;
-    background-color: var(--variant-bg);
+    background-color: var(--variant-bg, var(--neutral-600));
 }
 
 .kroma-chip-remove {
@@ -3636,17 +3683,17 @@ blockquote {
 /* Scrollbar Customization */
 .kroma-multiselect-options::-webkit-scrollbar {
     width: 8px;
-    background-color: var(--variant-light-bg);
+    background-color: var(--variant-light-bg, var(--neutral-200));
 }
 
 .kroma-multiselect-options::-webkit-scrollbar-thumb {
-    background-color: var(--variant-hover-bg);
+    background-color: var(--variant-hover-bg, var(--neutral-300));
     border-radius: 4px;
 }
 
 /* Placeholder Color */
 .kroma-multiselect-search::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--variant-text-light, rgba(0, 0, 0, 0.6));
 }
 
 /* Responsive Adjustments */
@@ -4877,173 +4924,167 @@ html:has(.kroma-navbar) .kroma-sidebar{
 /* --- stat-metrics.css --- */
 /* Base Stat Box Styles */
 .kroma-stat-box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(var(--space-4), 2vw, var(--space-6));
-    border-radius: var(--radius-lg);
-    background-color: var(--neutral-50);
-    box-shadow: var(--shadow-md);
-    transition: background-color var(--transition-colors), transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    width: 100%;
-    max-width: 350px;
-    gap: clamp(var(--space-2), 2vw, var(--space-4));
-    margin: var(--space-4) auto;
-    overflow: hidden;
-  }
-  
-  /* Hover and Focus States */
-  .kroma-stat-box:hover {
-    background-color: var(--neutral-100);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-  }
-  .kroma-stat-box:focus-within {
-    outline: 2px solid var(--primary);
-  }
-  
-  /* Icon Styling */
-  .kroma-stat-box .kroma-icon {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: clamp(2.5rem, 5vw, 4rem);
-    color: var(--neutral-800);
-  }
-  
-  /* Title and Value Styling */
-  .kroma-stat-box .kroma-title {
-    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
-    line-height: clamp(1rem, 2vw + 0.5rem, 1.25rem);
-    font-weight: 500;
-    color: var(--neutral-900);
-  }
-  
-  .kroma-stat-box .kroma-value {
-    font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
-    line-height: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
-    font-weight: 700;
-    color: var(--neutral-900);
-    margin-bottom: var(--space-2); 
-  }
-  
-  /* Change Indicator */
-  .kroma-stat-box .kroma-change {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-1);
-    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    line-height: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    font-weight: 500;
-    margin-top: var(--space-2); 
-  }
-  
-  /* Positive and Negative Changes */
-  .kroma-stat-box .kroma-change[data-change="positive"] {
-    color: var(--success);
-  }
-  .kroma-stat-box .kroma-change[data-change="negative"] {
-    color: var(--danger);
-  }
-  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(var(--space-4), 2vw, var(--space-6));
+  border-radius: var(--radius-lg);
+  background-color: var(--variant-bg, var(--neutral-50));
+  box-shadow: var(--variant-shadow, var(--shadow-md));
+  transition: background-color var(--transition-colors), transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+  gap: clamp(var(--space-2), 2vw, var(--space-4));
+  margin: var(--space-4) auto;
+  overflow: hidden;
+  color: var(--variant-text, var(--neutral-900));
+}
+
+/* Hover and Focus States */
+.kroma-stat-box:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-100));
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.kroma-stat-box:focus-within {
+  outline: 2px solid var(--primary);
+}
+
+/* Icon Styling */
+.kroma-stat-box .kroma-icon {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: clamp(2.5rem, 5vw, 4rem);
+  color: var(--variant-text, var(--neutral-800));
+}
+
+/* Title and Value Styling */
+.kroma-stat-box .kroma-title {
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+  line-height: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+  font-weight: 500;
+  color: var(--variant-text, var(--neutral-900));
+}
+
+.kroma-stat-box .kroma-value {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+  line-height: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-2); 
+}
+
+/* Change Indicator */
+.kroma-stat-box .kroma-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  line-height: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  font-weight: 500;
+  margin-top: var(--space-2); 
+}
+
+/* Positive and Negative Changes */
+.kroma-stat-box .kroma-change[data-change="positive"] {
+  color: var(--success);
+}
+.kroma-stat-box .kroma-change[data-change="negative"] {
+  color: var(--danger);
+}
+
+/* Layout Variants */
+.kroma-stat-box[data-layout="horizontal"] {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: left;
+  padding: clamp(var(--space-3), 1vw, var(--space-4));
+}
+.kroma-stat-box[data-layout="compact"] {
+  padding: var(--space-2);
+  max-width: 250px;
+  gap: var(--space-2);
+}
+.kroma-stat-box[data-layout="expanded"] {
+  padding: clamp(var(--space-6), 3vw, var(--space-8));
+  max-width: 450px;
+  box-shadow: var(--shadow-xl);
+}
+
+/* Alignment Variants */
+.kroma-stat-box[data-alignment="start"] {
+  align-items: flex-start;
+  text-align: left;
+}
+.kroma-stat-box[data-alignment="end"] {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Spacing Variants */
+.kroma-stat-box[data-spacing="sm"] {
+  padding: var(--space-2);
+}
+.kroma-stat-box[data-spacing="lg"] {
+  padding: var(--space-8);
+}
+
+/* Shadow Options */
+.kroma-stat-box[data-shadow="none"] {
+  box-shadow: none;
+}
+.kroma-stat-box[data-shadow="sm"] {
+  box-shadow: var(--shadow-sm);
+}
+.kroma-stat-box[data-shadow="lg"] {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Border Radius Options */
+.kroma-stat-box[data-radius="sm"] {
+  border-radius: var(--radius-sm);
+}
+.kroma-stat-box[data-radius="full"] {
+  border-radius: var(--radius-full);
+}
+
+/* Hover Effects */
+.kroma-stat-box[data-hover="lift"]:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+.kroma-stat-box[data-hover="scale"]:hover {
+  transform: scale(1.05);
+}
+.kroma-stat-box[data-hover="brightness"]:hover {
+  filter: brightness(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .kroma-stat-box {
-    background-color: var(--variant-bg);
-    color: var(--variant-text);
-    box-shadow: var(--variant-shadow);
-  }
-  
-  /* Layout Variants */
-  .kroma-stat-box[data-layout="horizontal"] {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-4);
-    text-align: left;
-    padding: clamp(var(--space-3), 1vw, var(--space-4));
-  }
-  .kroma-stat-box[data-layout="compact"] {
-    padding: var(--space-2);
-    max-width: 250px;
-    gap: var(--space-2);
-  }
-  .kroma-stat-box[data-layout="expanded"] {
-    padding: clamp(var(--space-6), 3vw, var(--space-8));
-    max-width: 450px;
-    box-shadow: var(--shadow-xl);
-  }
-  
-  /* Alignment Variants */
-  .kroma-stat-box[data-alignment="start"] {
-    align-items: flex-start;
-    text-align: left;
-  }
-  .kroma-stat-box[data-alignment="end"] {
-    align-items: flex-end;
-    text-align: right;
-  }
-  
-  /* Spacing Variants */
-  .kroma-stat-box[data-spacing="sm"] {
-    padding: var(--space-2);
-  }
-  .kroma-stat-box[data-spacing="lg"] {
-    padding: var(--space-8);
-  }
-  
-  /* Shadow Options */
-  .kroma-stat-box[data-shadow="none"] {
-    box-shadow: none;
-  }
-  .kroma-stat-box[data-shadow="sm"] {
-    box-shadow: var(--shadow-sm);
-  }
-  .kroma-stat-box[data-shadow="lg"] {
-    box-shadow: var(--shadow-lg);
-  }
-  
-  /* Border Radius Options */
-  .kroma-stat-box[data-radius="sm"] {
-    border-radius: var(--radius-sm);
-  }
-  .kroma-stat-box[data-radius="full"] {
-    border-radius: var(--radius-full);
-  }
-  
-  /* Hover Effects */
-  .kroma-stat-box[data-hover="lift"]:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
-  }
-  .kroma-stat-box[data-hover="scale"]:hover {
-    transform: scale(1.05);
-  }
-  .kroma-stat-box[data-hover="brightness"]:hover {
-    filter: brightness(1.1);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .kroma-stat-box {
       padding: var(--space-3);
       max-width: 90%;
-    }
-    .kroma-stat-box .kroma-title {
+  }
+  .kroma-stat-box .kroma-title {
       font-size: clamp(0.875rem, 2vw, 1rem);
-    }
-    .kroma-stat-box .kroma-value {
+  }
+  .kroma-stat-box .kroma-value {
       font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-    .kroma-stat-box[data-layout="horizontal"] {
+  }
+  .kroma-stat-box[data-layout="horizontal"] {
       flex-direction: column;
       align-items: center;
       text-align: center;
-    }
-    .kroma-stat-box .kroma-change {
-      margin-top: var(--space-1); 
-    }
   }
-  
+  .kroma-stat-box .kroma-change {
+      margin-top: var(--space-1); 
+  }
+}
+
 
 /* --- stepper.css --- */
 /* Base Stepper Container */

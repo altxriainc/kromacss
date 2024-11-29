@@ -10,8 +10,16 @@
   font-weight: 500;
   position: relative;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  box-shadow: var(--shadow-sm);
-  isolation: isolate; /* Prevent nested contexts from affecting styles */
+  box-shadow: var(--variant-shadow, var(--shadow-sm));
+  isolation: isolate;
+}
+
+.kroma-avatar[data-variant="default"],
+.kroma-avatar:not([data-variant]) {
+  --variant-bg: var(--neutral-100);
+  --variant-text: var(--neutral-900);
+  --variant-shadow: var(--shadow-sm);
+  --variant-border: var(--neutral-200);
 }
 
 /* Avatar Sizes */
@@ -52,6 +60,8 @@
 .kroma-avatar[data-variant] {
   background-color: var(--variant-bg);
   color: var(--variant-text);
+  box-shadow: var(--variant-shadow);
+  border: 1px solid var(--variant-border);
 }
 
 /* Ghost Variant */
@@ -62,7 +72,7 @@
   box-shadow: none;
 }
 
-.kroma-avatar[data-variant="ghost"] .avatar-status {
+.kroma-avatar[data-variant="ghost"] .kroma-avatar-status {
   background-color: transparent;
   border: 2px dashed var(--neutral-400);
 }
@@ -78,14 +88,14 @@
 
 .kroma-avatar img:hover {
   transform: scale(1.1);
-} /* Zoom effect on hover */
+}
 
 /* Initials Avatar */
 .kroma-avatar-initials {
   font-size: inherit;
-  font-weight: 700; /* Bold initials for better visibility */
-  line-height: 1; /* Prevent misalignment */
-  text-transform: uppercase; /* Uniform appearance for initials */
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 /* Status Indicators */
@@ -96,7 +106,7 @@
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
-  border: 2px solid var(--status-border-color, #fff); /* Customizable border color */
+  border: 2px solid var(--status-border-color, #fff);
   background-color: var(--status-color, var(--success-bg));
   box-shadow: var(--shadow-sm);
 }
@@ -125,9 +135,9 @@
 }
 
 .kroma-avatar-group .kroma-avatar:not(:first-child) {
-  margin-left: -0.5rem; /* Overlap effect */
-  border: 2px solid var(--group-border-color, #fff); /* Customizable overlap border */
-  box-shadow: var(--shadow-sm); /* Slight shadow for depth */
+  margin-left: -0.5rem;
+  border: 2px solid var(--group-border-color, #fff);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Pulsing Avatar Effect */
@@ -164,7 +174,7 @@
 .kroma-avatar[data-disabled="true"] {
   opacity: 0.5;
   cursor: not-allowed;
-  pointer-events: none; /* Prevent interaction */
+  pointer-events: none;
 }
 
 /* Bordered Avatar */

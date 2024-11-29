@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent backdrop */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
-    backdrop-filter: blur(6px); 
+    backdrop-filter: blur(6px); /* Smooth backdrop blur */
 }
 
 .kroma-modal-overlay.active {
@@ -23,15 +23,15 @@
 
 /* Modal Container */
 .kroma-modal {
-    background-color: var(--variant-bg);
+    background-color: var(--variant-bg, var(--neutral-50));
     border-radius: var(--radius-2xl);
-    box-shadow: var(--variant-shadow);
+    box-shadow: var(--variant-shadow, var(--shadow-lg));
     max-width: clamp(20rem, 50vw, 40rem);
     width: 100%;
     position: relative;
     animation: kroma-modal-appear 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 @keyframes kroma-modal-appear {
@@ -48,12 +48,12 @@
 /* Modal Header */
 .kroma-modal-header {
     padding: var(--space-4);
-    background-color: var(--variant-light-bg);
-    border-bottom: 1px solid var(--variant-border);
+    background-color: var(--variant-light-bg, var(--neutral-100));
+    border-bottom: 1px solid var(--variant-border, var(--neutral-300));
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-800));
 }
 
 .kroma-modal-title {
@@ -66,12 +66,12 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-800));
     transition: color 0.2s ease-in-out, transform 0.2s ease;
 }
 
 .kroma-modal-close:hover {
-    color: var(--variant-hover-bg);
+    color: var(--variant-hover-bg, var(--neutral-700));
     transform: scale(1.1);
 }
 
@@ -80,25 +80,25 @@
     padding: var(--space-4);
     overflow-y: auto;
     max-height: 60vh;
-    scrollbar-color: var(--variant-hover-bg) var(--variant-light-bg);
+    scrollbar-color: var(--variant-hover-bg, var(--neutral-300)) var(--variant-light-bg, var(--neutral-100));
     scrollbar-width: thin;
 }
 
 .kroma-modal-body::-webkit-scrollbar {
     width: 8px;
-    background-color: var(--variant-light-bg);
+    background-color: var(--variant-light-bg, var(--neutral-100));
 }
 
 .kroma-modal-body::-webkit-scrollbar-thumb {
-    background-color: var(--variant-hover-bg);
+    background-color: var(--variant-hover-bg, var(--neutral-300));
     border-radius: 4px;
 }
 
 /* Modal Footer */
 .kroma-modal-footer {
     padding: var(--space-4);
-    background-color: var(--variant-light-bg);
-    border-top: 1px solid var(--variant-border);
+    background-color: var(--variant-light-bg, var(--neutral-100));
+    border-top: 1px solid var(--variant-border, var(--neutral-300));
     text-align: right;
 }
 
@@ -109,9 +109,9 @@
     border-radius: 0;
     max-width: none;
     max-height: none;
-    padding: var(--space-6); 
-    background-color: var(--neutral-200); 
-    color: var(--neutral-50); 
+    padding: var(--space-6);
+    background-color: var(--neutral-200);
+    color: var(--neutral-50);
 }
 
 /* Responsive Adjustments */

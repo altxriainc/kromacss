@@ -1,10 +1,10 @@
 /* Base Styling for Code Block */
 .kroma-code-block {
-  background: var(--variant-bg);
-  color: var(--variant-text);
-  border: 1px solid var(--variant-border);
+  background: var(--variant-bg, var(--neutral-50));
+  color: var(--variant-text, var(--neutral-900));
+  border: 1px solid var(--variant-border, var(--neutral-200));
   border-radius: var(--radius-lg);
-  box-shadow: var(--variant-shadow);
+  box-shadow: var(--variant-shadow, var(--shadow-lg));
   padding: clamp(var(--space-3), 2vw, var(--space-5));
   position: relative;
   overflow: hidden;
@@ -21,6 +21,7 @@
     max-width: 80%;
   }
 }
+
 @media (min-width: 1024px) {
   .kroma-code-block {
     margin: var(--space-6) auto;
@@ -95,8 +96,8 @@
 }
 
 .kroma-code-block .kroma-action-btn {
-  background: var(--variant-hover-bg);
-  color: var(--variant-text);
+  background: var(--variant-hover-bg, var(--neutral-200));
+  color: var(--variant-text, var(--neutral-900));
   border: none;
   border-radius: var(--radius-md);
   padding: clamp(var(--space-2), 1vw, var(--space-3)) var(--space-4);
@@ -109,6 +110,6 @@
 }
 
 .kroma-code-block .kroma-action-btn:hover {
-  background: var(--variant-hover);
+  background: var(--variant-hover, var(--neutral-300));
   transform: scale(1.05);
 }

@@ -12,6 +12,13 @@
   transition: color 0.3s ease;
 }
 
+.kroma-breadcrumbs[data-variant="default"],
+.kroma-breadcrumbs:not([data-variant]) {
+  --variant-text: var(--neutral-700);
+  --variant-hover: var(--primary-hover);
+  --variant-separator: var(--neutral-400);
+}
+
 /* Breadcrumb Item */
 .kroma-breadcrumb-item {
   display: inline-flex;
@@ -63,7 +70,7 @@
 
 /* Breadcrumb Color Variants */
 .kroma-breadcrumbs[data-variant] {
-  --variant-text: var(--variant-bg); /* Fallback to --variant-bg for text color */
+  --variant-text: var(--variant-bg);
   --variant-hover: var(--variant-hover-bg);
   --variant-separator: var(--variant-light-bg);
 }

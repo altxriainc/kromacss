@@ -102,7 +102,7 @@
 .kroma-command-palette .kroma-palette-item:hover,
 .kroma-command-palette .kroma-palette-item:focus {
   background: var(--palette-item-hover-bg, var(--variant-hover-bg));
-  color: var(--neutral-700);
+  color: var(--palette-item-hover-text, var(--neutral-700));
 }
 
 .kroma-command-palette .kroma-palette-item[data-active="true"] {

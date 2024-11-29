@@ -17,8 +17,16 @@
   transition: color var(--transition-colors), background-color var(--transition-colors), transform 0.2s;
   background: var(--kroma-btn-bg, var(--primary-bg));
   color: var(--kroma-btn-color, var(--primary-text));
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--variant-shadow, var(--shadow-md));
   overflow: hidden;
+}
+
+.kroma-btn[data-variant="default"],
+.kroma-btn:not([data-variant]) {
+  --kroma-btn-bg: var(--neutral-700);
+  --kroma-btn-bg-hover: var(--neutral-800);
+  --kroma-btn-color: #fff;
+  --variant-shadow: var(--shadow-sm);
 }
 
 /* Hover and Active States */

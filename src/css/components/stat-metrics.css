@@ -1,169 +1,162 @@
 /* Base Stat Box Styles */
 .kroma-stat-box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(var(--space-4), 2vw, var(--space-6));
-    border-radius: var(--radius-lg);
-    background-color: var(--neutral-50);
-    box-shadow: var(--shadow-md);
-    transition: background-color var(--transition-colors), transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    width: 100%;
-    max-width: 350px;
-    gap: clamp(var(--space-2), 2vw, var(--space-4));
-    margin: var(--space-4) auto;
-    overflow: hidden;
-  }
-  
-  /* Hover and Focus States */
-  .kroma-stat-box:hover {
-    background-color: var(--neutral-100);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-  }
-  .kroma-stat-box:focus-within {
-    outline: 2px solid var(--primary);
-  }
-  
-  /* Icon Styling */
-  .kroma-stat-box .kroma-icon {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: clamp(2.5rem, 5vw, 4rem);
-    color: var(--neutral-800);
-  }
-  
-  /* Title and Value Styling */
-  .kroma-stat-box .kroma-title {
-    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
-    line-height: clamp(1rem, 2vw + 0.5rem, 1.25rem);
-    font-weight: 500;
-    color: var(--neutral-900);
-  }
-  
-  .kroma-stat-box .kroma-value {
-    font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
-    line-height: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
-    font-weight: 700;
-    color: var(--neutral-900);
-    margin-bottom: var(--space-2); 
-  }
-  
-  /* Change Indicator */
-  .kroma-stat-box .kroma-change {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-1);
-    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    line-height: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    font-weight: 500;
-    margin-top: var(--space-2); 
-  }
-  
-  /* Positive and Negative Changes */
-  .kroma-stat-box .kroma-change[data-change="positive"] {
-    color: var(--success);
-  }
-  .kroma-stat-box .kroma-change[data-change="negative"] {
-    color: var(--danger);
-  }
-  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(var(--space-4), 2vw, var(--space-6));
+  border-radius: var(--radius-lg);
+  background-color: var(--variant-bg, var(--neutral-50));
+  box-shadow: var(--variant-shadow, var(--shadow-md));
+  transition: background-color var(--transition-colors), transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+  gap: clamp(var(--space-2), 2vw, var(--space-4));
+  margin: var(--space-4) auto;
+  overflow: hidden;
+  color: var(--variant-text, var(--neutral-900));
+}
+
+/* Hover and Focus States */
+.kroma-stat-box:hover {
+  background-color: var(--variant-hover-bg, var(--neutral-100));
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.kroma-stat-box:focus-within {
+  outline: 2px solid var(--primary);
+}
+
+/* Icon Styling */
+.kroma-stat-box .kroma-icon {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: clamp(2.5rem, 5vw, 4rem);
+  color: var(--variant-text, var(--neutral-800));
+}
+
+/* Title and Value Styling */
+.kroma-stat-box .kroma-title {
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+  line-height: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+  font-weight: 500;
+  color: var(--variant-text, var(--neutral-900));
+}
+
+.kroma-stat-box .kroma-value {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+  line-height: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-2); 
+}
+
+/* Change Indicator */
+.kroma-stat-box .kroma-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  line-height: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  font-weight: 500;
+  margin-top: var(--space-2); 
+}
+
+/* Positive and Negative Changes */
+.kroma-stat-box .kroma-change[data-change="positive"] {
+  color: var(--success);
+}
+.kroma-stat-box .kroma-change[data-change="negative"] {
+  color: var(--danger);
+}
+
+/* Layout Variants */
+.kroma-stat-box[data-layout="horizontal"] {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: left;
+  padding: clamp(var(--space-3), 1vw, var(--space-4));
+}
+.kroma-stat-box[data-layout="compact"] {
+  padding: var(--space-2);
+  max-width: 250px;
+  gap: var(--space-2);
+}
+.kroma-stat-box[data-layout="expanded"] {
+  padding: clamp(var(--space-6), 3vw, var(--space-8));
+  max-width: 450px;
+  box-shadow: var(--shadow-xl);
+}
+
+/* Alignment Variants */
+.kroma-stat-box[data-alignment="start"] {
+  align-items: flex-start;
+  text-align: left;
+}
+.kroma-stat-box[data-alignment="end"] {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Spacing Variants */
+.kroma-stat-box[data-spacing="sm"] {
+  padding: var(--space-2);
+}
+.kroma-stat-box[data-spacing="lg"] {
+  padding: var(--space-8);
+}
+
+/* Shadow Options */
+.kroma-stat-box[data-shadow="none"] {
+  box-shadow: none;
+}
+.kroma-stat-box[data-shadow="sm"] {
+  box-shadow: var(--shadow-sm);
+}
+.kroma-stat-box[data-shadow="lg"] {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Border Radius Options */
+.kroma-stat-box[data-radius="sm"] {
+  border-radius: var(--radius-sm);
+}
+.kroma-stat-box[data-radius="full"] {
+  border-radius: var(--radius-full);
+}
+
+/* Hover Effects */
+.kroma-stat-box[data-hover="lift"]:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+.kroma-stat-box[data-hover="scale"]:hover {
+  transform: scale(1.05);
+}
+.kroma-stat-box[data-hover="brightness"]:hover {
+  filter: brightness(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .kroma-stat-box {
-    background-color: var(--variant-bg);
-    color: var(--variant-text);
-    box-shadow: var(--variant-shadow);
-  }
-  
-  /* Layout Variants */
-  .kroma-stat-box[data-layout="horizontal"] {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-4);
-    text-align: left;
-    padding: clamp(var(--space-3), 1vw, var(--space-4));
-  }
-  .kroma-stat-box[data-layout="compact"] {
-    padding: var(--space-2);
-    max-width: 250px;
-    gap: var(--space-2);
-  }
-  .kroma-stat-box[data-layout="expanded"] {
-    padding: clamp(var(--space-6), 3vw, var(--space-8));
-    max-width: 450px;
-    box-shadow: var(--shadow-xl);
-  }
-  
-  /* Alignment Variants */
-  .kroma-stat-box[data-alignment="start"] {
-    align-items: flex-start;
-    text-align: left;
-  }
-  .kroma-stat-box[data-alignment="end"] {
-    align-items: flex-end;
-    text-align: right;
-  }
-  
-  /* Spacing Variants */
-  .kroma-stat-box[data-spacing="sm"] {
-    padding: var(--space-2);
-  }
-  .kroma-stat-box[data-spacing="lg"] {
-    padding: var(--space-8);
-  }
-  
-  /* Shadow Options */
-  .kroma-stat-box[data-shadow="none"] {
-    box-shadow: none;
-  }
-  .kroma-stat-box[data-shadow="sm"] {
-    box-shadow: var(--shadow-sm);
-  }
-  .kroma-stat-box[data-shadow="lg"] {
-    box-shadow: var(--shadow-lg);
-  }
-  
-  /* Border Radius Options */
-  .kroma-stat-box[data-radius="sm"] {
-    border-radius: var(--radius-sm);
-  }
-  .kroma-stat-box[data-radius="full"] {
-    border-radius: var(--radius-full);
-  }
-  
-  /* Hover Effects */
-  .kroma-stat-box[data-hover="lift"]:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
-  }
-  .kroma-stat-box[data-hover="scale"]:hover {
-    transform: scale(1.05);
-  }
-  .kroma-stat-box[data-hover="brightness"]:hover {
-    filter: brightness(1.1);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .kroma-stat-box {
       padding: var(--space-3);
       max-width: 90%;
-    }
-    .kroma-stat-box .kroma-title {
+  }
+  .kroma-stat-box .kroma-title {
       font-size: clamp(0.875rem, 2vw, 1rem);
-    }
-    .kroma-stat-box .kroma-value {
+  }
+  .kroma-stat-box .kroma-value {
       font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-    .kroma-stat-box[data-layout="horizontal"] {
+  }
+  .kroma-stat-box[data-layout="horizontal"] {
       flex-direction: column;
       align-items: center;
       text-align: center;
-    }
-    .kroma-stat-box .kroma-change {
-      margin-top: var(--space-1); 
-    }
   }
-  
+  .kroma-stat-box .kroma-change {
+      margin-top: var(--space-1); 
+  }
+}

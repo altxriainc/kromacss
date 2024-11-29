@@ -12,19 +12,19 @@
     display: flex;
     align-items: center;
     padding: var(--space-2);
-    border: 1px solid var(--variant-border);
+    border: 1px solid var(--variant-border, var(--neutral-300));
     border-radius: var(--radius-md);
-    background-color: var(--variant-bg);
-    box-shadow: var(--variant-shadow);
+    background-color: var(--variant-bg, var(--neutral-50));
+    box-shadow: var(--variant-shadow, var(--shadow-md));
     cursor: pointer;
     transition: border-color var(--transition-colors), box-shadow var(--transition-all);
     position: relative;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 .kroma-multiselect-dropdown:focus-within {
-    border-color: var(--variant-hover-bg);
-    box-shadow: 0 0 0 3px var(--variant-light-bg);
+    border-color: var(--variant-hover-bg, var(--neutral-400));
+    box-shadow: 0 0 0 3px var(--variant-light-bg, var(--neutral-200));
 }
 
 /* Search Input */
@@ -35,13 +35,13 @@
     padding: var(--space-1);
     background: transparent;
     font-size: 1rem;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 /* Clear Button */
 .kroma-clear-selection {
     font-size: 1.25rem;
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
     cursor: pointer;
     background: none;
     border: none;
@@ -64,10 +64,10 @@
     top: calc(100% + var(--space-1));
     left: 0;
     width: 100%;
-    border: 1px solid var(--variant-border);
+    border: 1px solid var(--variant-border, var(--neutral-300));
     border-radius: var(--radius-md);
-    background-color: var(--variant-dark-bg);
-    box-shadow: var(--variant-shadow);
+    background-color: var(--variant-dark-bg, var(--neutral-100));
+    box-shadow: var(--variant-shadow, var(--shadow-lg));
     max-height: 200px;
     overflow-y: auto;
     display: none;
@@ -84,17 +84,17 @@
     padding: var(--space-2);
     cursor: pointer;
     transition: background-color var(--transition-colors), color var(--transition-colors);
-    color: var(--variant-text);
+    color: var(--variant-text, var(--neutral-900));
 }
 
 .kroma-multiselect-option:hover {
-    background-color: var(--variant-hover-bg);
+    background-color: var(--variant-hover-bg, var(--neutral-300));
     color: #fff;
 }
 
 .kroma-multiselect-option.selected {
-    background-color: var(--variant-hover-bg);
-    color: var(--variant-text);
+    background-color: var(--variant-hover-bg, var(--neutral-400));
+    color: var(--variant-text, var(--neutral-900));
 }
 
 /* Chips for Selected Options */
@@ -114,7 +114,7 @@
     font-size: 0.875rem;
     line-height: 1.2;
     color: #fff;
-    background-color: var(--variant-bg);
+    background-color: var(--variant-bg, var(--neutral-600));
 }
 
 .kroma-chip-remove {
@@ -127,17 +127,17 @@
 /* Scrollbar Customization */
 .kroma-multiselect-options::-webkit-scrollbar {
     width: 8px;
-    background-color: var(--variant-light-bg);
+    background-color: var(--variant-light-bg, var(--neutral-200));
 }
 
 .kroma-multiselect-options::-webkit-scrollbar-thumb {
-    background-color: var(--variant-hover-bg);
+    background-color: var(--variant-hover-bg, var(--neutral-300));
     border-radius: 4px;
 }
 
 /* Placeholder Color */
 .kroma-multiselect-search::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--variant-text-light, rgba(0, 0, 0, 0.6));
 }
 
 /* Responsive Adjustments */

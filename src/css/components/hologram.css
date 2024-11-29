@@ -129,9 +129,9 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .kroma-hologram-title {
-      font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
   }
   .kroma-hologram-subtitle {
-      font-size: clamp(0.875rem, 2vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1.5rem);
   }
 }

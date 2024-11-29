@@ -14,7 +14,15 @@
   text-transform: uppercase;
   white-space: nowrap;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--variant-shadow, var(--shadow-sm));
+}
+
+.kroma-badge[data-variant="default"],
+.kroma-badge:not([data-variant]) {
+  --variant-bg: var(--neutral-700);
+  --variant-text: #ffffff;
+  --variant-shadow: var(--shadow-sm);
+  --variant-light-bg: var(--neutral-500);
 }
 
 /* Outline Variant */

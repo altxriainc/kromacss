@@ -21,7 +21,9 @@
 }
 
 /* Input, Textarea, and Select Base Styles */
-.kroma-input, .kroma-textarea, .kroma-select {
+.kroma-input,
+.kroma-textarea,
+.kroma-select {
   font-family: var(--font-sans);
   font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
   padding: var(--space-3) var(--space-4);
@@ -35,36 +37,47 @@
 }
 
 /* Placeholder Styling */
-.kroma-input::placeholder, .kroma-textarea::placeholder, .kroma-select::placeholder {
+.kroma-input::placeholder,
+.kroma-textarea::placeholder,
+.kroma-select::placeholder {
   color: var(--neutral-500);
 }
 
 /* Focus and Hover Styles */
-.kroma-input:focus, .kroma-textarea:focus, .kroma-select:focus {
+.kroma-input:focus,
+.kroma-textarea:focus,
+.kroma-select:focus {
   outline: none;
   border-color: var(--variant-border, var(--neutral-400));
   box-shadow: 0px 0px 0px 3px var(--variant-light-bg, var(--neutral-200));
 }
 
-.kroma-input:hover, .kroma-textarea:hover, .kroma-select:hover {
+.kroma-input:hover,
+.kroma-textarea:hover,
+.kroma-select:hover {
   border-color: var(--neutral-400);
   box-shadow: var(--shadow-md);
 }
 
 /* Variants for Input, Textarea, and Select */
-[data-variant] .kroma-input, [data-variant] .kroma-textarea, [data-variant] .kroma-select {
+[data-variant] .kroma-input,
+[data-variant] .kroma-textarea,
+[data-variant] .kroma-select {
   background-color: var(--variant-bg);
   border-color: var(--variant-border);
   color: var(--variant-text);
   box-shadow: var(--variant-shadow);
 }
 
-[data-variant] .kroma-input::placeholder, [data-variant] .kroma-textarea::placeholder {
+[data-variant] .kroma-input::placeholder,
+[data-variant] .kroma-textarea::placeholder {
   color: var(--variant-text-light, rgba(255, 255, 255, 0.8));
 }
 
 /* Disabled State */
-.kroma-input:disabled, .kroma-textarea:disabled, .kroma-select:disabled {
+.kroma-input:disabled,
+.kroma-textarea:disabled,
+.kroma-select:disabled {
   color: var(--neutral-700);
   background-color: var(--neutral-200);
   cursor: not-allowed;
@@ -72,7 +85,8 @@
 }
 
 /* Readonly State */
-.kroma-input-readonly, .kroma-textarea-readonly {
+.kroma-input-readonly,
+.kroma-textarea-readonly {
   background-color: var(--neutral-100);
   color: var(--neutral-800);
   cursor: default;
@@ -113,7 +127,9 @@
 }
 
 /* Error State */
-.kroma-input-error, .kroma-textarea-error, .kroma-select-error {
+.kroma-input-error,
+.kroma-textarea-error,
+.kroma-select-error {
   border-color: var(--variant-border, var(--danger-border));
   box-shadow: 0px 0px 0px 3px var(--variant-light-bg, var(--danger-light-bg));
 }
@@ -126,7 +142,8 @@
 }
 
 /* Checkbox & Radio Groups */
-.kroma-checkbox-group, .kroma-radio-group {
+.kroma-checkbox-group,
+.kroma-radio-group {
   display: flex;
   gap: var(--space-4);
   align-items: center;
@@ -134,7 +151,8 @@
 }
 
 /* Base Checkbox and Radio Styles */
-.kroma-checkbox, .kroma-radio {
+.kroma-checkbox,
+.kroma-radio {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -144,14 +162,16 @@
   transition: color var(--transition-colors);
 }
 
-.kroma-checkbox input[type="checkbox"], .kroma-radio input[type="radio"] {
+.kroma-checkbox input[type="checkbox"],
+.kroma-radio input[type="radio"] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
 /* Checkbox and Radio Icons */
-.kroma-checkbox-icon, .kroma-radio-icon {
+.kroma-checkbox-icon,
+.kroma-radio-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -174,13 +194,15 @@
 }
 
 /* Hover and Active States */
-.kroma-checkbox:hover .kroma-checkbox-icon, .kroma-radio:hover .kroma-radio-icon {
+.kroma-checkbox:hover .kroma-checkbox-icon,
+.kroma-radio:hover .kroma-radio-icon {
   border-color: var(--neutral-400);
   box-shadow: var(--shadow-lg);
   transform: scale(1.05);
 }
 
-.kroma-checkbox:active .kroma-checkbox-icon, .kroma-radio:active .kroma-radio-icon {
+.kroma-checkbox:active .kroma-checkbox-icon,
+.kroma-radio:active .kroma-radio-icon {
   box-shadow: var(--shadow-sm);
   transform: scale(0.95);
 }
