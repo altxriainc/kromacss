@@ -138,8 +138,7 @@ class KromaSidebar {
         for(var i = 0; i < this.pages.length; i++){
 
             var li = document.createElement('li');
-            //remove href from collapsable parent
-            if (li.querySelector('a') && element.hasAttribute('href')) {li.querySelector('a').removeAttribute('href');}
+            li.querySelector('a').removeAttribute('href'); //remove href from collapsable parent
             li.classList.add('no-selection');
 
             //parent page
