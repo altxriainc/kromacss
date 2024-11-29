@@ -1276,6 +1276,9 @@ export class KromaNavbar {
         this.siteTitle = document.querySelector('head title');
         this.siteTitle = ( this.nav.dataset.title ?? siteTitle ) ?? (this.siteTitle.innerText ?? '');
 
+        //menu sizing for toggle
+        this.menuExtWidth = undefined;
+        this.menuIntWidth = undefined;
 
         //get menu items
         this.hasMenu = this.nav.querySelector('a') ? true : false;
@@ -1301,9 +1304,17 @@ export class KromaNavbar {
 
             this.addToggle();
             this.addMenu();
+            this.autoToggle();
 
+            //auto add/remove toggle for menu width
+            window.addEventListener('resize', () => {
+                clearTimeout(this.resizeTimeout);
+                this.resizeTimeout = setTimeout(() => { this.autoToggle(); }, 200); 
+            });
 
         }
+
+        
 
         
 
@@ -1380,6 +1391,19 @@ export class KromaNavbar {
 
     }
 
+    autoToggle(){
+
+        this.nav.classList.remove('toggled-menu'); //always use full width navbar for calculations
+        var menu = document.querySelector('#'+this.nav.id+' .nav-menu');   
+        if(!menu){console.error('menu container not found'); return false;}    
+        var ul = menu.querySelector(' ul');
+        if(!ul){console.error('menu ul not found'); return false;} 
+        this.menuExtWidth = parseInt(getComputedStyle(menu).width);
+        this.menuIntWidth = parseInt(getComputedStyle(ul).width);
+        if(!this.menuExtWidth || !this.menuIntWidth){console.error('menu size cannot be determined');  return false;} 
+        if(this.menuExtWidth <= this.menuIntWidth){this.nav.classList.add('toggled-menu');}
+
+    }
 
 }
 
