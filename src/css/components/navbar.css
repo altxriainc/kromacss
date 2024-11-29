@@ -16,6 +16,7 @@
     flex-wrap: nowrap;
     align-items: center;
     gap: calc(var(--nav-size-base) / 6);
+    flex: auto;
 }
 
 nav.kroma-navbar {
@@ -173,4 +174,9 @@ nav.kroma-navbar:not(.toggled-menu) .nav-toggle {
 
 .kroma-navbar:not(.toggled-menu) .nav-menu ul li a:hover {
     text-decoration: underline;
+}
+
+.kroma-navbar .kroma-avatar {
+    max-height: calc(var(--nav-size-base) / 1.5);
+    max-width: calc(var(--nav-size-base) / 1.5);
 }
