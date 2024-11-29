@@ -9,86 +9,94 @@ License: CC BY-ND 4.0
 /* --- design-tokens.css --- */
 :root {
     /* Colors */
-    --neutral-50: #f9fafb; /* Light background */
-    --neutral-100: #f1f5f9;
-    --neutral-200: #e2e8f0;
-    --neutral-300: #cbd5e1; /* Mid-light for subtle contrasts */
-    --neutral-400: #94a3b8;
-    --neutral-500: #64748b; /* Accent light neutral */
-    --neutral-600: #475569;
-    --neutral-700: #334155;
-    --neutral-800: #1e293b;
-    --neutral-900: #0f172a; /* Darkest text on light mode */
+    --neutral-50: #f8fafc; 
+    --neutral-100: #eef2f6; 
+    --neutral-200: #d9e2ec; 
+    --neutral-300: #bcccdc; 
+    --neutral-400: #98a6c5; 
+    --neutral-500: #667693;
+    --neutral-600: #4a566b; 
+    --neutral-700: #354152; 
+    --neutral-800: #202c3c; 
+    --neutral-900: #131926; 
+    
 
     /* Primary Variants */
-    --primary-bg: rgba(59, 130, 246, 1);
-    --primary-light-bg: rgba(59, 130, 246, 0.15);
-    --primary-dark-bg: rgba(37, 99, 235, 1);
-    --primary-hover: rgba(59, 130, 246, 0.75);
-    --primary-hover-bg: rgba(59, 130, 246, 0.9);
+    --primary-bg: rgba(54, 118, 228, 1); 
+    --primary-light-bg: rgba(54, 118, 228, 0.12); 
+    --primary-dark-bg: rgba(37, 84, 187, 1); 
+    --primary-hover: rgba(54, 118, 228, 0.8); 
+    --primary-hover-bg: rgba(54, 118, 228, 0.95); 
     --primary-text: #ffffff;
-    --primary-border: rgba(37, 99, 235, 1);
-    --primary-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+    --primary-border: rgba(37, 84, 187, 1); 
+    --primary-shadow: 0 3px 8px rgba(54, 118, 228, 0.35); 
+    
 
     /* Secondary Variants */
-    --secondary-bg: rgba(100, 116, 139, 1);
-    --secondary-light-bg: rgba(100, 116, 139, 0.15);
-    --secondary-dark-bg: rgba(71, 85, 105, 1);
-    --secondary-hover: rgba(100, 116, 139, 0.75);
-    --secondary-hover-bg: rgba(100, 116, 139, 0.9);
+    --secondary-bg: rgba(84, 98, 120, 1); 
+    --secondary-light-bg: rgba(84, 98, 120, 0.12);
+    --secondary-dark-bg: rgba(59, 69, 89, 1); 
+    --secondary-hover: rgba(84, 98, 120, 0.8);
+    --secondary-hover-bg: rgba(84, 98, 120, 0.95);
     --secondary-text: #ffffff;
-    --secondary-border: rgba(71, 85, 105, 1);
-    --secondary-shadow: 0 2px 6px rgba(100, 116, 139, 0.3);
+    --secondary-border: rgba(59, 69, 89, 1);
+    --secondary-shadow: 0 3px 8px rgba(84, 98, 120, 0.35);
+    
 
     /* Success Variants */
-    --success-bg: rgba(16, 185, 129, 1);
-    --success-light-bg: rgba(16, 185, 129, 0.15);
-    --success-dark-bg: rgba(4, 120, 87, 1);
-    --success-hover: rgba(16, 185, 129, 0.75);
-    --success-hover-bg: rgba(16, 185, 129, 0.9);
+    --success-bg: rgba(15, 150, 100, 1); 
+    --success-light-bg: rgba(15, 150, 100, 0.12); 
+    --success-dark-bg: rgba(10, 110, 80, 1); 
+    --success-hover: rgba(15, 150, 100, 0.8); 
+    --success-hover-bg: rgba(15, 150, 100, 0.95);
     --success-text: #ffffff;
-    --success-border: rgba(4, 120, 87, 1);
-    --success-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+    --success-border: rgba(10, 110, 80, 1);
+    --success-shadow: 0 3px 8px rgba(15, 150, 100, 0.35);
+    
 
     /* Danger Variants */
-    --danger-bg: rgba(239, 68, 68, 1);
-    --danger-light-bg: rgba(239, 68, 68, 0.15);
-    --danger-dark-bg: rgba(185, 28, 28, 1);
-    --danger-hover: rgba(239, 68, 68, 0.75);
-    --danger-hover-bg: rgba(239, 68, 68, 0.9);
+    --danger-bg: rgba(220, 50, 50, 1); 
+    --danger-light-bg: rgba(220, 50, 50, 0.12);
+    --danger-dark-bg: rgba(180, 30, 30, 1); 
+    --danger-hover: rgba(220, 50, 50, 0.8);
+    --danger-hover-bg: rgba(220, 50, 50, 0.95);
     --danger-text: #ffffff;
-    --danger-border: rgba(185, 28, 28, 1);
-    --danger-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+    --danger-border: rgba(180, 30, 30, 1);
+    --danger-shadow: 0 3px 8px rgba(220, 50, 50, 0.35);
+    
 
     /* Warning Variants */
-    --warning-bg: rgba(245, 158, 11, 1);
-    --warning-light-bg: rgba(245, 158, 11, 0.15);
-    --warning-dark-bg: rgba(202, 138, 4, 1);
-    --warning-hover: rgba(245, 158, 11, 0.75);
-    --warning-hover-bg: rgba(245, 158, 11, 0.9);
+    --warning-bg: rgba(240, 140, 10, 1); 
+    --warning-light-bg: rgba(240, 140, 10, 0.12); 
+    --warning-dark-bg: rgba(200, 110, 5, 1); 
+    --warning-hover: rgba(240, 140, 10, 0.8);
+    --warning-hover-bg: rgba(240, 140, 10, 0.95);
     --warning-text: #ffffff;
-    --warning-border: rgba(202, 138, 4, 1);
-    --warning-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+    --warning-border: rgba(200, 110, 5, 1);
+    --warning-shadow: 0 3px 8px rgba(240, 140, 10, 0.35);
+    
 
     /* Info Variants */
-    --info-bg: rgba(59, 130, 246, 1);
-    --info-light-bg: rgba(59, 130, 246, 0.15);
-    --info-dark-bg: rgba(37, 99, 235, 1);
-    --info-hover: rgba(59, 130, 246, 0.75);
-    --info-hover-bg: rgba(59, 130, 246, 0.9);
+    --info-bg: rgba(50, 100, 230, 1); 
+    --info-light-bg: rgba(50, 100, 230, 0.12);
+    --info-dark-bg: rgba(30, 80, 190, 1);
+    --info-hover: rgba(50, 100, 230, 0.8);
+    --info-hover-bg: rgba(50, 100, 230, 0.95);
     --info-text: #ffffff;
-    --info-border: rgba(37, 99, 235, 1);
-    --info-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+    --info-border: rgba(30, 80, 190, 1);
+    --info-shadow: 0 3px 8px rgba(50, 100, 230, 0.35);
+    
 
     /* Accent Variants */
-    --accent-bg: rgba(124, 58, 237, 1);
-    --accent-light-bg: rgba(124, 58, 237, 0.15);
-    --accent-dark-bg: rgba(91, 33, 182, 1);
-    --accent-hover: rgba(124, 58, 237, 0.75);
-    --accent-hover-bg: rgba(124, 58, 237, 0.9);
+    --accent-bg: rgba(100, 50, 220, 1); 
+    --accent-light-bg: rgba(100, 50, 220, 0.12);
+    --accent-dark-bg: rgba(70, 30, 180, 1); 
+    --accent-hover: rgba(100, 50, 220, 0.8);
+    --accent-hover-bg: rgba(100, 50, 220, 0.95);
     --accent-text: #ffffff;
-    --accent-border: rgba(91, 33, 182, 1);
-    --accent-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+    --accent-border: rgba(70, 30, 180, 1);
+    --accent-shadow: 0 3px 8px rgba(100, 50, 220, 0.35);
+    
 
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -139,86 +147,86 @@ License: CC BY-ND 4.0
 /* Dark Mode */
 .dark-mode {
     /* Neutral Colors for Dark Mode */
-    --neutral-50: #121826; /* Dark background */
-    --neutral-100: #1a2334;
-    --neutral-200: #2b364a;
-    --neutral-300: #3b4a62; /* Mid-dark for subtle contrasts */
-    --neutral-400: #4a5d7c;
-    --neutral-500: #5f728c; /* Accent dark neutral */
-    --neutral-600: #718096;
-    --neutral-700: #a0aec0;
-    --neutral-800: #cbd5e0;
-    --neutral-900: #e5eaf0; /* Lightest text on dark mode */
+    --neutral-50: #0f141e; 
+    --neutral-100: #161e2b; 
+    --neutral-200: #202a3b; 
+    --neutral-300: #2c3a50; 
+    --neutral-400: #3a4e6b; 
+    --neutral-500: #52657e; 
+    --neutral-600: #697a91; 
+    --neutral-700: #b8c4d4; 
+    --neutral-800: #d8e1ec; 
+    --neutral-900: #f2f6fb; 
 
     /* Primary Variants */
-    --primary-bg: rgba(37, 99, 235, 1);
-    --primary-light-bg: rgba(37, 99, 235, 0.15);
-    --primary-dark-bg: rgba(29, 78, 216, 1);
-    --primary-hover: rgba(37, 99, 235, 0.75);
-    --primary-hover-bg: rgba(37, 99, 235, 0.9);
-    --primary-text: #e0f2fe; /* Light text for contrast */
-    --primary-border: rgba(29, 78, 216, 1);
-    --primary-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    --primary-bg: rgba(45, 105, 245, 1); 
+    --primary-light-bg: rgba(45, 105, 245, 0.12); 
+    --primary-dark-bg: rgba(35, 85, 200, 1);
+    --primary-hover: rgba(45, 105, 245, 0.8); 
+    --primary-hover-bg: rgba(45, 105, 245, 0.95);
+    --primary-text: #dbeafe; 
+    --primary-border: rgba(35, 85, 200, 1);
+    --primary-shadow: 0 4px 12px rgba(45, 105, 245, 0.3);    
 
     /* Secondary Variants */
-    --secondary-bg: rgba(71, 85, 105, 1);
-    --secondary-light-bg: rgba(71, 85, 105, 0.15);
-    --secondary-dark-bg: rgba(55, 65, 81, 1);
-    --secondary-hover: rgba(71, 85, 105, 0.75);
-    --secondary-hover-bg: rgba(71, 85, 105, 0.9);
-    --secondary-text: #f1f5f9;
-    --secondary-border: rgba(55, 65, 81, 1);
-    --secondary-shadow: 0 2px 6px rgba(71, 85, 105, 0.3);
+    --secondary-bg: rgba(80, 95, 120, 1); 
+    --secondary-light-bg: rgba(80, 95, 120, 0.12); 
+    --secondary-dark-bg: rgba(65, 75, 95, 1); 
+    --secondary-hover: rgba(80, 95, 120, 0.8);
+    --secondary-hover-bg: rgba(80, 95, 120, 0.95);
+    --secondary-text: #e2e8f0; 
+    --secondary-border: rgba(65, 75, 95, 1);
+    --secondary-shadow: 0 4px 12px rgba(80, 95, 120, 0.3);
 
     /* Success Variants */
-    --success-bg: rgba(4, 120, 87, 1);
-    --success-light-bg: rgba(4, 120, 87, 0.15);
-    --success-dark-bg: rgba(2, 85, 65, 1);
-    --success-hover: rgba(4, 120, 87, 0.75);
-    --success-hover-bg: rgba(4, 120, 87, 0.9);
-    --success-text: #d1fae5;
-    --success-border: rgba(2, 85, 65, 1);
-    --success-shadow: 0 2px 6px rgba(4, 120, 87, 0.3);
+    --success-bg: rgba(6, 135, 92, 1); 
+    --success-light-bg: rgba(6, 135, 92, 0.12); 
+    --success-dark-bg: rgba(4, 100, 70, 1); 
+    --success-hover: rgba(6, 135, 92, 0.8);
+    --success-hover-bg: rgba(6, 135, 92, 0.95);
+    --success-text: #bde7d8; 
+    --success-border: rgba(4, 100, 70, 1);
+    --success-shadow: 0 4px 12px rgba(6, 135, 92, 0.3);    
 
     /* Danger Variants */
-    --danger-bg: rgba(185, 28, 28, 1);
-    --danger-light-bg: rgba(185, 28, 28, 0.15);
-    --danger-dark-bg: rgba(153, 27, 27, 1);
-    --danger-hover: rgba(185, 28, 28, 0.75);
-    --danger-hover-bg: rgba(185, 28, 28, 0.9);
-    --danger-text: #fecaca;
-    --danger-border: rgba(153, 27, 27, 1);
-    --danger-shadow: 0 2px 6px rgba(185, 28, 28, 0.3);
+    --danger-bg: rgba(200, 35, 35, 1); 
+    --danger-light-bg: rgba(200, 35, 35, 0.12); 
+    --danger-dark-bg: rgba(160, 25, 25, 1); 
+    --danger-hover: rgba(200, 35, 35, 0.8);
+    --danger-hover-bg: rgba(200, 35, 35, 0.95);
+    --danger-text: #ffc7c7; 
+    --danger-border: rgba(160, 25, 25, 1);
+    --danger-shadow: 0 4px 12px rgba(200, 35, 35, 0.3);    
 
     /* Warning Variants */
-    --warning-bg: rgba(202, 138, 4, 1);
-    --warning-light-bg: rgba(202, 138, 4, 0.15);
-    --warning-dark-bg: rgba(161, 98, 7, 1);
-    --warning-hover: rgba(202, 138, 4, 0.75);
-    --warning-hover-bg: rgba(202, 138, 4, 0.9);
-    --warning-text: #fde68a;
-    --warning-border: rgba(161, 98, 7, 1);
-    --warning-shadow: 0 2px 6px rgba(202, 138, 4, 0.3);
+    --warning-bg: rgba(220, 150, 10, 1); 
+    --warning-light-bg: rgba(220, 150, 10, 0.12); 
+    --warning-dark-bg: rgba(180, 120, 8, 1); 
+    --warning-hover: rgba(220, 150, 10, 0.8);
+    --warning-hover-bg: rgba(220, 150, 10, 0.95);
+    --warning-text: #fde7b5; 
+    --warning-border: rgba(180, 120, 8, 1);
+    --warning-shadow: 0 4px 12px rgba(220, 150, 10, 0.3);    
 
     /* Info Variants */
-    --info-bg: rgba(37, 99, 235, 1);
-    --info-light-bg: rgba(37, 99, 235, 0.15);
-    --info-dark-bg: rgba(29, 78, 216, 1);
-    --info-hover: rgba(37, 99, 235, 0.75);
-    --info-hover-bg: rgba(37, 99, 235, 0.9);
-    --info-text: #bfdbfe;
-    --info-border: rgba(29, 78, 216, 1);
-    --info-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    --info-bg: rgba(40, 110, 230, 1); 
+    --info-light-bg: rgba(40, 110, 230, 0.12); 
+    --info-dark-bg: rgba(30, 85, 200, 1); 
+    --info-hover: rgba(40, 110, 230, 0.8);
+    --info-hover-bg: rgba(40, 110, 230, 0.95);
+    --info-text: #c9e7ff; 
+    --info-border: rgba(30, 85, 200, 1);
+    --info-shadow: 0 4px 12px rgba(40, 110, 230, 0.3);    
 
     /* Accent Variants */
-    --accent-bg: rgba(91, 33, 182, 1);
-    --accent-light-bg: rgba(91, 33, 182, 0.15);
-    --accent-dark-bg: rgba(72, 28, 152, 1);
-    --accent-hover: rgba(91, 33, 182, 0.75);
-    --accent-hover-bg: rgba(91, 33, 182, 0.9);
-    --accent-text: #e9d5ff;
-    --accent-border: rgba(72, 28, 152, 1);
-    --accent-shadow: 0 2px 6px rgba(91, 33, 182, 0.3);
+    --accent-bg: rgba(100, 50, 200, 1); 
+    --accent-light-bg: rgba(100, 50, 200, 0.12); 
+    --accent-dark-bg: rgba(80, 40, 160, 1); 
+    --accent-hover: rgba(100, 50, 200, 0.8);
+    --accent-hover-bg: rgba(100, 50, 200, 0.95);
+    --accent-text: #e7d1ff; 
+    --accent-border: rgba(80, 40, 160, 1);
+    --accent-shadow: 0 4px 12px rgba(100, 50, 200, 0.3);    
 
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.1);
@@ -228,81 +236,114 @@ License: CC BY-ND 4.0
 }
 
 [data-variant="primary"] {
-    --variant-bg: var(--primary-bg);
-    --variant-light-bg: var(--primary-light-bg);
-    --variant-dark-bg: var(--primary-dark-bg);
-    --variant-text: var(--primary-text);
-    --variant-shadow: var(--primary-shadow);
-    --variant-border: var(--primary-border);
-    --variant-hover-bg: var(--primary-hover-bg);
-    --variant-hover: var(--primary-hover);
-  }
+  --variant-bg: var(--primary-bg); /* Sfondo principale */
+  --variant-light-bg: var(--neutral-200); /* Sfondo per contrasto su hover */
+  --variant-dark-bg: var(--primary-dark-bg); /* Bordo e ombre */
+  --variant-text: var(--neutral-900); /* Testo chiaro su sfondo */
+  --variant-shadow: var(--primary-shadow); /* Ombre leggere */
+  --variant-border: var(--primary-border); /* Bordo visibile */
+  --variant-hover-bg: var(--primary-hover-bg); /* Sfondo scuro su hover */
+  --variant-hover: var(--primary-hover); /* Colore per elementi interattivi */
+}
   
-  [data-variant="secondary"] {
-    --variant-bg: var(--secondary-bg);
-    --variant-light-bg: var(--secondary-light-bg);
-    --variant-dark-bg: var(--secondary-dark-bg);
-    --variant-text: var(--secondary-text);
-    --variant-shadow: var(--secondary-shadow);
-    --variant-border: var(--secondary-border);
-    --variant-hover-bg: var(--secondary-hover-bg);
-    --variant-hover: var(--secondary-hover);
-  }
-  
-  [data-variant="accent"] {
-    --variant-bg: var(--accent-bg);
-    --variant-light-bg: var(--accent-light-bg);
-    --variant-dark-bg: var(--accent-dark-bg);
-    --variant-text: var(--accent-text);
-    --variant-shadow: var(--accent-shadow);
-    --variant-border: var(--accent-border);
-    --variant-hover-bg: var(--accent-hover-bg);
-    --variant-hover: var(--accent-hover);
-  }
-  
-  [data-variant="success"] {
-    --variant-bg: var(--success-bg);
-    --variant-light-bg: var(--success-light-bg);
-    --variant-dark-bg: var(--success-dark-bg);
-    --variant-text: var(--success-text);
-    --variant-shadow: var(--success-shadow);
-    --variant-border: var(--success-border);
-    --variant-hover-bg: var(--success-hover-bg);
-    --variant-hover: var(--success-hover);
-  }
-  
-  [data-variant="info"] {
-    --variant-bg: var(--info-bg);
-    --variant-light-bg: var(--info-light-bg);
-    --variant-dark-bg: var(--info-dark-bg);
-    --variant-text: var(--info-text);
-    --variant-shadow: var(--info-shadow);
-    --variant-border: var(--info-border);
-    --variant-hover-bg: var(--info-hover-bg);
-    --variant-hover: var(--info-hover);
-  }
-  
-  [data-variant="danger"] {
-    --variant-bg: var(--danger-bg);
-    --variant-light-bg: var(--danger-light-bg);
-    --variant-dark-bg: var(--danger-dark-bg);
-    --variant-text: var(--danger-text);
-    --variant-shadow: var(--danger-shadow);
-    --variant-border: var(--danger-border);
-    --variant-hover-bg: var(--danger-hover-bg);
-    --variant-hover: var(--danger-hover);
-  }
-  
-  [data-variant="warning"] {
-    --variant-bg: var(--warning-bg);
-    --variant-light-bg: var(--warning-light-bg);
-    --variant-dark-bg: var(--warning-dark-bg);
-    --variant-text: var(--warning-text);
-    --variant-shadow: var(--warning-shadow);
-    --variant-border: var(--warning-border);
-    --variant-hover-bg: var(--warning-hover-bg);
-    --variant-hover: var(--warning-hover);
-  }   
+[data-variant="secondary"] {
+  --variant-bg: var(--secondary-bg); /* Sfondo principale */
+  --variant-light-bg: var(--neutral-300); /* Sfondo su hover */
+  --variant-dark-bg: var(--secondary-dark-bg); /* Colore scuro */
+  --variant-text: var(--neutral-800); /* Testo leggibile */
+  --variant-shadow: var(--secondary-shadow); /* Ombre su sfondo */
+  --variant-border: var(--secondary-border); /* Bordo chiaro */
+  --variant-hover-bg: var(--secondary-hover-bg); /* Hover background */
+  --variant-hover: var(--secondary-hover); /* Hover foreground */
+}
+
+[data-variant="accent"] {
+  --variant-bg: var(--accent-bg); /* Sfondo viola principale */
+  --variant-light-bg: var(--neutral-200); /* Sfondo chiaro su hover */
+  --variant-dark-bg: var(--accent-dark-bg); /* Dettagli scuri */
+  --variant-text: var(--accent-text); /* Testo molto chiaro */
+  --variant-shadow: var(--accent-shadow); /* Ombre morbide */
+  --variant-border: var(--accent-border); /* Bordo viola intenso */
+  --variant-hover-bg: var(--accent-hover-bg); /* Viola più scuro su hover */
+  --variant-hover: var(--accent-hover); /* Elementi hover interattivi */
+}
+
+[data-variant="success"] {
+  --variant-bg: var(--success-bg); /* Verde scuro principale */
+  --variant-light-bg: var(--neutral-300); /* Sfondo chiaro */
+  --variant-dark-bg: var(--success-dark-bg); /* Verde più scuro */
+  --variant-text: var(--success-text); /* Testo verde chiaro */
+  --variant-shadow: var(--success-shadow); /* Ombre leggere */
+  --variant-border: var(--success-border); /* Verde intenso per bordo */
+  --variant-hover-bg: var(--success-hover-bg); /* Hover verde scuro */
+  --variant-hover: var(--success-hover); /* Hover foreground */
+}
+
+[data-variant="info"] {
+  --variant-bg: var(--info-bg); /* Blu acceso principale */
+  --variant-light-bg: var(--neutral-300); /* Sfondo chiaro */
+  --variant-dark-bg: var(--info-dark-bg); /* Blu profondo */
+  --variant-text: var(--info-text); /* Testo blu chiaro */
+  --variant-shadow: var(--info-shadow); /* Ombre morbide */
+  --variant-border: var(--info-border); /* Bordo blu intenso */
+  --variant-hover-bg: var(--info-hover-bg); /* Blu più scuro su hover */
+  --variant-hover: var(--info-hover); /* Elementi hover */
+}
+
+[data-variant="danger"] {
+  --variant-bg: var(--danger-bg); /* Rosso acceso principale */
+  --variant-light-bg: var(--neutral-300); /* Sfondo chiaro */
+  --variant-dark-bg: var(--danger-dark-bg); /* Rosso profondo */
+  --variant-text: var(--danger-text); /* Testo chiaro */
+  --variant-shadow: var(--danger-shadow); /* Ombre morbide */
+  --variant-border: var(--danger-border); /* Bordo rosso intenso */
+  --variant-hover-bg: var(--danger-hover-bg); /* Rosso più scuro su hover */
+  --variant-hover: var(--danger-hover); /* Hover foreground */
+}
+
+[data-variant="warning"] {
+  --variant-bg: var(--warning-bg); /* Arancione brillante principale */
+  --variant-light-bg: var(--neutral-200); /* Sfondo chiaro */
+  --variant-dark-bg: var(--warning-dark-bg); /* Arancione scuro */
+  --variant-text: var(--warning-text); /* Testo chiaro */
+  --variant-shadow: var(--warning-shadow); /* Ombre morbide */
+  --variant-border: var(--warning-border); /* Bordo arancione intenso */
+  --variant-hover-bg: var(--warning-hover-bg); /* Arancione più scuro su hover */
+  --variant-hover: var(--warning-hover); /* Hover foreground */
+}  
+
+[data-variant="default"] {
+  --variant-bg: var(--neutral-100); /* Sfondo principale chiaro */
+  --variant-light-bg: var(--neutral-50); /* Sfondo molto chiaro */
+  --variant-dark-bg: var(--neutral-300); /* Sfondo scuro per contrasti */
+  --variant-text: var(--neutral-900); /* Testo scuro */
+  --variant-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  --variant-border: var(--neutral-200); /* Bordo chiaro */
+  --variant-hover-bg: var(--neutral-200); /* Sfondo scuro su hover */
+  --variant-hover: var(--neutral-700); /* Colore del testo su hover */
+}
+
+[data-variant="dark"] {
+  --variant-bg: var(--neutral-800); /* Sfondo principale scuro */
+  --variant-light-bg: var(--neutral-700); /* Sfondo interattivo più chiaro */
+  --variant-dark-bg: var(--neutral-900); /* Sfondo più scuro */
+  --variant-text: var(--neutral-50); /* Testo chiaro */
+  --variant-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Ombra profonda */
+  --variant-border: var(--neutral-600); /* Bordo scuro */
+  --variant-hover-bg: var(--neutral-600); /* Sfondo chiaro su hover */
+  --variant-hover: var(--neutral-300); /* Colore interattivo su hover */
+}
+
+[data-variant="light"] {
+  --variant-bg: var(--neutral-50); /* Sfondo molto chiaro */
+  --variant-light-bg: var(--neutral-100); /* Sfondo chiaro intermedio */
+  --variant-dark-bg: var(--neutral-200); /* Sfondo scuro per accenti */
+  --variant-text: var(--neutral-700); /* Testo scuro */
+  --variant-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Ombra morbida */
+  --variant-border: var(--neutral-300); /* Bordo leggero */
+  --variant-hover-bg: var(--neutral-200); /* Sfondo scuro su hover */
+  --variant-hover: var(--neutral-500); /* Testo interattivo su hover */
+}
 
 /* --- base.css --- */
 *,
