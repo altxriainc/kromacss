@@ -24,14 +24,14 @@
 
 ### Step 1: Add the CDN Links
 
-Include the following lines in your HTML file to load KromaCSS. Ensure the JavaScript file is loaded as a module for proper functionality.
+Include the following lines in your HTML file to load KromaCSS.
 
 ```html
 <!-- KromaCSS Stylesheet -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/altxriainc/kromacss@latest/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/altxriainc/kromacss@latest/src/css/bundle.css">
 
-<!-- KromaCSS JavaScript (Loaded as Module) -->
-<script type="module" src="https://cdn.jsdelivr.net/gh/altxriainc/kromacss@latest/js/main.js"></script>
+<!-- KromaCSS JavaScript -->
+<script src="https://cdn.jsdelivr.net/gh/altxriainc/kromacss@latest/src/js/bundle.js"></script>
 ```
 
 ### Step 2: Add Components
@@ -69,7 +69,7 @@ Each component is designed to be adaptive and responsive, ensuring a seamless ex
 
 ## 📦 Latest Version
 
-- **Version**: 1.0.2  
+- **Version**: 1.0.5 
 - **Release Date**: November 15, 2024
 
 ---
