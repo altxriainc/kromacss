@@ -1393,6 +1393,7 @@ export class KromaNavbar {
 
     autoToggle(){
 
+        if(window.innerWidth <= 500){this.nav.classList.add('toggled-menu'); return true;} //always add toggle on mobile
         this.nav.classList.remove('toggled-menu'); //always use full width navbar for calculations
         var menu = document.querySelector('#'+this.nav.id+' .nav-menu');   
         if(!menu){console.error('menu container not found'); return false;}    
@@ -1401,10 +1402,11 @@ export class KromaNavbar {
         this.menuExtWidth = parseInt(getComputedStyle(menu).width);
         this.menuIntWidth = parseInt(getComputedStyle(ul).width);
         if(!this.menuExtWidth || !this.menuIntWidth){console.error('menu size cannot be determined');  return false;} 
-        if(this.menuExtWidth <= this.menuIntWidth){this.nav.classList.add('toggled-menu');}
+        if(this.menuExtWidth <= this.menuIntWidth){this.nav.classList.add('toggled-menu'); return true;}
+        
+        return false;
 
     }
-
 }
 
 
