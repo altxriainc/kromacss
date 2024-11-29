@@ -1,6 +1,6 @@
 {
     "name": "kromacss",
-    "version": "1.0.2",
+    "version": "1.0.6",
     "description": "A modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability.",
     "main": "dist/css/main.css",
     "module": "dist/js/main.js",
