@@ -4595,6 +4595,34 @@ html:has(.kroma-navbar) .kroma-sidebar{
   transform-origin: center;
 }
 
+
+/*variants*/
+
+.kroma-sidebar[data-variant]:before {
+  background: var(--variant-bg);
+  border-color: var(--variant-border);
+}
+
+.kroma-sidebar[data-variant] .sdb-logo:after{
+  background: var(--variant-border);
+}
+
+.kroma-sidebar[data-variant] .sdb-logo span, 
+.kroma-sidebar[data-variant] .sdb-menu ul li i,
+.kroma-sidebar[data-variant] .sdb-menu ul li span,
+.kroma-sidebar[data-variant] .sdb-arrow{
+  color: var(--variant-text);
+}
+
+.kroma-sidebar[data-variant] .sdb-menu ul li a:hover:before{
+  background: var(--variant-hover-bg);
+}
+
+.kroma-sidebar[data-variant] .sdb-menu ul li a:hover > i,
+.kroma-sidebar[data-variant] .sdb-menu ul li a:hover > span {
+  color: var(--variant-hover);
+}
+
 /* --- skeleton.css --- */
 /* Base Skeleton Container */
 .kroma-skeleton {
