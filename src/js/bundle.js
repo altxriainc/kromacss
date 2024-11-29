@@ -3,7 +3,7 @@ Project: kromacss
 Version: 1.0.2
 Description: A modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability.
 Author: Altxria Inc.
-License: MIT
+License: CC BY-ND 4.0
 */
 
 /* --- accordion.js --- */
@@ -181,7 +181,7 @@ function handleAlertClose(alert) {
 
 
 /* --- calendar.js --- */
-export function initializeCalendarComponents() {
+function initializeCalendarComponents() {
     document.querySelectorAll('.kroma-calendar').forEach(initCalendar);
 }
 
@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeCodeblock(document);
 });
 
-export function initializeCodeblock() {
+function initializeCodeblock() {
   document.querySelectorAll('.kroma-code-block').forEach((block) => {
     // Check if buttons are already rendered to avoid duplication
     if (block.querySelector('.kroma-code-block-header')) return;
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeCommandPalettes();
 });
 
-export function initializeCommandPalettes() {
+function initializeCommandPalettes() {
     // Select all command palettes on the page
     const palettes = document.querySelectorAll('.kroma-command-palette');
 
@@ -615,7 +615,7 @@ function initializeCommandPalette(palette) {
 
 
 /* --- datetime-picker.js --- */
-export class DateTimePicker {
+class DateTimePicker {
     constructor(elementId, { format = 'YYYY-MM-DD HH:mm', includeTime = true, variant = 'primary' } = {}) {
         this.container = document.getElementById(elementId);
         this.format = format;
@@ -945,7 +945,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
 /* --- file-upload.js --- */
-export function initializeKromaFileUploadComponents() {
+function initializeKromaFileUploadComponents() {
     document.querySelectorAll('.kroma-file-upload').forEach((fileUpload) => {
         const dropzone = fileUpload.querySelector('.kroma-file-upload-dropzone');
         const input = fileUpload.querySelector('.kroma-file-upload-input');
@@ -1017,7 +1017,7 @@ document.addEventListener('DOMContentLoaded', initializeKromaFileUploadComponent
 
 
 /* --- hologram.js --- */
-export function showHologram(titleText, subtitleText, variant = 'primary', intensity = 'medium', duration = 6000) {
+function showHologram(titleText, subtitleText, variant = 'primary', intensity = 'medium', duration = 6000) {
     // Remove any existing holograms and dim overlay
     document.querySelectorAll('.kroma-hologram-overlay, .kroma-body-dim').forEach(el => el.remove());
 
@@ -1238,7 +1238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* --- navbar.js --- */
-export class KromaNavbar {
+class KromaNavbar {
 
     /*
     id (string) = navbar element id
@@ -1490,7 +1490,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* --- rating.js --- */
-export function initializeKromaRatingComponents() {
+function initializeKromaRatingComponents() {
     // Automatically initialize all rating components on the page
     document.querySelectorAll('.kroma-rating').forEach(initializeRatingComponent);
 }
@@ -1540,7 +1540,7 @@ document.addEventListener("DOMContentLoaded", initializeKromaRatingComponents);
 
 
 /* --- sidebar.js --- */
-export class KromaSidebar {
+class KromaSidebar {
 
     /*
     id (string) = navbar element id
@@ -1680,6 +1680,8 @@ export class KromaSidebar {
         for(var i = 0; i < this.pages.length; i++){
 
             var li = document.createElement('li');
+            //remove href from collapsable parent
+            if (li.querySelector('a') && element.hasAttribute('href')) {li.querySelector('a').removeAttribute('href');}
             li.classList.add('no-selection');
 
             //parent page
@@ -1728,7 +1730,6 @@ export class KromaSidebar {
             if(liChildren.length < 1){li.classList.remove('parent');}
             else{
                 li.classList.add('collapsed');
-                li.querySelector('a').removeAttribute('href');  //remove href from collapsable parent
                 li.addEventListener('click',function(){
 
                     var sdbId = this.closest('.kroma-sidebar').id;
@@ -1752,6 +1753,7 @@ export class KromaSidebar {
         document.querySelectorAll('#'+this.sdb.id+' .sdb-menu ul li[data-idparent]').forEach((li)=>{
             li.classList.add('collapsed');
         });
+
 
     }
 
@@ -1781,7 +1783,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* --- slideshow.js --- */
-export class KromaSlideshow {
+class KromaSlideshow {
 
     /*
     id (string) = slideshow element id
@@ -2083,7 +2085,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* --- tabs.js --- */
-export function toggleTabContent(event, contentId, containerId) {
+function toggleTabContent(event, contentId, containerId) {
     const container = document.getElementById(containerId);
     const tabs = container.querySelectorAll('.kroma-tab');
     const contents = container.querySelectorAll('.kroma-tab-content');
@@ -2103,7 +2105,7 @@ export function toggleTabContent(event, contentId, containerId) {
 
 
 /* --- toast.js --- */
-export function initializeKromaToastComponents() {
+function initializeKromaToastComponents() {
     // Automatically initialize and track toast components
     document.querySelectorAll('.kroma-toast').forEach((toast) => {
         if (toast.dataset.autoDismiss === "true") {
@@ -2113,7 +2115,7 @@ export function initializeKromaToastComponents() {
     });
 }
 
-export function showKromaToast(message, {
+function showKromaToast(message, {
     variant = 'primary',
     position = 'top-right',
     autoDismiss = false,
