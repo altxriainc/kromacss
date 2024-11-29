@@ -3897,6 +3897,32 @@ nav.kroma-navbar:not(.toggled-menu) .nav-toggle {
   max-width: calc(var(--nav-size-base) / 1.5);
 }
 
+
+nav.kroma-navbar[data-variant]:before {
+  background: var(--variant-bg);
+  border-bottom-color: var(--variant-border);
+}
+
+nav.kroma-navbar[data-variant] .nav-logo span, nav.kroma-navbar[data-variant] .nav-menu ul li a {
+  color: var(--variant-text);
+}
+
+
+.kroma-navbar[data-variant] span.nav-line {
+  background: var(--variant-text);
+}
+
+.kroma-navbar[data-variant].toggled-menu .nav-menu ul li:hover
+,.kroma-navbar[data-variant].toggled-menu .nav-menu ul li.nav-current{
+background: var(--variant-hover-bg);
+}
+
+.kroma-navbar[data-variant].toggled-menu .nav-menu ul li:hover a
+,.kroma-navbar[data-variant].toggled-menu .nav-menu ul li.nav-current a{
+color: var(--variant-hover);
+}
+
+
 /* --- pagination.css --- */
 /* Pagination Container */
 .kroma-pagination {
