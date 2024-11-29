@@ -4315,7 +4315,7 @@ nav.kroma-navbar:before {
 
 /* --- sidebar.css --- */
 :root {
-    --sdb-size-base: calc(clamp(300px,30vw,350px) * 1.2);
+    --sdb-size-base: calc(clamp(300px,30vw,350px) * 1.1);
 }
 
 /*TEMPORARY FIX FOR SIDEBAR SPACING*/
