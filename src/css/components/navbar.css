@@ -188,8 +188,3 @@ background: var(--variant-hover-bg);
 color: var(--variant-hover);
 }
 
-.kroma-navbar .kroma-avatar {
-    max-width: calc(var(--nav-size-base) / 1.5);
-    max-height: calc(var(--nav-size-base) / 1.5);
-}
-
