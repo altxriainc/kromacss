@@ -1,4 +1,4 @@
-export function initializeKromaRatingComponents() {
+function initializeKromaRatingComponents() {
     // Automatically initialize all rating components on the page
     document.querySelectorAll('.kroma-rating').forEach(initializeRatingComponent);
 }

@@ -1,4 +1,4 @@
-export function initializeKromaToastComponents() {
+function initializeKromaToastComponents() {
     // Automatically initialize and track toast components
     document.querySelectorAll('.kroma-toast').forEach((toast) => {
         if (toast.dataset.autoDismiss === "true") {
@@ -8,7 +8,7 @@ export function initializeKromaToastComponents() {
     });
 }
 
-export function showKromaToast(message, {
+function showKromaToast(message, {
     variant = 'primary',
     position = 'top-right',
     autoDismiss = false,

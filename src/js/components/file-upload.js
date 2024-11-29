@@ -1,4 +1,4 @@
-export function initializeKromaFileUploadComponents() {
+function initializeKromaFileUploadComponents() {
     document.querySelectorAll('.kroma-file-upload').forEach((fileUpload) => {
         const dropzone = fileUpload.querySelector('.kroma-file-upload-dropzone');
         const input = fileUpload.querySelector('.kroma-file-upload-input');
