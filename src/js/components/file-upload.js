@@ -52,10 +52,13 @@ function initializeKromaFileUploadComponents() {
         function appendFileToList(file, listContainer) {
             const listItem = document.createElement('div');
             listItem.className = 'kroma-file-upload-list-item';
-            listItem.innerHTML = `
-                <span>${file.name}</span>
-                <button aria-label="Remove file">&times;</button>
-            `;
+            const fileNameSpan = document.createElement('span');
+            fileNameSpan.textContent = file.name;
+            const removeButton = document.createElement('button');
+            removeButton.setAttribute('aria-label', 'Remove file');
+            removeButton.textContent = '×';
+            listItem.appendChild(fileNameSpan);
+            listItem.appendChild(removeButton);
             // Handle remove file
             listItem.querySelector('button').addEventListener('click', () => {
                 listItem.remove();
