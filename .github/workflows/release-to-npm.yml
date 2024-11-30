@@ -19,37 +19,45 @@ jobs:
         with:
           node-version: '16'
 
-      # Step 3: Install dependencies
+      # Step 3: Generate package-lock.json
+      - name: Generate package-lock.json
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "Generating package-lock.json"
+            npm install --package-lock-only
+          fi
+
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Sync package.json version with release
+      # Step 5: Sync package.json version with release
       - name: Sync version with release tag
         run: |
           RELEASE_VERSION=${GITHUB_REF#refs/tags/}
           echo "Updating package.json to version ${RELEASE_VERSION}"
           npm version ${RELEASE_VERSION} --no-git-tag-version
 
-      # Step 5: Generate/update changelog
+      # Step 6: Generate/update changelog
       - name: Update changelog
         run: npx standard-version --skip.tag --skip.commit
 
-      # Step 6: Authenticate with npm
+      # Step 7: Authenticate with npm
       - name: Authenticate with npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      # Step 7: Publish package to npm
+      # Step 8: Publish package to npm
       - name: Publish to npm
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # Step 8: Push updated files back to repository
+      # Step 9: Push updated files back to repository
       - name: Push updated files back
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add package.json CHANGELOG.md
+          git add package.json package-lock.json CHANGELOG.md
           git commit -m "chore(release): ${GITHUB_REF#refs/tags/} [skip ci]"
           git push
         env:
