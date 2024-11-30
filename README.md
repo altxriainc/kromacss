@@ -4,9 +4,6 @@
 ![Downloads](https://img.shields.io/github/downloads/altxriainc/kromacss/total)
 ![Status](https://img.shields.io/badge/status-stable-green)
 ![CodeQL](https://github.com/altxriainc/kromacss/workflows/CodeQL/badge.svg)
-
-![GitHub stars](https://img.shields.io/github/stars/altxriainc/kromacss?style=social)
-![GitHub forks](https://img.shields.io/github/forks/altxriainc/kromacss?style=social)
 ![GitHub license](https://img.shields.io/github/license/altxriainc/kromacss)
 
 **KromaCSS** is a modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability. Built with the latest CSS features and enhanced by vanilla JavaScript, KromaCSS offers a robust collection of responsive, modular components. Ideal for developers who want efficient, adaptable styling for both personal and commercial projects without the need for any extra requirements.
