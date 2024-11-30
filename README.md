@@ -3,7 +3,7 @@
 ![Latest Version](https://img.shields.io/github/v/release/altxriainc/kromacss)
 ![Downloads](https://img.shields.io/github/downloads/altxriainc/kromacss/total)
 ![Status](https://img.shields.io/badge/status-stable-green)
-![CodeQL](https://github.com/<user>/<repo>/workflows/CodeQL/badge.svg)
+![CodeQL](https://github.com/altxriainc/kromacss/workflows/CodeQL/badge.svg)
 
 ![GitHub stars](https://img.shields.io/github/stars/altxriainc/kromacss?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/altxriainc/kromacss?style=social)
