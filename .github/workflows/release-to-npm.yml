@@ -4,6 +4,9 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: write  # Allow pushing changes to the repository
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -59,4 +62,3 @@ jobs:
           git push origin ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
