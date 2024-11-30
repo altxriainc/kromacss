@@ -4,6 +4,8 @@
 ![Downloads](https://img.shields.io/github/downloads/altxriainc/kromacss/total)
 ![Status](https://img.shields.io/badge/status-stable-green)
 ![CodeQL](https://github.com/altxriainc/kromacss/workflows/CodeQL/badge.svg)
+![npm version](https://img.shields.io/npm/v/kromacss)
+![npm downloads](https://img.shields.io/npm/dt/kromacss)
 ![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC%20BY--ND%204.0-lightgrey.svg)
 
 **KromaCSS** is a modern, lightweight, and dependency-free CSS framework designed for simplicity, speed, and adaptability. Built with the latest CSS features and enhanced by vanilla JavaScript, KromaCSS offers a robust collection of responsive, modular components. Ideal for developers who want efficient, adaptable styling for both personal and commercial projects without the need for any extra requirements.
@@ -33,6 +35,38 @@ Include the following lines in your HTML file to load KromaCSS.
 
 <!-- KromaCSS JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/altxriainc/kromacss@latest/src/js/bundle.js"></script>
+```
+
+### Step 2: Install via NPM
+
+You can also install KromaCSS via npm:
+
+```bash
+npm install kromacss
+```
+
+Then import KromaCSS into your JavaScript or CSS project:
+
+#### Import CSS and JavaScript in Your JavaScript File
+
+```javascript
+// Import KromaCSS styles
+import 'kromacss/src/css/bundle.css';
+
+// Import KromaCSS functionality
+import 'kromacss/src/js/bundle.js';
+```
+
+#### Directly Include Files in HTML (Post npm Install)
+
+If not using a bundler, link the installed files directly in your HTML:
+
+```html
+<!-- KromaCSS Stylesheet -->
+<link rel="stylesheet" href="node_modules/kromacss/src/css/bundle.css">
+
+<!-- KromaCSS JavaScript -->
+<script src="node_modules/kromacss/src/js/bundle.js"></script>
 ```
 
 ### Step 2: Add Components
