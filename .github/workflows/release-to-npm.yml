@@ -12,28 +12,22 @@ jobs:
       # Step 1: Check out the repository
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
-      # Step 2: Set up Node.js
+      # Step 2: Set up Node.js without caching
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-      # Step 3: Generate package-lock.json
-      - name: Generate package-lock.json
-        run: |
-          if [ ! -f package-lock.json ]; then
-            echo "Generating package-lock.json"
-            npm install --package-lock-only
-          fi
+      # Step 3: Clear npm cache
+      - name: Clear npm cache
+        run: npm cache clean --force
 
-      # Step 4: Install dependencies
+      # Step 4: Install dependencies (without lock file)
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-package-lock
 
-      # Step 5: Sync package.json version with release
+      # Step 5: Sync package.json version with release tag
       - name: Sync version with release tag
         run: |
           RELEASE_VERSION=${GITHUB_REF#refs/tags/}
@@ -59,7 +53,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add package.json package-lock.json CHANGELOG.md
+          git add package.json CHANGELOG.md
           git commit -m "chore(release): ${GITHUB_REF#refs/tags/} [skip ci]"
           git push
         env:
