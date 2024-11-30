@@ -5,7 +5,7 @@ on:
     types: [published]
 
 permissions:
-  contents: write  # Allow pushing changes to the repository
+  contents: write
 
 jobs:
   release:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js without caching
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -26,7 +26,7 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean --force
 
-      # Step 4: Install dependencies (without lock file)
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm install --no-package-lock
 
@@ -34,12 +34,13 @@ jobs:
       - name: Sync version with release tag
         run: |
           RELEASE_VERSION=${GITHUB_REF#refs/tags/}
-          echo "Updating package.json to version ${RELEASE_VERSION}"
-          npm version ${RELEASE_VERSION} --no-git-tag-version
+          echo "Updating package.json to match release version ${RELEASE_VERSION}"
+          jq ".version = \"${RELEASE_VERSION}\"" package.json > temp.json && mv temp.json package.json
+          cat package.json  # Debugging output to ensure version is updated
 
       # Step 6: Generate/update changelog
       - name: Update changelog
-        run: npx standard-version --skip.tag --skip.commit
+        run: npx standard-version --skip.bump --skip.tag --skip.commit
 
       # Step 7: Authenticate with npm
       - name: Authenticate with npm
